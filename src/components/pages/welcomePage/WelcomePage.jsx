@@ -7,9 +7,18 @@ import { Container } from "@mui/material";
 import Grid from '@mui/material/Grid';
 const WelcomePage = () => {
     return (
-        <div style={{
-            border: '2px solid black'
-        }}>
+        <Box
+            sx={{
+                height: "100vh",
+                // display: "flex",
+                // flexDirection: "column",
+                // alignItems: "center",
+                width: '100vw',
+                // padding: 2,
+                fontFamily: "Poppins",
+                position: "fixed",
+            }}
+        >
             <Box
                 sx={{
                     height: '100vh',
@@ -24,7 +33,7 @@ const WelcomePage = () => {
                     }
                 }}
             >
-                <Box sx={{ mt: 16 }}>
+                <Box sx={{ mt: 8 }}>
                     <Typography
                         component="h1"
                         sx={{
@@ -34,76 +43,93 @@ const WelcomePage = () => {
                             margin: 0,
                             fontSize: '64px',
                             fontWeight: 800,
+                            // border: '2px solid black'
                         }}
                     >
                         LOGO
                     </Typography>
                 </Box>
+
                 <Box>
-                    <img
-                        src={welcomepage}
-                        alt="welcomepage"
-                        style={{
-                            width: "98%",
-                            maxWidth: "600px"
-                        }}
-                    />
-                </Box>
-                <Box
-                    sx={{
-                        background: 'linear-gradient(to top, rgb(73, 195, 222,0.44) 0%, rgb(73, 195, 222, 0) 100%)',
-                        padding: "24px",
-                        width: '100%',
-                    }}
-                >
-                    <Typography
-                        component="h1"
-                        sx={{
-                            fontSize: '32px',
-                            fontWeight: 700,
-                        }}
-                    >
-                        Hey Foodie,
-                    </Typography>
-                    <Typography
-                        component="h1"
-                        sx={{
-                            fontSize: '32px',
-                            color: '#006075',
-                            fontWeight: 700,
-                        }}
-                    >
-                        Welcome To Our Restaurant
-                    </Typography>
-                    <Typography
-                        component="h2"
-                        sx={{
-                            fontSize: '20px',
-                            color: '#0A343D',
-                            fontWeight: 700,
-                        }}
-                    >
-                        Elevate Your Dining Experience.
-                    </Typography>
                     <Box sx={{
-                        my: 2,
-                        textAlign: 'center'
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        width: '100%',
                     }}>
-                        <Button
+                        <img
+                            src={welcomepage}
+                            alt="welcomepage"
+                            style={{
+                                width: "100%",
+                                maxWidth: "600px",
+                                // border: '2px solid black',
+                            }}
+                        />
+                    </Box>
+                    <Box
+                        sx={{
+                            background: 'linear-gradient(to top, rgb(73, 195, 222,0.44) 0%, rgb(73, 195, 222, 0) 100%)',
+                            padding: "24px",
+                            paddingBottom: '7.75vh',
+                            width: '100%',
+                            // border: '2px solid black'
+                        }}
+                    >
+                        <Typography
+                            component="h1"
                             sx={{
-                                textTransform: 'none',
-                                backgroundColor: '#469DB1',
-                                color: 'white',
-                                padding: '15px 75px',
-                                fontSize: '20px',
-                                '&:hover': {
-                                    backgroundColor: '#0A343D'
-                                },
-                                borderRadius: '32px',
+                                fontSize: '32px',
+                                fontWeight: 700,
+                                marginTop: '3vh'
                             }}
                         >
-                            Continue Ordering
-                        </Button>
+                            Hey Foodie,
+                        </Typography>
+                        <Typography
+                            component="h1"
+                            sx={{
+                                fontSize: '32px',
+                                color: '#006075',
+                                fontWeight: 700,
+                                marginTop: '3vh'
+                            }}
+                        >
+                            Welcome To Our Restaurant
+                        </Typography>
+                        <Typography
+                            component="h2"
+                            sx={{
+                                fontSize: '20px',
+                                color: '#0A343D',
+                                fontWeight: 700,
+                                marginTop: '3vh'
+                            }}
+                        >
+                            Elevate Your Dining Experience.
+                        </Typography>
+                        <Box sx={{
+                            my: 2,
+                            textAlign: 'center'
+                        }}>
+                            <Button
+                                sx={{
+                                    textTransform: 'none',
+                                    backgroundColor: '#469DB1',
+                                    color: 'white',
+                                    padding: '15px 75px',
+                                    fontSize: '20px',
+                                    '&:hover': {
+                                        backgroundColor: '#0A343D'
+                                    },
+                                    borderRadius: '32px',
+                                    marginTop: '3.5vh',
+                                    marginBottom: '3.5vh'
+                                }}
+                            >
+                                Continue Ordering
+                            </Button>
+                        </Box>
                     </Box>
                 </Box>
             </Box>
@@ -114,7 +140,14 @@ const WelcomePage = () => {
                     padding: 0,
                     '@media (max-width: 960px)': {
                         display: 'none'
-                    }
+                    },
+                    height: '100vh',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    overflow: 'hidden',
+                    position: 'relative'
                 }}
             >
                 <Box>
@@ -126,13 +159,11 @@ const WelcomePage = () => {
                             margin: 0,
                             fontSize: '3rem',
                             fontWeight: 800,
-                            // marginTop: '1.5rem'
+                            marginTop: '3rem'
                         }}
                     >
                         LOGO
                     </Typography>
-                </Box>
-                {/* <Box>
                     <Typography
                         component="h3"
                         sx={{
@@ -143,104 +174,123 @@ const WelcomePage = () => {
                     >
                         "Craving Goodness? Order Now and Savor the Flavor!"
                     </Typography>
-                </Box> */}
-                <Grid container spacing={2}
-                    sx={{
-                        background: 'linear-gradient(to top, rgb(73, 195, 222,0.44) 0%, rgb(73, 195, 222, 0) 100%)',
-                        // paddingTop: '3.75rem',
-                        // paddingBottom: '4.5rem',
-                        // marginTop: '2vh',
-                    }}
-                >
-                    {/* <Grid item xs={8}>
-                        <Box
-                            sx={{
-                                backgroundImage: `url(${welcomepage})`,
-                                backgroundSize: 'cover',
-                                height: '55vh',
-                                width: '55vw',
-                                backgroundPosition: 'center',
-                                color: 'white',
-                                margin: 'auto',
-                            }}
-                        ></Box>
-                    </Grid> */}
-
-                    {/* <Grid item xs={4}>
-                        <Box
-                            sx={{
-                                padding: '1.5rem',
-                                width: '100%',
-                                margin: '-5rem',
-                            }}
-                        >
-                            <Typography
-                                component="h1"
-                                sx={{
-                                    fontSize: '2.5rem',
-                                    fontWeight: 700,
-                                }}
-                            >
-                                Hey Foodie,
-                            </Typography>
-                            <Typography
-                                component="h1"
-                                sx={{
-                                    fontSize: '2.5rem',
-                                    color: '#006075',
-                                    fontWeight: 700,
-                                }}
-                            >
-                                Welcome To Our Restaurant
-                            </Typography>
-                            <Typography
-                                component="h2"
-                                sx={{
-                                    fontSize: '1.5rem',
-                                    color: '#0A343D',
-                                    fontWeight: 700,
-                                    marginTop: '2.971vh'
-                                }}
-                            >
-                                Elevate Your Dining Experience.
-                            </Typography>
-                            <Typography
-                                component="h1"
-                                sx={{
-                                    fontSize: '1.25rem',
-                                    color: '#006075',
-                                    fontWeight: 700,
-                                }}
-                            >
-                                With LOGO
-                            </Typography>
+                </Box>
+                <Box style={{
+                    background: 'linear-gradient(to top, rgb(73, 195, 222,0.44) 0%, rgb(73, 195, 222, 0) 100%)',
+                    paddingTop: '3.75rem',
+                    paddingBottom: '4.5rem',
+                    width: '100%'
+                }}>
+                    <Grid container spacing={2}
+                        sx={{
+                            // marginTop: '2vh',
+                            // border: '2px solid black'
+                        }}
+                    >
+                        <Grid item xs={8}>
                             <Box
                                 sx={{
-                                    textAlign: 'center',
+                                    backgroundImage: `url(${welcomepage})`,
+                                    backgroundSize: 'cover',
+                                    height: '55vh',
+                                    width: '55vw',
+                                    backgroundPosition: 'center',
+                                    color: 'white',
+                                    // position: "absolute",
+                                    top: "30%",
+                                }}
+                            ></Box>
+                        </Grid>
+
+                        <Grid item xs={4}>
+                            <Box
+                                sx={{
+                                    padding: '1.5rem',
+                                    width: '100%',
+                                    marginTop: '-10vh',
+                                    marginLeft: '-12vh'
                                 }}
                             >
-                                <Button
+                                <Typography
+                                    component="h1"
                                     sx={{
-                                        textTransform: 'none',
-                                        backgroundColor: '#469DB1',
-                                        color: 'white',
-                                        padding: '0.75rem 3.75rem',
-                                        fontSize: '1rem',
-                                        '&:hover': {
-                                            backgroundColor: '#0A343D',
-                                        },
-                                        borderRadius: '2rem',
-                                        marginTop: '4vh'
+                                        fontSize: '2.5rem',
+                                        fontWeight: 700,
                                     }}
                                 >
-                                    Continue Ordering
-                                </Button>
+                                    Hey Foodie,
+                                </Typography>
+                                <Typography
+                                    component="h1"
+                                    sx={{
+                                        fontSize: '2.5rem',
+                                        color: '#006075',
+                                        fontWeight: 700,
+                                        marginTop: '1.5rem'
+                                    }}
+                                >
+                                    Welcome To Our Restaurant
+                                </Typography>
+                                <Typography
+                                    component="h2"
+                                    sx={{
+                                        fontSize: '1.5rem',
+                                        color: '#0A343D',
+                                        fontWeight: 700,
+                                        marginTop: '3vh'
+                                    }}
+                                >
+                                    Elevate Your Dining Experience.
+                                </Typography>
+                                <Typography
+                                    component="h1"
+                                    sx={{
+                                        fontSize: '1.25rem',
+                                        color: '#006075',
+                                        fontWeight: 700,
+                                    }}
+                                >
+                                    With LOGO
+                                </Typography>
+                                <Box
+                                    sx={{
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    <Button
+                                        sx={{
+                                            textTransform: 'none',
+                                            backgroundColor: '#469DB1',
+                                            color: 'white',
+                                            padding: '0.75rem 3.75rem',
+                                            fontSize: '1rem',
+                                            '&:hover': {
+                                                backgroundColor: '#0A343D',
+                                            },
+                                            borderRadius: '2rem',
+                                            marginTop: '4vh'
+                                        }}
+                                    >
+                                        Continue Ordering
+                                    </Button>
+                                </Box>
                             </Box>
-                        </Box>
-                    </Grid> */}
-                </Grid>
+                        </Grid>
+
+
+                    </Grid>
+
+                    <Typography style={{
+                        textAlign: 'center',
+                        fontSize: '0.875rem',
+                        position: 'fixed',
+                        bottom: '1rem',
+                        left: '50%',
+                        transform: 'translateX(-50%)'
+                    }}>Created With Turbofinn Ai Excellency</Typography>
+                </Box>
             </Box>
-        </div >
+        </Box >
     )
 }
 

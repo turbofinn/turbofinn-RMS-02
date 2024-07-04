@@ -6,7 +6,7 @@ import VerificationPage from './components/pages/Verification/VerificationPage';
 function App() {
   return (
     <div className="App">
-     <Home/>
+     {/* <Home/> */}
      {/* <WelcomePage/> */}
      <VerificationPage/>
     </div>
