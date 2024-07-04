@@ -19,7 +19,7 @@ const VerificationMobile = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        padding: 2,
+        padding: "0.125rem",
         fontFamily: "Poppins",
         position: "fixed",
       }}
@@ -50,9 +50,9 @@ const VerificationMobile = () => {
           variant="h4"
           sx={{
             color: "white",
-            marginTop: "58px",
+            marginTop: "3.625rem",
             zIndex: 1,
-            fontSize: "40px",
+            fontSize: "2.5rem",
             fontWeight: 700,
             textAlign: "center",
           }}
@@ -63,13 +63,13 @@ const VerificationMobile = () => {
         <Box
           component="img"
           sx={{
-            height: 230,
-            width: 230,
-            maxHeight: { xs: 300, md: 300 },
-            maxWidth: { xs: 300, md: 300 },
+            height: "14.375rem",
+            width: "14.375rem",
+            maxHeight: { xs: "18.75rem", md: "18.75rem" },
+            maxWidth: { xs: "18.75rem", md: "18.75rem" },
             zIndex: 1,
-            marginTop: "20px",
-            marginBottom: "38px",
+            marginTop: "1.25rem",
+            marginBottom: "2.375rem",
           }}
           alt=""
           src={verification}
@@ -84,8 +84,8 @@ const VerificationMobile = () => {
             variant="h5"
             sx={{
               color: "white",
-              fontSize: "24px",
-              marginBottom: "3px",
+              fontSize: "1.5rem",
+              marginBottom: "0.1875rem",
               zIndex: 1,
               fontWeight: 600,
             }}
@@ -93,51 +93,48 @@ const VerificationMobile = () => {
             Provide Your Mobile Number
           </Typography>
           <Typography
-            // variant="body3"
             sx={{
               color: "white",
               opacity: 0.8,
-              fontSize: "14px",
+              fontSize: "0.875rem",
               fontWeight: 700,
               textAlign: "center",
-              marginBottom: "43px",
+              marginBottom: "2.6875rem",
             }}
           >
             Please Let Us Know Your Mobile Number For Verification Purposes
           </Typography>
 
           <TextField
-            // fullWidth
-            // variant="outlined"
             placeholder="+91 9452222225"
             sx={{
               bgcolor: "white",
-              borderRadius: "10px",
-              fontSize: "24px",
-              border: "1.5px",
-              height: "55px",
-              width: "334px",
+              borderRadius: "0.625rem",
+              fontSize: "1.5rem",
+              border: "0.09375rem",
+              height: "3.4375rem",
+              width: "20.875rem",
               borderColor: "white",
-              marginBottom: "2px",
+              marginBottom: "0.125rem",
             }}
           />
 
           <FormControlLabel
-            control={<Checkbox />} //make this smaller
+            control={<Checkbox />}
             label="Is This Same Number in Whatsapp"
-            sx={{ color: "white", fontSize: "13px", fontWeight: 500 }}
+            sx={{ color: "white", fontSize: "0.8125rem", fontWeight: 500 }}
           />
 
           <Button
             variant="contained"
             sx={{
-              paddingY: "12px",
-              paddingX: "67px",
-              borderRadius: 6,
+              paddingY: "0.75rem",
+              paddingX: "4.1875rem",
+              borderRadius: "0.375rem",
               backgroundColor: "#0992B0",
-              marginTop: "39px",
-              marginBottom: "74px",
-              fontSize: "15px",
+              marginTop: "2.4375rem",
+              marginBottom: "4.625rem",
+              fontSize: "0.9375rem",
               fontWeight: 700,
             }}
           >
@@ -153,8 +150,8 @@ const VerificationMobile = () => {
           width: "100%",
           textAlign: "center",
           color: "white",
-          fontSize: "15px",
-          mb: "17px",
+          fontSize: "0.9375rem",
+          mb: "1.0625rem",
           fontWeight: 700,
         }}
       >
