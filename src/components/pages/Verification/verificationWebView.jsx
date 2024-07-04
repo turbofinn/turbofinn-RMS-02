@@ -30,22 +30,19 @@ const VerificationWebView = () => {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          height: 700,
-          width: 714,
+          height: "43.75rem",
+          width: "44.625rem",
           backgroundColor: "rgba(255, 255, 255, 0.2)",
-          borderRadius: 5,
-          boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+          borderRadius: "1.8rem",
+          boxShadow: "0 0.25rem 1.25rem rgba(0, 0, 0, 0.1)",
         }}
       >
         <Box
           component="img"
           sx={{
-            height: 480,
-            width: 465,
-            // maxHeight: { xs: 150, md: 200 },
-            // maxWidth: { xs: 150, md: 200 },
-            marginRight: 4,
-            // boxShadow: 3,
+            height: "30rem",
+            width: "29.0625rem",
+            marginRight: "0.25rem",
           }}
           alt="Phone verification illustration"
           src={verification}
@@ -58,12 +55,12 @@ const VerificationWebView = () => {
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "center",
-          height: 700,
-          width: 714,
+          height: "43.75rem",
+          width: "44.625rem",
           backgroundColor: "rgba(255, 255, 255, 0.4)",
-          borderRadius: 5,
-          boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
-          backdropFilter: "blur(10px)",
+          borderRadius: "1.8rem",
+          boxShadow: "0 0.25rem 1.25rem rgba(0, 0, 0, 0.1)",
+          backdropFilter: "blur(0.625rem)",
         }}
       >
         <Box
@@ -78,9 +75,9 @@ const VerificationWebView = () => {
             variant="h4"
             sx={{
               color: "white",
-              marginTop: "64px",
+              marginTop: "4rem",
               zIndex: 1,
-              fontSize: "40px",
+              fontSize: "2.5rem",
               fontWeight: 800,
               textAlign: "center",
             }}
@@ -89,14 +86,13 @@ const VerificationWebView = () => {
           </Typography>
 
           <Typography
-            // variant="body3"
             sx={{
               color: "black",
               opacity: 0.8,
-              fontSize: "16px",
+              fontSize: "1rem",
               fontWeight: 600,
               textAlign: "center",
-              marginTop: "25px",
+              marginTop: "1.5625rem",
             }}
           >
             "Craving Goodness? Order Now and Savor the Flavor!"
@@ -106,8 +102,8 @@ const VerificationWebView = () => {
             variant="h5"
             sx={{
               color: "white",
-              fontSize: "32px",
-              marginTop: "90px",
+              fontSize: "2rem",
+              marginTop: "5.625rem",
               zIndex: 1,
               fontWeight: 600,
             }}
@@ -115,54 +111,51 @@ const VerificationWebView = () => {
             Provide Your Mobile Number
           </Typography>
           <Typography
-            // variant="body3"
             sx={{
               color: "black",
               opacity: 0.8,
-              fontSize: "14px",
+              fontSize: "0.875rem",
               fontWeight: 700,
               textAlign: "center",
-              marginTop: "13px",
-              width: "449px",
+              marginTop: "0.8125rem",
+              width: "28.0625rem",
             }}
           >
             Please Let Us Know Your Mobile Number For Verification Purposes
           </Typography>
           <TextField
-            // fullWidth
-            // variant="outlined"
             placeholder="+91 9452222225"
             sx={{
               bgcolor: "white",
-              borderRadius: "16px",
-              fontSize: "24px",
-              border: "1.5px",
-              height: "55px",
-              width: "334px",
+              borderRadius: "1rem",
+              fontSize: "1.5rem",
+              border: "0.09375rem",
+              height: "3.4375rem",
+              width: "20.875rem",
               borderColor: "white",
-              marginTop: "28px",
+              marginTop: "1.75rem",
             }}
           />
 
           <FormControlLabel
-            control={<Checkbox />} //make this smaller
+            control={<Checkbox />}
             label="Is This Same Number in Whatsapp"
             sx={{
               color: "black",
-              fontSize: "13px",
+              fontSize: "0.8125rem",
               fontWeight: 500,
-              marginTop: "43px",
+              marginTop: "2.6875rem",
             }}
           />
           <Button
             variant="contained"
             sx={{
-              paddingY: "15px",
-              paddingX: "103px",
-              borderRadius: 9,
+              paddingY: "0.9375rem",
+              paddingX: "6.4375rem",
+              borderRadius: "0.5625rem",
               backgroundColor: "#0992B0",
-              marginTop: "33px",
-              fontSize: "20px",
+              marginTop: "2.0625rem",
+              fontSize: "1.25rem",
               fontWeight: 700,
             }}
           >
