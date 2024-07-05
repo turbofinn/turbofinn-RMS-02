@@ -9,6 +9,21 @@ import {
 } from "@mui/material";
 import verification from "../../../assets/Image/phoneAuthentication.png";
 import backgroundfood from "../../../assets/Image/BackgroundFood.png";
+import { InputAdornment } from "@mui/material";
+
+const styles = {
+  textBox: {
+    "& $div": {
+      justifyContent: "center",
+      "& $input": {
+        width: "30%",
+      },
+    },
+    "& $p": {
+      alignSelf: "center",
+    },
+  },
+};
 
 const VerificationMobile = () => {
   return (
@@ -36,7 +51,7 @@ const VerificationMobile = () => {
         <Box
           sx={{
             position: "fixed",
-            top: 0,
+            top: -40,
             backgroundImage: `url(${backgroundfood})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -50,11 +65,11 @@ const VerificationMobile = () => {
           variant="h4"
           sx={{
             color: "white",
-            marginTop: "3.625rem",
+            marginTop: "6.87%",
             zIndex: 1,
             fontSize: "2.5rem",
             fontWeight: 700,
-            textAlign: "center",
+            // textAlign: "center",
           }}
         >
           LOGO
@@ -63,13 +78,14 @@ const VerificationMobile = () => {
         <Box
           component="img"
           sx={{
-            height: "316px",
-            width: "316px",
-            maxHeight: { xs: "18.75rem", md: "18.75rem" },
-            maxWidth: { xs: "18.75rem", md: "18.75rem" },
+            height: "27.90%",
+            width: "60.38%",
+
+            // maxHeight: { xs: "18.75rem", md: "18.75rem" },
+            // maxWidth: { xs: "18.75rem", md: "18.75rem" },
             zIndex: 1,
-            marginTop: "1.25rem",
-            marginBottom: "2.375rem",
+            marginTop: "3.37%",
+            marginBottom: "9.0%",
           }}
           alt=""
           src={verification}
@@ -99,43 +115,100 @@ const VerificationMobile = () => {
               fontSize: "0.875rem",
               fontWeight: 700,
               textAlign: "center",
-              marginBottom: "2.6875rem",
+              marginBottom: "10.09%",
             }}
           >
-            Please Let Us Know Your Mobile Number For Verification Purposes
+            Please Let Us Know Your Mobile Number For <br /> Verification
+            Purposes
           </Typography>
 
           <TextField
-            placeholder="+91 9452222225"
+            variant="standard"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment
+                  position="start"
+                  sx={{ textAlign:'center' }}
+                >
+                  {" "}
+                  +91
+                </InputAdornment>
+              ),
+              disableUnderline: true,
+            }}
+            // placeholder=" 9452222225"
             sx={{
-              bgcolor: "white",
-              borderRadius: "0.625rem",
+              outline: "none",
+              backgroundColor: "white",
+              borderRadius: "0.625rem", // Rounded corners
               fontSize: "1.5rem",
-              border: "0.09375rem",
+              border: "0.09375rem solid black",
+              borderColor: "rgba(31, 104, 87, 1)", // Black border
+              fontWeight: 700, // Bold border
               height: "3.4375rem",
               width: "20.875rem",
-              borderColor: "white",
-              marginBottom: "0.125rem",
+              padding: "0.5rem", // Padding inside the input box
+              marginBottom: "0.5rem",
+              "& .MuiInputBase-root": {
+                height: "100%",
+                alignItems: "center",
+                padding: "0 0.5rem",
+              },
+              // Added: Styles for the input itself
+              "& .MuiInputBase-input": {
+                padding: 0,
+                "&::placeholder": {
+                  color: "black",
+                  opacity: 0.5,
+                  // Removed: marginLeft: "0.5rem", - No longer needed with InputAdornment
+                },
+              }, // Margin bottom for spacing
+              "&::placeholder": {
+                color: "black", // Placeholder color
+                opacity: 0.5, // Placeholder opacity
+                marginLeft: "0.5rem", // Adjust margin between placeholder and edge
+              },
+              "&:focus": {
+                borderColor: "black", // Border color on focus
+              },
             }}
           />
 
-          <FormControlLabel
-            control={<Checkbox />}
-            label="Is This Same Number in Whatsapp"
-            sx={{ color: "white", fontSize: "0.8125rem", fontWeight: 500 }}
-          />
-
+          <Box sx={{ display: "flex", alignItems: "center", marginTop:'-5px' }}>
+            <FormControlLabel
+              control={<Checkbox size="12px" />}
+              sx={{
+                marginRight: "2px", // Adjust as needed for spacing
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginLeft: "39px",
+              }}
+            ></FormControlLabel>
+            <Typography
+              sx={{
+                color: "white",
+                fontSize: "13px",
+                fontWeight: 500,
+                margin: 0,
+              }}
+            >
+              Is This Same Number in Whatsapp
+            </Typography>
+          </Box>
           <Button
             variant="contained"
             sx={{
               paddingY: "0.75rem",
               paddingX: "4.1875rem",
-              borderRadius: "0.375rem",
+              borderRadius: "21px",
               backgroundColor: "#0992B0",
-              marginTop: "2.4375rem",
-              marginBottom: "4.625rem",
+              marginTop: "8.62%",
+              marginBottom: "8.77%",
               fontSize: "0.9375rem",
               fontWeight: 700,
+              textTransform: "none",
+              boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
             }}
           >
             Continue
