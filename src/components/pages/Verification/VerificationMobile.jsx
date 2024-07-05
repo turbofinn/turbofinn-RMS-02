@@ -63,8 +63,8 @@ const VerificationMobile = () => {
         <Box
           component="img"
           sx={{
-            height: "14.375rem",
-            width: "14.375rem",
+            height: "316px",
+            width: "316px",
             maxHeight: { xs: "18.75rem", md: "18.75rem" },
             maxWidth: { xs: "18.75rem", md: "18.75rem" },
             zIndex: 1,

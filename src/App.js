@@ -5,6 +5,9 @@ import VerificationPage from './components/pages/Verification/VerificationPage';
 import AddToMeal from './components/pages/addToMeal/AddToMeal';
 import Categories from './components/pages/categories/Categories';
 import AddTocard from './components/pages/addToCard/AddToCard';
+import MenuMobile from "./components/pages/Menu/MenuPage";
+import MenuPage from "./components/pages/Menu/MenuPage";
+
 
 function App() {
   return (
@@ -15,7 +18,7 @@ function App() {
      {/* <AddToMeal></AddToMeal> */}
      {/* <Categories></Categories> */}
      <AddTocard/>
-
+      {/* <MenuPage/> */}
     </div>
   );
 }
