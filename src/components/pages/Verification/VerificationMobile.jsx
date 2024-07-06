@@ -69,7 +69,6 @@ const VerificationMobile = () => {
             zIndex: 1,
             fontSize: "2.5rem",
             fontWeight: 700,
-            // textAlign: "center",
           }}
         >
           LOGO
@@ -80,9 +79,6 @@ const VerificationMobile = () => {
           sx={{
             height: "27.90%",
             width: "60.38%",
-
-            // maxHeight: { xs: "18.75rem", md: "18.75rem" },
-            // maxWidth: { xs: "18.75rem", md: "18.75rem" },
             zIndex: 1,
             marginTop: "3.37%",
             marginBottom: "9.0%",
@@ -126,10 +122,7 @@ const VerificationMobile = () => {
             variant="standard"
             InputProps={{
               startAdornment: (
-                <InputAdornment
-                  position="start"
-                  sx={{ textAlign:'center' }}
-                >
+                <InputAdornment position="start" sx={{ textAlign: "center" }}>
                   {" "}
                   +91
                 </InputAdornment>
@@ -140,45 +133,46 @@ const VerificationMobile = () => {
             sx={{
               outline: "none",
               backgroundColor: "white",
-              borderRadius: "0.625rem", // Rounded corners
+              borderRadius: "0.625rem",
               fontSize: "1.5rem",
               border: "0.09375rem solid black",
-              borderColor: "rgba(31, 104, 87, 1)", // Black border
-              fontWeight: 700, // Bold border
+              borderColor: "rgba(31, 104, 87, 1)",
+              fontWeight: 700,
               height: "3.4375rem",
               width: "20.875rem",
-              padding: "0.5rem", // Padding inside the input box
+              padding: "0.5rem",
               marginBottom: "0.5rem",
               "& .MuiInputBase-root": {
                 height: "100%",
                 alignItems: "center",
                 padding: "0 0.5rem",
               },
-              // Added: Styles for the input itself
+
               "& .MuiInputBase-input": {
                 padding: 0,
                 "&::placeholder": {
                   color: "black",
                   opacity: 0.5,
-                  // Removed: marginLeft: "0.5rem", - No longer needed with InputAdornment
                 },
-              }, // Margin bottom for spacing
+              },
               "&::placeholder": {
-                color: "black", // Placeholder color
-                opacity: 0.5, // Placeholder opacity
-                marginLeft: "0.5rem", // Adjust margin between placeholder and edge
+                color: "black",
+                opacity: 0.5,
+                marginLeft: "0.5rem",
               },
               "&:focus": {
-                borderColor: "black", // Border color on focus
+                borderColor: "black",
               },
             }}
           />
 
-          <Box sx={{ display: "flex", alignItems: "center", marginTop:'-5px' }}>
+          <Box
+            sx={{ display: "flex", alignItems: "center", marginTop: "-5px" }}
+          >
             <FormControlLabel
               control={<Checkbox size="12px" />}
               sx={{
-                marginRight: "2px", // Adjust as needed for spacing
+                marginRight: "2px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
