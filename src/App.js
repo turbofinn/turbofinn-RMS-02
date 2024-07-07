@@ -16,8 +16,8 @@ function App() {
      {/* <WelcomePage/> */}
      {/* <VerificationPage/> */}
      {/* <AddToMeal></AddToMeal> */}
-     {/* <Categories></Categories> */}
-     <AddTocard/>
+     <Categories></Categories>
+     {/* <AddTocard/> */}
       {/* <MenuPage/> */}
     </div>
   );
