@@ -4,6 +4,7 @@ import WelcomePage from './components/pages/welcomePage/WelcomePage';
 import VerificationPage from './components/pages/Verification/VerificationPage';
 import AddToMeal from './components/pages/addToMeal/AddToMeal';
 import Categories from './components/pages/categories/Categories'
+import Categories2 from './components/pages/categories/Categories2';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
      {/* <VerificationPage/> */}
      {/* <AddToMeal></AddToMeal> */}
      {/* <Categories></Categories> */}
+     {/* <Categories2></Categories2> */}
     </div>
   );
 }

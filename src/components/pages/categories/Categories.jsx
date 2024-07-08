@@ -17,23 +17,19 @@ const SelectOne = () => {
   const categories = [
     {
       title: "Today's Special",
-      path: "./Special.js",
-      image: `${img1}`, // Replace with your actual image path
+      image: `${img1}`, 
     },
     {
       title: "Beverages",
-      path: "/beverages",
-      image: `${img2}`, // Replace with your actual image path
+      image: `${img2}`, 
     },
     {
       title: "Dine In Menu",
-      path: "/dineIn",
-      image: `${img3}`, // Replace with your actual image path
+      image: `${img3}`, 
     },
     {
       title: "Take away",
-      path: "/takeaway",
-      image: `${img4}`, // Replace with your actual image path
+      image: `${img4}`, 
     },
   ];
 
@@ -133,8 +129,8 @@ const SelectOne = () => {
                 sx={{
                   borderRadius: "15px",
                   height: { xs: "11.25rem", sm: "12rem" },
-                  width: { xs: "10rem", sm: "10.5rem" },
-                  padding: "0.15rem",
+                  width: { xs: "10.1rem", sm: "10.5rem" },
+                  padding:{sx:'0.05rem', sm:"0.15rem"},
                   paddingBlockEnd: "0.7rem",
                 }}>
                 <CardMedia
