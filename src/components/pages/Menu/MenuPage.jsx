@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Header from "../../common/Header";
 import PrioritySection from "./PrioritySection";
 import WhatsInYourMind from "./WhatsInYourMind";
@@ -11,14 +11,21 @@ function MenuPage() {
     <Box sx={{ backgroundColor: "white", minHeight: "100vh" }}>
       <Header />
       <PrioritySection />
-      {/* <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>
-        Let's See, WHAT'S IN YOUR MIND ?
+      <Typography
+        variant="h6"
+        sx={{
+          fontSize: "0.8125rem",
+          fontWeight: "500",
+          marginX: "2.45%",
+          marginTop: "2.74%",
+        }}
+      >
+        Let's See, What's in your mind?
       </Typography>
       <WhatsInYourMind />
-      <Typography variant="h6" sx={{ mt: 2, mb: 1 }}>
-        EXPLORE 7 COURSE MEAL STAGE
-      </Typography>
+      
       <CourseMealStage />
+       {/* 
       <MenuItems /> */}
     </Box>
   );
