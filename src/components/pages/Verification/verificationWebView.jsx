@@ -28,8 +28,8 @@ const VerificationWebView = () => {
       <Box
         sx={{
           backgroundPosition: " center",
-          width: "82.64%",
-          height: "62.67%",
+          width: "85%",
+          height: "75%",
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
@@ -54,8 +54,8 @@ const VerificationWebView = () => {
           <Box
             component="img"
             sx={{
-              height: "68.57%",
-              width: "68.57%",
+              height: "75%",
+              // width: "68.57%",
               alignContent: "left",
             }}
             alt="Phone verification illustration"
@@ -91,7 +91,7 @@ const VerificationWebView = () => {
                 color: "white",
                 marginTop: "9.86%",
                 zIndex: 1,
-                fontSize: "64px",
+                fontSize: "3rem",
                 fontWeight: 800,
                 textAlign: "center",
               }}
@@ -118,7 +118,7 @@ const VerificationWebView = () => {
               variant="h5"
               sx={{
                 color: "white",
-                fontSize: "32px",
+                fontSize: "1.8rem",
                 marginTop: "10.7%",
                 top: "38%",
                 zIndex: 1,
@@ -136,7 +136,9 @@ const VerificationWebView = () => {
                 fontWeight: 700,
                 textAlign: "center",
                 marginTop: "2.1%",
-                width: "100%",
+                width: "95%",
+                marginLeft:'auto',
+                marginRight:'auto'
               }}
             >
               Please Let Us Know Your Mobile Number For Verification Purposes
@@ -146,7 +148,7 @@ const VerificationWebView = () => {
               variant="standard"
               InputProps={{
                 startAdornment: (
-                  <InputAdornment position="start" sx={{ textAlign: "center" }}>
+                  <InputAdornment position="start" sx={{ textAlign: "center", Color:'#171717', opacity:'100%'  }}>
                     {" "}
                     +91
                   </InputAdornment>
@@ -157,14 +159,15 @@ const VerificationWebView = () => {
               sx={{
                 outline: "none",
                 backgroundColor: "white",
-                borderRadius: "20px",
+                borderRadius: "0.8rem",
                 fontSize: "1.5rem",
                 border: "0.09375rem solid black",
                 borderColor: "rgba(31, 104, 87, 1)",
                 fontWeight: 700,
-                height: "10%",
-                width: "63.72%",
-                padding: "0.5rem",
+                width: "90%",
+                paddingTop: "0.6rem",
+                paddingBottom: "0.6rem",
+                paddingX:'0.5rem',
                 marginTop: "3.7%",
                 "& .MuiInputBase-root": {
                   height: "100%",
@@ -218,15 +221,14 @@ const VerificationWebView = () => {
               variant="contained"
               sx={{
                 paddingY: "3%",
-                paddingX: "14.4%",
-                width: "42%",
+                width: "70%",
                 height: "9.8%",
-                borderRadius: "35px",
+                borderRadius: "3rem",
                 backgroundColor: "#0992B0",
                 marginTop: "4.7%",
                 marginBottom: "5%",
-                fontSize: "1rem",
-                fontWeight: 700,
+                fontSize: "1.1rem",
+                fontWeight: 600,
                 textTransform: "none",
                 boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
               }}

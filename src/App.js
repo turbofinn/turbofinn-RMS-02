@@ -14,12 +14,12 @@ function App() {
     <div className="App">
      {/* <Home/> */}
      {/* <WelcomePage/> */}
-     {/* <VerificationPage/> */}
+     <VerificationPage/>
      {/* <AddToMeal></AddToMeal> */}
      {/* <Categories></Categories> */}
      {/* <AddTocard/> */}
      {/* <MenuPage/> */}
-      <NavBar/>
+      {/* <NavBar/> */}
     </div>
   );
 }

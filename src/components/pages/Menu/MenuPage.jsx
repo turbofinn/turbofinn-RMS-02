@@ -5,7 +5,7 @@ import {
   BottomNavigation,
   BottomNavigationAction,
 } from "@mui/material";
-import Header from "../../common/Header";
+import Header from "../../common/Header/Header.jsx";
 import PrioritySection from "./PrioritySection";
 import WhatsInYourMind from "./WhatsInYourMind";
 import CourseMealStage from "./CourseMealStage";
