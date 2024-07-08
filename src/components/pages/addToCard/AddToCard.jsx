@@ -45,7 +45,7 @@ const AddTocard = () => {
                         color: 'white',
                         width: '90%',
                         padding: '0.75rem 3.75rem',
-                        fontSize: '1.5rem',
+                        fontSize: '1.3rem',
                         '&:hover': {
                             backgroundColor: '#0A343D',
                         },
