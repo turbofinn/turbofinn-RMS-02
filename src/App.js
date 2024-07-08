@@ -9,17 +9,20 @@ import MenuMobile from "./components/pages/Menu/MenuPage";
 import MenuPage from "./components/pages/Menu/MenuPage";
 import NavBar from './components/common/NavBar/NavBar';
 
+
 function App() {
   return (
     <div className="App">
      {/* <Home/> */}
      {/* <WelcomePage/> */}
-     <VerificationPage/>
+     {/* <VerificationPage/> */}
      {/* <AddToMeal></AddToMeal> */}
+     <Categories></Categories>
      {/* <Categories></Categories> */}
+     {/* <Categories2></Categories2> */}
      {/* <AddTocard/> */}
      {/* <MenuPage/> */}
-      {/* <NavBar/> */}
+      <NavBar/>
     </div>
   );
 }
