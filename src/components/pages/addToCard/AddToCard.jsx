@@ -23,9 +23,6 @@ import SmallMealBox from "../../common/SmallMealBox/SmallMealBox.jsx";
 const AddTocard = () => {
     return (
         <React.Fragment>
-            {/* <Box sx={{
-                maxWidth: "lg", height: "20%", alignContent: 'center', justify: 'center', alignItems: 'center', maxWidth: '100%', marginLeft: 'auto', marginRight: 'auto'
-            }}> */}
             <Header />
             <AddToMealBox />
             
@@ -56,7 +53,6 @@ const AddTocard = () => {
                     Order Now
                 </Button>
             </Box>
-            {/* </Box> */}
         </React.Fragment>
     )
 }

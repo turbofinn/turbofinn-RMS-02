@@ -45,10 +45,10 @@ function CategoriesWeb() {
         <Typography
           variant="h1"
           sx={{
-            fontSize: { md:"3rem", xl: "4rem" },
+            fontSize: { md: "3rem", xl: "4rem" },
             fontWeight: "800",
             textAlign: "center",
-            marginBlockStart: { md:"3.5rem", xl: "5.5rem" },
+            marginBlockStart: { md: "3.5rem", xl: "5.5rem" },
           }}>
           L<span style={{ color: "#138da8" }}>O</span>G
           <span style={{ color: "#138da8" }}>O</span>
@@ -57,7 +57,7 @@ function CategoriesWeb() {
           <Typography
             variant="h4"
             sx={{
-              fontSize: { md:"2.5rem", xl: "4rem" },
+              fontSize: { md: "2.5rem", xl: "4rem" },
               fontWeight: "700",
               color: "white",
               marginBlockStart: { md: "2.75rem", md: "3.15rem", xl: "8.5rem" },
@@ -67,7 +67,7 @@ function CategoriesWeb() {
           <Typography
             variant="h4"
             sx={{
-              fontSize: { md:"1.45rem", xl: "2.25rem" },
+              fontSize: { md: "1.45rem", xl: "2.25rem" },
               fontWeight: "700",
               color: "white",
             }}>
@@ -76,11 +76,11 @@ function CategoriesWeb() {
           <Typography
             variant="h4"
             sx={{
-              fontSize: { md:"1.15rem", xl: "2rem" },
+              fontSize: { md: "1.15rem", xl: "2rem" },
               fontWeight: "500",
-              color: "rgba(255,255,255,0.71)",
-              maxWidth: { md:"20rem", xl: "41rem" },
-              paddingBlockStart: { md:"1rem", xl: "1.75rem" },
+              color: "rgba(255,255,255,0.85)",
+              maxWidth: { md: "20rem", xl: "41rem" },
+              paddingBlockStart: { md: "1rem", xl: "1.75rem" },
             }}>
             Select anyone of the categories to proceed
           </Typography>
@@ -97,14 +97,14 @@ function CategoriesWeb() {
           return (
             <Card
               sx={{
-                height: { md:"14rem", xl: "19.25rem" },
-                width: { md:"12.5rem", xl: "16.7rem" },
+                height: { md: "14rem", xl: "19.25rem" },
+                width: { md: "12.5rem", xl: "16.7rem" },
                 borderRadius: "15px",
                 boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.25)",
               }}>
               <CardMedia
                 sx={{
-                  height: {md: "60%", xl: "62%" },
+                  height: { md: "60%", xl: "62%" },
                   objectFit: "contain",
                   marginBlockStart: { md: "14px", xl: "20px" },
                   marginInline: { md: "24px", xl: "38px" },
@@ -126,11 +126,12 @@ function CategoriesWeb() {
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: { md: "1.15rem", xl: "1.45rem" },
+                    fontSize: { md: "1rem", xl: "1.45rem" },
                     fontWeight: "800",
                     lineHeight: { md: "22px", xl: "31.2px" },
                     marginBlockStart: { md: "2px", xl: "8px" },
                     marginInlineStart: "24px",
+                    color: '#414244'
                   }}>
                   {elem.title}
                 </Typography>
