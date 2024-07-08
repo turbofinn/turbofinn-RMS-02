@@ -13,17 +13,31 @@ function WhatsInYourMind() {
   ];
 
   return (
-    <Box sx={{ display: "flex", overflowX: "auto", mb: 2, marginX: "2.45%" }}>
-      {items.map((item, index) => (
-        <Box
-          key={index}
-          sx={{ marginRight: "20px", textAlign: "center", marginTop: "19px" }}
-        >
-          <Avatar src={item.image} sx={{ width: 55, height: 55, mb: 1 }} />
-          <Typography variant="body2">{item.name}</Typography>
-        </Box>
-      ))}
-    </Box>
+    <>
+      <Typography
+        variant="h6"
+        sx={{
+          fontSize: "0.8125rem",
+          fontWeight: "500",
+          marginX: "2.45%",
+          marginTop: "4%",
+          marginLeft: "15px",
+        }}
+      >
+        Let's See, What's in your mind?
+      </Typography>
+      <Box sx={{ display: "flex", overflowX: "auto", mb: 2, marginX: "2.45%" }}>
+        {items.map((item, index) => (
+          <Box
+            key={index}
+            sx={{ marginRight: "20px", textAlign: "center", marginTop: "15px" }}
+          >
+            <Avatar src={item.image} sx={{ width: 55, height: 55, mb: 1 }} />
+            <Typography variant="body2">{item.name}</Typography>
+          </Box>
+        ))}
+      </Box>
+    </>
   );
 }
 

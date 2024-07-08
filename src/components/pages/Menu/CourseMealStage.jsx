@@ -46,7 +46,7 @@ function CourseMealStage() {
       <Box sx={{ display: "flex", alignItems: "center", marginBottom: "15px" }}>
         <Typography
           variant="subtitle1"
-          sx={{ fontWeight: 500, fontSize: "13px" }}
+          sx={{ fontWeight: 500, fontSize: "13px", marginLeft: "10px" }}
         >
           EXPLORE 7 COURSE MEAL STAGE
         </Typography>
@@ -66,10 +66,13 @@ function CourseMealStage() {
             sx={{
               mr: 2,
               textAlign: "center",
-              minWidth: "100px",
-              boxShadow: "10px 0px 10px rgba(0, 0, 0, 0.2)",
+              minWidth: "110px",
+              boxShadow: "0px 0px 5px rgba(0, 0, 0, 0.2)",
               borderRadius: "16px",
               padding: "8px",
+              marginTop: "5px",
+              marginBottom: "10px",
+              marginX: "10px",
             }}
           >
             <Box
@@ -93,7 +96,7 @@ function CourseMealStage() {
             </Box>
             <Typography
               variant="body2"
-              sx={{ fontWeight: 400, fontSize: "12px" }}
+              sx={{ fontWeight: 400, fontSize: "10px" }}
             >
               EXPLORE ALL
             </Typography>
