@@ -7,7 +7,7 @@ import Categories from './components/pages/categories/Categories';
 import AddTocard from './components/pages/addToCard/AddToCard';
 import MenuMobile from "./components/pages/Menu/MenuPage";
 import MenuPage from "./components/pages/Menu/MenuPage";
-
+import NavBar from './components/common/NavBar/NavBar';
 
 function App() {
   return (
@@ -17,8 +17,9 @@ function App() {
      {/* <VerificationPage/> */}
      {/* <AddToMeal></AddToMeal> */}
      {/* <Categories></Categories> */}
-     <AddTocard/>
-      {/* <MenuPage/> */}
+     {/* <AddTocard/> */}
+     {/* <MenuPage/> */}
+      <NavBar/>
     </div>
   );
 }
