@@ -3,9 +3,10 @@ import { Box, Typography, InputBase } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import MicIcon from "@mui/icons-material/Mic";
 import Divider from "@mui/material/Divider";
-import backgroundImage from "../../assets/Image/MenuHeaderbg.png";
-import burgerCharacter from "../../assets/Image/burger.png";
-import sandwichCharacter from "../../assets/Image/sandwich.png";
+import backgroundImage from "../../../assets/Image/MenuHeaderbg.png";
+import burgerCharacter from "../../../assets/Image/burger.png";
+import sandwichCharacter from "../../../assets/Image/sandwich.png";
+
 
 function Header() {
   return (
