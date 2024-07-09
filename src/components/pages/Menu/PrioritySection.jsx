@@ -52,7 +52,7 @@ function PrioritySection() {
         marginTop: "4.5%",
         fontWeight: 500,
         fontSize: "13px",
-        marginX: "2.45%",
+        marginX: "15px",
       }}
     >
       <Box>
@@ -62,7 +62,7 @@ function PrioritySection() {
           style={{
             alignItems: "center",
             marginBottom: "5px",
-            marginLeft: "4px",
+            marginLeft: "20px",
           }}
           alt="line"
         />
@@ -108,7 +108,7 @@ function PrioritySection() {
                 src={priority.image}
                 alt={priority.title}
                 style={{
-                  width: "74px",
+                  // width: "74px",
                   height: "65px",
                   marginLeft: "8px",
                 }}
