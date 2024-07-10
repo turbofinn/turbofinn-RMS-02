@@ -13,17 +13,16 @@ import AddToMealBoxWeb from './components/common/AddToMealBox/AddToMealBoxWeb';
 function App() {
   return (
     <div className="App">
-     {/* <Home/> */}
-     {/* <WelcomePage/> */}
-     {/* <VerificationPage/> */}
-     {/* <AddToMeal></AddToMeal> */}
-     {/* <Categories></Categories> */}
-     {/* <Categories></Categories> */}
-     {/* <Categories2></Categories2> */}
-     {/* <AddTocard/> */}
-     {/* <MenuPage/> */}
-      <NavBar/>
-      <AddToMealBoxWeb/>
+      {/* <Home/> */}
+      {/* <WelcomePage/> */}
+      {/* <VerificationPage/> */}
+      {/* <AddToMeal></AddToMeal> */}
+      {/* <Categories></Categories> */}
+      {/* <Categories2></Categories2> */}
+      <AddTocard/>
+      {/* <MenuPage/> */}
+      {/* <NavBar /> */}
+      {/* <AddToMealBoxWeb /> */}
     </div>
   );
 }
