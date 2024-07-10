@@ -131,7 +131,7 @@ function CategoriesWeb() {
                     lineHeight: { md: "22px", xl: "31.2px" },
                     marginBlockStart: { md: "2px", xl: "8px" },
                     marginInlineStart: "24px",
-                    color: '#414244'
+                    color: "rgba(65,66,68,1)",
                   }}>
                   {elem.title}
                 </Typography>

@@ -9,6 +9,7 @@ import MenuMobile from "./components/pages/Menu/MenuPage";
 import MenuPage from "./components/pages/Menu/MenuPage";
 import NavBar from './components/common/NavBar/NavBar';
 import AddToMealBoxWeb from './components/common/AddToMealBox/AddToMealBoxWeb';
+import PaymentGateway from './components/pages/paymentGateway/PaymentGateway';
 
 function App() {
   return (
@@ -18,11 +19,11 @@ function App() {
       {/* <VerificationPage/> */}
       {/* <AddToMeal></AddToMeal> */}
       {/* <Categories></Categories> */}
-      {/* <Categories2></Categories2> */}
       {/* <AddTocard/> */}
       {/* <MenuPage/> */}
       {/* <NavBar /> */}
       {/* <AddToMealBoxWeb /> */}
+     <PaymentGateway></PaymentGateway>
     </div>
   );
 }
