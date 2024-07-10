@@ -17,15 +17,15 @@ import SimpleHead from "../../common/SimpleHead/SimpleHead";
 
 function PaymentGatway() {
   const options = [
-    { title: "Google Pay", icon: { gPay } },
-    { title: "Cash", icon: { cash } },
-    { title: "UPI", icon: { upi } },
-    { title: "Amazon Pay Balance", icon: { amazonPay } },
-    { title: "Debit Card", icon: { debitCard } },
+    { title: "Google Pay", icon: gPay  },
+    { title: "Cash", icon: cash  },
+    { title: "UPI", icon: upi  },
+    { title: "Amazon Pay Balance", icon:  amazonPay  },
+    { title: "Debit Card", icon:  debitCard  },
   ];
   const CustomLabel = ({ img, txt }) => (
-    <Box sx={{ display: "flex", alignItems: "center", gap: "8px" }}>
-      <img src={img} alt={txt} style={{ height: "40px", width: "40px" }}></img>
+    <Box sx={{ display: "flex", alignItems: "center", gap: "8px",width:'100%' }}>
+      <img src={img} alt={txt} style={{ height: "2.25rem", width:'3.25rem' }}></img>
       <Typography
         sx={{
           fontWeight: "600",
