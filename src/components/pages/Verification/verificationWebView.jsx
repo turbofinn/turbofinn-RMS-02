@@ -137,8 +137,8 @@ const VerificationWebView = () => {
                 textAlign: "center",
                 marginTop: "2.1%",
                 width: "95%",
-                marginLeft:'auto',
-                marginRight:'auto'
+                marginLeft: "auto",
+                marginRight: "auto",
               }}
             >
               Please Let Us Know Your Mobile Number For Verification Purposes
@@ -148,7 +148,14 @@ const VerificationWebView = () => {
               variant="standard"
               InputProps={{
                 startAdornment: (
-                  <InputAdornment position="start" sx={{ textAlign: "center", Color:'#171717', opacity:'100%'  }}>
+                  <InputAdornment
+                    position="start"
+                    sx={{
+                      textAlign: "center",
+                      Color: "#171717",
+                      opacity: "100%",
+                    }}
+                  >
                     {" "}
                     +91
                   </InputAdornment>
@@ -167,7 +174,7 @@ const VerificationWebView = () => {
                 width: "90%",
                 paddingTop: "0.6rem",
                 paddingBottom: "0.6rem",
-                paddingX:'0.5rem',
+                paddingX: "0.5rem",
                 marginTop: "3.7%",
                 "& .MuiInputBase-root": {
                   height: "100%",
