@@ -19,7 +19,7 @@ function App() {
       {/* <AddToMeal></AddToMeal> */}
       {/* <Categories></Categories> */}
       {/* <Categories2></Categories2> */}
-      <AddTocard/>
+      {/* <AddTocard/> */}
       {/* <MenuPage/> */}
       {/* <NavBar /> */}
       {/* <AddToMealBoxWeb /> */}

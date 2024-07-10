@@ -1,39 +1,60 @@
-import React from 'react';
-import { Card, CardMedia, CardContent, Typography, Button, Box } from '@mui/material';
+import React from "react";
+import { Box } from "@mui/material";
+import line from "../../../assets/Image/horizontalLine2.png";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import FoodAddToCart from "../../common/FoodAddToCart/FoodAddToCart";
 
 function MenuItems() {
-  const menuItem = {
-    name: 'Dal Bati Churma',
-    image: 'path_to_dal_bati_churma_image.jpg',
-    isVegetarian: true,
-  };
-
   return (
-    <Card sx={{ mb: 2 }}>
-      <CardMedia
-        component="img"
-        height="200"
-        image={menuItem.image}
-        alt={menuItem.name}
-      />
-      <CardContent>
-        <Typography variant="h6">{menuItem.name}</Typography>
-        <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
-          <Typography
-            variant="body2"
-            sx={{
-              color: menuItem.isVegetarian ? 'green' : 'red',
-              mr: 1,
-            }}
-          >
-            {menuItem.isVegetarian ? '● VEGETARIAN' : '● NON-VEGETARIAN'}
-          </Typography>
-          <Button variant="contained" color="primary">
-            ADD TO CART
-          </Button>
+    <Box
+      sx={{
+        marginTop: "4.5%",
+        fontWeight: 500,
+        fontSize: "13px",
+        marginX: "20px",
+      }}
+    >
+      <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Box sx={{ display: "flex", alignItems: "center", fontWeight: 500 }}>
+          MAIN COURSE
+          <ExpandMoreIcon
+            fontSize="small"
+            sx={{ position: "relative", top: "-1px", marginX: "5px" }}
+          />
         </Box>
-      </CardContent>
-    </Card>
+        <img
+          src={line}
+          style={{
+            width: "89px",
+            alignItems: "center",
+            marginBottom: "5px",
+            marginLeft: "7px",
+          }}
+          alt="line"
+        />
+        <Box
+          sx={{
+            display: "inline-flex",
+            alignItems: "center",
+            fontWeight: 500,
+            fontSize: "11px",
+            backgroundColor: "rgba(244, 244, 244, 1)",
+            borderRadius: "20px",
+            padding: "5px 10px",
+            marginLeft: "3rem",
+            marginBottom: "5px",
+          }}
+        >
+          FILTER
+          <ExpandMoreIcon
+            fontSize="small"
+            sx={{ position: "relative", marginLeft: "0" }}
+          />
+        </Box>
+      </Box>
+
+      <FoodAddToCart />
+    </Box>
   );
 }
 
