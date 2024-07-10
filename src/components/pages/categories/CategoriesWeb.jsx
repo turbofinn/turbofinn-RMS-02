@@ -97,14 +97,14 @@ function CategoriesWeb() {
           return (
             <Card
               sx={{
-                height: { md:"14rem", xl: "19.25rem" },
-                width: { md:"12.5rem", xl: "16.7rem" },
+                height: { md: "14rem", xl: "19.25rem" },
+                width: { md: "12.5rem", xl: "16.7rem" },
                 borderRadius: "15px",
                 boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.25)",
               }}>
               <CardMedia
                 sx={{
-                  height: {md: "60%", xl: "62%" },
+                  height: { md: "60%", xl: "62%" },
                   objectFit: "contain",
                   marginBlockStart: { md: "14px", xl: "20px" },
                   marginInline: { md: "24px", xl: "38px" },
@@ -131,6 +131,7 @@ function CategoriesWeb() {
                     lineHeight: { md: "22px", xl: "31.2px" },
                     marginBlockStart: { md: "2px", xl: "8px" },
                     marginInlineStart: "24px",
+                    color: "rgba(65,66,68,1)",
                   }}>
                   {elem.title}
                 </Typography>
