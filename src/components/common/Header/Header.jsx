@@ -6,8 +6,12 @@ import Divider from "@mui/material/Divider";
 import backgroundImage from "../../../assets/Image/MenuHeaderbg.png";
 import burgerCharacter from "../../../assets/Image/burger.png";
 import sandwichCharacter from "../../../assets/Image/sandwich.png";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 function Header() {
+  const theme = useTheme();
+  const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
   return (
     <Box
       sx={{
@@ -32,7 +36,7 @@ function Header() {
           borderRadius: "0.9375rem", // 15px
           display: "flex",
           alignItems: "center",
-          marginTop: "4rem", // 74px
+          marginTop: { xs: "4rem", lg: "3rem" }, // 74px
           paddingY: "1.125rem", // 18px
           paddingX: "1.0625rem", // 17px
           width: "100%",
@@ -71,7 +75,7 @@ function Header() {
           src={burgerCharacter}
           alt="Burger character"
           style={{
-            height: "5.9375rem", // 95px
+            height: !isLargeScreen ? "6rem" : "7rem",
             objectFit: "contain",
             marginBottom: "-8px",
           }}
@@ -80,7 +84,7 @@ function Header() {
           sx={{
             textAlign: "center",
             mb: 2,
-            marginX: "25px",
+            marginX: { xs: "25px", lg: "100px" },
           }}
         >
           <Typography
@@ -88,7 +92,7 @@ function Header() {
             sx={{
               color: "white",
               fontWeight: 700,
-              fontSize: { xs: "1.25rem", sm: "1.5rem" },
+              fontSize: { xs: "1.25rem", sm: "1.5rem", lg: "2rem" },
               marginBottom: "0.3rem",
             }}
           >
@@ -100,7 +104,7 @@ function Header() {
               fontWeight: 600,
               fontSize: { xs: "0.875rem", sm: "0.938rem" },
               opacity: 0.86,
-              marginBottom: "10px",
+              marginBottom: "7px",
             }}
           >
             Enjoy Your Food
@@ -110,7 +114,7 @@ function Header() {
           src={sandwichCharacter}
           alt="sandwich character"
           style={{
-            height: "5.9375rem", // 95px
+            height: !isLargeScreen ? "6rem" : "7rem",
             objectFit: "contain",
             marginBottom: "-1px",
           }}

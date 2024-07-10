@@ -1,6 +1,11 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
-import line from "../../../assets/Image/horizontalLine2.png";
+import {
+  Box,
+  Typography,
+  Container,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import starter from "../../../assets/Image/sevenCourseMeal/starter.webp";
 import soup from "../../../assets/Image/sevenCourseMeal/soup.jpg";
 import salad from "../../../assets/Image/sevenCourseMeal/salad.png";
@@ -10,82 +15,74 @@ import coldStarter from "../../../assets/Image/sevenCourseMeal/cold starter.jpg"
 import appetizer from "../../../assets/Image/sevenCourseMeal/appetizer.jpg";
 
 function CourseMealStage() {
+  const theme = useTheme();
+  const isWebView = useMediaQuery(theme.breakpoints.up("md"));
+
   const stages = [
-    {
-      name: "Starter",
-      image: starter,
-    },
-    {
-      name: "Appetizer",
-      image: appetizer,
-    },
-    {
-      name: "Cold Starter",
-      image: coldStarter,
-    },
-    {
-      name: "Soup",
-      image: soup,
-    },
-    {
-      name: "Salad",
-      image: salad,
-    },
-    {
-      name: "Main Course",
-      image: mainCourse,
-    },
-    {
-      name: "Dessert",
-      image: dessert,
-    },
+    { name: "Appetizer", image: appetizer },
+    { name: "PRE-STARTER", image: coldStarter },
+    { name: "STARTER", image: starter },
+    { name: "Appetizer", image: soup },
+    { name: "Appetizer", image: salad },
+    { name: "STARTER", image: mainCourse },
+    { name: "Appetizer", image: dessert },
   ];
 
   return (
-    <Box sx={{ marginTop: "4.5%", }}>
-      <Box sx={{ display: "flex", alignItems: "center", marginBottom: "15px" }}>
-        <Typography
-          variant="subtitle1"
-          sx={{ fontWeight: 500, fontSize: "13px", marginLeft: "20px" }}
-        >
-          EXPLORE 7 COURSE MEAL STAGE
-        </Typography>
-        <img
-          src={line}
-          style={{
-            marginLeft: "4px",
-            marginBottom: "5px",
-          }}
-          alt="line"
-        />
-      </Box>
-      <Box sx={{ display: "flex", overflowX: "auto" }}>
+    <Container
+      maxWidth="lg"
+      sx={{ mt: { xs: 4, md: 6 }, px: { xs: 2, md: 3 } }}
+    >
+      <Typography
+        variant="subtitle1"
+        sx={{
+          fontWeight: 500,
+          fontSize: { xs: "13px", md: "16px" },
+          mb: { xs: 2, md: 3 },
+        }}
+      >
+        EXPLORE 7 COURSE MEAL STAGE
+      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          overflowX: "auto",
+          pb: 2,
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+          scrollbarWidth: "none",
+          marginLeft: { lg: "30px" },
+        }}
+      >
         {stages.map((stage, index) => (
           <Box
             key={index}
             sx={{
-              mr: 2,
+              mr: { xs: 2, md: 3 },
               textAlign: "center",
-              minWidth: "110px",
-              boxShadow: "0px 0px 5px rgba(0, 0, 0, 0.2)",
+              minWidth: { xs: "120px", md: "170px" },
+              boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
+              marginTop: "4px",
+              marginLeft: "2px",
               borderRadius: "16px",
-              padding: "8px",
-              marginTop: "5px",
-              marginBottom: "10px",
-              marginX: "10px",
+              padding: { xs: "8px", md: "16px" },
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              bgcolor: "white",
             }}
           >
             <Box
               sx={{
-                width: "74px",
-                height: "74px",
+                width: { xs: "74px", md: "100px" },
+                height: { xs: "64px", md: "100px" },
                 borderRadius: "50%",
                 overflow: "hidden",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                mb: 1,
-                mx: "auto",
+                mb: 2,
               }}
             >
               <img
@@ -96,17 +93,28 @@ function CourseMealStage() {
             </Box>
             <Typography
               variant="body2"
-              sx={{ fontWeight: 400, fontSize: "10px" }}
+              sx={{
+                fontWeight: 400,
+                fontSize: { xs: "10px", md: "12px" },
+                color: "grey.600",
+                mb: 0.5,
+              }}
             >
               EXPLORE ALL
             </Typography>
-            <Typography variant="h6" sx={{ fontWeight: 700, fontSize: "14px" }}>
+            <Typography
+              variant="h6"
+              sx={{
+                fontWeight: 700,
+                fontSize: { xs: "14px", md: "16px" },
+              }}
+            >
               {stage.name}
             </Typography>
           </Box>
         ))}
       </Box>
-    </Box>
+    </Container>
   );
 }
 

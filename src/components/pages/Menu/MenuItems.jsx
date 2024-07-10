@@ -1,60 +1,70 @@
 import React from "react";
-import { Box } from "@mui/material";
-import line from "../../../assets/Image/horizontalLine2.png";
+import { Box, Container, Grid, useMediaQuery, useTheme } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import FoodAddToCart from "../../common/FoodAddToCart/FoodAddToCart";
+import FoodAddToCartGrid from "../../common/FoodAddToCart/FoodAddToCart";
 
 function MenuItems() {
+  const theme = useTheme();
+  const isWebView = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
-    <Box
-      sx={{
-        marginTop: "4.5%",
-        fontWeight: 500,
-        fontSize: "13px",
-        marginX: "20px",
-      }}
+    <Container
+      maxWidth="lg"
+      sx={{ mt: { xs: 2, md: 6 }, px: { xs: 2, md: 3 } }}
     >
-      <Box sx={{ display: "flex", alignItems: "center" }}>
-        <Box sx={{ display: "flex", alignItems: "center", fontWeight: 500 }}>
-          MAIN COURSE
-          <ExpandMoreIcon
-            fontSize="small"
-            sx={{ position: "relative", top: "-1px", marginX: "5px" }}
-          />
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          mb: { xs: 2, md: 4 },
+        }}
+      >
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              fontWeight: 500,
+              fontSize: { xs: "13px", md: "16px" },
+            }}
+          >
+            MAIN COURSE
+            <ExpandMoreIcon
+              fontSize={isWebView ? "medium" : "small"}
+              sx={{ ml: 1, mr: 3 }}
+            />
+          </Box>
         </Box>
-        <img
-          src={line}
-          style={{
-            width: "89px",
-            alignItems: "center",
-            marginBottom: "5px",
-            marginLeft: "7px",
+        <Box
+          component="span"
+          sx={{
+            flexGrow: 1,
+            height: "1px",
+            background:
+              "linear-gradient(to right, rgba(90, 90, 90, 0.47), rgba(255, 255, 255, 1))",
           }}
-          alt="line"
         />
         <Box
           sx={{
-            display: "inline-flex",
+            display: "flex",
             alignItems: "center",
             fontWeight: 500,
-            fontSize: "11px",
+            fontSize: { xs: "11px", md: "14px" },
             backgroundColor: "rgba(244, 244, 244, 1)",
             borderRadius: "20px",
             padding: "5px 10px",
-            marginLeft: "3rem",
-            marginBottom: "5px",
           }}
         >
           FILTER
           <ExpandMoreIcon
-            fontSize="small"
-            sx={{ position: "relative", marginLeft: "0" }}
+            fontSize={isWebView ? "medium" : "small"}
+            sx={{ ml: 1 }}
           />
         </Box>
       </Box>
-
-      <FoodAddToCart />
-    </Box>
+      <FoodAddToCartGrid />
+    </Container>
   );
 }
 
