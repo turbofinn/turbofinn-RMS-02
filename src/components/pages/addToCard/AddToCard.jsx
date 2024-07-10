@@ -18,7 +18,7 @@ import plus from "../../../assets/Image/plus.png";
 import minus from "../../../assets/Image/minus.png";
 import greaterThanDownSide from "../../../assets/Image/greaterThanDownSide.png";
 
-import AddToMealBox from "../../common/AddToMealBox/AddToMealBox";
+import AddToMealBox from "../../common/AddToCardBox/AddToMealBox.jsx";
 import SmallMealBox from "../../common/SmallMealBox/SmallMealBox.jsx";
 const AddTocard = () => {
     return (

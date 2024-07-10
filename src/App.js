@@ -8,7 +8,7 @@ import AddTocard from './components/pages/addToCard/AddToCard';
 import MenuMobile from "./components/pages/Menu/MenuPage";
 import MenuPage from "./components/pages/Menu/MenuPage";
 import NavBar from './components/common/NavBar/NavBar';
-import AddToMealBoxWeb from './components/common/AddToMealBox/AddToMealBoxWeb';
+import AddToMealBoxWeb from './components/common/AddToCardBox/AddToMealBoxWeb';
 import PaymentGateway from './components/pages/paymentGateway/PaymentGateway';
 
 function App() {
@@ -22,8 +22,8 @@ function App() {
       {/* <AddTocard/> */}
       {/* <MenuPage/> */}
       {/* <NavBar /> */}
-      {/* <AddToMealBoxWeb /> */}
-     <PaymentGateway></PaymentGateway>
+      <AddToMealBoxWeb />
+     {/* <PaymentGateway></PaymentGateway> */}
     </div>
   );
 }
