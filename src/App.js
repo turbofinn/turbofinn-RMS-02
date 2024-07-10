@@ -19,7 +19,7 @@ function App() {
      {/* <VerificationPage/> */}
      {/* <AddToMeal></AddToMeal> */}
      {/* <Categories></Categories> */}
-     <PaymentGateway></PaymentGateway>
+     {/* <PaymentGateway></PaymentGateway> */}
      {/* <AddTocard/> */}
      {/* <MenuPage/> */}
       {/* <NavBar/> */}
