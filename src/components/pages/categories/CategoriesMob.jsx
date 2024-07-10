@@ -30,7 +30,7 @@ function Categories2() {
   return (
     <Box
       sx={{
-        backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.95),rgba(73, 195, 222, 0.76),rgba(73, 195, 222, 0.57),rgba(73, 195, 222, 0.59)),url(${bg})`,
+        backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.95),rgba(73, 195, 222, 0.775),rgba(73, 195, 222, 0.57),rgba(73, 195, 222, 0.59)),url(${bg})`,
         minHeight: "100vh",
         width: "100%",
         backgroundColor: "#49c3de",
@@ -115,8 +115,8 @@ function Categories2() {
                       fontWeight: "600",
                       lineHeight: "10.4px",
                       color: "rgba(82,82,82,1)",
-                      marginInlineStart: "1rem",
-                      marginBlockStart: "-4px",
+                      marginInlineStart: "1.3rem",
+                      marginBlockStart: "-4px", 
                     }}>
                     {" "}
                     EXPLORE ALL
@@ -127,7 +127,8 @@ function Categories2() {
                       fontWeight: "800",
                       lineHeight: "19.5px",
                       marginBlockStart: "5px",
-                      marginInlineStart: "1.5rem",
+                      marginInlineStart: "1.2rem",
+                      color:'rgba(65,66,68,1)',
                     }}>
                     {elem.title}
                   </Typography>
@@ -186,6 +187,7 @@ function Categories2() {
                       lineHeight: "19.5px",
                       marginBlockStart: "5px",
                       marginInlineStart: "1.2rem",
+                      color: "rgba(65,66,68,1)",
                     }}>
                     {elem.title}
                   </Typography>
