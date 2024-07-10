@@ -21,7 +21,7 @@ function App() {
      {/* <Categories></Categories> */}
      <PaymentGateway></PaymentGateway>
      {/* <AddTocard/> */}
-     {/* <MenuPage/> */}
+     <MenuPage/>
       {/* <NavBar/> */}
     </div>
   );

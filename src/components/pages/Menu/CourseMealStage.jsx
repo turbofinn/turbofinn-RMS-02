@@ -42,11 +42,11 @@ function CourseMealStage() {
   ];
 
   return (
-    <Box sx={{ marginTop: "4.5%", marginX: "2.45%" }}>
+    <Box sx={{ marginTop: "4.5%", }}>
       <Box sx={{ display: "flex", alignItems: "center", marginBottom: "15px" }}>
         <Typography
           variant="subtitle1"
-          sx={{ fontWeight: 500, fontSize: "13px", marginLeft: "10px" }}
+          sx={{ fontWeight: 500, fontSize: "13px", marginLeft: "20px" }}
         >
           EXPLORE 7 COURSE MEAL STAGE
         </Typography>
