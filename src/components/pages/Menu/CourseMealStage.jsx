@@ -33,16 +33,30 @@ function CourseMealStage() {
       maxWidth="lg"
       sx={{ mt: { xs: 4, md: 6 }, px: { xs: 2, md: 3 } }}
     >
-      <Typography
-        variant="subtitle1"
-        sx={{
-          fontWeight: 500,
-          fontSize: { xs: "13px", md: "16px" },
-          mb: { xs: 2, md: 3 },
-        }}
-      >
-        EXPLORE 7 COURSE MEAL STAGE
-      </Typography>
+      <Box sx={{ display: "flex", alignItems: "center" }}>
+        <Typography
+          variant="subtitle1"
+          sx={{
+            fontWeight: 500,
+            fontSize: { xs: "13px", md: "16px" },
+            mb: { xs: 2, md: 3 },
+          }}
+        >
+          EXPLORE 7 COURSE MEAL STAGE
+        </Typography>
+        <Box
+          component="span"
+          sx={{
+            flexGrow: 1,
+            height: "1px",
+            background:
+              "linear-gradient(to right, rgba(90, 90, 90, 0.47), rgba(255, 255, 255, 1))",
+            marginLeft: "10px",
+            marginTop: { xs: "-15px", lg: "-21px" },
+          }}
+        />
+      </Box>
+
       <Box
         sx={{
           display: "flex",
@@ -52,7 +66,8 @@ function CourseMealStage() {
             display: "none",
           },
           scrollbarWidth: "none",
-          marginLeft: { lg: "30px" },
+          marginLeft: { lg: "5px" },
+          paddingLeft: { lg: "30px" },
         }}
       >
         {stages.map((stage, index) => (
@@ -75,14 +90,14 @@ function CourseMealStage() {
           >
             <Box
               sx={{
-                width: { xs: "74px", md: "100px" },
-                height: { xs: "64px", md: "100px" },
+                // width: { xs: "100px", md: "100px" },
+                height: { xs: "100px", md: "100px" },
                 borderRadius: "50%",
                 overflow: "hidden",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                mb: 2,
+                mb: 0,
               }}
             >
               <img

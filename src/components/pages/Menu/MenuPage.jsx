@@ -15,7 +15,15 @@ function MenuPage() {
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
   return (
-    <Box sx={{ backgroundColor: "white", minHeight: "100vh", pb: 7 }}>
+    <Box
+      sx={{
+        backgroundColor: "white",
+        minHeight: "100vh",
+        pb: 7,
+        overflowX: "hidden",
+        marginRight: "-1px",
+      }}
+    >
       {matches ? <NavBar /> : <></>}
       <Header />
       <PrioritySection />

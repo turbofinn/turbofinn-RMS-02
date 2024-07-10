@@ -28,7 +28,11 @@ export default function FoodAddToCart() {
 
   return (
     <Container maxWidth="lg" sx={{ px: isWebView ? 4 : 2 }}>
-      <Grid container spacing={isWebView ? 3 : 2} sx={{ alignItems: "center" }}>
+      <Grid
+        container
+        spacing={isWebView ? 3 : 2}
+        sx={{ alignItems: "center", px: { xs: -2 } }}
+      >
         {menuItem.map((item, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Card
@@ -66,7 +70,7 @@ export default function FoodAddToCart() {
                     color: "white",
                   }}
                 >
-                  <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                  <Typography variant="h6" sx={{ fontWeight: 600 }}>
                     {item.name}
                   </Typography>
                   <Box
@@ -83,6 +87,9 @@ export default function FoodAddToCart() {
                           ? "rgba(132, 255, 145, 1)"
                           : "red",
                         mr: 1,
+                        fontSize: "20px",
+                        display: "flex",
+                        alignItems: "center",
                       }}
                     >
                       {item.isVegetarian ? "●" : "●"}
