@@ -19,10 +19,10 @@ function AddToMealWeb() {
   const CustomTextField = styled(TextField)({
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        border: "none", 
+        border: "none",
       },
       "&:hover fieldset": {
-        border: "none", 
+        border: "none",
       },
       "&.Mui-focused fieldset": {
         border: "none",
@@ -35,23 +35,29 @@ function AddToMealWeb() {
         styleOverrides: {
           input: {
             "&::placeholder": {
-              fontSize: "0.75rem", 
-              fontWeight:'500',
-              lineHeight:'21px',
-              letterSpacing:'2%',
-              opacity: 1, 
-              color:'#596174',fontFamily:'Poppins'
+              fontSize: "0.75rem",
+              fontWeight: "500",
+              lineHeight: "21px",
+              letterSpacing: "2%",
+              opacity: 1,
+              color: "#596174",
+              fontFamily: "Poppins",
             },
           },
         },
       },
     },
   });
+  const serving = [
+    { serial: "01", serving: "Single", price: "70" },
+    { serial: "02", serving: "Single", price: "170" },
+    { serial: "03", serving: "Single", price: "290" },
+  ];
   const ResponsiveRadio = styled(Radio)(({ theme }) => ({
     "& .MuiSvgIcon-root": {
       fontSize: 24,
       [theme.breakpoints.up("xs")]: {
-        fontSize: 16, 
+        fontSize: 18,
       },
     },
   }));
@@ -97,8 +103,8 @@ function AddToMealWeb() {
             top: "19.2rem",
             borderRadius: "25px 25px 0 0 ",
             backgroundColor: "#f8f8ff",
-            paddingInline: "1.438rem",
-            paddingBlock: "0.688rem",
+            paddingInline: "0.625rem",
+            paddingBlock: "1.5rem",
           }}>
           <Box
             sx={{
@@ -110,7 +116,7 @@ function AddToMealWeb() {
                 textTransform: "capitalize",
                 fontSize: "1.5rem",
                 fontFamily: "Poppins",
-                fontWeight: "600",
+                fontWeight: "700",
                 lineHeight: "1.95rem",
                 marginBlockEnd: "0.625rem",
               }}>
@@ -130,7 +136,7 @@ function AddToMealWeb() {
                   fontWeight: "600",
                   fontSize: "1rem",
                   lineHeight: "19.2px",
-                  color: "#383838",
+                  color: "rgba(56, 56, 56,0.95)",
                   marginRight: "1.5rem",
                 }}>
                 legacy of rajasthan
@@ -146,7 +152,7 @@ function AddToMealWeb() {
               <Typography
                 sx={{
                   textTransform: "uppercase",
-                  fontWeight: "500",
+                  fontWeight: "700",
                   fontSize: "11px",
                   fontFamily: "Poppins",
                 }}>
@@ -169,7 +175,6 @@ function AddToMealWeb() {
               of Rajasthan.
             </Typography>
           </Box>
-
           <Paper
             elevation={1}
             sx={{
@@ -190,7 +195,7 @@ function AddToMealWeb() {
                   fontFamily: "Poppins",
                   fontWeight: "700",
                   color: "#383838",
-                  fontSize: "1rem",
+                  fontSize: "0.95rem",
                   marginBottom: "0.25rem",
                 }}>
                 Quantity
@@ -231,103 +236,42 @@ function AddToMealWeb() {
                 <RadioGroup
                   aria-labelledby="demo-radio-buttons-group-label"
                   defaultValue="70"
-                  name="radio-buttons-group">
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      width: "100%",
-                    }}>
-                    <Typography
+                  name="radio-buttons-group"
+                  sx={{ gap: "0.8rem" }}>
+                  {serving.map((elem, i) => (
+                    <Box
                       sx={{
-                        fontFamily: "Poppins",
-                        fontWeight: "700",
-                        color: "#383838",
-                        fontSize: "1rem",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        width: "100%",
                       }}>
-                      01. Single Serving
-                    </Typography>
-                    <FormControlLabel
-                      value="70"
-                      control={<ResponsiveRadio sx={{ color: " #3EB9D4" }} />}
-                      label={
-                        <Typography
-                          variant="body1"
-                          sx={{
-                            fontWeight: "700",
-                            fontSize: "1rem",
-                          }}>
-                          Rs. 70
-                        </Typography>
-                      }
-                      labelPlacement="start"
-                    />
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      width: "100%",
-                    }}>
-                    <Typography
-                      sx={{
-                        fontFamily: "Poppins",
-                        fontWeight: "700",
-                        color: "#383838",
-                        fontSize: "1rem",
-                      }}>
-                      01. Single Serving
-                    </Typography>
-                    <FormControlLabel
-                      value="170"
-                      control={<ResponsiveRadio sx={{ color: " #3EB9D4" }} />}
-                      label={
-                        <Typography
-                          variant="body1"
-                          sx={{
-                            fontWeight: "700",
-                            fontSize: "1rem",
-                          }}>
-                          Rs. 170
-                        </Typography>
-                      }
-                      labelPlacement="start"
-                    />
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      width: "100%",
-                    }}>
-                    <Typography
-                      sx={{
-                        fontFamily: "Poppins",
-                        fontWeight: "700",
-                        color: "#383838",
-                        fontSize: "1rem",
-                      }}>
-                      01. Single Serving
-                    </Typography>
-                    <FormControlLabel
-                      value="290"
-                      control={<ResponsiveRadio sx={{ color: " #3EB9D4" }} />}
-                      label={
-                        <Typography
-                          variant="body1"
-                          sx={{
-                            fontWeight: "700",
-                            fontSize: "1rem",
-                          }}>
-                          Rs. 290
-                        </Typography>
-                      }
-                      labelPlacement="start"
-                    />
-                  </Box>
+                      <Typography
+                        sx={{
+                          fontFamily: "Poppins",
+                          fontWeight: "600",
+                          color: "#000",
+                          fontSize: "0.95rem",
+                        }}>
+                        {elem.serial} Single Serving
+                      </Typography>
+                      <FormControlLabel
+                        value={elem.price}
+                        control={<ResponsiveRadio sx={{ color: " #469db1" }} />}
+                        label={
+                          <Typography
+                            variant="body1"
+                            sx={{
+                              fontWeight: "600",
+                              fontSize: "0.95rem",
+                            }}>
+                            ₹ {elem.price}
+                          </Typography>
+                        }
+                        labelPlacement="start"
+                      />
+                    </Box>
+                  ))}
                 </RadioGroup>
               </FormControl>
             </Box>
@@ -336,11 +280,10 @@ function AddToMealWeb() {
             elevation={1}
             sx={{
               maxWidth: "36.125rem",
-              marginBlockStart: "27px",
-              height: "14.75rem",
+              height: { md: "9.5rem", xl: "14.5rem" },
               boxShadow: "0px 0px 20px #00000017",
               borderRadius: "20px",
-              marginBlockEnd: "100px",
+              marginBlockStart: "1.5rem",
             }}>
             <Box
               sx={{
@@ -353,20 +296,22 @@ function AddToMealWeb() {
                   fontFamily: "Poppins",
                   fontWeight: "700",
                   color: "#383838",
-                  fontSize: "1rem",
-                  marginBottom: { md: "-0.15rem", xl: "0.25rem" },
+                  fontSize: "0.95rem",
+                  marginBottom: "0.25rem",
                 }}>
-                Add on Note:
+                Add a Note:
               </Typography>
-
               <Typography
+                variant="subtitle"
                 sx={{
                   fontFamily: "Poppins",
                   fontWeight: "600",
                   color: "#767676",
-                  fontSize: "0.75rem",
-                }}
-                variant="subtitle">
+                  fontSize: "0.8rem",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.25rem",
+                }}>
                 Required changes for your food
               </Typography>
             </Box>
@@ -404,77 +349,78 @@ function AddToMealWeb() {
             height: "90px",
             width: "100vw",
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "center",gap:'0.85rem',
             alignItems: "center",
-            gap: "0.75rem",
             background: "#fff",
             paddingBlock: "1rem",
+            paddingInline: "0.625rem",
             position: "fixed",
             bottom: "0",
           }}>
           <Box
             sx={{
-              width: "6.8rem",
-              height: "2.5rem",
+              width: "6.82rem",
+              height: "2.55rem",
               border: "1px solid rgba(0, 0, 0,0.48  )",
               borderRadius: "30px",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              paddingInline: "7px",
+              paddingInline: "0.5rem",
             }}>
-            <Button
-              variant="contained"
+            <Box
               sx={{
-                minHeight: "20px",
-                minWidth: "20px",
+                height: "1.25rem",
+                width: "1.25rem",
+                fontSize: "1.25rem",
+                fontWeight: "500",
                 padding: 0,
-                fontSize: "12px",
-                borderRadius: "100%",
-                background: "#3eb9d4",
+                borderRadius: "50%",
+                background: "rgb(70, 157, 177,0.89)",
+                color: "white",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
               }}>
               -
-            </Button>
+            </Box>
             <Typography
               sx={{
-                fontSize: { md: "1rem", xl: "1.9rem" },
+                fontSize: "1.35rem",
                 fontWeight: "700",
               }}>
               2
             </Typography>
-            <Button
-              variant="contained"
+            <Box
               sx={{
-                minHeight: "20px",
-                minWidth: "20px",
+                height: "1.25rem",
+                width: "1.25rem",
+                fontSize: "1.25rem",
+                fontWeight: "500",
                 padding: 0,
-                fontSize: "12px",
-                borderRadius: "100%",
-                background: "#3eb9d4",
-
+                borderRadius: "50%",
+                background: "rgb(70, 157, 177,0.89)",
+                color: "white",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
               }}>
               +
-            </Button>
+            </Box>
           </Box>
           <Button
             variant="contained"
             sx={{
               width: "14.5rem",
               height: "3.3rem",
-              background: "#3eb9d4",
+              background: "rgb(62, 185, 212)",
               borderRadius: "10px",
             }}>
             {
               <Typography
                 sx={{
                   fontFamily: "Poppins",
-                  fontSize: { md: "18px", xl: "28px" },
+                  fontSize: "1.35rem",
                   textTransform: "initial",
                 }}>
                 Add to Meal

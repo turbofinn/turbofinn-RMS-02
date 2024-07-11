@@ -33,6 +33,7 @@ function SimpleHead({ title }) {
         </Typography>
         {aspect ? "" : <CancelIcon></CancelIcon>}
       </Box>
+      <div style={{}}></div>
     </div>
   );
 }

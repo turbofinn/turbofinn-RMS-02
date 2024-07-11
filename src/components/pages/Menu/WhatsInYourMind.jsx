@@ -49,19 +49,19 @@ function WhatsInYourMind() {
             display: "none",
           },
           scrollbarWidth: "none",
-          marginLeft: { lg: "30px" },
+          marginLeft: { lg: "5px" },
           marginTop: { lg: "20px" },
+          paddingLeft: { lg: "15px" },
         }}
       >
         {items.map((item, index) => (
           <Box
             key={index}
             sx={{
-              mr: { xs: 2, md: 3 },
+              mr: { xs: 6, md: 6 },
               ml: { xs: 1 },
               textAlign: "center",
               minWidth: { xs: "auto", md: "100px" },
-              // boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
