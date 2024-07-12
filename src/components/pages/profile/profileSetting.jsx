@@ -23,6 +23,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import NavBar from "../../common/NavBar/NavBar.jsx";
 import NavBarBottom from "../../common/NavBar/NavBarBottom.jsx";
+import backgroundImage from "../../../assets/Image/profile/backgroundProfile.png";
 
 const ProfileSettings = () => {
   const theme = useTheme();
@@ -40,6 +41,19 @@ const ProfileSettings = () => {
           display: "flex",
           flexDirection: "column",
           overflowX: "hidden",
+          '&:before': {
+            content: '""',
+            position: 'absolute',
+            top: '-50px', 
+            left: 0,
+            right: 0,
+            bottom: 420,
+            backgroundImage: {xs:`url(${backgroundImage})`, lg:'none'},
+            backgroundSize: 'cover',
+            backgroundPosition: 'center top',
+            backgroundRepeat: 'no-repeat',
+            zIndex: 0,
+          },
         }}
       >
         <Box
@@ -328,7 +342,8 @@ const ProfileSettings = () => {
         <Typography
           //   variant="caption"
           sx={{
-            marginTop: -3,
+            marginTop: -5,
+            marginBottom: 5,
             padding: 2,
             textAlign: "center",
             display: { xs: "block", md: "none" },

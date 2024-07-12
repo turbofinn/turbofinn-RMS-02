@@ -96,7 +96,7 @@ export default function FoodAddToCart() {
                       <text
                         style={{
                           color: "white",
-                          fontSize: "10px",
+                          fontSize: "12px",
                           fontWeight: 500,
                         }}
                       >
