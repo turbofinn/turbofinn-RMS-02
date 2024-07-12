@@ -22,14 +22,14 @@ function App() {
       {/* <VerificationPage/> */}
       {/* <AddToMeal></AddToMeal> */}
       {/* <Categories></Categories> */}
-      {/* <AddTocard/> */}
+      <AddTocard/>
       {/* <MenuPage/> */}
       {/* <NavBar /> */}
       {/* <AddToMealBoxWeb /> */}
       {/* <PaymentGateway></PaymentGateway> */}
       {/* <PayConfirmationModal/> */}
       {/* <PayConfirmationModalWeb/> */}
-      <ThanksModal/>
+      {/* <ThanksModal/> */}
       {/* <ThanksModalWeb/> */}
     </div>
   );

@@ -15,7 +15,7 @@ import AddToMealBox from "../../common/AddToCardBox/AddToMealBox.jsx";
 import SmallMealBox from "../../common/SmallMealBox/SmallMealBox.jsx";
 import AddToMealBoxWeb from "../../common/AddToCardBox/AddToMealBoxWeb.jsx";
 import FoodAddToCart from "../../common/FoodAddToCart/FoodAddToCart.jsx";
-
+import NavBar from "../../common/NavBar/NavBar.jsx";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
@@ -24,9 +24,10 @@ const AddTocard = () => {
     const aspect = useMediaQuery(theme.breakpoints.up("md"));
     return (
         <React.Fragment>
-            <Header />
             {!aspect ?
+
                 <Box>
+                    <Header />
                     <AddToMealBox />
 
                     <Typography style={{ color: '#525252', fontSize: '1rem', maxWidth: '90%', marginLeft: 'auto', marginRight: 'auto0', marginTop: '1rem' }}>Add More Combinations</Typography>
@@ -57,13 +58,16 @@ const AddTocard = () => {
                         </Button>
                     </Box>
                 </Box> :
+
                 <Box>
+                    <NavBar />
+                    <Header />
                     <AddToMealBoxWeb />
                     <Typography style={{ fontSize: '0.8rem', fontWeight: 600, maxWidth: '75%', marginLeft: 'auto', marginRight: 'auto', marginTop: '3rem' }}>Add More Combinations</Typography>
                     <img />
 
-                    <FoodAddToCart/>
-                    
+                    <FoodAddToCart />
+
                     <Box
                         sx={{
                             display: 'flex',
