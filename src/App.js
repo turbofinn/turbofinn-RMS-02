@@ -14,6 +14,7 @@ import PayConfirmationModal from './components/pages/paymentConfirmation/PayConf
 import ThanksModal from './components/pages/thanksPage/ThanksModal';
 import PayConfirmationModalWeb from './components/pages/paymentConfirmation/PayConfirmationModalWeb';
 import ThanksModalWeb from './components/pages/thanksPage/ThanksModalWeb';
+import Profile from "./components/pages/profile/profileSetting";
 function App() {
   return (
     <div className="App">
@@ -22,7 +23,7 @@ function App() {
       {/* <VerificationPage/> */}
       {/* <AddToMeal></AddToMeal> */}
       {/* <Categories></Categories> */}
-      <AddTocard/>
+      {/* <AddTocard/> */}
       {/* <MenuPage/> */}
       {/* <NavBar /> */}
       {/* <AddToMealBoxWeb /> */}
@@ -31,6 +32,7 @@ function App() {
       {/* <PayConfirmationModalWeb/> */}
       {/* <ThanksModal/> */}
       {/* <ThanksModalWeb/> */}
+      {/* <Profile/> */}
     </div>
   );
 }
