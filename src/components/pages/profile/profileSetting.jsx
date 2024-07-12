@@ -9,6 +9,7 @@ import {
   ListItemIcon,
   ListItemText,
   Container,
+  Grid,
 } from "@mui/material";
 import { Edit, History, Help, ExitToApp } from "@mui/icons-material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -23,9 +24,9 @@ const ProfileSettings = () => {
   return (
     <Container
       maxWidth={false}
+      disableGutters
       sx={{
         backgroundColor: "white",
-        backgroundPositionY: "absolute",
         minHeight: "100vh",
         padding: 0,
         display: "flex",
@@ -51,17 +52,14 @@ const ProfileSettings = () => {
           },
           "@media (min-width: 1400px)": {
             width: "100%",
-            height: "265px",
-            gap: "0px",
+            height: "200px",
             borderRadius: "0px 0px 22px 22px",
-            opacity: "0px",
             background: "linear-gradient(180deg, #53CCE7 0%, #2BA8C4 100%)",
-            position: "fixed",
-            top: 0,
-            left: 0,
+            position: "relative",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            // paddingX:'80px'
           },
         }}
       >
@@ -99,12 +97,13 @@ const ProfileSettings = () => {
               fontSize: "40px",
               fontWeight: 700,
               lineHeight: "52px",
+              marginTop: "70px",
               color: "rgba(255, 255, 255, 1)",
             },
             "@media (max-width: 1400px)": {
               fontSize: "25px",
               fontWeight: 500,
-              lineHeight: "32.5px",
+              lineHeight: "22.5px",
               color: "rgba(0, 0, 0, 1)",
             },
           }}
@@ -118,22 +117,24 @@ const ProfileSettings = () => {
           flexDirection: "column",
           alignItems: "center",
           padding: 4,
+          position: { xs: "relative", lg: "relative" },
+          marginTop: { lg: "42px" },
         }}
       >
         <Box sx={{ position: "relative", marginBottom: 2 }}>
           <Avatar
             src={profilePicture}
             sx={{
-              width: { xs: 198, sm: 120 },
-              height: { xs: 198, sm: 120 },
+              width: { xs: 198, md: 260 },
+              height: { xs: 198, md: 260 },
               border: "8px solid #20B2AA",
-              position: "relative",
+              //   position: {xs:"relative", lg:'fixed'},
               top: { xs: 0, sm: "auto" },
               left: { xs: 0, sm: "auto" },
               borderRadius: { xs: "97.5px 97.5px 97.5px 97.5px", sm: "50%" },
               background: {
                 xs: "linear-gradient(133.07deg, #40A0B5 14%, #409FB4 49.71%, rgba(65, 161, 182, 0.76) 85.42%)",
-                sm: "none",
+                lg: "none",
               },
               opacity: 1,
             }}
@@ -142,13 +143,13 @@ const ProfileSettings = () => {
             size="small"
             sx={{
               position: "absolute",
-              bottom: 25,
-              right: 5,
+              bottom: { xs: 25, lg: 30 },
+              right: { xs: 5, lg: 15 },
               backgroundColor: "white",
               padding: 0.5,
               border: "1px solid black",
-              width: "31px",
-              height: "31px",
+              width: { xs: "31px", lg: "40px" },
+              height: { xs: "31px", lg: "40px" },
             }}
           >
             <img src={editIcon} alt="editIcon" style={{ width: "17px" }} />
@@ -159,9 +160,10 @@ const ProfileSettings = () => {
           variant="h5"
           gutterBottom
           sx={{
-            fontSize: "24px",
+            fontSize: { xs: "24px", lg: "40px" },
             fontWeight: 500,
             textAlign: "center",
+            marginTop: "1rem",
           }}
         >
           Mohit Verma
@@ -171,7 +173,7 @@ const ProfileSettings = () => {
           color="text.secondary"
           gutterBottom
           sx={{
-            fontSize: "16px",
+            fontSize: { xs: "16px", lg: "25px" },
             fontWeight: 700,
             textAlign: "center",
           }}
@@ -179,103 +181,114 @@ const ProfileSettings = () => {
           +91 9*****88
         </Typography>
 
-        <List
+        <Grid
+          container
           sx={{
             width: "100%",
-            maxWidth: 360,
+            maxWidth: { xs: 360, lg: "600px" },
             backgroundColor: "transparent",
-            marginTop: "15px",
-            marginLeft: 2,
+            marginTop: "35px",
+            marginBottom: "35px",
+            marginX: "auto",
+            display: "flex",
+            flexDirection: { xs: "column", lg: "row" },
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            gap: 2,
           }}
         >
-          <ListItem button>
-            <ListItemIcon>
-              {/* <Edit /> */}
-              <IconButton
-                size="small"
+          <Grid item xs={12} lg={4}>
+            <ListItem button sx={{ width: "100%", marginLeft: { lg: -8 } }}>
+              <ListItemIcon>
+                <IconButton
+                  size="small"
+                  sx={{ backgroundColor: "white", display: "flex" }}
+                >
+                  <img
+                    src={editProfileIcon}
+                    alt="editProfileIcon"
+                    style={{ width: 29, height: 29 }}
+                  />
+                </IconButton>
+              </ListItemIcon>
+              <ListItemText
+                primary="Edit Profile"
+                sx={{ fontSize: { xs: "16px", lg: "20px" } }}
+              />
+            </ListItem>
+          </Grid>
+          <Grid item xs={12} lg={4}>
+            <ListItem button sx={{ width: "100%", marginLeft: { lg: 10 } }}>
+              <ListItemIcon>
+                <IconButton
+                  size="small"
+                  sx={{ backgroundColor: "white", display: "flex" }}
+                >
+                  <img
+                    src={historyIcon}
+                    alt="history"
+                    style={{ width: 24, height: 24 }}
+                  />
+                </IconButton>
+              </ListItemIcon>
+              <ListItemText
+                primary="Order History"
+                sx={{ fontSize: { xs: "16px", lg: "20px" } }}
+              />
+            </ListItem>
+          </Grid>
+          <Grid item xs={12} lg={4}>
+            <ListItem button sx={{ width: "100%", marginLeft: { lg: -8 } }}>
+              <ListItemIcon>
+                <IconButton
+                  size="small"
+                  sx={{
+                    backgroundColor: "white",
+                    display: "flex",
+                    marginLeft: -0.7,
+                  }}
+                >
+                  <img
+                    src={helpIcon}
+                    alt="helpIcon"
+                    style={{ width: 35, height: 35 }}
+                  />
+                </IconButton>
+              </ListItemIcon>
+              <ListItemText
+                primary="Help"
+                sx={{ fontSize: { xs: "16px", lg: "20px" } }}
+              />
+            </ListItem>
+          </Grid>
+          <Grid item xs={12} lg={4}>
+            <ListItem button sx={{ width: "100%", marginLeft: { lg: 10 } }}>
+              <ListItemIcon>
+                <IconButton
+                  size="small"
+                  sx={{ backgroundColor: "white", display: "flex" }}
+                >
+                  <img
+                    src={logoutIcon}
+                    alt="Logout"
+                    style={{ width: 28, height: 28 }}
+                  />
+                </IconButton>
+              </ListItemIcon>
+              <ListItemText
+                primary="Log Out"
                 sx={{
-                  backgroundColor: "white",
-                  display: "flex",
+                  fontSize: { xs: "16px", lg: "20px" },
+                  background:
+                    "linear-gradient(to right, rgba(251, 170, 43, 0.76), rgba(225, 59, 53, 0.76))",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
                 }}
-              >
-                <img
-                  src={editProfileIcon}
-                  alt="editProfileIcon"
-                  style={{ width: 29, height: 29 }}
-                />
-              </IconButton>
-            </ListItemIcon>
-            <ListItemText primary="Edit Profile" />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              {/* <History /> */}
-              <IconButton
-                size="small"
-                sx={{
-                  backgroundColor: "white",
-                  display: "flex",
-                }}
-              >
-                <img
-                  src={historyIcon}
-                  alt="history"
-                  style={{ width: 24, height: 24 }}
-                />
-              </IconButton>
-            </ListItemIcon>
-            <ListItemText
-              primary={window.innerWidth >= 960 ? "History" : "Order History"}
-            />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              {/* <Help /> */}
-              <IconButton
-                size="small"
-                sx={{
-                  backgroundColor: "white",
-                  display: "flex",
-                  marginLeft: -0.7,
-                }}
-              >
-                <img
-                  src={helpIcon}
-                  alt="helpIcon"
-                  style={{ width: 35, height: 35 }}
-                />
-              </IconButton>
-            </ListItemIcon>
-            <ListItemText primary="Help" />
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              {/* <ExitToApp /> */}
-              <IconButton
-                size="small"
-                sx={{
-                  backgroundColor: "white",
-                  display: "flex",
-                }}
-              >
-                <img
-                  src={logoutIcon}
-                  alt="Logout"
-                  style={{ width: 28, height: 28 }}
-                />
-              </IconButton>
-            </ListItemIcon>
-            <ListItemText
-              primary="Log Out"
-              sx={{
-                background:
-                  "linear-gradient(to right, rgba(251, 170, 43, 0.76), rgba(225, 59, 53, 0.76))",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            />
-          </ListItem>
-        </List>
+              />
+            </ListItem>
+          </Grid>
+        </Grid>
       </Box>
       <Typography
         variant="caption"
