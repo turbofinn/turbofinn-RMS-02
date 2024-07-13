@@ -13,6 +13,7 @@ import { styled } from "@mui/material/styles";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import meal from "../../../assets/Image/meal/dal-bati-churma.png";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import VegOrNon from "../../common/vegOrNon/VegOrNon";
 import React from "react";
 
 function AddToMealWeb() {
@@ -141,23 +142,7 @@ function AddToMealWeb() {
                 }}>
                 legacy of rajasthan
               </Typography>
-              <div
-                style={{
-                  height: "8px",
-                  width: "8px",
-                  borderRadius: "100%",
-                  background: "#84FF91",
-                  marginRight: "10px",
-                }}></div>
-              <Typography
-                sx={{
-                  textTransform: "uppercase",
-                  fontWeight: "700",
-                  fontSize: "11px",
-                  fontFamily: "Poppins",
-                }}>
-                Vegetarian
-              </Typography>
+              <VegOrNon state="vegetarian"></VegOrNon>
             </Box>
             <Typography
               variant="subtitle2"

@@ -5,24 +5,33 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { Typography, Box } from "@mui/material";
 
-function SimpleHead({ title }) {
+function SimpleHead({
+  title,
+  h = "8.5rem",
+  w = "100%",
+  functions = false,
+  line = false,
+}) {
   const theme = useTheme();
   const aspect = useMediaQuery(theme.breakpoints.up("md"));
   return (
-    <div>
-      <Box
-        sx={{
-          width: "100%",
-          height: "5.5rem",
-          background: "linear-gradient(to bottom,#53cce7,#2ba8c4)",
-          borderRadius: "0 0 20px 20px",
-          display: "flex",
-          justifyContent: { xs: "space-between", md: "center" },
-          alignItems: "center",
-          color: "white",
-          paddingInline: "1.25rem",
-        }}>
-        {aspect ? "" : <ArrowBackIosIcon></ArrowBackIosIcon>}
+    <Box
+      sx={{
+        width: w,
+        height: h,
+        background: "linear-gradient(to bottom,#53cce7,#2ba8c4)",
+        borderRadius: "0 0 20px 20px",
+        display: "flex",
+        justifyContent: {
+          xs: functions ? "space-between" : "center",
+          md: "center",
+        },
+        alignItems: "center",
+        color: "white",
+        paddingInline: "1.25rem",
+      }}>
+      {functions ? aspect ? null : <ArrowBackIosIcon></ArrowBackIosIcon> : null}
+      <Box sx={{alignContent:'center'}}>
         <Typography
           sx={{
             fontSize: "1.5rem",
@@ -31,10 +40,17 @@ function SimpleHead({ title }) {
           }}>
           {title}
         </Typography>
-        {aspect ? "" : <CancelIcon></CancelIcon>}
+        {line ? 
+          <div
+            style={{
+              height: "2px",
+              background: "rgba(70, 157, 177, 1)", width:'140px',marginInline:'auto',marginTop:'0.25rem'
+            }}></div>
+         : null}
       </Box>
-      <div style={{}}></div>
-    </div>
+
+      {functions ? aspect ? null : <CancelIcon></CancelIcon> : null}
+    </Box>
   );
 }
 

@@ -8,7 +8,8 @@ import AddTocard from './components/pages/addToCard/AddToCard';
 import MenuMobile from "./components/pages/Menu/MenuPage";
 import MenuPage from "./components/pages/Menu/MenuPage";
 import NavBar from './components/common/NavBar/NavBar';
-import PaymentGateway from './components/pages/paymentGateway/PaymentGateway';
+import PaymentMethod from './components/pages/paymentMethod/PaymentMethod';
+import OrderHistory from './components/pages/orderHistory/OrderHistory';
 
 
 function App() {
@@ -19,9 +20,10 @@ function App() {
      {/* <VerificationPage/> */}
      {/* <AddToMeal></AddToMeal> */}
      {/* <Categories></Categories> */}
-     <PaymentGateway></PaymentGateway>
+     {/* <PaymentMethod></PaymentMethod> */}
      {/* <AddTocard/> */}
      {/* <MenuPage/> */}
+     <OrderHistory></OrderHistory>
       {/* <NavBar/> */}
     </div>
   );

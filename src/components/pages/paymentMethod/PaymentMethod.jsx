@@ -14,8 +14,10 @@ import upi from "../../../assets/Image/paymentGateway/upi.png";
 import amazonPay from "../../../assets/Image/paymentGateway/amazon-pay.png";
 import debitCard from "../../../assets/Image/paymentGateway/debit-card.jpg";
 import SimpleHead from "../../common/SimpleHead/SimpleHead";
-
-function PaymentGatway() {
+import NavBar from '../../common/NavBar/NavBar'
+import {useTheme } from '@mui/material/styles'
+import useMediaQuery from "@mui/material/useMediaQuery";
+function PaymentMethod() {
   const options = [
     { title: "Google Pay", icon: gPay },
     { title: "Cash", icon: cash },
@@ -41,9 +43,14 @@ function PaymentGatway() {
     </Box>
   );
 
+  const theme=useTheme();
+  const aspect =useMediaQuery(theme.breakpoints.up('md'))
+
   return (
     <Box sx={{ width: "100vw", minHeight: "100vh" }}>
-      <SimpleHead title={"payment gateway"}></SimpleHead>
+      {aspect?<NavBar></NavBar>:null}
+      
+      <SimpleHead title={"payment method"} functions={true} h={'5.5rem'} line={true}></SimpleHead>
       <Box
         sx={{
           marginInline: { xs: "1.625rem", sm: "auto" },
@@ -101,7 +108,7 @@ function PaymentGatway() {
       <Box
         sx={{
           maxWidth: { xs: "24.75rem", md: "24.5%" },
-          height: "3.75rem",
+          height: {xs:"3.75rem",md:'3.25rem'},
           marginInline: { xs: "1rem", sm: "auto" },
           marginTop: {xs:"7.75rem",md:'1.5rem'},
           marginBottom: "0.5rem",
@@ -129,4 +136,4 @@ function PaymentGatway() {
   );
 }
 
-export default PaymentGatway;
+export default PaymentMethod;
