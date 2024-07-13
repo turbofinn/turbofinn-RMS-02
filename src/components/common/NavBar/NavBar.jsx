@@ -17,8 +17,7 @@ import Group from "../../../assets/Image/Navbar/Group.png";
 import dining from "../../../assets/Image/Navbar/dining.png";
 import stars from "../../../assets/Image/Navbar/stars.png";
 import coffeeMaker from "../../../assets/Image/Navbar/coffeeMaker.png";
-import shadows from "@mui/material/styles/shadows";
-
+import profile from "../../../assets/Image/profile.png";
 const NavBar = () => {
     return (
         <React.Fragment>
@@ -50,6 +49,10 @@ const NavBar = () => {
                         <Box style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', margin: '10px' }}>
                             <img src={Group} alt="Group" style={{ width: '1.3rem', marginRight: '1rem' }} />
                             <Typography style={{ paddingTop: '0.2rem', fontSize: '0.9rem', fontWeight: 500 }}>Plate</Typography>
+                        </Box>
+                        <Box style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', margin: '10px', marginLeft:'1.5rem' }}>
+                            <img src={profile} alt="Group" style={{ width: '1.5rem', marginRight: '1rem' }} />
+                            <Typography style={{ paddingTop: '0.2rem', fontSize: '1rem', fontWeight: 500 }}>Profile</Typography>
                         </Box>
                     </Box>
                 </Box>
