@@ -6,7 +6,8 @@ import CancelIcon from "@mui/icons-material/Cancel";
 import { Typography, Box } from "@mui/material";
 
 function SimpleHead({
-  title,
+  title,showSubtitle=false,
+  subtitle='',
   h = "8.5rem",
   w = "100%",
   functions = false,
@@ -26,27 +27,42 @@ function SimpleHead({
           xs: functions ? "space-between" : "center",
           md: "center",
         },
-        alignItems: "center",
+        alignItems: {xs:"center",md:'start'},
         color: "white",
         paddingInline: "1.25rem",
       }}>
       {functions ? aspect ? null : <ArrowBackIosIcon></ArrowBackIosIcon> : null}
-      <Box sx={{alignContent:'center'}}>
+      <Box sx={{width:"100%",display:'flex',flexDirection:'column',alignItems:'center',} }>
         <Typography
           sx={{
-            fontSize: "1.5rem",
+            fontSize: {xs:"1.5rem",md:'2.5rem'},
             fontWeight: "600",
-            textTransform: "capitalize",
+            textTransform: "capitalize",textAlign:'center',marginTop:{md:'2.75rem'}
           }}>
           {title}
         </Typography>
-        {line ? 
+        {line ? (
           <div
             style={{
               height: "2px",
-              background: "rgba(70, 157, 177, 1)", width:'140px',marginInline:'auto',marginTop:'0.25rem'
+              background: "rgba(70, 157, 177, 1)",
+              width: "140px",
+              marginInline: "auto",
+              marginTop: "0.25rem",
             }}></div>
-         : null}
+        ) : null}
+        {showSubtitle?<Typography
+          sx={{
+            fontSize: "1.25rem",
+            lineHeight:'1.625rem',
+            fontWeight: "700",
+            color:'rgba(0,0,0,0.74)',
+            textTransform: "capitalize",marginTop:'2.5rem',width:'25rem',
+            textAlign:'center'
+          }}>
+          {subtitle}
+        </Typography>:null}
+        
       </Box>
 
       {functions ? aspect ? null : <CancelIcon></CancelIcon> : null}
