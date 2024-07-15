@@ -9,13 +9,14 @@ import MenuMobile from "./components/pages/Menu/MenuPage";
 import MenuPage from "./components/pages/Menu/MenuPage";
 import NavBar from './components/common/NavBar/NavBar';
 import AddToMealBoxWeb from './components/common/AddToCardBox/AddToMealBoxWeb';
-import PaymentGateway from './components/pages/paymentGateway/PaymentGateway';
 import PayConfirmationModal from './components/pages/paymentConfirmation/PayConfirmationModal';
 import ThanksModal from './components/pages/thanksPage/ThanksModal';
 import PayConfirmationModalWeb from './components/pages/paymentConfirmation/PayConfirmationModalWeb';
 import ThanksModalWeb from './components/pages/thanksPage/ThanksModalWeb';
 import Profile from "./components/pages/profile/profileSetting";
 import YourProfile from './components/pages/yourProfile/YourProfile';
+import PaymentMethod from './components/pages/paymentMethod/PaymentMethod';
+import OrderHistory from './components/pages/orderHistory/OrderHistory';
 function App() {
   return (
     <div className="App">
@@ -35,8 +36,11 @@ function App() {
       {/* <ThanksModalWeb/> */}
       {/* <Profile/> */}
       {/* <YourProfile/> */}
-    </div>
-  );
+      {/* <PaymentMethod/> */}
+      {/* <OrderHistory/> */}
+      </div>
+
+)
 }
 
 export default App;

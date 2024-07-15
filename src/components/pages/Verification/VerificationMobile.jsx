@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -10,6 +10,7 @@ import {
 import verification from "../../../assets/Image/phoneAuthentication.png";
 import backgroundfood from "../../../assets/Image/BackgroundFood.png";
 import { InputAdornment } from "@mui/material";
+import OtpInput from "react-otp-input";
 
 const styles = {
   textBox: {
@@ -26,6 +27,31 @@ const styles = {
 };
 
 const VerificationMobile = () => {
+  const [isOtpSent, setIsOtpSent] = useState(false);
+  const [otp, setOtp] = useState("");
+
+  useEffect(() => {
+    if ("OTPCredential" in window) {
+      const ac = new AbortController();
+      navigator.credentials
+        .get({
+          otp: { transport: ["sms"] },
+          signal: ac.signal,
+        })
+        .then((otp) => {
+          setOtp(otp.code);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+
+      return () => ac.abort();
+    }
+  }, []);
+
+  function sentOtpClickHandler() {
+    if (isOtpSent === false) setIsOtpSent((c) => !c);
+  }
   return (
     <Box
       sx={{
@@ -102,7 +128,7 @@ const VerificationMobile = () => {
               fontWeight: 600,
             }}
           >
-            Provide Your Mobile Number
+            {isOtpSent ? "Enter Your OTP" : "Verify Your Mobile Number"}
           </Typography>
           <Typography
             sx={{
@@ -112,83 +138,194 @@ const VerificationMobile = () => {
               fontWeight: 700,
               textAlign: "center",
               marginBottom: "10.09%",
+              maxWidth: "350px",
             }}
           >
-            Please Let Us Know Your Mobile Number For <br /> Verification
-            Purposes
+            {isOtpSent
+              ? "Please Let Us Know Your OTP For Verification Purposes"
+              : "Please Let Us Know Your Mobile Number For Verification Purposes"}
           </Typography>
 
-          <TextField
-            variant="standard"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start" sx={{ textAlign: "center" }}>
-                  {" "}
-                  +91
-                </InputAdornment>
-              ),
-              disableUnderline: true,
-            }}
-            // placeholder=" 9452222225"
-            sx={{
-              outline: "none",
-              backgroundColor: "white",
-              borderRadius: "0.625rem",
-              fontSize: "1.5rem",
-              border: "0.09375rem solid black",
-              borderColor: "rgba(31, 104, 87, 1)",
-              fontWeight: 700,
-              height: "3.4375rem",
-              width: "20.875rem",
-              padding: "0.5rem",
-              marginBottom: "0.5rem",
-              "& .MuiInputBase-root": {
-                height: "100%",
+          {isOtpSent ? (
+            <Box
+              sx={{
+                display: "flex",
                 alignItems: "center",
-                padding: "0 0.5rem",
-              },
+                justifyItems: "center",
+                marginLeft: 6,
+              }}
+            >
+              <OtpInput
+                value={otp}
+                onChange={setOtp}
+                numInputs={4}
+                renderInput={(props) => (
+                  <input
+                    {...props}
+                    style={{
+                      width: "52px",
+                      height: "52px",
+                      borderRadius: "11px",
+                      border: "2.5px solid transparent",
+                      background:
+                        "linear-gradient(white, white) padding-box, linear-gradient(90deg, #515ADA 0%, #2B3074 100%) border-box",
+                      margin: "0 4px",
+                      fontSize: "24px",
+                      fontWeight: "bold",
+                      textAlign: "center",
+                      color: "#000",
+                      outline: "none",
+                    }}
+                    onKeyDown={(event) => {
+                      if (
+                        !/[0-9]/.test(event.key) &&
+                        event.key !== "Backspace" &&
+                        event.key !== "Delete" &&
+                        event.key !== "ArrowLeft" &&
+                        event.key !== "ArrowRight" &&
+                        event.key !== "Tab"
+                      ) {
+                        event.preventDefault();
+                      }
+                    }}
+                    inputMode="numeric"
+                    pattern="\d*"
+                  />
+                )}
+              />
+            </Box>
+          ) : (
+            <TextField
+              onChange={(event) => {
+                const value = event.target.value.replace(/\D/g, "");
+                event.target.value = value.slice(0, 10);
+              }}
+              variant="standard"
+              InputProps={{
+                maxLength: 10,
+                inputMode: "numeric",
+                pattern: "[0-9]*",
+                startAdornment: (
+                  <InputAdornment position="start" sx={{ textAlign: "center" }}>
+                    {" "}
+                    +91
+                  </InputAdornment>
+                ),
+                disableUnderline: true,
+              }}
+              // placeholder=" 9452222225"
+              sx={{
+                outline: "none",
+                backgroundColor: "white",
+                borderRadius: "0.625rem",
+                fontSize: "1.5rem",
+                border: "0.09375rem solid black",
+                borderColor: "rgba(31, 104, 87, 1)",
+                fontWeight: 700,
+                height: "3.4375rem",
+                width: "20.875rem",
+                padding: "0.5rem",
+                marginBottom: "0.5rem",
+                "& .MuiInputBase-root": {
+                  height: "100%",
+                  alignItems: "center",
+                  padding: "0 0.5rem",
+                },
 
-              "& .MuiInputBase-input": {
-                padding: 0,
+                "& .MuiInputBase-input": {
+                  padding: 0,
+                  "&::placeholder": {
+                    color: "black",
+                    opacity: 0.5,
+                  },
+                },
                 "&::placeholder": {
                   color: "black",
                   opacity: 0.5,
+                  marginLeft: "0.5rem",
                 },
-              },
-              "&::placeholder": {
-                color: "black",
-                opacity: 0.5,
-                marginLeft: "0.5rem",
-              },
-              "&:focus": {
-                borderColor: "black",
-              },
-            }}
-          />
+                "&:focus": {
+                  borderColor: "black",
+                },
+              }}
+              onKeyDown={(event) => {
+                const currentValue = event.target.value.replace(/\D/g, "");
+                if (
+                  !/[0-9]/.test(event.key) &&
+                  event.key !== "Backspace" &&
+                  event.key !== "Delete" &&
+                  event.key !== "ArrowLeft" &&
+                  event.key !== "ArrowRight" &&
+                  event.key !== "Tab"
+                ) {
+                  event.preventDefault();
+                }
+                if (/[0-9]/.test(event.key) && currentValue.length >= 10) {
+                  event.preventDefault();
+                }
+              }}
+              inputMode="numeric"
+              pattern="\d*"
+            />
+          )}
 
           <Box
             sx={{ display: "flex", alignItems: "center", marginTop: "-5px" }}
           >
-            <FormControlLabel
-              control={<Checkbox size="12px" />}
-              sx={{
-                marginRight: "2px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginLeft: "39px",
-              }}
-            ></FormControlLabel>
-            <Typography
-              sx={{
-                color: "white",
-                fontSize: "13px",
-                fontWeight: 500,
-                margin: 0,
-              }}
-            >
-              Is This Same Number in Whatsapp
-            </Typography>
+            {isOtpSent ? (
+              <>
+                {" "}
+                <Typography
+                  sx={{
+                    color: "rgba(243, 243, 243, 0.8)",
+                    fontSize: "13px",
+                    fontWeight: 500,
+                    margin: 0,
+                    marginLeft: 6,
+                    marginTop: 2,
+                  }}
+                >
+                  Did’t Receive The OTP?
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "rgba(0, 0, 0, 0.8)",
+                    fontSize: "13px",
+                    fontWeight: 500,
+                    margin: 0,
+                    textDecoration: "underline",
+                    marginLeft: 1,
+                    marginTop: 2,
+                  }}
+                >
+                  Resend Code
+                </Typography>
+              </>
+            ) : (
+              <>
+                {" "}
+                <FormControlLabel
+                  control={<Checkbox size="12px" />}
+                  sx={{
+                    marginRight: "2px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginLeft: "39px",
+                  }}
+                ></FormControlLabel>
+                <Typography
+                  sx={{
+                    color: "white",
+                    fontSize: "13px",
+                    fontWeight: 500,
+                    margin: 0,
+                  }}
+                >
+                  Is This Same Number in Whatsapp
+                </Typography>
+              </>
+            )}
           </Box>
           <Button
             variant="contained"
@@ -204,16 +341,17 @@ const VerificationMobile = () => {
               textTransform: "none",
               boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
             }}
+            onClick={sentOtpClickHandler}
           >
-            Continue
+            {isOtpSent ? "Verify" : " Send OTP"}
           </Button>
         </Box>
       </Box>
       <Typography
         variant="body2"
         sx={{
-          position: "fixed",
-          bottom: 0,
+          position: "relative",
+          bottom: 30,
           width: "100%",
           textAlign: "center",
           color: "white",
