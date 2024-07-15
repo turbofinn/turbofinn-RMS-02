@@ -5,9 +5,9 @@ import NavBarBottom from "../../common/NavBar/NavBarBottom";
 import SortBy from "../../common/SortBy/SortBy";
 import VegOrNon from "../../common/vegOrNon/VegOrNon";
 
-import OrderPlacedCardMob from '../../common/OrderPlaced/OrderPlacedCardMob'
-import img1 from '../../../assets/Image/meal/menuItems/dal-bati-churma.jpg'
-import img2 from '../../../assets/Image/sevenCourseMeal/cold starter.jpg'
+import OrderPlacedCardMob from "../../common/OrderPlaced/OrderPlacedCardMob";
+import img1 from "../../../assets/Image/meal/menuItems/dal-bati-churma.jpg";
+import img2 from "../../../assets/Image/sevenCourseMeal/cold starter.jpg";
 
 function OrderHistory() {
   const orderPlaced = [
@@ -31,7 +31,7 @@ function OrderHistory() {
   return (
     <Box>
       <SimpleHead title={"Order Placed"}></SimpleHead>
-      <Box sx={{marginBottom:'5rem'}}>
+      <Box sx={{ marginBottom: "5rem" }}>
         <Typography
           sx={{
             fontWeight: "700",
@@ -52,13 +52,14 @@ function OrderHistory() {
             marginInline: "auto",
             width: "86.25%",
             justifyContent: "space-between",
+            gap:'1rem'
           }}>
           <Typography
             sx={{
               fontSize: "0.95rem",
               fontWeight: "600",
               letterSpacing: -0.35,
-              width: "fit",
+              minWidth: "134px",
             }}>
             Your Order Placed
           </Typography>
@@ -66,7 +67,8 @@ function OrderHistory() {
             style={{
               background:
                 "linear-gradient(to right,rgba(0, 0, 0, 0.7),rgba(90,90,90,0.1))",
-              width: "55%",
+              width: "80%",
+              minWidth:"55%",
               height: "1px",
             }}></div>
         </Box>

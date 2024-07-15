@@ -23,7 +23,7 @@ import OrderStatusWeb from './components/pages/orderStatus/OrderStatusWeb';
 function App() {
   return (
     <div className="App">
-      {/* <Home/> */}  
+      {/* <Home/> */}
       {/* <WelcomePage/> */}
       {/* <VerificationPage/> */}
       {/* <AddToMeal></AddToMeal> */}
@@ -32,18 +32,18 @@ function App() {
       {/* <MenuPage/> */}
       {/* <AddToMealBoxWeb /> */}
       {/* <PaymentGateway></PaymentGateway> */}
+      {/* <PaymentMethod/> */}
+      {/* <OrderHistory/> */}
+      <OrderPlaced></OrderPlaced>
       {/* <PayConfirmationModal/> */}
       {/* <PayConfirmationModalWeb/> */}
       {/* <ThanksModal/> */}
       {/* <ThanksModalWeb/> */}
       {/* <Profile/> */}
       {/* <YourProfile/> */}
-      {/* <PaymentMethod/> */}
-      {/* <OrderHistory/> */}
       {/* <OrderStatus/> */}
     </div>
-
-)
+  );
 }
 
 export default App;

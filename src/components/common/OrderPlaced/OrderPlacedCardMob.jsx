@@ -99,13 +99,16 @@ function OrderPlacedCardMob({
               marginInline: "auto",
               display: "flex",
               alignItems: "center",
+              justifyContent: "space-between",
             }}>
             <Box
               sx={{
-                width: "48.5%",
+                maxWidth: "10rem",
+                width: "50%",
                 height: "100%",
                 display: "flex",
                 alignItems: "center",
+                justifyContent: "space-between",
               }}>
               <Typography
                 sx={{
@@ -113,7 +116,7 @@ function OrderPlacedCardMob({
                   fontWeight: "300",
                   fontSize: "0.95rem",
                   textTransform: "capitalize",
-                  width: "50%",
+                  width: "fit",
                 }}
                 noWrap>
                 {servingType} :
@@ -161,7 +164,13 @@ function OrderPlacedCardMob({
                 </Typography>
               </Box>
             </Box>
-            <Box sx={{ width: "48.5%",display:'flex',alignItems:'center',justifyContent:'flex-end'}}>
+            <Box
+              sx={{
+                width: "fit",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "end",
+              }}>
               <OrderMoreButton
                 rad={66}
                 h="1.9rem"

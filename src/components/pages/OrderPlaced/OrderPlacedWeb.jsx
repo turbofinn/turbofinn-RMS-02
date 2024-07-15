@@ -61,10 +61,11 @@ function OrderPlacedWeb() {
             alignItems: "center",
             justifyContent: "space-between",
             marginTop: "3.75rem",
+            gap: "1rem",
           }}>
           <Typography
             sx={{
-              width: "fit",
+              minWidth: "177px",
               fontSize: "1.25rem",
               fontWeight: "600",
               letterSpacing: -0.4,
@@ -104,7 +105,7 @@ function OrderPlacedWeb() {
           <Box
             sx={{
               width: "35%",
-              height:'100%',
+              height: "100%",
               boxShadow: "0 0 9.5px 0 rgba(0,0,0,0.25)",
               borderRadius: "15px",
               justifyContent: "center",
@@ -113,7 +114,8 @@ function OrderPlacedWeb() {
               sx={{
                 width: "90%",
                 marginInline: "auto",
-                marginTop: "0.5rem",marginBlockEnd:"3.75rem",
+                marginTop: "0.5rem",
+                marginBlockEnd: "3.75rem",
                 alignContent: "center",
                 textAlign: "center",
               }}>
@@ -121,7 +123,8 @@ function OrderPlacedWeb() {
                 sx={{
                   fontSize: "4rem",
                   fontWeight: "800",
-                  color: "rgba(0, 0, 0, 0.2)",marginBottom:'1rem'
+                  color: "rgba(0, 0, 0, 0.2)",
+                  marginBottom: "1rem",
                 }}>
                 Re-ORDER
               </Typography>
@@ -129,7 +132,8 @@ function OrderPlacedWeb() {
                 sx={{
                   fontSize: "2.5rem",
                   fontWeight: "800",
-                  color: "rgba(0, 0, 0, 1)",marginBottom:'0.5rem'
+                  color: "rgba(0, 0, 0, 1)",
+                  marginBottom: "0.5rem",
                 }}>
                 Grand Total
               </Typography>
@@ -137,17 +141,37 @@ function OrderPlacedWeb() {
                 style={{
                   height: "1px",
                   background: "#000",
-                  width: "100%",marginBottom:'2rem'
+                  width: "100%",
+                  marginBottom: "2rem",
                 }}></div>
               <Box
                 sx={{
                   display: "flex",
                   width: "100%",
                   justifyContent: "center",
-                  alignItems:'end',gap:'1rem',marginBottom:'2rem'
+                  alignItems: "end",
+                  gap: "1rem",
+                  marginBottom: "2rem",
                 }}>
-                <Typography sx={{fontSize:'2.25rem',fontWeight:'600',height:'5.5rem'}}>₹</Typography>
-                <Typography sx={{background:'linear-gradient(270deg, #EE0979 0%, #F42C4E 54.5%, #FF6A00 92%)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',fontWeight:"500",fontSize:'6rem'}}>700</Typography>
+                <Typography
+                  sx={{
+                    fontSize: "2.25rem",
+                    fontWeight: "600",
+                    height: "5.5rem",
+                  }}>
+                  ₹
+                </Typography>
+                <Typography
+                  sx={{
+                    background:
+                      "linear-gradient(270deg, #EE0979 0%, #F42C4E 54.5%, #FF6A00 92%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    fontWeight: "500",
+                    fontSize: "6rem",
+                  }}>
+                  700
+                </Typography>
               </Box>
               <OrderAgainButton
                 rad="10px"
@@ -156,7 +180,8 @@ function OrderPlacedWeb() {
                 txtSize="1.25rem"
                 txtWeight="600"
                 txtCol="rgba(70, 157, 177, 1)"
-                borderCol="rgba(70, 157, 177, 1)" borderThick="1.25px"></OrderAgainButton>
+                borderCol="rgba(70, 157, 177, 1)"
+                borderThick="1.25px"></OrderAgainButton>
             </Box>
           </Box>
         </Box>

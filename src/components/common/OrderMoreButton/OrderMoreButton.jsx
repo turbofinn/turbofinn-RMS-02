@@ -12,7 +12,7 @@ function OrderMoreButton({
   txtCol = "rgb(22, 124, 121)",
 }) {
   return (
-    <Box sx={{ width: "100%", margin: "auto" }}>
+    <Box sx={{  margin: "auto" }}>
       <Button
         variant="outlined"
         sx={{
