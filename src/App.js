@@ -15,6 +15,7 @@ import ThanksModal from './components/pages/thanksPage/ThanksModal';
 import PayConfirmationModalWeb from './components/pages/paymentConfirmation/PayConfirmationModalWeb';
 import ThanksModalWeb from './components/pages/thanksPage/ThanksModalWeb';
 import Profile from "./components/pages/profile/profileSetting";
+import YourProfile from './components/pages/yourProfile/YourProfile';
 function App() {
   return (
     <div className="App">
@@ -33,6 +34,7 @@ function App() {
       {/* <ThanksModal/> */}
       {/* <ThanksModalWeb/> */}
       {/* <Profile/> */}
+      {/* <YourProfile/> */}
     </div>
   );
 }
