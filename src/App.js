@@ -17,17 +17,18 @@ import Profile from "./components/pages/profile/profileSetting";
 import YourProfile from './components/pages/yourProfile/YourProfile';
 import PaymentMethod from './components/pages/paymentMethod/PaymentMethod';
 import OrderHistory from './components/pages/orderHistory/OrderHistory';
+import OrderStatus from './components/pages/orderStatus/OrderStatus';
+import OrderStatusWeb from './components/pages/orderStatus/OrderStatusWeb';
 function App() {
   return (
     <div className="App">
-      {/* <Home/> */}
+      {/* <Home/> */}  
       {/* <WelcomePage/> */}
       {/* <VerificationPage/> */}
       {/* <AddToMeal></AddToMeal> */}
       {/* <Categories></Categories> */}
       {/* <AddTocard/> */}
       {/* <MenuPage/> */}
-      {/* <NavBar /> */}
       {/* <AddToMealBoxWeb /> */}
       {/* <PaymentGateway></PaymentGateway> */}
       {/* <PayConfirmationModal/> */}
@@ -38,6 +39,7 @@ function App() {
       {/* <YourProfile/> */}
       {/* <PaymentMethod/> */}
       {/* <OrderHistory/> */}
+      <OrderStatus/>
       </div>
 
 )

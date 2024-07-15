@@ -333,7 +333,7 @@ const VerificationMobile = () => {
               paddingY: "0.75rem",
               paddingX: "4.1875rem",
               borderRadius: "21px",
-              backgroundColor: "#0992B0",
+              backgroundColor: 'rgba(9, 146, 176, 0.9)',
               marginTop: "8.62%",
               marginBottom: "8.77%",
               fontSize: "0.9375rem",
