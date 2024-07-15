@@ -9,21 +9,23 @@ import MenuMobile from "./components/pages/Menu/MenuPage";
 import MenuPage from "./components/pages/Menu/MenuPage";
 import NavBar from './components/common/NavBar/NavBar';
 import PaymentMethod from './components/pages/paymentMethod/PaymentMethod';
-import OrderHistory from './components/pages/orderHistory/OrderHistory';
+import OrderHistory from './components/pages/OrderHistory/OrderHistory';
+import OrderPlaced from './components/pages/OrderPlaced/OrderPlaced'
 
 
 function App() {
   return (
     <div className="App">
-     {/* <Home/> */}
-     {/* <WelcomePage/> */}
-     {/* <VerificationPage/> */}
-     {/* <AddToMeal></AddToMeal> */}
-     {/* <Categories></Categories> */}
-     {/* <PaymentMethod></PaymentMethod> */}
-     {/* <AddTocard/> */}
-     {/* <MenuPage/> */}
-     <OrderHistory></OrderHistory>
+      {/* <Home/> */}
+      {/* <WelcomePage/> */}
+      {/* <VerificationPage/> */}
+      {/* <AddToMeal></AddToMeal> */}
+      {/* <Categories></Categories> */}
+      {/* <PaymentMethod></PaymentMethod> */}
+      {/* <OrderHistory></OrderHistory> */}
+      {/* <OrderPlaced></OrderPlaced> */}
+      {/* <AddTocard/> */}
+      {/* <MenuPage/> */}
       {/* <NavBar/> */}
     </div>
   );

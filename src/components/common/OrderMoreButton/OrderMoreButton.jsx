@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 
-function OrderAgainButton({
+function OrderMoreButton({
   rad = "11px",
   h = "2.625rem",
   w = "10.625rem",
@@ -29,11 +29,11 @@ function OrderAgainButton({
             color: txtCol,
             textTransform: "capitalize",
           }}>
-          Order Again
+          Order More
         </Typography>
       </Button>
     </Box>
   );
 }
 
-export default OrderAgainButton;
+export default OrderMoreButton;
