@@ -19,6 +19,7 @@ import PaymentMethod from './components/pages/paymentMethod/PaymentMethod';
 import OrderHistory from './components/pages/orderHistory/OrderHistory';
 import OrderStatus from './components/pages/orderStatus/OrderStatus';
 import OrderStatusWeb from './components/pages/orderStatus/OrderStatusWeb';
+import FloatingButton from './components/pages/floatingButton/FloatingButton';
 function App() {
   return (
     <div className="App">
@@ -39,7 +40,8 @@ function App() {
       {/* <YourProfile/> */}
       {/* <PaymentMethod/> */}
       {/* <OrderHistory/> */}
-      <OrderStatus/>
+      {/* <OrderStatus/> */}
+      <FloatingButton/>
       </div>
 
 )
