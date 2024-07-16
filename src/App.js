@@ -35,10 +35,9 @@ function App() {
       {/* <Categories></Categories> */}
       {/* <AddTocard/> */}
       {/* <MenuPage/> */}
-      {/* <AddToMealBoxWeb /> */}
       {/* <PaymentGateway></PaymentGateway> */}
       {/* <PaymentMethod/> */}
-      {/* <OrderPlaced></OrderPlaced> */}
+      <OrderPlaced></OrderPlaced>
       {/* <PayConfirmationModal/> */}
       {/* <PayConfirmationModalWeb/> */}
       {/* <ThanksModal/> */}
@@ -48,7 +47,7 @@ function App() {
       {/* <PaymentMethod/> */}
       {/* <OrderHistory/> */}
       {/* <OrderStatus/> */}
-      {/* <FloatingButton/> */}
+      <FloatingButton/>
       {/* <LoaderSpecialToday></LoaderSpecialToday> */}
       {/* <LoaderBeverages></LoaderBeverages> */}
       {/* <LoaderDineIn></LoaderDineIn> */}
