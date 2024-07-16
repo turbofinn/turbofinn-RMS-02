@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Card, CardContent, CardMedia, Box } from "@mui/material";
-import vid1 from "../../../assets/Video/special.gif";
-import img2 from "../../../assets/Image/selectOne/cardImg/Beverages.svg";
+import vid1 from "../../../assets/GIF/special.gif";
+import img2 from "../../../assets/Image/selectOne/cardImg/Beverages.png";
 import img3 from "../../../assets/Image/selectOne/cardImg/dineIn.jpg";
 import img4 from "../../../assets/Image/TakeAway.png";
 import bg from "../../../assets/Image/selectOne/bg_food4.png";

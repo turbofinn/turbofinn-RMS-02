@@ -8,9 +8,9 @@ import img1 from "../../../assets/Image/meal/menuItems/dal-bati-churma.jpg";
 
 function OrderHistoryWeb() {
   const repeatedDish = [
-    { img: img1, name: "dal bati churma" },
-    { img: img1, name: "dal bati churma" },
-    { img: img1, name: "dal bati churma" },
+    { img: img1, name: "dal bati churma",vegornot:'vegetarian' },
+    { img: img1, name: "dal bati churma",vegornot:'vegetarian' },
+    { img: img1, name: "dal bati churma",vegornot:'vegetarian' },
   ];
   return (
     <Box sx={{ width: "100%" }}>
@@ -68,37 +68,67 @@ function OrderHistoryWeb() {
           </Box>
           <Box
             sx={{
-              width: "32.5%",
-              minHeight: "27rem",height:'fit',
+              width: "35%",
+              minHeight: "28rem",
+              height: "fit",
               boxShadow: "0 0 9.5px 0 rgba(0,0,0,0.25)",
               borderRadius: "15px",
               justifyContent: "center",
-              paddingBlock: "2.5rem",
-              paddingInline: "1.5rem",
             }}>
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: "2rem",
-                fontWeight: "700",
-                textAlign: "center",
-              }}>
-              Your Top Repeated Dish
-            </Typography>
-            <Typography
-              sx={{
-                textAlign: "end",
-                fontSize: "0.8rem",
-                fontWeight: "600",
-                marginTop: "1.5rem",
-              }}>
-              {"Check More >"}
-            </Typography>
-            <Box sx={{display:'flex',alignItems:'center',justifyContent:'center',flexWrap:'wrap',gap:'0.75rem',marginTop:'1.5rem'}}>
-              {repeatedDish.map((elem,i)=>(<Box>
-                <img src={elem.img} alt={elem.name} style={{borderRadius:'50%', height:'6.5rem',width:'6.5rem',objectFit:'cover'}}></img>
-                <Typography sx={{color:'rgba(82,82,82,1)',fontSize:'0.8rem',textTransform:'capitalize',marginTop:'0.5rem'}} >{elem.name}</Typography>
-              </Box>))}
+            <Box
+              sx={{ width: "90%", marginInline: "auto", marginBlock: "3rem" }}>
+              <Typography
+                variant="h1"
+                sx={{
+                  fontSize: "1.95rem",
+                  fontWeight: "700",
+                  textAlign: "center",
+                  width: { lg: "20rem" },
+                  marginInline: "auto",
+                }}>
+                Your Top Repeated Dish
+              </Typography>
+              <Typography
+                sx={{
+                  textAlign: "end",
+                  fontSize: "0.8rem",
+                  fontWeight: "600",
+                  marginTop: "1.5rem",
+                  width: "85%",
+                  marginInline: "auto",
+                }}>
+                {"Check More >"}
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-evenly",
+                  flexWrap: "wrap",
+                  marginTop: "1rem",
+                }}>
+                {repeatedDish.map((elem, i) => (
+                  <Box>
+                    <img
+                      src={elem.img}
+                      alt={elem.name}
+                      style={{
+                        borderRadius: "50%",
+                        height:'6rem',width:'6rem',
+                        objectFit: "cover",marginTop:'0.5rem'
+                      }}></img>
+                    <Typography
+                      sx={{
+                        color: "rgba(82,82,82,1)",
+                        fontSize: "0.75rem",
+                        textTransform: "capitalize",
+                        marginTop: "0.5rem",
+                      }}>
+                      {elem.name}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
             </Box>
           </Box>
         </Box>

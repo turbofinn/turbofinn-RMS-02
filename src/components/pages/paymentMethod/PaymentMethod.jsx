@@ -50,24 +50,24 @@ function PaymentMethod() {
     <Box sx={{ width: "100vw", minHeight: "100vh" }}>
       {aspect?<NavBar></NavBar>:null}
       
-      <SimpleHead title={"payment method"} functions={true} h={'5.5rem'} line={true}></SimpleHead>
+      <SimpleHead title={"payment method"} functions={true} h={'8.75rem'} line={true}></SimpleHead>
       <Box
-        sx={{
+        sx={{width:'90%',
           marginInline: { xs: "1.625rem", sm: "auto" },
           maxWidth: { xs: "34rem", md: "33%" },
-          marginTop: {xs:"5rem",md:'3rem'},
+          marginTop: {xs:"4rem",lg:'6rem'},
         }}>
         <Typography
           sx={{
             fontWeight: "700",
             fontSize: {xs:"0.875rem",md:'1.1rem'},
-            marginBottom: {xs:"1.75rem",md:'2rem'},
+            marginBottom: {xs:"1.75rem",md:'2rem',lg:'3.75rem'},
             lineHeight: "1.138rem",
             color: "#000",
           }}>
           Select Payment Method To Proceed
         </Typography>
-        <FormControl sx={{ width: "100%" }}>
+        <FormControl sx={{ width: "100%",marginInline:'auto' }}>
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
             defaultValue={"Google Pay"}
@@ -83,7 +83,7 @@ function PaymentMethod() {
                     border: "2px solid #469db1",
                     borderRadius: "10px",
                     marginBottom: "1rem",
-                    paddingInline: "1.5rem",
+                    paddingInline: "1.5rem",width:'100%',
                     height: { xs: "4.5rem", md: "4rem" },
                     "&:hover": {
                       border: "2.5px solid #1b92ea",
@@ -110,7 +110,7 @@ function PaymentMethod() {
           maxWidth: { xs: "24.75rem", md: "24.5%" },
           height: {xs:"3.75rem",md:'3.25rem'},
           marginInline: { xs: "1rem", sm: "auto" },
-          marginTop: {xs:"7.75rem",md:'1.5rem'},
+          marginTop: {xs:"7.75rem",md:'1.5    rem',lg:'2.25rem'},
           marginBottom: "0.5rem",
         }}>
         <Button

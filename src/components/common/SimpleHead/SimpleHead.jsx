@@ -35,9 +35,9 @@ function SimpleHead({
       <Box sx={{width:"100%",display:'flex',flexDirection:'column',alignItems:'center',} }>
         <Typography
           sx={{
-            fontSize: {xs:"1.5rem",md:'2.5rem'},
+            fontSize: {xs:"1.5rem",md:'2.25rem'},
             fontWeight: "600",
-            textTransform: "capitalize",textAlign:'center',marginTop:{md:'2.75rem'}
+            textTransform: "capitalize",textAlign:'center',marginTop:{md:'2.25rem'}
           }}>
           {title}
         </Typography>
@@ -48,7 +48,7 @@ function SimpleHead({
               background: "rgba(70, 157, 177, 1)",
               width: "140px",
               marginInline: "auto",
-              marginTop: "0.25rem",
+              marginTop: "0.65rem",
             }}></div>
         ) : null}
         {showSubtitle?<Typography

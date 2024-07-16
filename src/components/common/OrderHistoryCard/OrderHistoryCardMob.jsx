@@ -11,7 +11,7 @@ function OrderHistoryCard() {
     <Paper
       sx={{
         height: "15rem",
-        maxWidth: "90%",
+        width:'100%',
         marginTop: "1.75rem",
         background: "rgba(254, 254, 250,0.6)",
         marginInline: "auto",

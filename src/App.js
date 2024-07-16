@@ -17,13 +17,18 @@ import Profile from "./components/pages/profile/profileSetting";
 import YourProfile from './components/pages/yourProfile/YourProfile';
 import PaymentMethod from './components/pages/paymentMethod/PaymentMethod';
 import OrderHistory from './components/pages/orderHistory/OrderHistory';
+import OrderPlaced from './components/pages/OrderPlaced/OrderPlaced'
 import OrderStatus from './components/pages/orderStatus/OrderStatus';
 import OrderStatusWeb from './components/pages/orderStatus/OrderStatusWeb';
 import FloatingButton from './components/pages/floatingButton/FloatingButton';
+import LoaderSpecialToday from './components/pages/Loader/LoaderSpecialToday';
+import LoaderBeverages from './components/pages/Loader/LoaderBeverages';
+import LoaderDineIn from './components/pages/Loader/LoaderDineIn';
+import LoaderTakeAway from './components/pages/Loader/LoaderTakeAway';
 function App() {
   return (
     <div className="App">
-      {/* <Home/> */}  
+      {/* <Home/> */}
       {/* <WelcomePage/> */}
       {/* <VerificationPage/> */}
       {/* <AddToMeal></AddToMeal> */}
@@ -32,6 +37,8 @@ function App() {
       {/* <MenuPage/> */}
       {/* <AddToMealBoxWeb /> */}
       {/* <PaymentGateway></PaymentGateway> */}
+      {/* <PaymentMethod/> */}
+      {/* <OrderPlaced></OrderPlaced> */}
       {/* <PayConfirmationModal/> */}
       {/* <PayConfirmationModalWeb/> */}
       {/* <ThanksModal/> */}
@@ -41,10 +48,13 @@ function App() {
       {/* <PaymentMethod/> */}
       {/* <OrderHistory/> */}
       {/* <OrderStatus/> */}
-      <FloatingButton/>
-      </div>
-
-)
+      {/* <FloatingButton/> */}
+      {/* <LoaderSpecialToday></LoaderSpecialToday> */}
+      {/* <LoaderBeverages></LoaderBeverages> */}
+      {/* <LoaderDineIn></LoaderDineIn> */}
+      {/* <LoaderTakeAway></LoaderTakeAway> */}
+    </div>
+  );
 }
 
 export default App;
