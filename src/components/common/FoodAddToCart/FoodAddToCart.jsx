@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Card,
   CardMedia,
@@ -12,7 +13,6 @@ import {
 } from "@mui/material";
 import line2 from "../../../assets/Image/Line 5.png";
 import image from "../../../assets/Image/meal/dal-bati-churma.png";
-
 const menuItem = [
   { name: "Dal Bati Churma", image: image, isVegetarian: true },
   { name: "Dal Bati Churma", image: image, isVegetarian: true },
@@ -25,7 +25,7 @@ const menuItem = [
 export default function FoodAddToCart() {
   const theme = useTheme();
   const isWebView = useMediaQuery(theme.breakpoints.up("md"));
-
+  const Navigate = useNavigate();
   return (
     <Container maxWidth="lg" sx={{ px: isWebView ? 4 : 2 }}>
       <Grid
@@ -133,6 +133,10 @@ export default function FoodAddToCart() {
                         right: 0,
                         display: "flex",
                         justifyContent: "center",
+                        cursor:'pointer'
+                      }}
+                      onClick={()=>{
+                         Navigate("/productdetails")
                       }}
                     >
                       <Typography

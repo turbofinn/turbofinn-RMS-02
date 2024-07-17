@@ -16,8 +16,9 @@ import NavBar from '../../common/NavBar/NavBar'
 
 import meal from "../../../assets/Image/meal/dal-bati-churma.png";
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 function AddToMealWeb() {
+  const Navigate = useNavigate();
   const CustomTextField = styled(TextField)({
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
@@ -415,6 +416,9 @@ function AddToMealWeb() {
             height: { md: "2.75rem", xl: "4.5rem" },
             background: "#3eb9d4",
             borderRadius: "10px",
+          }}
+          onClick={()=>{
+            Navigate("/menu")
           }}>
           {
             <Typography

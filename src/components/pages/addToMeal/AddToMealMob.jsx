@@ -15,8 +15,10 @@ import meal from "../../../assets/Image/meal/dal-bati-churma.png";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import VegOrNon from "../../common/vegOrNon/VegOrNon";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function AddToMealWeb() {
+  const Navigate = useNavigate();
   const CustomTextField = styled(TextField)({
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
@@ -400,6 +402,9 @@ function AddToMealWeb() {
               height: "3.3rem",
               background: "rgb(62, 185, 212)",
               borderRadius: "10px",
+            }}
+            onClick={()=>{
+              Navigate("/menu")
             }}>
             {
               <Typography
