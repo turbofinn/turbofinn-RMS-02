@@ -25,6 +25,10 @@ import LoaderSpecialToday from './components/pages/Loader/LoaderSpecialToday';
 import LoaderBeverages from './components/pages/Loader/LoaderBeverages';
 import LoaderDineIn from './components/pages/Loader/LoaderDineIn';
 import LoaderTakeAway from './components/pages/Loader/LoaderTakeAway';
+
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import routes from "./routes.js";
 function App() {
   return (
     <div className="App">
@@ -37,7 +41,7 @@ function App() {
       {/* <MenuPage/> */}
       {/* <PaymentGateway></PaymentGateway> */}
       {/* <PaymentMethod/> */}
-      <OrderPlaced></OrderPlaced>
+      {/* <OrderPlaced></OrderPlaced> */}
       {/* <PayConfirmationModal/> */}
       {/* <PayConfirmationModalWeb/> */}
       {/* <ThanksModal/> */}
@@ -47,11 +51,23 @@ function App() {
       {/* <PaymentMethod/> */}
       {/* <OrderHistory/> */}
       {/* <OrderStatus/> */}
-      <FloatingButton/>
+      {/* <FloatingButton/> */}
       {/* <LoaderSpecialToday></LoaderSpecialToday> */}
       {/* <LoaderBeverages></LoaderBeverages> */}
       {/* <LoaderDineIn></LoaderDineIn> */}
       {/* <LoaderTakeAway></LoaderTakeAway> */}
+
+
+      <BrowserRouter>
+        <Routes>
+          {routes.map((data, index)=>{
+            return(
+              <Route path={data.path} element={data.component} />
+            )
+          })}
+         
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

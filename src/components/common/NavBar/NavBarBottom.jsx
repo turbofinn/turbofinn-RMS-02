@@ -10,8 +10,10 @@ import plate from "../../../assets/Image/Navbar/whats in plate.svg";
 import profilePhoto from "../../../assets/Image/Navbar/profile.png";
 import category from "../../../assets/Image/Navbar/category.png";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function NavBarBottom() {
+  const navigate = useNavigate();
   const [value, setValue] = useState(0);
   return (
     <>
@@ -42,6 +44,9 @@ export default function NavBarBottom() {
               style={{ width: 24, height: 24 }}
             />
           }
+          onClick={() => {
+            navigate('/menu');
+          }}
         />
         <BottomNavigationAction
           label="Category"
@@ -52,12 +57,18 @@ export default function NavBarBottom() {
               style={{ width: 24, height: 24 }}
             />
           }
+          onClick={() => {
+            navigate('/category');
+          }}
         />
         <BottomNavigationAction
           label="Plate"
           icon={
             <img src={plate} alt="Plate" style={{ width: 24, height: 24 }} />
           }
+          onClick={() => {
+            navigate('/menu');
+          }}
         />
         <BottomNavigationAction
           label="Profile"
@@ -68,6 +79,9 @@ export default function NavBarBottom() {
               style={{ width: 24, height: 24 }}
             />
           }
+          onClick={() => {
+            navigate('/profile');
+          }}
         />
       </BottomNavigation>
     </>

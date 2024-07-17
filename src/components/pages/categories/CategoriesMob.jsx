@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography, Card, CardContent, CardMedia, Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import vid1 from "../../../assets/GIF/special.gif"
 import img2 from '../../../assets/Image/selectOne/cardImg/Beverages.png'
 import img3 from "../../../assets/Image/selectOne/cardImg/dineIn.jpg";
@@ -7,6 +8,7 @@ import img4 from "../../../assets/Image/TakeAway.png";
 import bg from "../../../assets/Image/selectOne/bg_food4.png";
 
 function Categories2() {
+  const navigate = useNavigate();
   const categories1 = [
     {
       title: "Today's Special",
@@ -34,7 +36,7 @@ function Categories2() {
         minHeight: "100vh",
         width: "100%",
         backgroundColor: "#49c3de",
-        position:'relative'
+        position: 'relative'
       }}>
       <Box
         sx={{
@@ -91,6 +93,9 @@ function Categories2() {
           {categories1.map((elem, i) => {
             return (
               <Card
+                onClick={() => {
+                  navigate('/menu');
+                }}
                 sx={{
                   height: "11.5rem",
                   width: "10rem",
@@ -116,7 +121,7 @@ function Categories2() {
                       lineHeight: "10.4px",
                       color: "rgba(82,82,82,1)",
                       marginInlineStart: "1.3rem",
-                      marginBlockStart: "-4px", 
+                      marginBlockStart: "-4px",
                     }}>
                     {" "}
                     EXPLORE ALL
@@ -128,7 +133,7 @@ function Categories2() {
                       lineHeight: "19.5px",
                       marginBlockStart: "5px",
                       marginInlineStart: "1.2rem",
-                      color:'rgba(65,66,68,1)',
+                      color: 'rgba(65,66,68,1)',
                     }}>
                     {elem.title}
                   </Typography>
@@ -150,6 +155,9 @@ function Categories2() {
           {categories2.map((elem, i) => {
             return (
               <Card
+                onClick={() => {
+                  navigate('/menu');
+                }}
                 sx={{
                   height: "11.5rem",
                   width: "10rem",

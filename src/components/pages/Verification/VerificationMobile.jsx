@@ -11,6 +11,7 @@ import verification from "../../../assets/Image/phoneAuthentication.png";
 import backgroundfood from "../../../assets/Image/BackgroundFood.png";
 import { InputAdornment } from "@mui/material";
 import OtpInput from "react-otp-input";
+import { Link } from "react-router-dom";
 
 const styles = {
   textBox: {
@@ -327,24 +328,45 @@ const VerificationMobile = () => {
               </>
             )}
           </Box>
-          <Button
-            variant="contained"
-            sx={{
-              paddingY: "0.75rem",
-              paddingX: "4.1875rem",
-              borderRadius: "21px",
-              backgroundColor: 'rgba(9, 146, 176, 0.9)',
-              marginTop: "8.62%",
-              marginBottom: "8.77%",
-              fontSize: "0.9375rem",
-              fontWeight: 700,
-              textTransform: "none",
-              boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
-            }}
-            onClick={sentOtpClickHandler}
-          >
-            {isOtpSent ? "Verify" : " Send OTP"}
-          </Button>
+          {
+            isOtpSent ?
+              <Button
+                component={Link}
+                to='/category'
+                variant="contained"
+                sx={{
+                  paddingY: "0.75rem",
+                  paddingX: "4.1875rem",
+                  borderRadius: "21px",
+                  backgroundColor: 'rgba(9, 146, 176, 0.9)',
+                  marginTop: "8.62%",
+                  marginBottom: "8.77%",
+                  fontSize: "0.9375rem",
+                  fontWeight: 700,
+                  textTransform: "none",
+                  boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
+                }}
+              >
+                Verify
+              </Button>
+              : <Button
+                variant="contained"
+                sx={{
+                  paddingY: "0.75rem",
+                  paddingX: "4.1875rem",
+                  borderRadius: "21px",
+                  backgroundColor: 'rgba(9, 146, 176, 0.9)',
+                  marginTop: "8.62%",
+                  marginBottom: "8.77%",
+                  fontSize: "0.9375rem",
+                  fontWeight: 700,
+                  textTransform: "none",
+                  boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
+                }}
+                onClick={sentOtpClickHandler}
+              >
+                Send OTP
+              </Button>}
         </Box>
       </Box>
       <Typography
