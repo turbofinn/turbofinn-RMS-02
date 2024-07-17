@@ -37,7 +37,7 @@ function App() {
       {/* <MenuPage/> */}
       {/* <PaymentGateway></PaymentGateway> */}
       {/* <PaymentMethod/> */}
-      <OrderPlaced></OrderPlaced>
+      {/* <OrderPlaced></OrderPlaced> */}
       {/* <PayConfirmationModal/> */}
       {/* <PayConfirmationModalWeb/> */}
       {/* <ThanksModal/> */}
@@ -47,7 +47,7 @@ function App() {
       {/* <PaymentMethod/> */}
       {/* <OrderHistory/> */}
       {/* <OrderStatus/> */}
-      <FloatingButton/>
+      {/* <FloatingButton/> */}
       {/* <LoaderSpecialToday></LoaderSpecialToday> */}
       {/* <LoaderBeverages></LoaderBeverages> */}
       {/* <LoaderDineIn></LoaderDineIn> */}
