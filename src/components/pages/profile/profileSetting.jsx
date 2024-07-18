@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Typography,
@@ -24,12 +25,15 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import NavBar from "../../common/NavBar/NavBar.jsx";
 import NavBarBottom from "../../common/NavBar/NavBarBottom.jsx";
 import backgroundImage from "../../../assets/Image/profile/backgroundProfile.png";
-
+import ProfileEdit from "../yourProfile/YourProfile.jsx";
 const ProfileSettings = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const [edit, setEdit] = useState(false);
+  const Navigate = useNavigate();
   return (
     <>
+      {edit ? <ProfileEdit/> : <></>}
       {matches ? <NavBar /> : <></>}
       <Container
         maxWidth={false}
@@ -224,7 +228,7 @@ const ProfileSettings = () => {
             }}
           >
             <Grid item xs={12} lg={4}>
-              <ListItem button sx={{ width: "100%", marginLeft: { lg: -8 } }}>
+              <ListItem sx={{ width: "100%", marginLeft: { lg: -8 } }} onClick={(e)=>{setEdit(true)}}>
                 <ListItemIcon>
                   <IconButton
                     size="small"
@@ -250,7 +254,8 @@ const ProfileSettings = () => {
               </ListItem>
             </Grid>
             <Grid item xs={12} lg={4}>
-              <ListItem button sx={{ width: "100%", marginLeft: { lg: 10 } }}>
+              <ListItem sx={{ width: "100%", marginLeft: { lg: 10 } }}
+              onClick={()=>{Navigate('/history')}}>
                 <ListItemIcon>
                   <IconButton
                     size="small"

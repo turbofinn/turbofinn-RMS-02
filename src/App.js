@@ -1,3 +1,5 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import routes from "./routes.js";
 import "./App.css";
 import Home from "./components/pages/Home/Home";
 import WelcomePage from "./components/pages/welcomePage/WelcomePage";
@@ -26,34 +28,21 @@ import LoaderBeverages from "./components/pages/Loader/LoaderBeverages";
 import LoaderDineIn from "./components/pages/Loader/LoaderDineIn";
 import LoaderTakeAway from "./components/pages/Loader/LoaderTakeAway";
 import BillPage from "./components/pages/billingPage/BillingPage";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import routes from "./routes.js";
 function App() {
   return (
     <div className="App">
-      {/* <Home/> */}
-      {/* <WelcomePage/> */}
-      {/* <VerificationPage/> */}
-      {/* <AddToMeal></AddToMeal> */}
-      {/* <Categories></Categories> */}
-      {/* <AddTocard/> */}
-      {/* <MenuPage/> */}
-      {/* <PaymentGateway></PaymentGateway> */}
-      {/* <PaymentMethod/> */}
-      {/* <OrderPlaced></OrderPlaced> */}
-      {/* <PayConfirmationModal/> */}
-      {/* <PayConfirmationModalWeb/> */}
-      {/* <ThanksModal/> */}
-      {/* <ThanksModalWeb/> */}
-      {/* <Profile/> */}
-      {/* <YourProfile/> */}
-      {/* <PaymentMethod/> */}
-      {/* <OrderHistory/> */}
-      {/* <OrderStatus/> */}
-      {/* <FloatingButton/> */}
-      <BillPage />
-      {/* <LoaderSpecialToday></LoaderSpecialToday> */}
-      {/* <LoaderBeverages></LoaderBeverages> */}
-      {/* <LoaderDineIn></LoaderDineIn> */}
-      {/* <LoaderTakeAway></LoaderTakeAway> */}
+      <BrowserRouter>
+        <Routes>
+          {routes.map((data, index)=>{
+            return(
+              <Route path={data.path} element={data.component} />
+            )
+          })}
+         
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

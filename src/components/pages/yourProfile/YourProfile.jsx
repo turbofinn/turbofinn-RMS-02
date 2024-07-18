@@ -16,6 +16,7 @@ import profileImage from "../../../assets/Image/profileImage.png";
 import edit from "../../../assets/Image/Edit.png";
 import YourProfileWeb from "./YourProfileWeb";
 import { Edit } from "@mui/icons-material";
+import zIndex from "@mui/material/styles/zIndex";
 const style = {
     position: 'absolute',
     top: '50%',
@@ -34,6 +35,7 @@ const style = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
+    zIndex:9999,
 };
 const YourProfile = () => {
     const theme = useTheme();

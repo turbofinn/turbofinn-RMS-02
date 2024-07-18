@@ -12,14 +12,22 @@ function LoaderDineIn() {
     <LoaderWeb
       img={img}
       title={"Dine In"}
-      imgH="20%"
-      imgW="20%"></LoaderWeb>
+      imgH="20rem"
+      imgW="20rem"
+      imgBR="50%"
+      bgCol="rgba(225, 140, 66, 1)"
+      titleCol="rgba(255, 255, 255, 1)"
+      welcomeCol="rgba(0, 79, 96, 1)"></LoaderWeb>
   ) : (
     <LoaderMob
       img={img}
       title={"Dine In"}
-      imgH="55%"
-      imgW="55%"></LoaderMob>
+      imgH="fit"
+      imgW="100%"
+      space="4rem"
+      bgCol="rgba(225, 140, 66, 1)"
+      titleCol="rgba(255, 255, 255, 1)"
+      welcomeCol="rgba(0, 79, 96, 1)"></LoaderMob>
   );
 }
 

@@ -12,14 +12,14 @@ function LoaderSpecialToday() {
     <LoaderWeb
       img={img}
       title={"Today's Special"}
-      imgH="20%"
-      imgW="20%"></LoaderWeb>
+      imgH="20rem"
+      imgW="20rem" imgML='4%'></LoaderWeb>
   ) : (
     <LoaderMob
       img={img}
       title={"Today's Special"}
-      imgH="55%"
-      imgW="55%"></LoaderMob>
+      imgH="15rem"
+      imgW="15rem" imgML="15%" space='2rem'></LoaderMob>
   );
 }
 
