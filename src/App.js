@@ -16,7 +16,7 @@ import ThanksModalWeb from './components/pages/thanksPage/ThanksModalWeb';
 import Profile from "./components/pages/profile/profileSetting";
 import YourProfile from './components/pages/yourProfile/YourProfile';
 import PaymentMethod from './components/pages/paymentMethod/PaymentMethod';
-import OrderHistory from './components/pages/orderHistory/OrderHistory';
+import OrderHistory from './components/pages/OrderHistory/OrderHistory';
 import OrderPlaced from './components/pages/OrderPlaced/OrderPlaced'
 import OrderStatus from './components/pages/orderStatus/OrderStatus';
 import OrderStatusWeb from './components/pages/orderStatus/OrderStatusWeb';
@@ -32,7 +32,7 @@ function App() {
       {/* <WelcomePage/> */}
       {/* <VerificationPage/> */}
       {/* <AddToMeal></AddToMeal> */}
-      {/* <Categories></Categories> */}
+      <Categories></Categories>
       {/* <AddTocard/> */}
       {/* <MenuPage/> */}
       {/* <PaymentGateway></PaymentGateway> */}
@@ -52,6 +52,7 @@ function App() {
       {/* <LoaderBeverages></LoaderBeverages> */}
       {/* <LoaderDineIn></LoaderDineIn> */}
       {/* <LoaderTakeAway></LoaderTakeAway> */}
+      
     </div>
   );
 }

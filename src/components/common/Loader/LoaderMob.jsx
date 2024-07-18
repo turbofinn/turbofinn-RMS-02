@@ -6,6 +6,9 @@ function LoaderMob({
   bgCol = "rgba(255, 255, 255, 1)",
   img,
   title,
+  welcomeCol = "rgba(0, 98, 119, 1)",
+  titleCol = "rgba(0, 62, 76, 1)",space='2rem',
+  imgML,
   imgH,
   imgW,
   imgBR,
@@ -13,48 +16,72 @@ function LoaderMob({
   return (
     <Box
       sx={{
+        position: "relative",
+        minHeight: "100vh",
+        width: "100%",
+        background: bgCol,
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
         alignItems: "center",
-        marginTop: "3.5rem",
       }}>
-      <img src={logo} alt="logo" height="25rem"></img>
-      
       <img
-        src={img}
+        src={logo}
         style={{
-          height: imgH,
-          width: imgW,
-          borderRadius: imgBR,
-          marginTop: "10rem",
+          marginInline: "auto",
+          height: "1.85rem",
+          position: "absolute",
+          top: "8%",
         }}></img>
-      <Typography
+      <Box
         sx={{
-          fontSize: "1.35rem",
-          fontWeight: "700",
-          color: "rgba(0, 98, 119, 1)",
-          marginTop: "1.5rem",
+          position: "absolute",
+          bottom: "17%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}>
-        Welcome To Our
-      </Typography>
-      <Typography
-        sx={{
-          fontSize: "1.35rem",
-          fontWeight: "700",
-          color: "rgba(0, 62, 76, 1)",
-        }}>
-        {title} Menu
-      </Typography>
-      <Typography
-        sx={{
-          fontSize: "0.75rem",
-          fontWeight: "800",
-          letterSpacing: -0.2,
-          marginTop: "2rem",
-        }}>
-        Fetching today's delicious specials just for you!
-      </Typography>
+        <img
+          src={img}
+          alt={title}
+          style={{
+            height: imgH,
+            width: imgW,
+            marginLeft: imgML,borderRadius:imgBR,objectFit:'cover'
+          }}
+        />
+
+        <Typography
+          sx={{
+            fontWeight: "700",
+            fontSize: "1.25rem",
+            color: welcomeCol,
+            textAlign: "center",
+            marginTop: space,
+            letterSpacing: -0.2,
+          }}>
+          Welcome To Our
+        </Typography>
+        <Typography
+          sx={{
+            fontWeight: "700",
+            fontSize: "1.25rem",
+            color: titleCol,
+            textAlign: "center",
+            letterSpacing: -0.2,
+          }}>
+          {title} Menu
+        </Typography>
+        <Typography
+          sx={{
+            fontWeight: "800",
+            fontSize: "0.75rem",
+            color: "rgba(0,0,0,1)",
+            textAlign: "center",
+            marginTop: "2.5rem",
+          }}>
+          Fetching today's delicious specials just for you!
+        </Typography>
+      </Box>
     </Box>
   );
 }

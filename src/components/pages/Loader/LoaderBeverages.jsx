@@ -12,14 +12,14 @@ function LoaderBeverages() {
     <LoaderWeb
       img={img}
       title={"Beverages"}
-      imgH="20%"
-      imgW="20%"></LoaderWeb>
+      imgH="20rem"
+      imgW="30rem"></LoaderWeb>
   ) : (
     <LoaderMob
       img={img}
       title={"Beverages"}
-      imgH="55%"
-      imgW="55%"></LoaderMob>
+      imgH="100%"
+      imgW="87%" space='6.5rem'></LoaderMob>
   );
 }
 
