@@ -5,6 +5,7 @@ import welcomepage from "../../../assets/Image/welcomepage01.png";
 import Typography from '@mui/material/Typography';
 import { Container } from "@mui/material";
 import Grid from '@mui/material/Grid';
+import { Link } from "react-router-dom";
 const WelcomePage = () => {
     return (
         <Box
@@ -113,6 +114,8 @@ const WelcomePage = () => {
                             textAlign: 'center'
                         }}>
                             <Button
+                                component={Link}
+                                to='/login'
                                 sx={{
                                     textTransform: 'none',
                                     backgroundColor: '#469DB1',
@@ -258,6 +261,8 @@ const WelcomePage = () => {
                                     }}
                                 >
                                     <Button
+                                        component={Link}
+                                        to='/login'
                                         sx={{
                                             textTransform: 'none',
                                             backgroundColor: '#469DB1',
