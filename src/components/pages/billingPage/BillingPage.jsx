@@ -1,225 +1,484 @@
 import React from "react";
 import {
-  AppBar,
-  Toolbar,
   Typography,
   Button,
   Card,
   CardContent,
   Grid,
-  IconButton,
   Box,
   Container,
+  Paper,
 } from "@mui/material";
-import RestaurantMenuIcon from "@mui/icons-material/RestaurantMenu";
-import TwoWheelerIcon from "@mui/icons-material/TwoWheeler";
-import LocalBarIcon from "@mui/icons-material/LocalBar";
-import StarIcon from "@mui/icons-material/Star";
-import RestaurantIcon from "@mui/icons-material/Restaurant";
-import PersonIcon from "@mui/icons-material/Person";
-import RemoveIcon from "@mui/icons-material/Remove";
-import AddIcon from "@mui/icons-material/Add";
 import NavBar from "../../common/NavBar/NavBar";
 import NavBarBottom from "../../common/NavBar/NavBarBottom.jsx";
+import VegOrNon from "../../common/vegOrNon/VegOrNon.jsx";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import img1 from "../../../assets/Image/meal/menuItems/dal-bati-churma.jpg";
+
+const orderedDish = [
+  {
+    img: img1,
+    name: "dal bati churma",
+    vegornot: "vegetarian",
+    costPerServing: 70,
+    serving: "01",
+  },
+  {
+    img: img1,
+    name: "dal bati churma",
+    vegornot: "vegetarian",
+    costPerServing: 70,
+    serving: "02",
+  },
+  {
+    img: img1,
+    name: "dal bati churma",
+    vegornot: "vegetarian",
+    costPerServing: 70,
+    serving: "03",
+  },
+];
 
 const BillPage = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
+  const totalCost = orderedDish.reduce(
+    (acc, dish) => acc + dish.costPerServing * parseInt(dish.serving),
+    0
+  );
+
   return (
-    <>
-      <Container
-        maxWidth={false}
-        disableGutters
-        sx={{
-          backgroundColor: "white",
-          minHeight: "100vh",
-          padding: 0,
-          display: "flex",
-          flexDirection: "column",
-          overflowX: "hidden",
-        }}
-      >
-        {matches ? <NavBar /> : <></>}
-        <Box sx={{ p: 3 }}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={7.5}>
-              <Card
-                sx={{
-                  bgcolor: "#4dabf5",
-                  color: "white",
-                  mb: 2,
-                  maxWidth: "833px",
-                  padding: 2,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  "@media (max-width: 800px)": {
-                    width: "100%",
-                    height: "103px",
-                    top: "0px",
-                    borderRadius: "0px 0px 22px 22px",
-                    position: "relative",
-                    background:
-                      "linear-gradient(to right, rgba(83, 204, 231, 0.2), rgba(43, 168, 196, 0.2))",
-                  },
-                }}
-              >
-                <CardContent>
-                  <Typography variant="h6">Bill & Orders</Typography>
-                </CardContent>
-              </Card>
-              <Card sx={{ maxWidth: "833px" }}>
-                <CardContent>
-                  <Grid container alignItems="center">
-                    <Grid item xs={8}>
-                      <Typography variant="subtitle1" sx={{ color: "green" }}>
-                        VEGETARIAN
-                      </Typography>
-                      <Typography variant="h6">Dal Bati Churma</Typography>
-                      <Typography variant="body2">
-                        Cost Per Serving: ₹70
-                      </Typography>
-                    </Grid>
-                    <Grid item xs={4}>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "flex-end",
-                        }}
-                      >
-                        <IconButton size="small">
-                          <RemoveIcon />
-                        </IconButton>
-                        <Typography sx={{ mx: 1 }}>01</Typography>
-                        <IconButton size="small">
-                          <AddIcon />
-                        </IconButton>
-                      </Box>
-                      <Typography align="right">Total Cost: ₹70</Typography>
-                    </Grid>
-                  </Grid>
-                </CardContent>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={4.5}>
-              <Box
-                sx={{
-                  maxWidth: "485px",
-                  height: "364px",
-                  boxShadow: "0 0 9.5px 0 rgba(0,0,0,0.25)",
-                  borderRadius: "15px",
-                  justifyContent: "center",
-                  marginTop: "1rem",
-                }}
-              >
+    <Container
+      maxWidth={false}
+      disableGutters
+      sx={{
+        backgroundColor: "white",
+        minHeight: "100vh",
+        padding: 0,
+        display: "flex",
+        flexDirection: "column",
+        overflowX: "hidden",
+      }}
+    >
+      {matches && <NavBar />}
+      <Box sx={{ p: 4 }}>
+        <Grid container>
+          <Grid item xs={1} />
+          <Grid
+            item
+            xs={11}
+            md={6}
+            sx={{
+              marginRight: { xs: 0, md: 3 },
+              marginTop: "1rem",
+              paddingRight: { xs: 3, md: 2 },
+              paddingLeft: { xs: 3, md: 0 },
+            }}
+          >
+            <Card
+              sx={{
+                color: "white",
+                mb: 2,
+                maxWidth: "100%",
+                padding: 2,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
+                height: "auto",
+                minHeight: "103px",
+                borderRadius: "0px 0px 22px 22px",
+                position: "relative",
+                background: "linear-gradient(180deg, #53CCE7 0%, #2BA8C4 100%)",
+              }}
+            >
+              <CardContent sx={{ width: "100%", padding: "16px !important" }}>
                 <Box
                   sx={{
-                    width: "90%",
-                    marginInline: "auto",
-                    marginTop: "0.5rem",
-                    marginBlockEnd: "3.75rem",
-                    alignContent: "center",
-                    textAlign: "center",
+                    color: "white",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "100%",
+                  }}
+                >
+                  <Typography
+                    variant="h6"
+                    component="div"
+                    sx={{
+                      flexGrow: 1,
+                      textAlign: "center",
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: { xs: "25px", md: "32px" },
+                      fontWeight: { xs: 500, md: 600 },
+                      lineHeight: { xs: "22.5px", md: "normal" },
+                      color: "rgba(255, 255, 255, 1)",
+                      marginBottom: 2,
+                    }}
+                  >
+                    Bill & Orders
+                  </Typography>
+                  <div
+                    style={{
+                      height: "2px",
+                      background: "rgba(70, 157, 177, 1)",
+                      width: "100%",
+                      maxWidth: "377px",
+                      margin: "0 auto",
+                    }}
+                  />
+                </Box>
+              </CardContent>
+            </Card>
+            <Box sx={{ display: "flex", justifyContent: "center" }}>
+              <Grid container justifyContent="center">
+                <Grid item xs={12} md={12}>
+                  {orderedDish.map((elem, i) => (
+                    <Paper
+                      key={i}
+                      sx={{
+                        width: "100%",
+                        height: "9.5rem",
+                        marginBottom: "2rem",
+                        borderRadius: "15px",
+                      }}
+                    >
+                      <Paper
+                        sx={{
+                          height: "68%",
+                          width: "100%",
+                          borderRadius: "15px",
+                          paddingInline: "2.25rem",
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            paddingBlock: "0.6rem",
+                            gap: "0.5rem",
+                            position: "relative",
+                          }}
+                        >
+                          <Box
+                            sx={{
+                              position: "absolute",
+                              right: 0,
+                              top: "0.6rem",
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "flex-end",
+                            }}
+                          >
+                            <Button
+                              sx={{
+                                color: "rgba(233, 81, 96, 1)",
+                                fontSize: "12px",
+                                fontWeight: "500",
+                                textTransform: "none",
+                                padding: "0",
+                                minWidth: "0",
+                                marginBottom: "0.5rem",
+                              }}
+                            >
+                              Remove
+                            </Button>
+                            <Box
+                              sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "flex-end",
+                                width: "10rem",
+                              }}
+                            >
+                              <Typography
+                                sx={{
+                                  color: "rgba(82,82,82,1)",
+                                  fontWeight: "300",
+                                  fontSize: "0.875rem",
+                                }}
+                                noWrap
+                              >
+                                Serving :
+                              </Typography>
+                              <Box
+                                sx={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "space-between",
+                                  border: "1px solid rgba(0,0,0,0.48)",
+                                  borderRadius: "66px",
+                                  width: "4.75rem",
+                                  paddingInline: "0.5rem",
+                                  marginLeft: "0.5rem",
+                                }}
+                              >
+                                <Typography
+                                  sx={{
+                                    fontSize: "1rem",
+                                    fontWeight: "600",
+                                    color: "rgba(69, 192, 219, 1)",
+                                    textAlign: "center",
+                                    lineHeight: "20.5px",
+                                  }}
+                                >
+                                  -
+                                </Typography>
+                                <Typography
+                                  sx={{
+                                    textAlign: "center",
+                                    fontSize: "1rem",
+                                    fontWeight: "500",
+                                    color: "rgba(0, 0, 0, 0.67)",
+                                    lineHeight: "20.5px",
+                                  }}
+                                >
+                                  {elem.serving}
+                                </Typography>
+                                <Typography
+                                  sx={{
+                                    fontSize: "1rem",
+                                    fontWeight: "600",
+                                    color: "rgba(69, 192, 219, 1)",
+                                    textAlign: "center",
+                                    lineHeight: "20.5px",
+                                  }}
+                                >
+                                  +
+                                </Typography>
+                              </Box>
+                            </Box>
+                          </Box>
+                          <Box sx={{ display: "flex", gap: "1rem" }}>
+                            <img
+                              src={elem.img}
+                              alt={elem.name}
+                              style={{
+                                height: "5.5rem",
+                                width: "5.5rem",
+                                borderRadius: "50%",
+                              }}
+                            />
+                            <Box>
+                              <VegOrNon
+                                txtSize="0.8rem"
+                                txtValue={elem.vegornot}
+                                txtCol="#525252"
+                                txtWeight={600}
+                                space="0.25rem"
+                              />
+                              <Typography
+                                sx={{
+                                  textTransform: "capitalize",
+                                  fontSize: "1.5rem",
+                                  fontWeight: "600",
+                                }}
+                              >
+                                {elem.name}
+                              </Typography>
+                              <Typography
+                                sx={{
+                                  fontWeight: "300",
+                                  fontSize: "0.875rem",
+                                  lineHeight: "18.2px",
+                                }}
+                              >
+                                Cost Per Serving : ₹ {elem.costPerServing}
+                              </Typography>
+                            </Box>
+                          </Box>
+                        </Box>
+                        <Box
+                          sx={{
+                            width: "100%",
+                            height: "32%",
+                            position: "relative",
+                          }}
+                        >
+                          <Box
+                            sx={{
+                              position: "absolute",
+                              right: 0,
+                              top: "50%",
+                              transform: "translateY(-50%)",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "flex-end",
+                              gap: "2.5rem",
+                            }}
+                          ></Box>
+                        </Box>
+                      </Paper>
+                      <Box
+                        sx={{
+                          width: "100%",
+                          height: "32%",
+                          position: "relative",
+                        }}
+                      >
+                        <Box
+                          sx={{
+                            position: "absolute",
+                            right: 55,
+                            top: "50%",
+                            transform: "translateY(-50%)",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "flex-end",
+                            gap: "2.5rem",
+                          }}
+                        >
+                          <Box
+                            sx={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "flex-end",
+                              width: "8.5rem",
+                            }}
+                          >
+                            <Typography
+                              sx={{
+                                fontSize: "0.875rem",
+                                fontWeight: "400",
+                                color: "rgba(82,82,82,1)",
+                                marginRight: "0.5rem",
+                              }}
+                              noWrap
+                            >
+                              Total Cost :
+                            </Typography>
+                            <Typography
+                              sx={{ fontSize: "0.95rem", fontWeight: "500" }}
+                              noWrap
+                            >
+                              ₹ {elem.costPerServing * parseInt(elem.serving)}
+                            </Typography>
+                          </Box>
+                        </Box>
+                      </Box>
+                    </Paper>
+                  ))}
+                </Grid>
+              </Grid>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Box
+              sx={{
+                maxWidth: "485px",
+                height: "364px",
+                boxShadow: "0 0 9.5px 0 rgba(0,0,0,0.25)",
+                borderRadius: "15px",
+                justifyContent: "center",
+                marginTop: "1rem",
+              }}
+            >
+              <Box
+                sx={{
+                  width: "90%",
+                  marginInline: "auto",
+                  marginTop: "0.5rem",
+                  marginBlockEnd: "3.75rem",
+                  alignContent: "center",
+                  textAlign: "center",
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: { xs: "2rem", md: "2.5rem" },
+                    fontWeight: "600",
+                    color: "rgba(0, 0, 0, 1)",
+                    marginTop: "2rem",
+                  }}
+                >
+                  Grand Total
+                </Typography>
+                <div
+                  style={{
+                    height: "1px",
+                    background: "#000",
+                    width: "377px",
+                    margin: "0 auto 1rem auto",
+                    justifyContent: "center",
+                  }}
+                />
+                <Box
+                  sx={{
+                    display: "flex",
+                    width: "100%",
+                    justifyContent: "center",
+                    alignItems: "end",
+                    gap: "1rem",
+                    marginBottom: "0rem",
                   }}
                 >
                   <Typography
                     sx={{
-                      fontSize: { xs: "2rem", md: "2.5rem" },
+                      fontSize: { xs: "1.75rem", md: "2.25rem" },
                       fontWeight: "600",
-                      color: "rgba(0, 0, 0, 1)",
-                      marginTop: "2rem",
+                      height: "5.5rem",
                     }}
                   >
-                    Grand Total
+                    ₹
                   </Typography>
-                  <div
-                    style={{
-                      height: "1px",
-                      background: "#000",
-                      width: "377px",
-                      margin: "0 auto 1rem auto",
-                      justifyContent: "center",
-                    }}
-                  ></div>
-
-                  <Box
+                  <Typography
                     sx={{
-                      display: "flex",
-                      width: "100%",
-                      justifyContent: "center",
-                      alignItems: "end",
-                      gap: "1rem",
-                      marginBottom: "0rem",
+                      background:
+                        "linear-gradient(270deg, #EE0979 0%, #F42C4E 54.5%, #FF6A00 92%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      fontWeight: "500",
+                      fontSize: { xs: "5rem", md: "6rem" },
                     }}
                   >
-                    <Typography
-                      sx={{
-                        fontSize: { xs: "1.75rem", md: "2.25rem" },
-                        fontWeight: "600",
-                        height: "5.5rem",
-                      }}
-                    >
-                      ₹
-                    </Typography>
-                    <Typography
-                      sx={{
-                        background:
-                          "linear-gradient(270deg, #EE0979 0%, #F42C4E 54.5%, #FF6A00 92%)",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                        fontWeight: "500",
-                        fontSize: { xs: "5rem", md: "6rem" },
-                      }}
-                    >
-                      700
-                    </Typography>
-                  </Box>
-                  <Box
+                    {totalCost}
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{ marginX: "1.5rem" }}
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    marginTop: "1rem",
+                  }}
+                >
+                  <Button
                     style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      marginTop: "1rem",
+                      width: "48%",
+                      border: "1px solid rgba(70, 157, 177, 1)",
+                      textTransform: "capitalize",
+                      fontSize: "1rem",
+                      color: "rgba(70, 157, 177, 1)",
+                      borderRadius: "0.5rem",
                     }}
                   >
-                    <Button
-                      style={{
-                        width: "48%",
-                        border: "1px solid rgba(70, 157, 177, 1)",
-                        textTransform: "capitalize",
-                        fontSize: "1rem",
-                        color: "rgba(70, 157, 177, 1)",
-                        borderRadius: "0.5rem",
-                      }}
-                    >
-                      Pay Later
-                    </Button>
-                    <Button
-                      variant="contained"
-                      style={{
-                        width: "48%",
-                        backgroundColor: "rgba(70, 157, 177, 1)",
-                        color: "white",
-                        fontSize: "20px",
-                        textTransform: "capitalize",
-                        height: "3.5rem",
-                        borderRadius: "0.5rem",
-                      }}
-                    >
-                      Pay Now
-                    </Button>
-                  </Box>
+                    Pay Later
+                  </Button>
+                  <Button
+                    variant="contained"
+                    style={{
+                      width: "48%",
+                      backgroundColor: "rgba(70, 157, 177, 1)",
+                      color: "white",
+                      fontSize: "20px",
+                      textTransform: "capitalize",
+                      height: "3.5rem",
+                      borderRadius: "0.5rem",
+                    }}
+                  >
+                    Pay Now
+                  </Button>
                 </Box>
               </Box>
-            </Grid>
+            </Box>
           </Grid>
-        </Box>
-      </Container>
-      {matches ? <></> : <NavBarBottom />}
-    </>
+        </Grid>
+      </Box>
+      {!matches && <NavBarBottom />}
+    </Container>
   );
 };
 
