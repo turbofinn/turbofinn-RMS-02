@@ -15,6 +15,7 @@ import VegOrNon from "../../common/vegOrNon/VegOrNon.jsx";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import img1 from "../../../assets/Image/meal/menuItems/dal-bati-churma.jpg";
+import { ArrowBackIos, Cancel, Close } from "@mui/icons-material";
 
 const orderedDish = [
   {
@@ -63,18 +64,18 @@ const BillPage = () => {
       }}
     >
       {matches && <NavBar />}
-      <Box sx={{ p: 4 }}>
+      <Box sx={{ p: { xs: 0, md: 4 } }}>
         <Grid container>
           <Grid item xs={1} />
           <Grid
             item
-            xs={11}
+            xs={12}
             md={6}
             sx={{
               marginRight: { xs: 0, md: 3 },
-              marginTop: "1rem",
-              paddingRight: { xs: 3, md: 2 },
-              paddingLeft: { xs: 3, md: 0 },
+              marginTop: { xs: 0, md: "1rem" },
+              paddingRight: { xs: 0, md: 2 },
+              paddingLeft: { xs: 0, md: 0 },
             }}
           >
             <Card
@@ -99,12 +100,14 @@ const BillPage = () => {
                   sx={{
                     color: "white",
                     display: "flex",
-                    flexDirection: "column",
+                    flexDirection: "row",
                     alignItems: "center",
-                    justifyContent: "center",
+                    justifyContent: "space-between",
                     width: "100%",
+                    padding: "0 1rem",
                   }}
                 >
+                  {!matches && <ArrowBackIos sx={{ marginLeft: -3.5 }} />}
                   <Typography
                     variant="h6"
                     component="div"
@@ -116,24 +119,32 @@ const BillPage = () => {
                       fontWeight: { xs: 500, md: 600 },
                       lineHeight: { xs: "22.5px", md: "normal" },
                       color: "rgba(255, 255, 255, 1)",
-                      marginBottom: 2,
                     }}
                   >
                     Bill & Orders
+                    <div
+                      style={{
+                        height: "2px",
+                        background: "rgba(70, 157, 177, 1)",
+                        width: !matches ? "130px" : "100%",
+                        maxWidth: !matches ? "239px" : "377px",
+                        margin: "0 auto",
+                        marginTop: 5,
+                      }}
+                    />
                   </Typography>
-                  <div
-                    style={{
-                      height: "2px",
-                      background: "rgba(70, 157, 177, 1)",
-                      width: "100%",
-                      maxWidth: "377px",
-                      margin: "0 auto",
-                    }}
-                  />
+                  {!matches && <Cancel sx={{ marginRight: -3.5 }} />}
                 </Box>
               </CardContent>
             </Card>
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                marginX: 2.5,
+                marginTop: { xs: 3.5, md: 0 },
+              }}
+            >
               <Grid container justifyContent="center">
                 <Grid item xs={12} md={12}>
                   {orderedDish.map((elem, i) => (
@@ -142,7 +153,7 @@ const BillPage = () => {
                       sx={{
                         width: "100%",
                         height: "9.5rem",
-                        marginBottom: "2rem",
+                        marginBottom: { xs: "1rem", md: "2rem" },
                         borderRadius: "15px",
                       }}
                     >
@@ -176,12 +187,13 @@ const BillPage = () => {
                             <Button
                               sx={{
                                 color: "rgba(233, 81, 96, 1)",
-                                fontSize: "12px",
+                                fontSize: { xs: "10px", md: "12px" },
                                 fontWeight: "500",
                                 textTransform: "none",
                                 padding: "0",
                                 minWidth: "0",
                                 marginBottom: "0.5rem",
+                                marginRight: { xs: -2, md: 0 },
                               }}
                             >
                               Remove
@@ -192,17 +204,18 @@ const BillPage = () => {
                                 alignItems: "center",
                                 justifyContent: "flex-end",
                                 width: "10rem",
+                                marginRight: { xs: -2, md: 0 },
                               }}
                             >
                               <Typography
                                 sx={{
                                   color: "rgba(82,82,82,1)",
                                   fontWeight: "300",
-                                  fontSize: "0.875rem",
+                                  fontSize: { xs: "0.4rem", md: "0.9rem" },
                                 }}
                                 noWrap
                               >
-                                Serving :
+                                {matches ? "Serving :" : ""}
                               </Typography>
                               <Box
                                 sx={{
@@ -211,7 +224,7 @@ const BillPage = () => {
                                   justifyContent: "space-between",
                                   border: "1px solid rgba(0,0,0,0.48)",
                                   borderRadius: "66px",
-                                  width: "4.75rem",
+                                  width: { xs: "4rem", md: "4.75rem" },
                                   paddingInline: "0.5rem",
                                   marginLeft: "0.5rem",
                                 }}
@@ -230,7 +243,7 @@ const BillPage = () => {
                                 <Typography
                                   sx={{
                                     textAlign: "center",
-                                    fontSize: "1rem",
+                                    fontSize: { xs: "0.8rem", md: "1rem" },
                                     fontWeight: "500",
                                     color: "rgba(0, 0, 0, 0.67)",
                                     lineHeight: "20.5px",
@@ -257,14 +270,16 @@ const BillPage = () => {
                               src={elem.img}
                               alt={elem.name}
                               style={{
-                                height: "5.5rem",
-                                width: "5.5rem",
-                                borderRadius: "50%",
+                                height: !matches ? "87px" : "5.5rem",
+                                width: !matches ? "60px" : "5.5rem",
+                                borderRadius: !matches ? "35px" : "50%",
+                                marginLeft: !matches ? "-23px" : 0,
+                                objectFit: "cover",
                               }}
                             />
                             <Box>
                               <VegOrNon
-                                txtSize="0.8rem"
+                                txtSize={matches ? "0.8rem" : "0.5rem"}
                                 txtValue={elem.vegornot}
                                 txtCol="#525252"
                                 txtWeight={600}
@@ -273,7 +288,7 @@ const BillPage = () => {
                               <Typography
                                 sx={{
                                   textTransform: "capitalize",
-                                  fontSize: "1.5rem",
+                                  fontSize: { xs: "1rem", md: "1.5rem" },
                                   fontWeight: "600",
                                 }}
                               >
@@ -282,8 +297,9 @@ const BillPage = () => {
                               <Typography
                                 sx={{
                                   fontWeight: "300",
-                                  fontSize: "0.875rem",
+                                  fontSize: { xs: "0.7rem", md: "0.9rem" },
                                   lineHeight: "18.2px",
+                                  marginTop: { xs: "1.5rem", md: 0 },
                                 }}
                               >
                                 Cost Per Serving : ₹ {elem.costPerServing}
@@ -374,6 +390,8 @@ const BillPage = () => {
                 borderRadius: "15px",
                 justifyContent: "center",
                 marginTop: "1rem",
+                marginX: "1.5rem",
+                marginBottom: "5rem",
               }}
             >
               <Box
@@ -400,7 +418,7 @@ const BillPage = () => {
                   style={{
                     height: "1px",
                     background: "#000",
-                    width: "377px",
+                    width: matches ? "377px" : "170px",
                     margin: "0 auto 1rem auto",
                     justifyContent: "center",
                   }}
