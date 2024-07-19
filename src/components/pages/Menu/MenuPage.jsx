@@ -10,18 +10,18 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import NavBar from "../../common/NavBar/NavBar.jsx";
 import LoaderSpecialToday from "../Loader/LoaderSpecialToday.jsx";
+import ViewPlate from "../../common/viewPlate/viewPlate.jsx";
+
 function MenuPage() {
   const [loader, setLoader] = useState(true);
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
-  useEffect(()=>{
-     setTimeout(()=>{
-        setLoader(false);
-     },3000)
-  },[])
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(false);
+    }, 3000);
+  }, []);
   return (
-
-
     <>
       {loader ? (
         <LoaderSpecialToday />
@@ -41,11 +41,11 @@ function MenuPage() {
           <WhatsInYourMind />
           <CourseMealStage />
           <MenuItems />
+          <ViewPlate/>
           {matches ? null : <NavBarBottom />}
         </Box>
       )}
     </>
-
   );
 }
 
