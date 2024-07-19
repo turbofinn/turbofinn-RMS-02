@@ -9,6 +9,7 @@ import AddTocard from "./components/pages/addToCard/AddToCard.jsx";
 import PaymentMethod from "./components/pages/paymentMethod/PaymentMethod.jsx";
 import OrderStatus from "./components/pages/orderStatus/OrderStatus.jsx";
 import BillPage from "./components/pages/billingPage/BillingPage.jsx";
+import FeedbackPage from "./components/pages/feedback/feedback.jsx";
 const routes = [
   {
     name: "welcome",
@@ -64,6 +65,11 @@ const routes = [
     name: "Billing Page",
     path: "/billingpage",
     component: <BillPage />,
+  },
+  {
+    name: "Feedback Page",
+    path: "/feedbackpage",
+    component: <FeedbackPage />,
   },
 ];
 

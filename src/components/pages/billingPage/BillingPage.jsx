@@ -418,7 +418,7 @@ const BillPage = () => {
                   style={{
                     height: "1px",
                     background: "#000",
-                    width: matches ? "377px" : "170px",
+                    width: matches ? "277px" : "170px",
                     margin: "0 auto 1rem auto",
                     justifyContent: "center",
                   }}
