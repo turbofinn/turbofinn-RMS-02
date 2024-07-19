@@ -204,8 +204,6 @@ const VerificationMobile = () => {
               variant="standard"
               InputProps={{
                 maxLength: 10,
-                inputMode: "numeric",
-                pattern: "[0-9]*",
                 startAdornment: (
                   <InputAdornment position="start" sx={{ textAlign: "center" }}>
                     {" "}
@@ -213,6 +211,10 @@ const VerificationMobile = () => {
                   </InputAdornment>
                 ),
                 disableUnderline: true,
+              }}
+              inputProps={{
+                inputMode: "numeric",
+                pattern: "[0-9]*",
               }}
               // placeholder=" 9452222225"
               sx={{
@@ -265,8 +267,6 @@ const VerificationMobile = () => {
                   event.preventDefault();
                 }
               }}
-              inputMode="numeric"
-              pattern="\d*"
             />
           )}
 
@@ -328,45 +328,46 @@ const VerificationMobile = () => {
               </>
             )}
           </Box>
-          {
-            isOtpSent ?
-              <Button
-                component={Link}
-                to='/category'
-                variant="contained"
-                sx={{
-                  paddingY: "0.75rem",
-                  paddingX: "4.1875rem",
-                  borderRadius: "21px",
-                  backgroundColor: 'rgba(9, 146, 176, 0.9)',
-                  marginTop: "8.62%",
-                  marginBottom: "8.77%",
-                  fontSize: "0.9375rem",
-                  fontWeight: 700,
-                  textTransform: "none",
-                  boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
-                }}
-              >
-                Verify
-              </Button>
-              : <Button
-                variant="contained"
-                sx={{
-                  paddingY: "0.75rem",
-                  paddingX: "4.1875rem",
-                  borderRadius: "21px",
-                  backgroundColor: 'rgba(9, 146, 176, 0.9)',
-                  marginTop: "8.62%",
-                  marginBottom: "8.77%",
-                  fontSize: "0.9375rem",
-                  fontWeight: 700,
-                  textTransform: "none",
-                  boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
-                }}
-                onClick={sentOtpClickHandler}
-              >
-                Send OTP
-              </Button>}
+          {isOtpSent ? (
+            <Button
+              component={Link}
+              to="/category"
+              variant="contained"
+              sx={{
+                paddingY: "0.75rem",
+                paddingX: "4.1875rem",
+                borderRadius: "21px",
+                backgroundColor: "rgba(9, 146, 176, 0.9)",
+                marginTop: "8.62%",
+                marginBottom: "8.77%",
+                fontSize: "0.9375rem",
+                fontWeight: 700,
+                textTransform: "none",
+                boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
+              }}
+            >
+              Verify
+            </Button>
+          ) : (
+            <Button
+              variant="contained"
+              sx={{
+                paddingY: "0.75rem",
+                paddingX: "4.1875rem",
+                borderRadius: "21px",
+                backgroundColor: "rgba(9, 146, 176, 0.9)",
+                marginTop: "8.62%",
+                marginBottom: "8.77%",
+                fontSize: "0.9375rem",
+                fontWeight: 700,
+                textTransform: "none",
+                boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
+              }}
+              onClick={sentOtpClickHandler}
+            >
+              Send OTP
+            </Button>
+          )}
         </Box>
       </Box>
       <Typography

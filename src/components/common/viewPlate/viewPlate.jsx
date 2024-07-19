@@ -42,7 +42,7 @@ const ViewPlate = () => {
           color: "rgba(35, 102, 66, 1)",
           marginRight: "-1rem",
           paddingY: "0.7rem",
-          borderRadius: "0px 100px 100px 1000px",
+          borderRadius: "0px 100px 100px 200px",
           boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.25)",
         }}
       >
