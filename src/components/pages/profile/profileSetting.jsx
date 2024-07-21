@@ -33,7 +33,7 @@ const ProfileSettings = () => {
   const Navigate = useNavigate();
   return (
     <>
-      {edit ? <ProfileEdit /> : <></>}
+      {edit ? <ProfileEdit setEdit={setEdit} /> : <></>}
       {matches ? <NavBar /> : <></>}
       <Container
         maxWidth={false}

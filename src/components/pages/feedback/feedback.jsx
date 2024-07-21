@@ -11,6 +11,7 @@ import {
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import SentimentNeutralIcon from "@mui/icons-material/SentimentNeutral";
+import thankYou from '../../../assets/Image/ThankYou.png'
 
 const FeedbackPage = () => {
   const [step, setStep] = useState(1);
@@ -130,30 +131,34 @@ const FeedbackPage = () => {
               justifyContent: "center",
               height: "100%",
               textAlign: "center",
-              padding: 3,
+              padding: 2,
             }}
           >
-            <Typography variant="h4" sx={{ marginBottom: 2 }}>
+            <Typography
+              variant="h4"
+              sx={{ marginBottom: 2, fontWeight: 600, fontSize: "24px" }}
+            >
               Feedback
             </Typography>
+           <Box>
+            <img
+            src={thankYou}
+            />
+           </Box>
             <Typography
-              variant="h2"
-              sx={{
-                color: "#4a90e2",
-                fontStyle: "italic",
-                marginBottom: 2,
-              }}
+            //   variant="h5"
+              sx={{ marginBottom: 1, fontWeight: 700, fontSize: "32px" }}
             >
-              Thank You!
+              Thanks Alot <br></br> For Your Feedback
             </Typography>
-            <Typography variant="h5" sx={{ marginBottom: 1 }}>
-              Thanks Alot For Your Feedback
-            </Typography>
-            <Typography variant="h6" sx={{ marginBottom: 2 }}>
+            <Typography
+              variant="h6"
+              sx={{ marginBottom: 2, fontWeight: 700, fontSize: "32px" }}
+            >
               It Means Alot
             </Typography>
             <Typography variant="body2">
-              With in {countdown} Sec you will be redirect to main page.
+              With in {countdown} Sec <br></br> you will be redirect to main page.
             </Typography>
             <Box sx={{ marginTop: "auto", marginBottom: 2 }}>
               <Typography
@@ -162,7 +167,7 @@ const FeedbackPage = () => {
               >
                 LOGO
               </Typography>
-              <Typography variant="caption">An Turbofinn AI Product</Typography>
+              <Typography variant="caption">A Turbofinn AI Product</Typography>
             </Box>
           </Box>
         );
@@ -185,8 +190,8 @@ const FeedbackPage = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                minHeight: "100vh",
-                backgroundColor: "#f0f0f0",
+                // minHeight: "100vh",
+                // backgroundColor: "#f0f0f0",
               }}
             >
               <Box
@@ -233,7 +238,13 @@ const FeedbackPage = () => {
           <>
             <Typography
               variant="h5"
-              sx={{ textAlign: "center", marginBottom: 1 }}
+              sx={{
+                textAlign: "center",
+                marginBottom: 1,
+                fontWeight: 600,
+                fontSize: "24px",
+                color: "rgba(255, 255, 255, 1)",
+              }}
             >
               Feedback
             </Typography>

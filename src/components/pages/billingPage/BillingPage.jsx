@@ -16,7 +16,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import img1 from "../../../assets/Image/meal/menuItems/dal-bati-churma.jpg";
 import { ArrowBackIos, Cancel, Close } from "@mui/icons-material";
-
+import { useNavigate } from "react-router-dom";
 const orderedDish = [
   {
     img: img1,
@@ -42,6 +42,7 @@ const orderedDish = [
 ];
 
 const BillPage = () => {
+  const Navigate = useNavigate()
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
@@ -472,6 +473,9 @@ const BillPage = () => {
                       color: "rgba(70, 157, 177, 1)",
                       borderRadius: "0.5rem",
                     }}
+                    onClick={()=>{
+                      Navigate("/menu");
+                    }}
                   >
                     Pay Later
                   </Button>
@@ -485,6 +489,9 @@ const BillPage = () => {
                       textTransform: "capitalize",
                       height: "3.5rem",
                       borderRadius: "0.5rem",
+                    }}
+                    onClick={()=>{
+                      Navigate("/paymentmethod");
                     }}
                   >
                     Pay Now

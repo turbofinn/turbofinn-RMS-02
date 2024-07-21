@@ -16,6 +16,7 @@ import tick from "../../../assets/Image/tick.png";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import PayConfirmationModalWeb from "./PayConfirmationModalWeb";
+import zIndex from "@mui/material/styles/zIndex";
 const style = {
     position: 'absolute',
     top: '50%',
@@ -34,7 +35,8 @@ const style = {
     border: '2px solid #dddd',
     display:'flex',
     flexDirection:'column',
-    justifyContent:'space-between'
+    justifyContent:'space-between',
+    zIndex:9999
 };
 
 const PayConfirmationModal = () => {
@@ -94,12 +96,12 @@ const PayConfirmationModal = () => {
 
                         <Typography style={{ color: 'black', fontWeight: 700, textAlign: 'center', fontSize: '1rem', marginTop: '1.5rem' }}>Your Meal Will Served In Some Time</Typography>
 
-                        <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1.5rem' }}>
+                        {/* <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1.5rem' }}>
                             <Button variant="contained" color="primary" style={{
                                 width: '49%', backgroundColor: '#35B1CD', color: 'white', fontSize: '0.9rem', textTransform: 'capitalize', height: '3.5rem', borderRadius: '0.5rem'
                             }}>View Bill & Share</Button>
                             <Button style={{ width: '49%', border: '2px solid #35B1CD ', textTransform: 'capitalize', fontSize: '0.9rem', color: 'black', borderRadius: '0.5rem' }}>Back</Button>
-                        </Box>
+                        </Box> */}
                     </Box>
                 </Box>
             </Box>

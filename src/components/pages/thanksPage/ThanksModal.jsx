@@ -14,6 +14,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import thanks from "../../../assets/GIF/Thanks.gif";
 import ThanksModalWeb from "./ThanksModalWeb";
+import { useNavigate } from "react-router-dom";
 const style = {
     position: 'absolute',
     top: '50%',
@@ -31,12 +32,14 @@ const style = {
     border: '2px solid #dddd',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    zIndex:9999
 };
 
 const ThanksModal = () => {
     const theme = useTheme();
     const aspect = useMediaQuery(theme.breakpoints.up("md"));
+    const Navigate = useNavigate();
     return (
         <React.Fragment>
             {!aspect ? 
@@ -57,10 +60,16 @@ const ThanksModal = () => {
                     <Typography style={{ color: 'black', fontWeight: 600, textAlign: 'center', fontSize: '1rem', marginTop: '1rem' }}>Your Meal Will Served In Some Time</Typography>
 
                     <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: '3rem' }}>
+                        <Button style={{ width: '48%', border: '2px solid #35B1CD ', textTransform: 'capitalize', fontSize: '0.9rem', color: 'black', borderRadius: '0.5rem' }}
+                        onClick={()=>{
+                            Navigate("/menu");
+                        }}>Home</Button>
                         <Button variant="contained" color="primary" style={{
                             width: '48%', backgroundColor: '#35B1CD', color: 'white', fontSize: '0.9rem', textTransform: 'capitalize', height: '3.5rem', borderRadius: '0.5rem'
+                        }}
+                        onClick={()=>{
+                            Navigate("/billing")
                         }}>View Bill & Share</Button>
-                        <Button style={{ width: '48%', border: '2px solid #35B1CD ', textTransform: 'capitalize', fontSize: '0.9rem', color: 'black', borderRadius: '0.5rem' }}>Back</Button>
                     </Box>
                 </Box>
             </Box>

@@ -9,7 +9,7 @@ import {
     Container,
     Grid
 } from "@mui/material";
-
+import { useState, useEffect } from "react";
 import Header from "../../common/Header/Header.jsx";
 import AddToMealBox from "../../common/AddToCardBox/AddToMealBox.jsx";
 import SmallMealBox from "../../common/SmallMealBox/SmallMealBox.jsx";
@@ -18,12 +18,37 @@ import FoodAddToCart from "../../common/FoodAddToCart/FoodAddToCart.jsx";
 import NavBar from "../../common/NavBar/NavBar.jsx";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-
+import PayConfirmationModal from "../paymentConfirmation/PayConfirmationModal.jsx";
+import ThanksModal from "../thanksPage/ThanksModal.jsx";
+// import { useNavigate } from "react-router-dom";
+// const Navigate = useNavigate();
 const AddTocard = () => {
     const theme = useTheme();
     const aspect = useMediaQuery(theme.breakpoints.up("md"));
+    const [ success, setSuccess] = useState(false);
+    const [ thanks, setThanks] = useState(false);
+    // const Navigate = useNavigate();
+    
+    useEffect(()=>{
+        if(success){
+            setTimeout(()=>{
+               setThanks(true);
+               setSuccess(false);
+            },3000);  
+        }
+    })
     return (
         <React.Fragment>
+            {
+              success && (
+                <PayConfirmationModal/>
+              )
+            }
+            {
+              thanks && (
+                <ThanksModal/>
+              )
+            }
             {!aspect ?
 
                 <Box>
@@ -52,6 +77,9 @@ const AddTocard = () => {
                                 },
                                 borderRadius: '2rem',
                                 marginTop: '4vh'
+                            }}
+                            onClick={()=>{
+                                setSuccess(true);
                             }}
                         >
                             Order Now
