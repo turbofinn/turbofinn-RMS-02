@@ -16,6 +16,8 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, transform } from "framer-motion";
 import VerificationBG from "../../common/VerificationBG/VerificationBG";
 import zIndex from "@mui/material/styles/zIndex";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const VerificationWebView = () => {
   const [isOtpSent, setIsOtpSent] = useState(false);
@@ -59,7 +61,7 @@ const VerificationWebView = () => {
     enter: {
       scale: 1,
       opacity: 1,
-      transition: {delay:0.1,duration: 0.8, ease: [0.34, 1.3, 0.64, 1] },
+      transition: { delay: 0.1, duration: 0.8, ease: [0.34, 1.3, 0.64, 1] },
     },
   };
   const cardEn = {
@@ -77,7 +79,7 @@ const VerificationWebView = () => {
   return (
     <AnimatePresence mode="wait">
       <Box sx={{ maxHeight: "100vw", maxWidth: "100vw", overflow: "hidden" }}>
-        <motion.div  
+        <motion.div
           style={{
             height: "100vh",
             width: "100vw",
@@ -86,7 +88,8 @@ const VerificationWebView = () => {
             background: "rgba(70, 157, 177, 1)",
             position: "absolute",
             transformOrigin: "75% 75%",
-          }}></motion.div>
+          }}
+        ></motion.div>
         <motion.div
           {...anime(bgEnlarge)}
           style={{
@@ -95,7 +98,8 @@ const VerificationWebView = () => {
             right: "-10%",
             transformOrigin: "90% 55%",
             translateY: "-40%",
-          }}>
+          }}
+        >
           {" "}
           <VerificationBG></VerificationBG>
         </motion.div>
@@ -111,7 +115,8 @@ const VerificationWebView = () => {
             position: "absolute",
             zIndex: 100,
             top: 0,
-          }}>
+          }}
+        >
           <motion.div
             {...anime(cardEn)}
             style={{
@@ -126,13 +131,15 @@ const VerificationWebView = () => {
               backgroundColor: "rgba(255, 255, 255, 0.2)",
               borderRadius: "1.8rem",
               transformOrigin: "center right",
-            }}>
+            }}
+          >
             <Box
               sx={{
                 height: "100%",
                 width: "50%",
                 borderRadius: "1.8rem",
-              }}>
+              }}
+            >
               <motion.div
                 {...anime(imgDisplay)}
                 style={{
@@ -142,7 +149,8 @@ const VerificationWebView = () => {
                   flexDirection: "row",
                   alignItems: "center",
                   justifyContent: "center",
-                }}>
+                }}
+              >
                 <Box
                   component="img"
                   sx={{
@@ -168,14 +176,16 @@ const VerificationWebView = () => {
                 borderRadius: "1.8rem",
                 boxShadow: "0 0.25rem 1.25rem rgba(0, 0, 0, 0.1)",
                 backdropFilter: "blur(0.625rem)",
-              }}>
+              }}
+            >
               <Box
                 sx={{
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
                   textAlign: "center",
-                }}>
+                }}
+              >
                 <Typography
                   variant="h4"
                   sx={{
@@ -185,7 +195,8 @@ const VerificationWebView = () => {
                     fontSize: "3rem",
                     fontWeight: 800,
                     textAlign: "center",
-                  }}>
+                  }}
+                >
                   LOGO
                 </Typography>
 
@@ -199,7 +210,8 @@ const VerificationWebView = () => {
                     marginTop: "1.57%",
                     width: "100%",
                     marginX: "12.7%",
-                  }}>
+                  }}
+                >
                   "Craving Goodness? Order Now and Savor the Flavor!"
                 </Typography>
 
@@ -212,7 +224,8 @@ const VerificationWebView = () => {
                     top: "38%",
                     zIndex: 1,
                     fontWeight: 600,
-                  }}>
+                  }}
+                >
                   {isOtpSent ? "Enter Your OTP" : "Verify Your Mobile Number"}
                 </Typography>
 
@@ -227,7 +240,8 @@ const VerificationWebView = () => {
                     width: "95%",
                     marginLeft: "auto",
                     marginRight: "auto",
-                  }}>
+                  }}
+                >
                   {isOtpSent
                     ? "Please Let Us Know Your OTP For Verification Purposes"
                     : "Please Let Us Know Your Mobile Number For Verification Purposes"}
@@ -242,7 +256,8 @@ const VerificationWebView = () => {
                         marginLeft: -2,
                         marginTop: 1,
                         marginBottom: 1,
-                      }}>
+                      }}
+                    >
                       <OtpInput
                         value={otp}
                         onChange={setOtp}
@@ -303,7 +318,8 @@ const VerificationWebView = () => {
                               textAlign: "center",
                               Color: "#171717",
                               opacity: "100%",
-                            }}>
+                            }}
+                          >
                             {" "}
                             +91
                           </InputAdornment>
@@ -379,7 +395,8 @@ const VerificationWebView = () => {
                     display: "flex",
                     alignItems: "center",
                     marginTop: "-5px",
-                  }}>
+                  }}
+                >
                   {isOtpSent ? (
                     <>
                       {" "}
@@ -390,7 +407,8 @@ const VerificationWebView = () => {
                           fontWeight: 500,
                           marginTop: "6.1%",
                           marginLeft: "-12px",
-                        }}>
+                        }}
+                      >
                         Did’t Receive The OTP?
                       </Typography>{" "}
                       <Typography
@@ -402,7 +420,8 @@ const VerificationWebView = () => {
                           textDecoration: "underline",
                           marginLeft: 1,
                           marginTop: 2,
-                        }}>
+                        }}
+                      >
                         Resend Code
                       </Typography>
                     </>
@@ -417,7 +436,8 @@ const VerificationWebView = () => {
                           justifyContent: "center",
                           marginTop: "5.4%",
                           marginLeft: "-20px",
-                        }}></FormControlLabel>
+                        }}
+                      ></FormControlLabel>
                       <Typography
                         sx={{
                           color: "black",
@@ -425,30 +445,59 @@ const VerificationWebView = () => {
                           fontWeight: 500,
                           marginTop: "6.1%",
                           marginLeft: "-12px",
-                        }}>
+                        }}
+                      >
                         Is This Same Number in Whatsapp
                       </Typography>
                     </>
                   )}
                 </Box>
-                <Button
-                  variant="contained"
-                  onClick={sentOtpClickHandler}
-                  sx={{
-                    paddingY: "3%",
-                    width: "70%",
-                    height: "9.8%",
-                    borderRadius: "3rem",
-                    backgroundColor: "#0992B0",
-                    marginTop: "4.7%",
-                    marginBottom: "5%",
-                    fontSize: "1.1rem",
-                    fontWeight: 600,
-                    textTransform: "none",
-                    boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
-                  }}>
-                  {isOtpSent ? "Verify" : " Send OTP"}
-                </Button>
+
+                {isOtpSent ? (
+                  <Button
+                    variant="contained"
+                    component={Link}
+                    to="/category"
+                    onClick={sentOtpClickHandler}
+                    sx={{
+                      paddingY: "3%",
+                      width: "70%",
+                      height: "9.8%",
+                      borderRadius: "3rem",
+                      backgroundColor: "#0992B0",
+                      marginTop: "4.7%",
+                      marginBottom: "5%",
+                      fontSize: "1.1rem",
+                      fontWeight: 600,
+                      textTransform: "none",
+                      boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
+                    }}
+                  >
+                    {" "}
+                    Verify{" "}
+                  </Button>
+                ) : (
+                  <Button
+                    variant="contained"
+                    onClick={sentOtpClickHandler}
+                    sx={{
+                      paddingY: "3%",
+                      width: "70%",
+                      height: "9.8%",
+                      borderRadius: "3rem",
+                      backgroundColor: "#0992B0",
+                      marginTop: "4.7%",
+                      marginBottom: "5%",
+                      fontSize: "1.1rem",
+                      fontWeight: 600,
+                      textTransform: "none",
+                      boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
+                    }}
+                  >
+                    {" "}
+                    Send OTP{" "}
+                  </Button>
+                )}
               </Box>
             </Box>
           </motion.div>

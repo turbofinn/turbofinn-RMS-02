@@ -15,6 +15,7 @@ import logo from "../../../assets/Image/logo.png";
 import tick from "../../../assets/Image/tick.png";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useNavigate } from "react-router-dom";
 const style = {
     position: 'absolute',
     top: '50%',
@@ -38,6 +39,7 @@ const style = {
 };
 
 const PayConfirmationModalWeb = () => {
+    const Navigate = useNavigate();
     const theme = useTheme();
     const aspect = useMediaQuery(theme.breakpoints.up("md"));
     return (
@@ -93,7 +95,10 @@ const PayConfirmationModalWeb = () => {
                         <Typography style={{ color: 'black', fontWeight: 700, textAlign: 'center', fontSize: '1rem', marginTop: '1.5rem' }}>Your Meal Will Served In Some Time</Typography>
 
                         <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1.5rem' }}>
-                            <Button variant="contained" color="primary" style={{
+                            <Button 
+                            onClick={()=>{
+                                Navigate("/billing")
+                            }}variant="contained" color="primary" style={{
                                 width: '47%', backgroundColor: '#35B1CD', color: 'white', fontSize: '0.9rem', textTransform: 'capitalize', height: '3rem', borderRadius: '0.5rem'
                             }}>View Bill & Share</Button>
                             <Button style={{ width: '47%', border: '2px solid #35B1CD ', textTransform: 'capitalize', fontSize: '0.9rem', color: 'black', borderRadius: '0.5rem' }}>Back</Button>

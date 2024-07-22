@@ -1,8 +1,8 @@
 import React from "react";
 import { Typography, Card, CardContent, CardMedia, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import vid1 from "../../../assets/GIF/special.gif"
-import img2 from '../../../assets/Image/selectOne/cardImg/Beverages.png'
+import vid1 from "../../../assets/GIF/special.gif";
+import img2 from "../../../assets/Image/selectOne/cardImg/Beverages.png";
 import img3 from "../../../assets/Image/selectOne/cardImg/dineIn.jpg";
 import img4 from "../../../assets/Image/TakeAway.png";
 import bg from "../../../assets/Image/selectOne/bg_food4.png";
@@ -36,14 +36,16 @@ function Categories2() {
         minHeight: "100vh",
         width: "100%",
         backgroundColor: "#49c3de",
-        position: 'relative'
-      }}>
+        position: "relative",
+      }}
+    >
       <Box
         sx={{
           width: "full",
           display: "flex",
           flexDirection: "column",
-        }}>
+        }}
+      >
         <Typography
           variant="h1"
           sx={{
@@ -51,7 +53,8 @@ function Categories2() {
             fontWeight: "800",
             textAlign: "center",
             marginBlockStart: "4rem",
-          }}>
+          }}
+        >
           L<span style={{ color: "#138da8" }}>O</span>G
           <span style={{ color: "#138da8" }}>O</span>
         </Typography>
@@ -63,12 +66,14 @@ function Categories2() {
               fontWeight: "700",
               color: "white",
               marginBlockStart: "3rem",
-            }}>
+            }}
+          >
             Select One
           </Typography>
           <Typography
             variant="h4"
-            sx={{ fontSize: "1.35rem", fontWeight: "700", color: "white" }}>
+            sx={{ fontSize: "1.35rem", fontWeight: "700", color: "white" }}
+          >
             Categories
           </Typography>
           <Typography
@@ -78,7 +83,8 @@ function Categories2() {
               fontWeight: "500",
               color: "rgba(255,255,255,0.71)",
               paddingBlockStart: "0.7rem",
-            }}>
+            }}
+          >
             Select anyone of the categories to proceed
           </Typography>
         </Box>
@@ -89,12 +95,13 @@ function Categories2() {
             paddingInline: "2rem",
             gap: "20px",
             marginBlockStart: "2rem",
-          }}>
+          }}
+        >
           {categories1.map((elem, i) => {
             return (
               <Card
                 onClick={() => {
-                  navigate('/menu');
+                  navigate("/menu");
                 }}
                 sx={{
                   height: "11.5rem",
@@ -102,7 +109,8 @@ function Categories2() {
                   borderRadius: "15px",
                   boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.25)",
                   flexWrap: "wrap",
-                }}>
+                }}
+              >
                 <CardMedia
                   sx={{
                     height: "60%",
@@ -111,7 +119,8 @@ function Categories2() {
                     marginInline: "22px",
                   }}
                   image={elem.image}
-                  title={elem.title}></CardMedia>
+                  title={elem.title}
+                ></CardMedia>
                 <CardContent sx={{ paddingInline: "0" }}>
                   <Typography
                     sx={{
@@ -122,7 +131,8 @@ function Categories2() {
                       color: "rgba(82,82,82,1)",
                       marginInlineStart: "1.3rem",
                       marginBlockStart: "-4px",
-                    }}>
+                    }}
+                  >
                     {" "}
                     EXPLORE ALL
                   </Typography>
@@ -133,8 +143,9 @@ function Categories2() {
                       lineHeight: "19.5px",
                       marginBlockStart: "5px",
                       marginInlineStart: "1.2rem",
-                      color: 'rgba(65,66,68,1)',
-                    }}>
+                      color: "rgba(65,66,68,1)",
+                    }}
+                  >
                     {elem.title}
                   </Typography>
                 </CardContent>
@@ -151,12 +162,13 @@ function Categories2() {
             gap: "20px",
             marginBlockStart: "20px",
             marginBlockEnd: "80px",
-          }}>
+          }}
+        >
           {categories2.map((elem, i) => {
             return (
               <Card
                 onClick={() => {
-                  navigate('/menu');
+                  navigate("/menu");
                 }}
                 sx={{
                   height: "11.5rem",
@@ -164,7 +176,8 @@ function Categories2() {
                   borderRadius: "15px",
                   boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.25)",
                   flexWrap: "wrap",
-                }}>
+                }}
+              >
                 <CardMedia
                   sx={{
                     height: "60%",
@@ -173,7 +186,8 @@ function Categories2() {
                     marginInline: "22px",
                   }}
                   image={elem.image}
-                  title={elem.title}></CardMedia>
+                  title={elem.title}
+                ></CardMedia>
                 <CardContent sx={{ paddingInline: "0" }}>
                   <Typography
                     sx={{
@@ -184,7 +198,8 @@ function Categories2() {
                       color: "rgba(82,82,82,1)",
                       marginInlineStart: "1.3rem",
                       marginBlockStart: "-4px",
-                    }}>
+                    }}
+                  >
                     {" "}
                     EXPLORE ALL
                   </Typography>
@@ -196,7 +211,8 @@ function Categories2() {
                       marginBlockStart: "5px",
                       marginInlineStart: "1.2rem",
                       color: "rgba(65,66,68,1)",
-                    }}>
+                    }}
+                  >
                     {elem.title}
                   </Typography>
                 </CardContent>
@@ -212,9 +228,11 @@ function Categories2() {
             bottom: "1rem",
             width: "100%",
             textAlign: "center",
-          }}>
+          }}
+        >
           <Typography
-            sx={{ fontWeight: "700", fontSize: "1rem", color: "white" }}>
+            sx={{ fontWeight: "700", fontSize: "1rem", color: "white" }}
+          >
             A Product Of TurboFinn AI
           </Typography>
         </Box>

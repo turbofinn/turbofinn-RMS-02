@@ -10,28 +10,36 @@ import bg from "../../../assets/Image/selectOne/bg_food4.png";
 import logo from "../../../assets/Image/logo.png";
 import zIndex from "@mui/material/styles/zIndex";
 import VerificationBG  from "../../common/VerificationBG/VerificationBG";
+import { useNavigate } from "react-router-dom";
+
 
 function CategoriesWeb() {
+  const navigate = useNavigate();
+
   const categories = [
     {
       title: "Today's Special",
       image: vid1,
-      to: "/specialToday",
+      // to: "/specialToday",
+      to: "/menu",
     },
     {
       title: "Beverages",
       image: img2,
-      to: "/beverages",
+      // to: "/beverages",
+      to: "/menu",
     },
     {
       title: "Dine In Menu",
       image: img3,
-      to: "/dineIn",
+      // to: "/dineIn",
+      to: "/menu",
     },
     {
       title: "Take away",
       image: img4,
-      to: "/takeAway",
+      // to: "/takeAway",
+      to: "/menu",
     },
   ];
 
@@ -180,6 +188,9 @@ function CategoriesWeb() {
             return (
               <AnimatePresence mode={"wait"}>
                 <Box
+                 onClick={() => {
+                  navigate('/menu');
+                }}
                   {...anime(expand)}
                   component={Link}
                   to={elem.to}
