@@ -33,7 +33,7 @@ const ProfileSettings = () => {
   const Navigate = useNavigate();
   return (
     <>
-      {edit ? <ProfileEdit/> : <></>}
+      {edit ? <ProfileEdit /> : <></>}
       {matches ? <NavBar /> : <></>}
       <Container
         maxWidth={false}
@@ -45,17 +45,17 @@ const ProfileSettings = () => {
           display: "flex",
           flexDirection: "column",
           overflowX: "hidden",
-          '&:before': {
+          "&:before": {
             content: '""',
-            position: 'absolute',
-            top: '-50px', 
+            position: "absolute",
+            top: "-50px",
             left: 0,
             right: 0,
             bottom: 420,
-            backgroundImage: {xs:`url(${backgroundImage})`, lg:'none'},
-            backgroundSize: 'cover',
-            backgroundPosition: 'center top',
-            backgroundRepeat: 'no-repeat',
+            backgroundImage: { xs: `url(${backgroundImage})`, lg: "none" },
+            backgroundSize: "cover",
+            backgroundPosition: "center top",
+            backgroundRepeat: "no-repeat",
             zIndex: 0,
           },
         }}
@@ -181,7 +181,7 @@ const ProfileSettings = () => {
                 height: { xs: "27px", lg: "27px" },
               }}
             >
-              <img src={editIcon} alt="editIcon" style={{ width: "17px" ,}} />
+              <img src={editIcon} alt="editIcon" style={{ width: "17px" }} />
             </Box>
           </Box>
 
@@ -228,7 +228,12 @@ const ProfileSettings = () => {
             }}
           >
             <Grid item xs={12} lg={4}>
-              <ListItem sx={{ width: "100%", marginLeft: { lg: -8 } }} onClick={(e)=>{setEdit(true)}}>
+              <ListItem
+                sx={{ width: "100%", marginLeft: { lg: -8 } }}
+                onClick={(e) => {
+                  setEdit(true);
+                }}
+              >
                 <ListItemIcon>
                   <IconButton
                     size="small"
@@ -254,8 +259,12 @@ const ProfileSettings = () => {
               </ListItem>
             </Grid>
             <Grid item xs={12} lg={4}>
-              <ListItem sx={{ width: "100%", marginLeft: { lg: 10 } }}
-              onClick={()=>{Navigate('/history')}}>
+              <ListItem
+                sx={{ width: "100%", marginLeft: { lg: 10 } }}
+                onClick={() => {
+                  Navigate("/history");
+                }}
+              >
                 <ListItemIcon>
                   <IconButton
                     size="small"
