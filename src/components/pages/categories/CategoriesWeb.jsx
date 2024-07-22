@@ -1,144 +1,250 @@
-import React from "react";
-import { Typography, Card, CardContent, CardMedia, Box } from "@mui/material";
+import React, { useRef, useEffect } from "react";
+import { Typography, Box } from "@mui/material";
+import { Link } from "react-router-dom";
+import { motion, AnimatePresence, transform, easeIn } from "framer-motion";
 import vid1 from "../../../assets/GIF/special.gif";
 import img2 from "../../../assets/Image/selectOne/cardImg/Beverages.png";
 import img3 from "../../../assets/Image/selectOne/cardImg/dineIn.jpg";
 import img4 from "../../../assets/Image/TakeAway.png";
 import bg from "../../../assets/Image/selectOne/bg_food4.png";
+import logo from "../../../assets/Image/logo.png";
+import zIndex from "@mui/material/styles/zIndex";
+import VerificationBG  from "../../common/VerificationBG/VerificationBG";
 
 function CategoriesWeb() {
   const categories = [
     {
       title: "Today's Special",
-      image: `${vid1}`,
+      image: vid1,
+      to: "/specialToday",
     },
     {
       title: "Beverages",
-      image: `${img2}`,
+      image: img2,
+      to: "/beverages",
     },
     {
       title: "Dine In Menu",
-      image: `${img3}`,
+      image: img3,
+      to: "/dineIn",
     },
     {
       title: "Take away",
-      image: `${img4}`,
+      image: img4,
+      to: "/takeAway",
     },
   ];
+
+  const anime = (variants) => {
+    return { initial: "initial", animate: "enter", exit: "exit", variants };
+  };
+
+  const expand = {
+    initial: {
+      scale: 0.6,
+      x: 0,
+      y: 0,
+    },
+    enter: { scale: 1, x: 0, y: 0, transition: { duration: 0.2 } },
+    exit: {
+      scale: 3,
+      x: 100,
+      y: 100,
+      transition: { delay: 0.2, duration: 1.3 },
+    },
+  };
+  const enlarge = {
+    initial: { scale: 0 ,borderRadius:'50%'},
+    enter: {
+      scale: 1,borderRadius:0,
+      transition: { duration: 0.2 },
+    },
+  };
+  const fade = {
+    initial: { opacity: 1 },
+    enter: {
+      display: "none",
+      opacity: 0,
+      transition: { delay: 0.3, duration: 0.3 },
+    },
+  };
+
   return (
     <Box
-      sx={{
+      style={{
         backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.936),rgba(73, 195, 222, 0.750),rgba(73, 195, 222, 0.600),rgba(73, 195, 222, 0.500),rgba(73, 195, 222, 0.300)),url(${bg})`,
-        minHeight: "100vh",
-        width: "100%",
         backgroundColor: "#49c3de",
         backgroundSize: "60rem",
+        minHeight: "100vh",
+        width: "100%",
+        position: "relative",
       }}>
-      <Box
+      <AnimatePresence
+        mode="wait"
         sx={{
-          width: "full",
-          display: "flex",
-          flexDirection: "column",
-          paddingInline: { md: "9rem", md: "10.75rem" },
-          height: "62vh",
+          backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.936),rgba(73, 195, 222, 0.750),rgba(73, 195, 222, 0.600),rgba(73, 195, 222, 0.500),rgba(73, 195, 222, 0.300)),url(${bg})`,
+          backgroundColor: "#49c3de",
+          backgroundSize: "60rem",
+          minHeight: "100vh",
+          width: "100%",
         }}>
-        <Typography
-          variant="h1"
-          sx={{
-            fontSize: { md: "3rem", xl: "4rem" },
-            fontWeight: "800",
-            textAlign: "center",
-            marginBlockStart: { md: "3.5rem", xl: "5.5rem" },
+        <motion.div
+          {...anime(fade)}
+          style={{
+            position: "absolute",
+            zIndex: 100,
+            height: "100vh",
+            width: "100vw",
           }}>
-          L<span style={{ color: "#138da8" }}>O</span>G
-          <span style={{ color: "#138da8" }}>O</span>
-        </Typography>
-        <Box>
-          <Typography
-            variant="h4"
-            sx={{
-              fontSize: { md: "2.5rem", xl: "4rem" },
-              fontWeight: "700",
-              color: "white",
-              marginBlockStart: { md: "2.75rem", md: "3.15rem", xl: "8.5rem" },
-            }}>
-            Select One
-          </Typography>
-          <Typography
-            variant="h4"
-            sx={{
-              fontSize: { md: "1.45rem", xl: "2.25rem" },
-              fontWeight: "700",
-              color: "white",
-            }}>
-            Categories
-          </Typography>
-          <Typography
-            variant="h4"
-            sx={{
-              fontSize: { md: "1.15rem", xl: "2rem" },
-              fontWeight: "500",
-              color: "rgba(255,255,255,0.85)",
-              maxWidth: { md: "20rem", xl: "41rem" },
-              paddingBlockStart: { md: "1rem", xl: "1.75rem" },
-            }}>
-            Select anyone of the categories to proceed
-          </Typography>
-        </Box>
-      </Box>
+          <motion.div
+            {...anime(enlarge)}
+            style={{
+              height: "100%",
+              width: "100%",
+              content: '""',
+              background: "rgb(9, 146, 176)",
+              transformOrigin: "85% 75%",
+              ease: easeIn,
+            }}></motion.div>
+        </motion.div>
+      </AnimatePresence>
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "center",
-          paddingInline: { md: "7rem", md: "11rem", xl: "14rem" },
-          gap: { md: "26px", md: "26px", xl: "30px" },
+          height: "100%",
+          width: "100%",
+          position: "absolute",
+          zIndex: 50,
         }}>
-        {categories.map((elem, i) => {
-          return (
-            <Card
+        <Box
+          sx={{
+            width: "full",
+            display: "flex",
+            flexDirection: "column",
+            paddingInline: { md: "9rem", md: "10.75rem" },
+            height: "60vh",
+          }}>
+          <img
+            src={logo}
+            alt="logo"
+            style={{
+              height: "30px",
+              width: "111px",
+              marginInline: "auto",
+              marginTop: "3.5rem",
+            }}></img>
+          <Box>
+            <Typography
+              variant="h4"
               sx={{
-                height: { md: "14rem", xl: "19.25rem" },
-                width: { md: "12.5rem", xl: "16.7rem" },
-                borderRadius: "15px",
-                boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.25)",
+                fontSize: { md: "2.5rem", xl: "4rem" },
+                fontWeight: "700",
+                color: "white",
+                marginBlockStart: {
+                  md: "2.75rem",
+                  md: "3.15rem",
+                  xl: "8.5rem",
+                },
               }}>
-              <CardMedia
-                sx={{
-                  height: { md: "60%", xl: "62%" },
-                  objectFit: "contain",
-                  marginBlockStart: { md: "14px", xl: "20px" },
-                  marginInline: { md: "24px", xl: "38px" },
-                }}
-                image={elem.image}
-                title=""></CardMedia>
-              <CardContent sx={{ paddingInline: "0", paddingBlock: "14px" }}>
-                <Typography
+              Select One
+            </Typography>
+            <Typography
+              variant="h4"
+              sx={{
+                fontSize: { md: "1.45rem", xl: "2.25rem" },
+                fontWeight: "700",
+                color: "white",
+              }}>
+              Categories
+            </Typography>
+            <Typography
+              variant="h4"
+              sx={{
+                fontSize: { md: "1.15rem", xl: "2rem" },
+                fontWeight: "500",
+                color: "rgba(255,255,255,0.85)",
+                maxWidth: { md: "20rem", xl: "41rem" },
+                paddingBlockStart: { md: "1rem", xl: "1.75rem" },
+              }}>
+              Select anyone of the categories to proceed
+            </Typography>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            paddingInline: { md: "7rem", xl: "14rem" },
+            gap: { md: "26px", xl: "30px" },
+          }}>
+          {categories.map((elem, i) => {
+            return (
+              <AnimatePresence mode={"wait"}>
+                <Box
+                  {...anime(expand)}
+                  component={Link}
+                  to={elem.to}
                   sx={{
-                    fontSize: { md: "0.625rem", xl: "0.813rem" },
-                    letterSpacing: 2.75,
-                    fontWeight: "600",
-                    lineHeight: { md: "12.5px", xl: "16.9px" },
-                    color: "rgba(82,82,82,1)",
-                    marginInlineStart: "24px",
+                    height: { md: "13.75rem", xl: "19.25rem" },
+                    width: { md: "12.5rem", xl: "16.7rem" },
+                    boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.25)",
+                    margin: 0,
+                    background: "#fff",
+                    borderRadius: "15px",
+                    paddingBottom: "1.1rem",
+                    cursor: "pointer",
+                    textDecoration: "none",
                   }}>
-                  {" "}
-                  EXPLORE ALL
-                </Typography>
-                <Typography
-                  sx={{
-                    fontSize: { md: "1rem", xl: "1.45rem" },
-                    fontWeight: "800",
-                    lineHeight: { md: "22px", xl: "31.2px" },
-                    marginBlockStart: { md: "2px", xl: "8px" },
-                    marginInlineStart: "24px",
-                    color: "rgba(65,66,68,1)",
-                  }}>
-                  {elem.title}
-                </Typography>
-              </CardContent>
-            </Card>
-          );
-        })}
+                  <motion.div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                    }}>
+                    <Box
+                      sx={{
+                        height: { md: "68%", xl: "72%" },
+                        marginBlockStart: { md: "14px", xl: "20px" },
+                        marginInline: { md: "30px", xl: "38px" },
+                      }}
+                      title="">
+                      <img
+                        src={elem.image}
+                        style={{
+                          height: "100%",
+                          width: "100%",
+                          objectFit: "cover",
+                        }}></img>
+                    </Box>
+                    <Box sx={{ paddingInline: "0", paddingBlock: "14px" }}>
+                      <Typography
+                        sx={{
+                          fontSize: { md: "0.625rem", xl: "0.813rem" },
+                          letterSpacing: 2.75,
+                          fontWeight: "600",
+                          lineHeight: { md: "12.5px", xl: "16.9px" },
+                          color: "rgba(82,82,82,1)",
+                          marginInlineStart: "24px",
+                        }}>
+                        {" "}
+                        EXPLORE ALL
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: { md: "1rem", xl: "1.45rem" },
+                          fontWeight: "800",
+                          lineHeight: { md: "22px", xl: "31.2px" },
+                          marginBlockStart: { md: "2px", xl: "8px" },
+                          marginInlineStart: "24px",
+                          color: "rgba(65,66,68,1)",
+                        }}>
+                        {elem.title}
+                      </Typography>
+                    </Box>
+                  </motion.div>
+                </Box>
+              </AnimatePresence>
+            );
+          })}
+        </Box>
       </Box>
     </Box>
   );

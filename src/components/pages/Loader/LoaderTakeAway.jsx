@@ -12,9 +12,11 @@ function LoaderSpecialToday() {
     <LoaderWeb
       img={img}
       title={"Take-Away"}
-      imgH="20rem"
-      imgW="20rem"
-      imgBR="50%"></LoaderWeb>
+      imgH="16rem"
+      imgW="16rem"
+      imgBR="50%"
+      txtX={400}
+      txtY={200}></LoaderWeb>
   ) : (
     <LoaderMob
       img={img}
