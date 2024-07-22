@@ -1,287 +1,161 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
   Button,
   Rating,
   TextField,
-  useMediaQuery,
   useTheme,
 } from "@mui/material";
-import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
-import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
-import SentimentNeutralIcon from "@mui/icons-material/SentimentNeutral";
-import thankYou from '../../../assets/Image/ThankYou.png'
+import ThankYouPage from "./thankyouForFeedback";
 
 const FeedbackPage = () => {
-  const [step, setStep] = useState(1);
-  const [countdown, setCountdown] = useState(5);
+  const [showThankYou, setShowThankYou] = useState(false);
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  useEffect(() => {
-    if (step === 3) {
-      const timer = setInterval(() => {
-        setCountdown((prevCount) => (prevCount > 0 ? prevCount - 1 : 0));
-      }, 1000);
-      return () => clearInterval(timer);
-    }
-  }, [step]);
-
-  const handleContinue = () => {
-    setStep(step + 1);
+  const handleSubmit = () => {
+    setShowThankYou(true);
   };
 
-  const renderStep = () => {
-    switch (step) {
-      case 1:
-        return (
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 2,
-            }}
-          >
-            <Typography variant="h6">
-              How was your experience with us today?
-            </Typography>
-            <Box sx={{ display: "flex", justifyContent: "center", gap: 2 }}>
-              <SentimentVeryDissatisfiedIcon
-                sx={{ fontSize: 48, cursor: "pointer" }}
-              />
-              <SentimentNeutralIcon sx={{ fontSize: 48, cursor: "pointer" }} />
-              <SentimentSatisfiedAltIcon
-                sx={{ fontSize: 48, cursor: "pointer" }}
-              />
-            </Box>
-            <Button
-              variant="contained"
-              onClick={handleContinue}
-              sx={{ width: "100%", marginTop: 2 }}
-            >
-              Continue
-            </Button>
-            {!isMobile && (
-              <Typography
-                sx={{
-                  cursor: "pointer",
-                  color: "text.secondary",
-                  marginTop: 1,
-                }}
-              >
-                Skip Feedback
-              </Typography>
-            )}
-          </Box>
-        );
-      case 2:
-        return (
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 2,
-            }}
-          >
-            <Typography variant="h6">Rate Our Service</Typography>
-            <Rating
-              name="service-rating"
-              defaultValue={5}
-              sx={{ fontSize: 40 }}
-            />
-            <Typography variant="subtitle1">Rate My Work</Typography>
-            <TextField
-              multiline
-              rows={3}
-              placeholder="Your Service Was Very Impressive"
-              variant="outlined"
-              fullWidth
-              sx={{ marginTop: 1, marginBottom: 2 }}
-            />
-            <Button
-              variant="contained"
-              onClick={handleContinue}
-              sx={{ width: "100%" }}
-            >
-              Submit
-            </Button>
-            {!isMobile && (
-              <Typography
-                sx={{
-                  cursor: "pointer",
-                  color: "text.secondary",
-                  marginTop: 1,
-                }}
-              >
-                Skip Feedback
-              </Typography>
-            )}
-          </Box>
-        );
-      case 3:
-        const content = (
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              height: "100%",
-              textAlign: "center",
-              padding: 2,
-            }}
-          >
-            <Typography
-              variant="h4"
-              sx={{ marginBottom: 2, fontWeight: 600, fontSize: "24px" }}
-            >
-              Feedback
-            </Typography>
-           <Box>
-            <img
-            src={thankYou}
-            />
-           </Box>
-            <Typography
-            //   variant="h5"
-              sx={{ marginBottom: 1, fontWeight: 700, fontSize: "32px" }}
-            >
-              Thanks Alot <br></br> For Your Feedback
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{ marginBottom: 2, fontWeight: 700, fontSize: "32px" }}
-            >
-              It Means Alot
-            </Typography>
-            <Typography variant="body2">
-              With in {countdown} Sec <br></br> you will be redirect to main page.
-            </Typography>
-            <Box sx={{ marginTop: "auto", marginBottom: 2 }}>
-              <Typography
-                variant="h6"
-                sx={{ fontWeight: "bold", marginBottom: 1 }}
-              >
-                LOGO
-              </Typography>
-              <Typography variant="caption">A Turbofinn AI Product</Typography>
-            </Box>
-          </Box>
-        );
-        if (isMobile) {
-          return (
-            <Box
-              sx={{
-                height: "100vh",
-                //   width: '100vw',
-                backgroundColor: "white",
-              }}
-            >
-              {content}
-            </Box>
-          );
-        } else {
-          return (
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                // minHeight: "100vh",
-                // backgroundColor: "#f0f0f0",
-              }}
-            >
-              <Box
-                sx={{
-                  width: "100%",
-                  maxWidth: 400,
-                  backgroundColor: "white",
-                  borderRadius: 2,
-                  boxShadow: "0px 0px 10px rgba(0,0,0,0.1)",
-                  overflow: "hidden",
-                }}
-              >
-                {content}
-              </Box>
-            </Box>
-          );
-        }
-      default:
-        return null;
-    }
-  };
+  if (showThankYou) {
+    return <ThankYouPage />;
+  }
 
   return (
     <Box
       sx={{
         display: "flex",
-        justifyContent: "center",
+        flexDirection: "column",
+        justifyContent: "flex-start",
         alignItems: "center",
         minHeight: "100vh",
-        backgroundColor: "#f0f0f0",
+        background: `
+          linear-gradient(180deg, #0092B3 0%, rgba(83, 204, 231, 0.86) 60%),
+          linear-gradient(180deg, rgba(83, 204, 231, 0.86) 60%, rgba(217, 217, 217, 1) 40%)
+        `,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "100% 50%, 100% 50%",
+        backgroundPosition: "top, bottom",
+        padding: 2,
       }}
     >
+      <Typography
+        variant="h5"
+        sx={{
+          textAlign: "center",
+          marginTop: 4,
+          marginBottom: 14,
+          fontWeight: 600,
+          fontSize: "24px",
+          color: "white",
+        }}
+      >
+        Feedback
+      </Typography>
+      <Typography
+          variant="h6"
+          sx={{
+            textAlign: "center",
+            marginBottom: 3,
+            fontWeight: 600,
+            fontSize: "24px",
+            background: "linear-gradient(180deg, rgba(224, 224, 224, 1), rgba(255, 255, 255, 1))",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+          }}
+        >
+          Rate Our Service
+        </Typography>
       <Box
         sx={{
           width: "100%",
           maxWidth: 400,
           backgroundColor: "white",
-          borderRadius: 2,
+          borderRadius: '40px',
           padding: 3,
           boxShadow: "0px 0px 10px rgba(0,0,0,0.1)",
         }}
       >
-        {step < 3 && (
-          <>
-            <Typography
-              variant="h5"
-              sx={{
-                textAlign: "center",
-                marginBottom: 1,
-                fontWeight: 600,
-                fontSize: "24px",
-                color: "rgba(255, 255, 255, 1)",
-              }}
-            >
-              Feedback
-            </Typography>
-            <Typography
-              variant="subtitle2"
-              sx={{
-                textAlign: "center",
-                marginBottom: 2,
-                color: "text.secondary",
-              }}
-            >
-              Step {step} of 2
-            </Typography>
-          </>
-        )}
-        {renderStep()}
-        {step < 3 && (
-          <>
-            <Typography
-              sx={{
-                textAlign: "center",
-                marginTop: 3,
-                fontSize: 24,
-                fontWeight: "bold",
-                color: "#4a90e2",
-              }}
-            >
-              LOGO
-            </Typography>
-            <Typography
-              variant="caption"
-              sx={{ textAlign: "center", display: "block", marginTop: 1 }}
-            >
-              An Turbofinn AI Product
-            </Typography>
-          </>
-        )}
+       
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 2,
+          }}
+        >
+          <Rating
+            name="service-rating"
+            defaultValue={4}
+            sx={{ fontSize: 52, color: "rgba(240, 149, 53, 1)", marginTop:5 }}
+          />
+          <Typography variant="subtitle1" sx={{ fontWeight: 600, fontSize: "20px" }}>
+            Rate My Work
+          </Typography>
+          <TextField
+            multiline
+            rows={3}
+            placeholder="Your Service Was Very Impressive"
+            variant="outlined"
+            fullWidth
+            sx={{
+              width: "312px",
+              "& .MuiOutlinedInput-root": {
+                height: "100px",
+                backgroundColor: "rgba(227, 227, 227, 0.66)",
+              },
+            }}
+          />
+          <Button
+            variant="contained"
+            onClick={handleSubmit}
+            sx={{
+              width: "287px",
+              height: "44px",
+              background: "linear-gradient(180deg, rgba(9, 152, 184, 1), rgba(68, 187, 214, 1))",
+              boxShadow: "0 4px -9.5px 0 rgba(0, 0, 0, 0.25)",
+              fontWeight: 600,
+              fontSize: "20px",
+              borderRadius:'58px'
+            }}
+          >
+            Submit
+          </Button>
+          <Typography
+            sx={{
+              cursor: "pointer",
+              color: "text.secondary",
+              fontWeight: 500,
+              fontSize: "16px",
+            }}
+          >
+            Skip Feedback
+          </Typography>
+        </Box>
+        <Typography
+          sx={{
+            textAlign: "center",
+            marginTop: 4,
+            fontWeight: 700,
+            fontSize: "40px",
+            color: "rgba(53, 177, 205, 1)",
+          }}
+        >
+          LOGO
+        </Typography>
+        <Typography
+          variant="caption"
+          sx={{
+            textAlign: "center",
+            display: "block",
+            marginTop: 1,
+            fontWeight: 500,
+            fontSize: "14px",
+          }}
+        >
+          An Turbofinn AI Product
+        </Typography>
       </Box>
     </Box>
   );

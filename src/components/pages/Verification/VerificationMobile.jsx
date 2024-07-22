@@ -82,6 +82,7 @@ const VerificationMobile = () => {
       console.log("resp", response);
       if (response.data.response.responseCode === 1001) {
         handleClick("OTP sent successfully", "success");
+        if (!isOtpSent) setIsOtpSent(true);
       } else {
         handleClick("Failed to send OTP", "error");
       }
@@ -94,9 +95,12 @@ const VerificationMobile = () => {
   };
 
   const verifyOTP = async (mobileNumber, otp) => {
+    console.log("mb", mobileNumber);
+    console.log("otp", otp);
+    setLoader(false);
     const requestData = {
-      mobileNumber,
-      otp
+      mobileNo:mobileNumber,
+      otp:`${otp}`
     };
   
     const requestOptions = {
@@ -111,18 +115,19 @@ const VerificationMobile = () => {
         requestOptions
       );
       if (response.data.response.responseCode === 1001) {
-          Navigate("/menu");
+          Navigate("/category");
       }else if(response.data.response.responseCode === 9999){
         handleClick("Wrong OTP", "error");
       } 
     } catch (error) {
        handleClick("Error verifying OTP", "error");
+    }finally{
+      setLoader(true);
     }
   };
   
   const sentOtpClickHandler = () => {
     sendOtp();
-    if (!isOtpSent) setIsOtpSent(true);
   };
 
   return (
@@ -434,7 +439,7 @@ const VerificationMobile = () => {
                     boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
                   }}
                   onClick={()=>{
-                    verifyOTP();
+                    verifyOTP(mobileNumber, otp);
                     console.log("OTP", otp);
                   }}
                 >

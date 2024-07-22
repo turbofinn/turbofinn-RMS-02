@@ -19,39 +19,51 @@ import NavBar from "../../common/NavBar/NavBar.jsx";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import PayConfirmationModal from "../paymentConfirmation/PayConfirmationModal.jsx";
+import PayConfirmationModalWeb from "../paymentConfirmation/PayConfirmationModalWeb.jsx";
 import ThanksModal from "../thanksPage/ThanksModal.jsx";
+import ThanksModalWeb from "../thanksPage/ThanksModalWeb.jsx";
 // import { useNavigate } from "react-router-dom";
 // const Navigate = useNavigate();
 const AddTocard = () => {
     const theme = useTheme();
     const aspect = useMediaQuery(theme.breakpoints.up("md"));
-    const [ success, setSuccess] = useState(false);
-    const [ thanks, setThanks] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [thanks, setThanks] = useState(false);
+    const [WebSuccess, setWebSuccess] = useState(false);
+    const [WebThanks, setWebThanks] = useState(false);
     // const Navigate = useNavigate();
-    
-    useEffect(()=>{
-        if(success){
-            setTimeout(()=>{
-               setThanks(true);
-               setSuccess(false);
-            },3000);  
+
+    useEffect(() => {
+        if (success) {
+            setTimeout(() => {
+                setThanks(true);
+                setSuccess(false);
+            }, 3000);
+        }
+    })
+    useEffect(() => {
+        if (WebSuccess) {
+            setTimeout(() => {
+                setWebThanks(true);
+                setWebThanks(false);
+            }, 3000);
         }
     })
     return (
         <React.Fragment>
-            {
-              success && (
-                <PayConfirmationModal/>
-              )
-            }
-            {
-              thanks && (
-                <ThanksModal/>
-              )
-            }
             {!aspect ?
 
                 <Box>
+                    {
+                        success && (
+                            <PayConfirmationModal />
+                        )
+                    }
+                    {
+                        thanks && (
+                            <ThanksModal />
+                        )
+                    }
                     <Header />
                     <AddToMealBox />
 
@@ -78,7 +90,7 @@ const AddTocard = () => {
                                 borderRadius: '2rem',
                                 marginTop: '4vh'
                             }}
-                            onClick={()=>{
+                            onClick={() => {
                                 setSuccess(true);
                             }}
                         >
@@ -88,6 +100,16 @@ const AddTocard = () => {
                 </Box> :
 
                 <Box>
+                    {
+                        WebSuccess && (
+                            <PayConfirmationModalWeb />
+                        )
+                    }
+                    {
+                        WebThanks && (
+                            <ThanksModalWeb />
+                        )
+                    }
                     <NavBar />
                     <Header />
                     <AddToMealBoxWeb />
@@ -149,6 +171,13 @@ const AddTocard = () => {
                                 alignItems: 'center',
                             }}>
                                 <Button
+                                    onClick={() => {
+                                        setWebSuccess(true);
+                                        window.scrollTo({
+                                            top: 0,
+                                            behavior: 'smooth', // Smooth scroll effect
+                                        });
+                                    }}
                                     sx={{
                                         textTransform: 'none',
                                         backgroundColor: '#469DB1',

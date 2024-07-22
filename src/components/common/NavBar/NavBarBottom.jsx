@@ -67,7 +67,7 @@ export default function NavBarBottom() {
             <img src={plate} alt="Plate" style={{ width: 24, height: 24 }} />
           }
           onClick={() => {
-            navigate('/menu');
+            navigate('/yourmealcart');
           }}
         />
         <BottomNavigationAction
