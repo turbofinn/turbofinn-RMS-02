@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { Typography, Box } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { motion, AnimatePresence, transform, easeIn } from "framer-motion";
 import vid1 from "../../../assets/GIF/special.gif";
 import img2 from "../../../assets/Image/selectOne/cardImg/Beverages.png";
@@ -12,6 +12,7 @@ import zIndex from "@mui/material/styles/zIndex";
 import VerificationBG  from "../../common/VerificationBG/VerificationBG";
 
 function CategoriesWeb() {
+  const navigate = useNavigate();
   const categories = [
     {
       title: "Today's Special",
@@ -181,8 +182,9 @@ function CategoriesWeb() {
               <AnimatePresence mode={"wait"}>
                 <Box
                   {...anime(expand)}
-                  component={Link}
-                  to={elem.to}
+                  onClick={() => {
+                    navigate("/menu");
+                  }}
                   sx={{
                     height: { md: "13.75rem", xl: "19.25rem" },
                     width: { md: "12.5rem", xl: "16.7rem" },
