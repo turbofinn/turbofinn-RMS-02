@@ -11,7 +11,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import NavBar from "../../common/NavBar/NavBar.jsx";
 import LoaderSpecialToday from "../Loader/LoaderSpecialToday.jsx";
 import ViewPlate from "../../common/viewPlate/viewPlate.jsx";
-
+import FloatButton from "../floatingButton/FloatingButton.jsx";
 function MenuPage() {
   const [loader, setLoader] = useState(true);
   const theme = useTheme();
@@ -23,6 +23,7 @@ function MenuPage() {
   }, []);
   return (
     <>
+      {/* <FloatButton/> */}
       {loader ? (
         <LoaderSpecialToday />
       ) : (

@@ -67,12 +67,12 @@ const routes = [
   },
   {
     name: "Billing Page",
-    path: "/billingpage",
+    path: "/billing",
     component: <BillPage />,
   },
   {
     name: "Feedback Page",
-    path: "/feedbackpage",
+    path: "/feedback",
     component: <FeedbackPage />,
   },
   {

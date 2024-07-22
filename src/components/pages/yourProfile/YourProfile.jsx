@@ -37,7 +37,7 @@ const style = {
     justifyContent: 'space-between',
     zIndex:9999,
 };
-const YourProfile = () => {
+const YourProfile = (props) => {
     const theme = useTheme();
     const aspect = useMediaQuery(theme.breakpoints.up("md"));
     return (
@@ -118,6 +118,8 @@ const YourProfile = () => {
                             color: 'rgb(255, 255, 255 ,0.88)',
                             fontFamily: 'Poppins',
                             // marginTop:'1rem'
+                        }} onClick={()=>{
+                             props.setEdit(false);
                         }}>
                             Save
                         </button>

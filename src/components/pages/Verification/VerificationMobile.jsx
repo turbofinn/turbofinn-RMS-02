@@ -6,12 +6,17 @@ import {
   Button,
   Checkbox,
   FormControlLabel,
+  Snackbar,
+  Alert
 } from "@mui/material";
 import verification from "../../../assets/Image/phoneAuthentication.png";
 import backgroundfood from "../../../assets/Image/BackgroundFood.png";
+import loaderGIF from "../../../assets/GIF/loader.gif";
 import { InputAdornment } from "@mui/material";
 import OtpInput from "react-otp-input";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const styles = {
   textBox: {
@@ -30,6 +35,11 @@ const styles = {
 const VerificationMobile = () => {
   const [isOtpSent, setIsOtpSent] = useState(false);
   const [otp, setOtp] = useState("");
+  const [mobileNumber, setMobileNumber] = useState(null);
+  const [open, setOpen] = useState(false);
+  const [loader, setLoader] = useState(true);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [severity, setSeverity] = useState("success");
 
   useEffect(() => {
     if ("OTPCredential" in window) {
@@ -49,343 +59,440 @@ const VerificationMobile = () => {
       return () => ac.abort();
     }
   }, []);
+  const Navigate = useNavigate();
+  const handleClick = (message, severity) => {
+    setSnackbarMessage(message);
+    setSeverity(severity);
+    setOpen(true);
+  };
 
-  function sentOtpClickHandler() {
-    if (isOtpSent === false) setIsOtpSent((c) => !c);
-  }
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
+
+  const sendOtp = async () => {
+    setLoader(false);
+    try {
+      const response = await axios.post('https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/send-otp', {
+        mobileNo: mobileNumber,
+      });
+      console.log("resp", response);
+      if (response.data.response.responseCode === 1001) {
+        handleClick("OTP sent successfully", "success");
+        if (!isOtpSent) setIsOtpSent(true);
+      } else {
+        handleClick("Failed to send OTP", "error");
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      handleClick("Error sending OTP", "error");
+    } finally{
+      setLoader(true);
+    }
+  };
+
+  const verifyOTP = async (mobileNumber, otp) => {
+    console.log("mb", mobileNumber);
+    console.log("otp", otp);
+    setLoader(false);
+    const requestData = {
+      mobileNo:mobileNumber,
+      otp:`${otp}`
+    };
+  
+    const requestOptions = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+    try {
+      const response = await axios.post(
+        'https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/verify-otp',
+        requestData,
+        requestOptions
+      );
+      if (response.data.response.responseCode === 1001) {
+          Navigate("/category");
+      }else if(response.data.response.responseCode === 9999){
+        handleClick("Wrong OTP", "error");
+      } 
+    } catch (error) {
+       handleClick("Error verifying OTP", "error");
+    }finally{
+      setLoader(true);
+    }
+  };
+  
+  const sentOtpClickHandler = () => {
+    sendOtp();
+  };
+
   return (
-    <Box
-      sx={{
-        bgcolor: "#49C3DE",
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        padding: "0.125rem",
-        fontFamily: "Poppins",
-        position: "fixed",
-      }}
-    >
+    <React.Fragment>
+      {!loader && (
+          <Box style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh', // Adjust as needed
+          }}>
+               <img src={loaderGIF} alt="loaderGIF"/>
+          </Box>
+      )
+
+      }
       <Box
         sx={{
+          bgcolor: "#49C3DE",
+          height: "100vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          minHeight: "100vh",
-          justifyContent: "center",
+          padding: "0.125rem",
+          fontFamily: "Poppins",
+          position: "fixed",
         }}
       >
         <Box
           sx={{
-            position: "fixed",
-            top: -40,
-            backgroundImage: `url(${backgroundfood})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            height: "50vh",
-            width: "100%",
-            opacity: 0.4,
-          }}
-        ></Box>
-
-        <Typography
-          variant="h4"
-          sx={{
-            color: "white",
-            marginTop: "6.87%",
-            zIndex: 1,
-            fontSize: "2.5rem",
-            fontWeight: 700,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            minHeight: "100vh",
+            justifyContent: "center",
           }}
         >
-          LOGO
-        </Typography>
+          <Box
+            sx={{
+              position: "fixed",
+              top: -40,
+              backgroundImage: `url(${backgroundfood})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              height: "50vh",
+              width: "100%",
+              opacity: 0.4,
+            }}
+          ></Box>
 
-        <Box
-          component="img"
-          sx={{
-            height: "27.90%",
-            width: "60.38%",
-            zIndex: 1,
-            marginTop: "3.37%",
-            marginBottom: "9.0%",
-          }}
-          alt=""
-          src={verification}
-        />
-
-        <Box
-          sx={{
-            textAlign: "center",
-          }}
-        >
           <Typography
-            variant="h5"
+            variant="h4"
             sx={{
               color: "white",
-              fontSize: "1.5rem",
-              marginBottom: "0.1875rem",
+              marginTop: "6.87%",
               zIndex: 1,
-              fontWeight: 600,
-            }}
-          >
-            {isOtpSent ? "Enter Your OTP" : "Verify Your Mobile Number"}
-          </Typography>
-          <Typography
-            sx={{
-              color: "white",
-              opacity: 0.8,
-              fontSize: "0.875rem",
+              fontSize: "2.5rem",
               fontWeight: 700,
-              textAlign: "center",
-              marginBottom: "10.09%",
-              maxWidth: "350px",
             }}
           >
-            {isOtpSent
-              ? "Please Let Us Know Your OTP For Verification Purposes"
-              : "Please Let Us Know Your Mobile Number For Verification Purposes"}
+            LOGO
           </Typography>
 
-          {isOtpSent ? (
-            <Box
+          <Box
+            component="img"
+            sx={{
+              height: "27.90%",
+              width: "60.38%",
+              zIndex: 1,
+              marginTop: "3.37%",
+              marginBottom: "9.0%",
+            }}
+            alt=""
+            src={verification}
+          />
+
+          <Box
+            sx={{
+              textAlign: "center",
+            }}
+          >
+            <Typography
+              variant="h5"
               sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyItems: "center",
-                marginLeft: 6,
+                color: "white",
+                fontSize: "1.5rem",
+                marginBottom: "0.1875rem",
+                zIndex: 1,
+                fontWeight: 600,
               }}
             >
-              <OtpInput
-                value={otp}
-                onChange={setOtp}
-                numInputs={4}
-                renderInput={(props) => (
-                  <input
-                    {...props}
-                    style={{
-                      width: "52px",
-                      height: "52px",
-                      borderRadius: "11px",
-                      border: "2.5px solid transparent",
-                      background:
-                        "linear-gradient(white, white) padding-box, linear-gradient(90deg, #515ADA 0%, #2B3074 100%) border-box",
-                      margin: "0 4px",
-                      fontSize: "24px",
-                      fontWeight: "bold",
-                      textAlign: "center",
-                      color: "#000",
-                      outline: "none",
-                    }}
-                    onKeyDown={(event) => {
-                      if (
-                        !/[0-9]/.test(event.key) &&
-                        event.key !== "Backspace" &&
-                        event.key !== "Delete" &&
-                        event.key !== "ArrowLeft" &&
-                        event.key !== "ArrowRight" &&
-                        event.key !== "Tab"
-                      ) {
-                        event.preventDefault();
-                      }
-                    }}
-                    inputMode="numeric"
-                    pattern="\d*"
-                  />
-                )}
-              />
-            </Box>
-          ) : (
-            <TextField
-              onChange={(event) => {
-                const value = event.target.value.replace(/\D/g, "");
-                event.target.value = value.slice(0, 10);
-              }}
-              variant="standard"
-              InputProps={{
-                maxLength: 10,
-                startAdornment: (
-                  <InputAdornment position="start" sx={{ textAlign: "center" }}>
-                    {" "}
-                    +91
-                  </InputAdornment>
-                ),
-                disableUnderline: true,
-              }}
-              inputProps={{
-                inputMode: "numeric",
-                pattern: "[0-9]*",
-              }}
-              // placeholder=" 9452222225"
+              {isOtpSent ? "Enter Your OTP" : "Verify Your Mobile Number"}
+            </Typography>
+            <Typography
               sx={{
-                outline: "none",
-                backgroundColor: "white",
-                borderRadius: "0.625rem",
-                fontSize: "1.5rem",
-                border: "0.09375rem solid black",
-                borderColor: "rgba(31, 104, 87, 1)",
+                color: "white",
+                opacity: 0.8,
+                fontSize: "0.875rem",
                 fontWeight: 700,
-                height: "3.4375rem",
-                width: "20.875rem",
-                padding: "0.5rem",
-                marginBottom: "0.5rem",
-                "& .MuiInputBase-root": {
-                  height: "100%",
-                  alignItems: "center",
-                  padding: "0 0.5rem",
-                },
+                textAlign: "center",
+                marginBottom: "10.09%",
+                maxWidth: "350px",
+              }}
+            >
+              {isOtpSent
+                ? "Please Let Us Know Your OTP For Verification Purposes"
+                : "Please Let Us Know Your Mobile Number For Verification Purposes"}
+            </Typography>
 
-                "& .MuiInputBase-input": {
-                  padding: 0,
+            {isOtpSent ? (
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyItems: "center",
+                  marginLeft: 6,
+                }}
+              >
+                <OtpInput
+                  value={otp}
+                  onChange={setOtp}
+                  numInputs={4} 
+                  renderInput={(props) => (
+                    <input
+                      {...props}
+                      style={{
+                        width: "52px",
+                        height: "52px",
+                        borderRadius: "11px",
+                        border: "2.5px solid transparent",
+                        background:
+                          "linear-gradient(white, white) padding-box, linear-gradient(90deg, #515ADA 0%, #2B3074 100%) border-box",
+                        margin: "0 4px",
+                        fontSize: "24px",
+                        fontWeight: "bold",
+                        textAlign: "center",
+                        color: "#000",
+                        outline: "none",
+                      }}
+                      onKeyDown={(event) => {
+                        if (
+                          !/[0-9]/.test(event.key) &&
+                          event.key !== "Backspace" &&
+                          event.key !== "Delete" &&
+                          event.key !== "ArrowLeft" &&
+                          event.key !== "ArrowRight" &&
+                          event.key !== "Tab"
+                        ) {
+                          event.preventDefault();
+                        }
+                      }}
+                      inputMode="numeric"
+                      pattern="\d*"
+                      
+                    />
+                  )}
+                />
+              </Box>
+            ) : (
+              <TextField
+                onChange={(event) => {
+                  const value = event.target.value.replace(/\D/g, "");
+                  event.target.value = value.slice(0, 10);
+                  setMobileNumber(value);
+                  console.log(value);
+                }}
+                variant="standard"
+                InputProps={{
+                  maxLength: 10,
+                  inputMode: "numeric",
+                  pattern: "[0-9]*",
+                  startAdornment: (
+                    <InputAdornment position="start" sx={{ textAlign: "center" }}>
+                      {" "}
+                      +91
+                    </InputAdornment>
+                  ),
+                  disableUnderline: true,
+                }}
+                // placeholder=" 9452222225"
+                sx={{
+                  outline: "none",
+                  backgroundColor: "white",
+                  borderRadius: "0.625rem",
+                  fontSize: "1.5rem",
+                  border: "0.09375rem solid black",
+                  borderColor: "rgba(31, 104, 87, 1)",
+                  fontWeight: 700,
+                  height: "3.4375rem",
+                  width: "20.875rem",
+                  padding: "0.5rem",
+                  marginBottom: "0.5rem",
+                  "& .MuiInputBase-root": {
+                    height: "100%",
+                    alignItems: "center",
+                    padding: "0 0.5rem",
+                  },
+
+                  "& .MuiInputBase-input": {
+                    padding: 0,
+                    "&::placeholder": {
+                      color: "black",
+                      opacity: 0.5,
+                    },
+                  },
                   "&::placeholder": {
                     color: "black",
                     opacity: 0.5,
+                    marginLeft: "0.5rem",
                   },
-                },
-                "&::placeholder": {
-                  color: "black",
-                  opacity: 0.5,
-                  marginLeft: "0.5rem",
-                },
-                "&:focus": {
-                  borderColor: "black",
-                },
-              }}
-              onKeyDown={(event) => {
-                const currentValue = event.target.value.replace(/\D/g, "");
-                if (
-                  !/[0-9]/.test(event.key) &&
-                  event.key !== "Backspace" &&
-                  event.key !== "Delete" &&
-                  event.key !== "ArrowLeft" &&
-                  event.key !== "ArrowRight" &&
-                  event.key !== "Tab"
-                ) {
-                  event.preventDefault();
-                }
-                if (/[0-9]/.test(event.key) && currentValue.length >= 10) {
-                  event.preventDefault();
-                }
-              }}
-            />
-          )}
-
-          <Box
-            sx={{ display: "flex", alignItems: "center", marginTop: "-5px" }}
-          >
-            {isOtpSent ? (
-              <>
-                {" "}
-                <Typography
-                  sx={{
-                    color: "rgba(243, 243, 243, 0.8)",
-                    fontSize: "13px",
-                    fontWeight: 500,
-                    margin: 0,
-                    marginLeft: 6,
-                    marginTop: 2,
-                  }}
-                >
-                  Did’t Receive The OTP?
-                </Typography>
-                <Typography
-                  sx={{
-                    color: "rgba(0, 0, 0, 0.8)",
-                    fontSize: "13px",
-                    fontWeight: 500,
-                    margin: 0,
-                    textDecoration: "underline",
-                    marginLeft: 1,
-                    marginTop: 2,
-                  }}
-                >
-                  Resend Code
-                </Typography>
-              </>
-            ) : (
-              <>
-                {" "}
-                <FormControlLabel
-                  control={<Checkbox size="12px" />}
-                  sx={{
-                    marginRight: "2px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginLeft: "39px",
-                  }}
-                ></FormControlLabel>
-                <Typography
-                  sx={{
-                    color: "white",
-                    fontSize: "13px",
-                    fontWeight: 500,
-                    margin: 0,
-                  }}
-                >
-                  Is This Same Number in Whatsapp
-                </Typography>
-              </>
+                  "&:focus": {
+                    borderColor: "black",
+                  },
+                }}
+                onKeyDown={(event) => {
+                  const currentValue = event.target.value.replace(/\D/g, "");
+                  if (
+                    !/[0-9]/.test(event.key) &&
+                    event.key !== "Backspace" &&
+                    event.key !== "Delete" &&
+                    event.key !== "ArrowLeft" &&
+                    event.key !== "ArrowRight" &&
+                    event.key !== "Tab"
+                  ) {
+                    event.preventDefault();
+                  }
+                  if (/[0-9]/.test(event.key) && currentValue.length >= 10) {
+                    event.preventDefault();
+                  }
+                }}
+                inputMode="numeric"
+                pattern="\d*"
+              />
             )}
+
+            <Box
+              sx={{ display: "flex", alignItems: "center", marginTop: "-5px" }}
+            >
+              {isOtpSent ? (
+                <>
+                  {" "}
+                  <Typography
+                    sx={{
+                      color: "rgba(243, 243, 243, 0.8)",
+                      fontSize: "13px",
+                      fontWeight: 500,
+                      margin: 0,
+                      marginLeft: 6,
+                      marginTop: 2,
+                    }}
+                  >
+                    Did’t Receive The OTP?
+                  </Typography>
+                  <Typography
+                    sx={{
+                      color: "rgba(0, 0, 0, 0.8)",
+                      fontSize: "13px",
+                      fontWeight: 500,
+                      margin: 0,
+                      textDecoration: "underline",
+                      marginLeft: 1,
+                      marginTop: 2,
+                    }}
+                  >
+                    Resend Code
+                  </Typography>
+                </>
+              ) : (
+                <>
+                  {" "}
+                  <FormControlLabel
+                    control={<Checkbox size="12px" />}
+                    sx={{
+                      marginRight: "2px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginLeft: "39px",
+                    }}
+                  ></FormControlLabel>
+                  <Typography
+                    sx={{
+                      color: "white",
+                      fontSize: "13px",
+                      fontWeight: 500,
+                      margin: 0,
+                    }}
+                  >
+                    Is This Same Number in Whatsapp
+                  </Typography>
+                </>
+              )}
+            </Box>
+            {
+              isOtpSent ?
+                <Button
+                  component={Link}
+                  variant="contained"
+                  sx={{
+                    paddingY: "0.75rem",
+                    paddingX: "4.1875rem",
+                    borderRadius: "21px",
+                    backgroundColor: 'rgba(9, 146, 176, 0.9)',
+                    marginTop: "8.62%",
+                    marginBottom: "8.77%",
+                    fontSize: "0.9375rem",
+                    fontWeight: 700,
+                    textTransform: "none",
+                    boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
+                  }}
+                  onClick={()=>{
+                    verifyOTP(mobileNumber, otp);
+                    console.log("OTP", otp);
+                  }}
+                >
+                  Verify
+                </Button>
+                : <Button
+                  variant="contained"
+                  sx={{
+                    paddingY: "0.75rem",
+                    paddingX: "4.1875rem",
+                    borderRadius: "21px",
+                    backgroundColor: 'rgba(9, 146, 176, 0.9)',
+                    marginTop: "8.62%",
+                    marginBottom: "8.77%",
+                    fontSize: "0.9375rem",
+                    fontWeight: 700,
+                    textTransform: "none",
+                    boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
+                  }}
+                  onClick={sentOtpClickHandler}
+                >
+                  Send OTP
+                </Button>}
           </Box>
-          {isOtpSent ? (
-            <Button
-              component={Link}
-              to="/category"
-              variant="contained"
-              sx={{
-                paddingY: "0.75rem",
-                paddingX: "4.1875rem",
-                borderRadius: "21px",
-                backgroundColor: "rgba(9, 146, 176, 0.9)",
-                marginTop: "8.62%",
-                marginBottom: "8.77%",
-                fontSize: "0.9375rem",
-                fontWeight: 700,
-                textTransform: "none",
-                boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
-              }}
-            >
-              Verify
-            </Button>
-          ) : (
-            <Button
-              variant="contained"
-              sx={{
-                paddingY: "0.75rem",
-                paddingX: "4.1875rem",
-                borderRadius: "21px",
-                backgroundColor: "rgba(9, 146, 176, 0.9)",
-                marginTop: "8.62%",
-                marginBottom: "8.77%",
-                fontSize: "0.9375rem",
-                fontWeight: 700,
-                textTransform: "none",
-                boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
-              }}
-              onClick={sentOtpClickHandler}
-            >
-              Send OTP
-            </Button>
-          )}
         </Box>
+        <Typography
+          variant="body2"
+          sx={{
+            position: "relative",
+            bottom: 30,
+            width: "100%",
+            textAlign: "center",
+            color: "white",
+            fontSize: "0.9375rem",
+            mb: "1.0625rem",
+            fontWeight: 700,
+          }}
+        >
+          A Product Of TurboFinn AI
+        </Typography>
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
+          <Alert
+            onClose={handleClose}
+            severity={severity}
+            variant="filled"
+            sx={{ width: '100%' }}
+
+          >
+            {snackbarMessage}
+          </Alert>
+        </Snackbar>
       </Box>
-      <Typography
-        variant="body2"
-        sx={{
-          position: "relative",
-          bottom: 30,
-          width: "100%",
-          textAlign: "center",
-          color: "white",
-          fontSize: "0.9375rem",
-          mb: "1.0625rem",
-          fontWeight: 700,
-        }}
-      >
-        A Product Of TurboFinn AI
-      </Typography>
-    </Box>
+    </React.Fragment>
   );
 };
 

@@ -1,7 +1,8 @@
 import React from "react";
 import { Box, Typography, Button } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
 const ViewPlate = () => {
+  const Navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -45,6 +46,9 @@ const ViewPlate = () => {
           borderRadius: "0px 100px 100px 200px",
           boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.25)",
         }}
+        onClick={()=>[
+           Navigate("/yourmealcart")
+        ]}
       >
         View Plate
       </Box>
