@@ -1,17 +1,22 @@
 import "./App.css";
-import routes from "./routes.js";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import routes from "./routes.js";
+import { AnimatePresence } from "framer-motion";
+import VerificationBG from "./components/common/VerificationBG/VerificationBG.jsx";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          {routes.map((data, index) => {
-            return <Route path={data.path} element={data.component} />;
-          })}
-        </Routes>
-      </BrowserRouter>
+      <AnimatePresence mode={"wait"}>
+        <BrowserRouter>
+          <Routes>
+            {routes.map((data, index) => {
+              return <Route path={data.path} element={data.component} />;
+            })}
+          </Routes>
+        </BrowserRouter>
+      </AnimatePresence>
     </div>
+    // <VerificationBG></VerificationBG>
   );
 }
 

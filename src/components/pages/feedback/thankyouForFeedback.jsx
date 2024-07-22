@@ -23,29 +23,33 @@ const ThankYouPage = () => {
         justifyContent: "center",
         height: "100%",
         textAlign: "center",
-        padding: 2,
+        padding: { xs: 0, sm: 2 },
       }}
     >
       <Typography
         variant="h4"
         sx={{
-          marginTop: 1,
-          marginBottom: 5,
+          marginTop: { xs: 1, sm: 2 },
+          marginBottom: { xs: 3, sm: 5 },
           fontWeight: 600,
-          fontSize: "24px",
+          fontSize: { xs: "24px", sm: "32px" },
         }}
       >
         Feedback
       </Typography>
       <Box>
-        <img src={thankYou} alt="Thank You" />
+        <img
+          src={thankYou}
+          alt="Thank You"
+          style={{ maxWidth: "100%", height: "auto" }}
+        />
       </Box>
       <Typography
         sx={{
-          marginBottom: 1,
+          marginBottom: { xs: 1, sm: 2 },
           fontWeight: 700,
-          fontSize: "32px",
-          marginTop: "3rem",
+          fontSize: { xs: "32px", sm: "40px" },
+          marginTop: { xs: "2rem", sm: "3rem" },
         }}
       >
         Thanks Alot <br />
@@ -54,28 +58,39 @@ const ThankYouPage = () => {
       <Typography
         variant="h6"
         sx={{
-          marginTop: "2.5rem",
-          marginBottom: 3,
+          marginTop: { xs: "1.5rem", sm: "2.5rem" },
+          marginBottom: { xs: 2, sm: 3 },
           fontWeight: 700,
-          fontSize: "32px",
+          fontSize: { xs: "32px", sm: "40px" },
         }}
       >
         It Means Alot
       </Typography>
-      <Typography variant="h6" sx={{ fontWeight: 600, fontSize: "13px" }}>
+      <Typography
+        variant="h6"
+        sx={{ fontWeight: 600, fontSize: { xs: "13px", sm: "16px" } }}
+      >
         With in {countdown} Sec <br />
         you will be redirect to main page.
       </Typography>
-      <Box sx={{ marginTop: 5, marginBottom: 1 }}>
+      <Box sx={{ marginTop: { xs: 3, sm: 5 }, marginBottom: { xs: 1, sm: 2 } }}>
         <Typography
           variant="h6"
-          sx={{ fontWeight: 700, fontSize: "40px", marginBottom: 1 }}
+          sx={{
+            fontWeight: 700,
+            fontSize: { xs: "40px", sm: "48px" },
+            marginBottom: 1,
+          }}
         >
           LOGO
         </Typography>
         <Typography
           variant="caption"
-          sx={{ fontWeight: 600, fontSize: "14px", marginBottom: 0 }}
+          sx={{
+            fontWeight: 600,
+            fontSize: { xs: "14px", sm: "16px" },
+            marginBottom: 0,
+          }}
         >
           A Turbofinn AI Product
         </Typography>
@@ -83,42 +98,43 @@ const ThankYouPage = () => {
     </Box>
   );
 
-  if (isMobile) {
-    return (
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+        background: {
+          xs: "white",
+          sm: `
+            linear-gradient(180deg, #0092B3 0%, rgba(83, 204, 231, 0.86) 70%),
+            linear-gradient(180deg, rgba(83, 204, 231, 0.86) -90%, rgba(217, 217, 217, 1) 50%)
+          `,
+        },
+        backgroundRepeat: { xs: "no-repeat", sm: "no-repeat" },
+        backgroundSize: { xs: "auto", sm: "100% 55%, 100% 45%" },
+        backgroundPosition: { xs: "auto", sm: "top, bottom" },
+        padding: { xs: 0, sm: 2 },
+      }}
+    >
       <Box
         sx={{
-          height: "100vh",
+          width: "100%",
+          maxWidth: { xs: "100%", sm: 600 },
           backgroundColor: "white",
+          borderRadius: { xs: 0, sm: "20px" },
+          boxShadow: {
+            xs: "none",
+            sm: "0px 0px 35.6px 6px rgba(0, 0, 0, 0.25)",
+          },
+          overflow: "hidden",
         }}
       >
         {content}
       </Box>
-    );
-  } else {
-    return (
-      <Box
-        sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100vh", 
-        }}
-      >
-        <Box
-          sx={{
-            width: "100%",
-            maxWidth: 400,
-            backgroundColor: "white",
-            borderRadius: 2,
-            boxShadow: "0px 0px 10px rgba(0,0,0,0.1)",
-            overflow: "hidden",
-          }}
-        >
-          {content}
-        </Box>
-      </Box>
-    );
-  }
+    </Box>
+  );
 };
 
 export default ThankYouPage;

@@ -10,6 +10,10 @@ import PaymentMethod from "./components/pages/paymentMethod/PaymentMethod.jsx";
 import OrderStatus from "./components/pages/orderStatus/OrderStatus.jsx";
 import BillPage from "./components/pages/billingPage/BillingPage.jsx";
 import FeedbackPage from "./components/pages/feedback/feedback.jsx";
+import LoaderSpecialToday from "./components/pages/Loader/LoaderSpecialToday.jsx";
+import LoaderBeverages from './components/pages/Loader/LoaderBeverages.jsx';
+import LoaderDineIn from './components/pages/Loader/LoaderDineIn.jsx';
+import LoaderTakeAway from './components/pages/Loader/LoaderTakeAway.jsx';
 const routes = [
   {
     name: "welcome",
@@ -71,6 +75,27 @@ const routes = [
     path: "/feedback",
     component: <FeedbackPage />,
   },
+  {
+    name:'specialToday',
+    path: "/specialToday",
+    component: <LoaderSpecialToday />,
+  },
+  {
+    name:'beverages',
+    path: "/beverages",
+    component: <LoaderBeverages/>,
+  },
+  {
+    name:'dineIn',
+    path: "/dineIn",
+    component: <LoaderDineIn />,
+  },
+  {
+    name:'takeAway',
+    path: "/takeAway",
+    component: <LoaderTakeAway/>,
+  },
 ];
 
 export default routes;
+

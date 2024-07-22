@@ -12,12 +12,14 @@ function LoaderDineIn() {
     <LoaderWeb
       img={img}
       title={"Dine In"}
-      imgH="20rem"
-      imgW="20rem"
+      imgH="16rem"
+      imgW="16rem"
       imgBR="50%"
       bgCol="rgba(225, 140, 66, 1)"
       titleCol="rgba(255, 255, 255, 1)"
-      welcomeCol="rgba(0, 79, 96, 1)"></LoaderWeb>
+      welcomeCol="rgba(0, 79, 96, 1)"
+      txtX={400}
+      txtY={200}></LoaderWeb>
   ) : (
     <LoaderMob
       img={img}
