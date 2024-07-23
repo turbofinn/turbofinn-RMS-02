@@ -7,7 +7,8 @@ import {
   Checkbox,
   FormControlLabel,
   Snackbar,
-  Alert
+  Alert,
+  Input,
 } from "@mui/material";
 import verification from "../../../assets/Image/phoneAuthentication.png";
 import backgroundfood from "../../../assets/Image/BackgroundFood.png";
@@ -67,7 +68,7 @@ const VerificationMobile = () => {
   };
 
   const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
     setOpen(false);
@@ -76,9 +77,12 @@ const VerificationMobile = () => {
   const sendOtp = async () => {
     setLoader(false);
     try {
-      const response = await axios.post('https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/send-otp', {
-        mobileNo: mobileNumber,
-      });
+      const response = await axios.post(
+        "https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/send-otp",
+        {
+          mobileNo: mobileNumber,
+        }
+      );
       console.log("resp", response);
       if (response.data.response.responseCode === 1001) {
         handleClick("OTP sent successfully", "success");
@@ -87,9 +91,9 @@ const VerificationMobile = () => {
         handleClick("Failed to send OTP", "error");
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
       handleClick("Error sending OTP", "error");
-    } finally{
+    } finally {
       setLoader(true);
     }
   };
@@ -99,33 +103,33 @@ const VerificationMobile = () => {
     console.log("otp", otp);
     setLoader(false);
     const requestData = {
-      mobileNo:mobileNumber,
-      otp:`${otp}`
+      mobileNo: mobileNumber,
+      otp: `${otp}`,
     };
-  
+
     const requestOptions = {
       headers: {
-        'Content-Type': 'application/json'
-      }
+        "Content-Type": "application/json",
+      },
     };
     try {
       const response = await axios.post(
-        'https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/verify-otp',
+        "https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/verify-otp",
         requestData,
         requestOptions
       );
       if (response.data.response.responseCode === 1001) {
-          Navigate("/category");
-      }else if(response.data.response.responseCode === 9999){
+        Navigate("/category");
+      } else if (response.data.response.responseCode === 9999) {
         handleClick("Wrong OTP", "error");
-      } 
+      }
     } catch (error) {
-       handleClick("Error verifying OTP", "error");
-    }finally{
+      handleClick("Error verifying OTP", "error");
+    } finally {
       setLoader(true);
     }
   };
-  
+
   const sentOtpClickHandler = () => {
     sendOtp();
   };
@@ -133,17 +137,17 @@ const VerificationMobile = () => {
   return (
     <React.Fragment>
       {!loader && (
-          <Box style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100vh', // Adjust as needed
-          }}>
-               <img src={loaderGIF} alt="loaderGIF"/>
-          </Box>
-      )
-
-      }
+        <Box
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh", // Adjust as needed
+          }}
+        >
+          <img src={loaderGIF} alt="loaderGIF" />
+        </Box>
+      )}
       <Box
         sx={{
           bgcolor: "#49C3DE",
@@ -249,7 +253,7 @@ const VerificationMobile = () => {
                 <OtpInput
                   value={otp}
                   onChange={setOtp}
-                  numInputs={4} 
+                  numInputs={4}
                   renderInput={(props) => (
                     <input
                       {...props}
@@ -281,86 +285,63 @@ const VerificationMobile = () => {
                       }}
                       inputMode="numeric"
                       pattern="\d*"
-                      
                     />
                   )}
                 />
               </Box>
             ) : (
-              <TextField
-                onChange={(event) => {
-                  const value = event.target.value.replace(/\D/g, "");
-                  event.target.value = value.slice(0, 10);
-                  setMobileNumber(value);
-                  console.log(value);
-                }}
-                variant="standard"
-                InputProps={{
-                  maxLength: 10,
-                  inputMode: "numeric",
-                  pattern: "[0-9]*",
-                  startAdornment: (
-                    <InputAdornment position="start" sx={{ textAlign: "center" }}>
-                      {" "}
-                      +91
-                    </InputAdornment>
-                  ),
-                  disableUnderline: true,
-                }}
-                // placeholder=" 9452222225"
-                sx={{
-                  outline: "none",
-                  backgroundColor: "white",
-                  borderRadius: "0.625rem",
-                  fontSize: "1.5rem",
-                  border: "0.09375rem solid black",
-                  borderColor: "rgba(31, 104, 87, 1)",
-                  fontWeight: 700,
-                  height: "3.4375rem",
-                  width: "20.875rem",
-                  padding: "0.5rem",
-                  marginBottom: "0.5rem",
-                  "& .MuiInputBase-root": {
-                    height: "100%",
-                    alignItems: "center",
-                    padding: "0 0.5rem",
-                  },
-
-                  "& .MuiInputBase-input": {
-                    padding: 0,
-                    "&::placeholder": {
-                      color: "black",
-                      opacity: 0.5,
-                    },
-                  },
+              <Input
+              onChange={(event) => {
+                const value = event.target.value.replace(/\D/g, "").slice(0, 10);
+                setMobileNumber(value);
+                event.target.value = value;
+              }}
+              inputProps={{
+                inputMode: "numeric",
+                pattern: "[0-9]*",
+                maxLength: 10,
+              }}
+              startAdornment={
+                <InputAdornment position="start">
+                  +91
+                </InputAdornment>
+              }
+              disableUnderline
+              sx={{
+                backgroundColor: "white",
+                borderRadius: "0.625rem",
+                fontSize: "1.3rem",
+                border: "0.09375rem solid rgba(31, 104, 87, 1)",
+                fontWeight: 600,
+                height: "3.4375rem",
+                width: "20.875rem",
+                padding: "0.5rem",
+                marginBottom: "0.5rem",
+                "& .MuiInputBase-root": {
+                  height: "100%",
+                  alignItems: "center",
+                  padding: "0 0.5rem",
+                },
+                "& .MuiInputBase-input": {
+                  padding: 0,
                   "&::placeholder": {
                     color: "black",
                     opacity: 0.5,
-                    marginLeft: "0.5rem",
                   },
-                  "&:focus": {
-                    borderColor: "black",
-                  },
-                }}
-                onKeyDown={(event) => {
-                  const currentValue = event.target.value.replace(/\D/g, "");
-                  if (
-                    !/[0-9]/.test(event.key) &&
-                    event.key !== "Backspace" &&
-                    event.key !== "Delete" &&
-                    event.key !== "ArrowLeft" &&
-                    event.key !== "ArrowRight" &&
-                    event.key !== "Tab"
-                  ) {
-                    event.preventDefault();
-                  }
-                  if (/[0-9]/.test(event.key) && currentValue.length >= 10) {
-                    event.preventDefault();
-                  }
-                }}
-                inputMode="numeric"
-                pattern="\d*"
-              />
+                },
+                "&:focus": {
+                  borderColor: "black",
+                },
+              }}
+              onKeyDown={(event) => {
+                if (
+                  !/[0-9]/.test(event.key) &&
+                  !["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"].includes(event.key)
+                ) {
+                  event.preventDefault();
+                }
+              }}
+            />
             )}
 
             <Box
@@ -421,48 +402,49 @@ const VerificationMobile = () => {
                 </>
               )}
             </Box>
-            {
-              isOtpSent ?
-                <Button
-                  component={Link}
-                  variant="contained"
-                  sx={{
-                    paddingY: "0.75rem",
-                    paddingX: "4.1875rem",
-                    borderRadius: "21px",
-                    backgroundColor: 'rgba(9, 146, 176, 0.9)',
-                    marginTop: "8.62%",
-                    marginBottom: "8.77%",
-                    fontSize: "0.9375rem",
-                    fontWeight: 700,
-                    textTransform: "none",
-                    boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
-                  }}
-                  onClick={()=>{
-                    verifyOTP(mobileNumber, otp);
-                    console.log("OTP", otp);
-                  }}
-                >
-                  Verify
-                </Button>
-                : <Button
-                  variant="contained"
-                  sx={{
-                    paddingY: "0.75rem",
-                    paddingX: "4.1875rem",
-                    borderRadius: "21px",
-                    backgroundColor: 'rgba(9, 146, 176, 0.9)',
-                    marginTop: "8.62%",
-                    marginBottom: "8.77%",
-                    fontSize: "0.9375rem",
-                    fontWeight: 700,
-                    textTransform: "none",
-                    boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
-                  }}
-                  onClick={sentOtpClickHandler}
-                >
-                  Send OTP
-                </Button>}
+            {isOtpSent ? (
+              <Button
+                component={Link}
+                variant="contained"
+                sx={{
+                  paddingY: "0.75rem",
+                  paddingX: "4.1875rem",
+                  borderRadius: "21px",
+                  backgroundColor: "rgba(9, 146, 176, 0.9)",
+                  marginTop: "8.62%",
+                  marginBottom: "8.77%",
+                  fontSize: "0.9375rem",
+                  fontWeight: 700,
+                  textTransform: "none",
+                  boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
+                }}
+                onClick={() => {
+                  verifyOTP(mobileNumber, otp);
+                  console.log("OTP", otp);
+                }}
+              >
+                Verify
+              </Button>
+            ) : (
+              <Button
+                variant="contained"
+                sx={{
+                  paddingY: "0.75rem",
+                  paddingX: "4.1875rem",
+                  borderRadius: "21px",
+                  backgroundColor: "rgba(9, 146, 176, 0.9)",
+                  marginTop: "8.62%",
+                  marginBottom: "8.77%",
+                  fontSize: "0.9375rem",
+                  fontWeight: 700,
+                  textTransform: "none",
+                  boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
+                }}
+                onClick={sentOtpClickHandler}
+              >
+                Send OTP
+              </Button>
+            )}
           </Box>
         </Box>
         <Typography
@@ -480,13 +462,17 @@ const VerificationMobile = () => {
         >
           A Product Of TurboFinn AI
         </Typography>
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
+        <Snackbar
+          open={open}
+          autoHideDuration={6000}
+          onClose={handleClose}
+          anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        >
           <Alert
             onClose={handleClose}
             severity={severity}
             variant="filled"
-            sx={{ width: '100%' }}
-
+            sx={{ width: "100%" }}
           >
             {snackbarMessage}
           </Alert>
