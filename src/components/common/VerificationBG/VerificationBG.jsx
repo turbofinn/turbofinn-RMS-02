@@ -9,8 +9,8 @@ function VerificationBG() {
           content: '""',
           borderRadius: "50%",
           background: "rgba(147, 212, 227, 1)",
-          height: "3000px",
-          width: "3000px",
+          height: "100%",
+          width: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -20,8 +20,8 @@ function VerificationBG() {
             content: '""',
             borderRadius: "50%",
             background: "rgba(113, 190, 208, 1)",
-            height: "2200px",
-            width: "2200px",
+            height: "71%",
+            width: "71%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -31,8 +31,8 @@ function VerificationBG() {
               content: '""',
               borderRadius: "50%",
               background: "rgba(70, 157, 177, 1)",
-              height: "1400px",
-              width: "1400px",
+              height: "65%",
+              width: "65%",
             }}></Box>
         </Box>
       </Box>

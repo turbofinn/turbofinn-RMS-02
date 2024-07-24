@@ -292,7 +292,7 @@ const WelcomePage = () => {
                         bottom: '1rem',
                         left: '50%',
                         transform: 'translateX(-50%)'
-                    }}>Created With Turbofinn Ai Excellency</Typography>
+                    }}>Created With Turbofinn AI Excellency</Typography>
                 </Box>
             </Box>
         </Box >

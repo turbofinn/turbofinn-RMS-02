@@ -4,7 +4,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { Typography, Box } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
 function SimpleHead({
   title,showSubtitle=false,
   subtitle='',
@@ -15,6 +15,7 @@ function SimpleHead({
 }) {
   const theme = useTheme();
   const aspect = useMediaQuery(theme.breakpoints.up("md"));
+  const Navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -31,7 +32,9 @@ function SimpleHead({
         color: "white",
         paddingInline: "1.25rem",
       }}>
-      {functions ? aspect ? null : <ArrowBackIosIcon></ArrowBackIosIcon> : null}
+      {functions ? aspect ? null : <ArrowBackIosIcon  onClick={() => {
+                  Navigate("/billing");
+                }}></ArrowBackIosIcon> : null}
       <Box sx={{width:"100%",display:'flex',flexDirection:'column',alignItems:'center',} }>
         <Typography
           sx={{
@@ -65,7 +68,9 @@ function SimpleHead({
         
       </Box>
 
-      {functions ? aspect ? null : <CancelIcon></CancelIcon> : null}
+      {functions ? aspect ? null : <CancelIcon onClick={() => {
+                  Navigate("/menu");
+                }}></CancelIcon> : null}
     </Box>
   );
 }

@@ -95,13 +95,15 @@ const PayConfirmationModalWeb = () => {
                         <Typography style={{ color: 'black', fontWeight: 700, textAlign: 'center', fontSize: '1rem', marginTop: '1.5rem' }}>Your Meal Will Served In Some Time</Typography>
 
                         <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1.5rem' }}>
+                        <Button onClick={()=>{
+                            Navigate("/menu");
+                        }} style={{ width: '47%', border: '2px solid #35B1CD ', textTransform: 'capitalize', fontSize: '0.9rem', color: 'black', borderRadius: '0.5rem' }}>Home</Button>
                             <Button 
                             onClick={()=>{
                                 Navigate("/billing")
                             }}variant="contained" color="primary" style={{
                                 width: '47%', backgroundColor: '#35B1CD', color: 'white', fontSize: '0.9rem', textTransform: 'capitalize', height: '3rem', borderRadius: '0.5rem'
                             }}>View Bill & Share</Button>
-                            <Button style={{ width: '47%', border: '2px solid #35B1CD ', textTransform: 'capitalize', fontSize: '0.9rem', color: 'black', borderRadius: '0.5rem' }}>Back</Button>
                         </Box>
                     </Box>
                 </Box>

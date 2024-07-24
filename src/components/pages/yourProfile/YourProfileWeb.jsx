@@ -34,7 +34,7 @@ const style = {
     justifyContent: 'space-between',
     zIndex:9999
 };
-const YourProfileWeb = () =>{
+const YourProfileWeb = (props) =>{
     return (
         <React.Fragment>
                 <Box sx={style}>
@@ -113,7 +113,9 @@ const YourProfileWeb = () =>{
                             color:'rgb(255, 255, 255 ,0.88)',
                             fontFamily:'Poppins',
                             // marginTop:'1rem'
-                        }}>
+                        }} onClick={()=>{
+                            props.setEdit(false);
+                       }}>
                             Save
                         </button>
                     </Box>
