@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from "react";
-import { Typography, Box } from "@mui/material";
-import { Link,useNavigate } from "react-router-dom";
+import React, { useRef, useEffect, useState } from "react";
+import { Typography, Box, duration } from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence, transform, easeIn } from "framer-motion";
 import vid1 from "../../../assets/GIF/special.gif";
 import img2 from "../../../assets/Image/selectOne/cardImg/Beverages.png";
@@ -9,7 +9,8 @@ import img4 from "../../../assets/Image/TakeAway.png";
 import bg from "../../../assets/Image/selectOne/bg_food4.png";
 import logo from "../../../assets/Image/logo.png";
 import zIndex from "@mui/material/styles/zIndex";
-import VerificationBG  from "../../common/VerificationBG/VerificationBG";
+import VerificationBG from "../../common/VerificationBG/VerificationBG";
+import { Opacity } from "@mui/icons-material";
 
 function CategoriesWeb() {
   const navigate = useNavigate();
@@ -51,27 +52,16 @@ function CategoriesWeb() {
       scale: 3,
       x: 100,
       y: 100,
-      transition: { delay: 0.2, duration: 1.3 },
-    },
-  };
-  const enlarge = {
-    initial: { scale: 0 ,borderRadius:'50%'},
-    enter: {
-      scale: 1,borderRadius:0,
-      transition: { duration: 0.2 },
+      transition: { delay: 0.2, duration: 0.6 },
     },
   };
   const fade = {
-    initial: { opacity: 1 },
-    enter: {
-      display: "none",
-      opacity: 0,
-      transition: { delay: 0.3, duration: 0.3 },
-    },
+    initial: { opacity: 0 },
+    enter: { opacity: 1, transition: { duration: 0.2, ease: "easeIn" } },
   };
-
   return (
-    <Box
+    <motion.div
+      {...anime(fade)}
       style={{
         backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.936),rgba(73, 195, 222, 0.750),rgba(73, 195, 222, 0.600),rgba(73, 195, 222, 0.500),rgba(73, 195, 222, 0.300)),url(${bg})`,
         backgroundColor: "#49c3de",
@@ -80,35 +70,6 @@ function CategoriesWeb() {
         width: "100%",
         position: "relative",
       }}>
-      <AnimatePresence
-        mode="wait"
-        sx={{
-          backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.936),rgba(73, 195, 222, 0.750),rgba(73, 195, 222, 0.600),rgba(73, 195, 222, 0.500),rgba(73, 195, 222, 0.300)),url(${bg})`,
-          backgroundColor: "#49c3de",
-          backgroundSize: "60rem",
-          minHeight: "100vh",
-          width: "100%",
-        }}>
-        <motion.div
-          {...anime(fade)}
-          style={{
-            position: "absolute",
-            zIndex: 100,
-            height: "100vh",
-            width: "100vw",
-          }}>
-          <motion.div
-            {...anime(enlarge)}
-            style={{
-              height: "100%",
-              width: "100%",
-              content: '""',
-              background: "rgb(9, 146, 176)",
-              transformOrigin: "85% 75%",
-              ease: easeIn,
-            }}></motion.div>
-        </motion.div>
-      </AnimatePresence>
       <Box
         sx={{
           height: "100%",
@@ -183,8 +144,9 @@ function CategoriesWeb() {
                 <Box
                   {...anime(expand)}
                   onClick={() => {
-                    navigate("/menu");
+                      navigate("/menu");;
                   }}
+                  key={i}
                   sx={{
                     height: { md: "13.75rem", xl: "19.25rem" },
                     width: { md: "12.5rem", xl: "16.7rem" },
@@ -248,7 +210,7 @@ function CategoriesWeb() {
           })}
         </Box>
       </Box>
-    </Box>
+    </motion.div>
   );
 }
 
