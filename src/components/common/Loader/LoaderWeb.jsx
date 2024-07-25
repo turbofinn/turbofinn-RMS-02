@@ -13,8 +13,8 @@ function LoaderWeb({
   imgH,
   imgW,
   imgBR,
-  imgX,
-  imgY,
+  imgX='-40%',
+  imgY='25%',
   txtX,
   txtY,
   space = "1.5rem",
@@ -34,15 +34,15 @@ function LoaderWeb({
       height: { md: "13.75rem", xl: "19.25rem" },
       width: { md: "12.5rem", xl: "16.7rem" },
       x: 200,
-      y: 600,
-      opacity: 0.2,
+      y: 500,
+      opacity: 0.6
     },
     enter: {
       height:'100%',width:'100%',
       x: 0,
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6},
+      transition: {delay:0.2, duration: 0.6},
     },
   };
   const txtDrag = {
@@ -52,27 +52,17 @@ function LoaderWeb({
       x: 0,
       y: 0,
       opacity: 1,
-      transition: { delay: 0.3, duration: 0.6 },
+      transition: {delay: 0.2, duration: 1,ease: [0.34, 1.3, 0.64, 1] },
     },
   };
   const imgDrag = {
-    initial: { scale: 0.2, x: -400, y: 200, opacity: 0 },
+    initial: { scale: 0.5, x: imgX, y: imgY, opacity: 0 },
     enter: {
       scale: 1,
       x: 0,
       y: 0,
       opacity: 1,
-    transition: {  delay:0.3,duration: 0.6 },
-    },
-  };
-  const staticElements = {
-    initial: { scale: 0.2, x: -200, y: 200, opacity: 0 },
-    enter: {
-      scale: 1,
-      x: 0,
-      y: 0,
-      opacity: 1,
-      transition: {  duration: 0.5  },
+      transition: { delay: 0.2, duration: 1, ease: [0.34, 1.3, 0.64, 1] },
     },
   };
   return (

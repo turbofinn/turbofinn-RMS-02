@@ -10,8 +10,10 @@ import {
     Container,
     Grid
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import { BorderBottom, Padding } from "@mui/icons-material";
 const SmallMealBox = () => {
+    const Navigate = useNavigate();
     return (
         <React.Fragment>
             <Box style={{
@@ -32,7 +34,9 @@ const SmallMealBox = () => {
                         </Box>
                     </Box>
 
-                    <Typography style={{ fontSize:'0.9rem', textAlign:'center', marginTop:'0.5rem', fontWeight:600}}>+ ADD TO CART</Typography>
+                    <Typography onClick={()=>{
+                         Navigate("/productdetails")
+                      }} style={{ fontSize:'0.9rem', textAlign:'center', marginTop:'0.5rem', fontWeight:600}}>+ ADD TO CART</Typography>
                 </Box>
             </Box>
         </React.Fragment>

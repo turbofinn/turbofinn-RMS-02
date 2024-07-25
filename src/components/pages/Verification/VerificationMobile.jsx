@@ -7,7 +7,8 @@ import {
   Checkbox,
   FormControlLabel,
   Snackbar,
-  Alert
+  Alert,
+  Input,
 } from "@mui/material";
 import verification from "../../../assets/Image/phoneAuthentication.png";
 import backgroundfood from "../../../assets/Image/BackgroundFood.png";
@@ -17,6 +18,7 @@ import OtpInput from "react-otp-input";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 
 const styles = {
   textBox: {
@@ -67,7 +69,7 @@ const VerificationMobile = () => {
   };
 
   const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
     setOpen(false);
@@ -76,9 +78,12 @@ const VerificationMobile = () => {
   const sendOtp = async () => {
     setLoader(false);
     try {
-      const response = await axios.post('https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/send-otp', {
-        mobileNo: mobileNumber,
-      });
+      const response = await axios.post(
+        "https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/send-otp",
+        {
+          mobileNo: mobileNumber,
+        }
+      );
       console.log("resp", response);
       if (response.data.response.responseCode === 1001) {
         handleClick("OTP sent successfully", "success");
@@ -87,9 +92,9 @@ const VerificationMobile = () => {
         handleClick("Failed to send OTP", "error");
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error("Error:", error);
       handleClick("Error sending OTP", "error");
-    } finally{
+    } finally {
       setLoader(true);
     }
   };
@@ -99,51 +104,103 @@ const VerificationMobile = () => {
     console.log("otp", otp);
     setLoader(false);
     const requestData = {
-      mobileNo:mobileNumber,
-      otp:`${otp}`
+      mobileNo: mobileNumber,
+      otp: `${otp}`,
     };
-  
+
     const requestOptions = {
       headers: {
-        'Content-Type': 'application/json'
-      }
+        "Content-Type": "application/json",
+      },
     };
     try {
       const response = await axios.post(
-        'https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/verify-otp',
+        "https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/verify-otp",
         requestData,
         requestOptions
       );
       if (response.data.response.responseCode === 1001) {
-          Navigate("/category");
-      }else if(response.data.response.responseCode === 9999){
+        Navigate("/category");
+      } else if (response.data.response.responseCode === 9999) {
         handleClick("Wrong OTP", "error");
-      } 
+      }
     } catch (error) {
-       handleClick("Error verifying OTP", "error");
-    }finally{
+      handleClick("Error verifying OTP", "error");
+    } finally {
       setLoader(true);
     }
   };
-  
+
   const sentOtpClickHandler = () => {
     sendOtp();
   };
 
+  const anime = (variants) => {
+    return { initial: "initial", animate: "enter", exit: "exit", variants };
+  };
+  const fadeInEnterOtp = {
+    initial: { scale: 0.8, opacity: 0.8 },
+    enter: {
+      scale: 1,
+      opacity: 1,
+      transition: {duration:0.5, ease: [0.37, 0, 0.63, 1] },
+    },
+  };
+  const fadeOutVerifyMobNum = {
+    initial: { scale: 1, opacity: 1 },
+    exit: {
+      scale: 3,
+      opacity: 0,
+      transition: { duration: 0.6, ease: [0.37, 0, 0.63, 1] },
+    },
+  };
+  const dragUpVerifyBtn = {
+    initial: { y: 3 },
+    enter: {
+      y: -3.5,
+      transition: {duration: 0.6, ease: [0.37, 0, 0.63, 1] },
+    },
+  };
+  const dragDownVerifyTxt = {
+    initial: { y: -4,},
+    enter: {
+      y: 0,
+      transition: { duration: 0.6, ease: [0.37, 0, 0.63, 1] },
+    },
+  };
+  const dragUpSendOtpBtn = {
+    initial: { y: 15, },
+    exit: {
+      y: 3.5,
+      transition: { duration: 0.6,ease: [0.37, 0, 0.63, 1] },
+    },
+  };
+  const dragDownSendOtpTxt = {
+    initial: { y: 0, opacity: 1 },
+    exit: {
+      y: 15,
+      opacity: 0,
+      transition: { duration: 0.6, ease: [0.37, 0, 0.63, 1] },
+    },
+  };
+  const easeInSubtitle = {
+    initial: { opacity: 0 },
+    enter: { opacity: 1, transition: { duration: 0.3, ease: "easeInOut" } },
+  };
+
   return (
     <React.Fragment>
-      {!loader && (
-          <Box style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100vh', // Adjust as needed
+      {/* {!loader && (
+        <Box
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh", // Adjust as needed
           }}>
-               <img src={loaderGIF} alt="loaderGIF"/>
-          </Box>
-      )
-
-      }
+          <img src={loaderGIF} alt="loaderGIF" />
+        </Box>
+      )} */}
       <Box
         sx={{
           bgcolor: "#49C3DE",
@@ -154,8 +211,7 @@ const VerificationMobile = () => {
           padding: "0.125rem",
           fontFamily: "Poppins",
           position: "fixed",
-        }}
-      >
+        }}>
         <Box
           sx={{
             display: "flex",
@@ -163,8 +219,7 @@ const VerificationMobile = () => {
             alignItems: "center",
             minHeight: "100vh",
             justifyContent: "center",
-          }}
-        >
+          }}>
           <Box
             sx={{
               position: "fixed",
@@ -175,8 +230,7 @@ const VerificationMobile = () => {
               height: "50vh",
               width: "100%",
               opacity: 0.4,
-            }}
-          ></Box>
+            }}></Box>
 
           <Typography
             variant="h4"
@@ -186,8 +240,7 @@ const VerificationMobile = () => {
               zIndex: 1,
               fontSize: "2.5rem",
               fontWeight: 700,
-            }}
-          >
+            }}>
             LOGO
           </Typography>
 
@@ -207,35 +260,70 @@ const VerificationMobile = () => {
           <Box
             sx={{
               textAlign: "center",
-            }}
-          >
-            <Typography
-              variant="h5"
-              sx={{
-                color: "white",
-                fontSize: "1.5rem",
-                marginBottom: "0.1875rem",
-                zIndex: 1,
-                fontWeight: 600,
-              }}
-            >
-              {isOtpSent ? "Enter Your OTP" : "Verify Your Mobile Number"}
-            </Typography>
-            <Typography
-              sx={{
-                color: "white",
-                opacity: 0.8,
-                fontSize: "0.875rem",
-                fontWeight: 700,
-                textAlign: "center",
-                marginBottom: "10.09%",
-                maxWidth: "350px",
-              }}
-            >
-              {isOtpSent
-                ? "Please Let Us Know Your OTP For Verification Purposes"
-                : "Please Let Us Know Your Mobile Number For Verification Purposes"}
-            </Typography>
+            }}>
+            <AnimatePresence mode="wait">
+              {isOtpSent ? (
+                <motion.div
+                  {...anime(fadeInEnterOtp)}
+                  key="enter"
+                  style={{
+                    color: "white",
+                    fontSize: "1.5rem",
+                    marginBottom: "0.1875rem",
+                    zIndex: 1,
+                    fontWeight: 600,
+                    height: "2.5rem",
+                  }}>
+                  Enter Your OTP
+                </motion.div>
+              ) : (
+                <Typography
+                  variant="h5"
+                  key="verify"
+                  component={motion.div}
+                  {...anime(fadeOutVerifyMobNum)}
+                  style={{
+                    color: "white",
+                    fontSize: "1.5rem",
+                    marginBottom: "0.1875rem",
+                    zIndex: 1,
+                    fontWeight: 600,
+                    height: "2.5rem",
+                  }}>
+                  Verify Your Mobile Number
+                </Typography>
+              )}
+            </AnimatePresence>
+            {isOtpSent ? (
+              <Typography
+                component={motion.div}
+                {...anime(easeInSubtitle)}
+                style={{
+                  color: "white",
+                  opacity: 0.8,
+                  fontSize: "0.875rem",
+                  fontWeight: 700,
+                  textAlign: "center",
+                  marginBottom: "10.09%",
+                  maxWidth: "350px",
+                }}>
+                "Please Let Us Know Your OTP For Verification Purposes"
+              </Typography>
+            ) : (
+              <Typography
+                sx={{
+                  color: "white",
+                  opacity: 0.8,
+                  fontSize: "0.875rem",
+                  fontWeight: 700,
+                  textAlign: "center",
+                  marginBottom: "10.09%",
+                  maxWidth: "350px",
+                }}>
+                "Please Let Us Know Your Mobile Number For Verification
+                Purposes"
+              </Typography>
+            )}
 
             {isOtpSent ? (
               <Box
@@ -244,12 +332,11 @@ const VerificationMobile = () => {
                   alignItems: "center",
                   justifyItems: "center",
                   marginLeft: 6,
-                }}
-              >
+                }}>
                 <OtpInput
                   value={otp}
                   onChange={setOtp}
-                  numInputs={4} 
+                  numInputs={4}
                   renderInput={(props) => (
                     <input
                       {...props}
@@ -281,91 +368,67 @@ const VerificationMobile = () => {
                       }}
                       inputMode="numeric"
                       pattern="\d*"
-                      
                     />
                   )}
                 />
               </Box>
             ) : (
-              <TextField
-                onChange={(event) => {
-                  const value = event.target.value.replace(/\D/g, "");
-                  event.target.value = value.slice(0, 10);
-                  setMobileNumber(value);
-                  console.log(value);
-                }}
-                variant="standard"
-                InputProps={{
-                  maxLength: 10,
-                  inputMode: "numeric",
-                  pattern: "[0-9]*",
-                  startAdornment: (
-                    <InputAdornment position="start" sx={{ textAlign: "center" }}>
-                      {" "}
-                      +91
-                    </InputAdornment>
-                  ),
-                  disableUnderline: true,
-                }}
-                // placeholder=" 9452222225"
-                sx={{
-                  outline: "none",
-                  backgroundColor: "white",
-                  borderRadius: "0.625rem",
-                  fontSize: "1.5rem",
-                  border: "0.09375rem solid black",
-                  borderColor: "rgba(31, 104, 87, 1)",
-                  fontWeight: 700,
-                  height: "3.4375rem",
-                  width: "20.875rem",
-                  padding: "0.5rem",
-                  marginBottom: "0.5rem",
-                  "& .MuiInputBase-root": {
-                    height: "100%",
-                    alignItems: "center",
-                    padding: "0 0.5rem",
-                  },
-
-                  "& .MuiInputBase-input": {
-                    padding: 0,
-                    "&::placeholder": {
-                      color: "black",
-                      opacity: 0.5,
-                    },
-                  },
+              <Input
+              onChange={(event) => {
+                const value = event.target.value.replace(/\D/g, "").slice(0, 10);
+                setMobileNumber(value);
+                event.target.value = value;
+              }}
+              inputProps={{
+                inputMode: "numeric",
+                pattern: "[0-9]*",
+                maxLength: 10,
+              }}
+              startAdornment={
+                <InputAdornment position="start">
+                  +91
+                </InputAdornment>
+              }
+              disableUnderline
+              sx={{
+                backgroundColor: "white",
+                borderRadius: "0.625rem",
+                fontSize: "1.3rem",
+                border: "0.09375rem solid rgba(31, 104, 87, 1)",
+                fontWeight: 600,
+                height: "3.4375rem",
+                width: "20.875rem",
+                padding: "0.5rem",
+                marginBottom: "0.5rem",
+                "& .MuiInputBase-root": {
+                  height: "100%",
+                  alignItems: "center",
+                  padding: "0 0.5rem",
+                },
+                "& .MuiInputBase-input": {
+                  padding: 0,
                   "&::placeholder": {
                     color: "black",
                     opacity: 0.5,
-                    marginLeft: "0.5rem",
                   },
-                  "&:focus": {
-                    borderColor: "black",
-                  },
-                }}
-                onKeyDown={(event) => {
-                  const currentValue = event.target.value.replace(/\D/g, "");
-                  if (
-                    !/[0-9]/.test(event.key) &&
-                    event.key !== "Backspace" &&
-                    event.key !== "Delete" &&
-                    event.key !== "ArrowLeft" &&
-                    event.key !== "ArrowRight" &&
-                    event.key !== "Tab"
-                  ) {
-                    event.preventDefault();
-                  }
-                  if (/[0-9]/.test(event.key) && currentValue.length >= 10) {
-                    event.preventDefault();
-                  }
-                }}
-                inputMode="numeric"
-                pattern="\d*"
-              />
+                },
+                "&:focus": {
+                  borderColor: "black",
+                },
+              }}
+              onKeyDown={(event) => {
+                if (
+                  !/[0-9]/.test(event.key) &&
+                  !["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"].includes(event.key)
+                ) {
+                  event.preventDefault();
+                }
+              }}
+            />
             )}
 
             <Box
-              sx={{ display: "flex", alignItems: "center", marginTop: "-5px" }}
-            >
+              sx={{ display: "flex", alignItems: "center", marginTop: "-5px" }}>
               {isOtpSent ? (
                 <>
                   {" "}
@@ -377,23 +440,30 @@ const VerificationMobile = () => {
                       margin: 0,
                       marginLeft: 6,
                       marginTop: 2,
-                    }}
-                  >
-                    Did’t Receive The OTP?
+                    }}>
+                    Didn’t Receive The OTP?
                   </Typography>
-                  <Typography
-                    sx={{
-                      color: "rgba(0, 0, 0, 0.8)",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                      margin: 0,
-                      textDecoration: "underline",
-                      marginLeft: 1,
-                      marginTop: 2,
-                    }}
-                  >
-                    Resend Code
-                  </Typography>
+                  <Button
+                  onClick={sentOtpClickHandler}
+                      sx={{
+                        color: "rgba(0, 0, 0, 0.8)",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                        margin: 0,
+                        textDecoration: "underline",
+                        marginLeft: 1,
+                        marginTop: 2,
+                        padding: 0,
+                        minWidth: "auto",
+                        textTransform: "none",
+                        "&:hover": {
+                          backgroundColor: "transparent",
+                          textDecoration: "underline",
+                        },
+                      }}
+                    >
+                      Resend Code
+                    </Button>
                 </>
               ) : (
                 <>
@@ -406,63 +476,86 @@ const VerificationMobile = () => {
                       alignItems: "center",
                       justifyContent: "center",
                       marginLeft: "39px",
-                    }}
-                  ></FormControlLabel>
+                    }}></FormControlLabel>
                   <Typography
                     sx={{
                       color: "white",
                       fontSize: "13px",
                       fontWeight: 500,
                       margin: 0,
-                    }}
-                  >
+                    }}>
                     Is This Same Number in Whatsapp
                   </Typography>
                 </>
               )}
             </Box>
-            {
-              isOtpSent ?
-                <Button
-                  component={Link}
-                  variant="contained"
-                  sx={{
-                    paddingY: "0.75rem",
-                    paddingX: "4.1875rem",
-                    borderRadius: "21px",
-                    backgroundColor: 'rgba(9, 146, 176, 0.9)',
-                    marginTop: "8.62%",
-                    marginBottom: "8.77%",
-                    fontSize: "0.9375rem",
-                    fontWeight: 700,
-                    textTransform: "none",
-                    boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
-                  }}
-                  onClick={()=>{
-                    verifyOTP(mobileNumber, otp);
-                    console.log("OTP", otp);
-                  }}
-                >
-                  Verify
-                </Button>
-                : <Button
-                  variant="contained"
-                  sx={{
-                    paddingY: "0.75rem",
-                    paddingX: "4.1875rem",
-                    borderRadius: "21px",
-                    backgroundColor: 'rgba(9, 146, 176, 0.9)',
-                    marginTop: "8.62%",
-                    marginBottom: "8.77%",
-                    fontSize: "0.9375rem",
-                    fontWeight: 700,
-                    textTransform: "none",
-                    boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
-                  }}
-                  onClick={sentOtpClickHandler}
-                >
-                  Send OTP
-                </Button>}
+            <AnimatePresence mode="wait">
+              {isOtpSent ? (
+                <motion.div
+                  {...anime(dragUpVerifyBtn)}
+                  key="verify"
+                  style={{ width: "100%", height: "100%" }}>
+                  <Button
+                    component={Link}
+                    variant="contained"
+                    sx={{
+                      borderRadius: "21px",
+                      backgroundColor: "rgba(9, 146, 176, 0.9)",
+                      marginTop: "8.62%",
+                      marginBottom: "8.77%",
+                      width: "12.8rem",
+                      height: "3rem",
+                      "&:focus": { bgcolor: "rgba(9, 146, 176, 0.9)" },
+                      boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
+                    }}
+                    onClick={() => {
+                      verifyOTP(mobileNumber, otp);
+                      console.log("OTP", otp);
+                    }}>
+                    <Typography
+                      component={motion.div}
+                      {...anime(dragDownVerifyTxt)}
+                      style={{
+                        fontSize: "0.9375rem",
+                        fontWeight: 700,
+                        textTransform: "none",
+                      }}>
+                      Verify
+                    </Typography>
+                  </Button>
+                </motion.div>
+              ) : (
+                <motion.div
+                  {...anime(dragUpSendOtpBtn)}
+                  key="SendOtp"
+                  style={{ width: "100%", height: "100%" }}>
+                  <Button
+                    variant="contained"
+                    sx={{
+                      height: "3rem",
+                      borderRadius: "21px",
+                      backgroundColor: "rgba(9, 146, 176, 0.9)",
+                      marginTop: "8.62%",
+                      marginBottom: "8.77%",
+                      width: "12.8rem",
+                      "&:focus": { bgcolor: "rgba(9, 146, 176, 0.9)" },
+                      boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
+                    }}
+                    onClick={sentOtpClickHandler}>
+                    <Typography
+                      component={motion.div}
+                      {...anime(dragDownSendOtpTxt)}
+                      style={{
+                        fontSize: "0.9375rem",
+                        fontWeight: 700,
+                        textTransform: "none",
+                      }}>
+                      Send OTP
+                    </Typography>
+                  </Button>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </Box>
         </Box>
         <Typography
@@ -476,18 +569,19 @@ const VerificationMobile = () => {
             fontSize: "0.9375rem",
             mb: "1.0625rem",
             fontWeight: 700,
-          }}
-        >
+          }}>
           A Product Of TurboFinn AI
         </Typography>
-        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'right' }}>
+        <Snackbar
+          open={open}
+          autoHideDuration={6000}
+          onClose={handleClose}
+          anchorOrigin={{ vertical: "top", horizontal: "right" }}>
           <Alert
             onClose={handleClose}
             severity={severity}
             variant="filled"
-            sx={{ width: '100%' }}
-
-          >
+            sx={{ width: "100%" }}>
             {snackbarMessage}
           </Alert>
         </Snackbar>

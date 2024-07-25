@@ -88,7 +88,8 @@ const AddTocard = () => {
                                     backgroundColor: '#0A343D',
                                 },
                                 borderRadius: '2rem',
-                                marginTop: '4vh'
+                                marginTop: '4vh',
+                                marginBottom:'1rem'
                             }}
                             onClick={() => {
                                 setSuccess(true);
