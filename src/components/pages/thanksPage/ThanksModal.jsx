@@ -23,7 +23,7 @@ const style = {
     width: '92%',
     bgcolor: 'white',
     boxShadow: 24,
-    height: '70%',
+    height: 'auto',
     marginLeft: 'auto',
     marginRight: 'auto',
     px: 2,
@@ -48,18 +48,18 @@ const ThanksModal = () => {
                 <Box style={{ textAlign:'center'}} >
                     <img src={thanks} alt="thanks"
                         style={{
-                            width: '80%',
+                            width: '90%',
                         }} />
                 </Box>
 
                 <Box>
                     <Typography
-                        style={{ color: '#107086', fontWeight: 600, fontSize: '1.76em', textAlign: 'center',  }}
+                        style={{ color: '#107086', fontWeight: 600, fontSize: '1.5em', textAlign: 'center',  }}
                     >Thanks For Ordering In Our Restaurant</Typography>
 
-                    <Typography style={{ color: 'black', fontWeight: 600, textAlign: 'center', fontSize: '1rem', marginTop: '1rem' }}>Your Meal Will Served In Some Time</Typography>
+                    <Typography style={{ color: 'black', fontWeight: 600, textAlign: 'center', fontSize: '0.8rem', marginTop: '0.8rem' }}>Your Meal Will Served In Some Time</Typography>
 
-                    <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: '3rem' }}>
+                    <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2.1rem' }}>
                         <Button style={{ width: '48%', border: '2px solid #35B1CD ', textTransform: 'capitalize', fontSize: '0.9rem', color: 'black', borderRadius: '0.5rem' }}
                         onClick={()=>{
                             Navigate("/menu");

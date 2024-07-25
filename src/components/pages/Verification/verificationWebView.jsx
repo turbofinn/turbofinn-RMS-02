@@ -89,7 +89,7 @@ const VerificationWebView = () => {
     },
   };
   return (
-    <Box sx={{ maxHeight: "100vw", maxWidth: "100vw", overflow: "hidden" }}>
+      <Box sx={{ maxHeight: "100vw", maxWidth: "100vw", overflow: "hidden" }}>
       <AnimatePresence mode="wait">
         {otpVerified ? (
           <motion.div
@@ -205,6 +205,7 @@ const VerificationWebView = () => {
               borderRadius: "1.8rem",
               boxShadow: "0 0.25rem 1.25rem rgba(0, 0, 0, 0.1)",
               backdropFilter: "blur(0.625rem)",
+              overflow: 'hidden',
             }}
           >
             <Box
@@ -213,15 +214,21 @@ const VerificationWebView = () => {
                 flexDirection: "column",
                 alignItems: "center",
                 textAlign: "center",
+      height: '100%',
+      overflowY: 'auto', 
+      overflowX:'hidden'
               }}
             >
               <Typography
                 variant="h4"
                 sx={{
                   color: "white",
-                  marginTop: "9.86%",
+                  marginTop: "14.86%",
                   zIndex: 1,
-                  fontSize: "3rem",
+                  fontSize: {
+                    xs: '2rem',
+                    lg: '3rem',
+                  },
                   fontWeight: 800,
                   textAlign: "center",
                 }}
@@ -233,7 +240,10 @@ const VerificationWebView = () => {
                 sx={{
                   color: "black",
                   opacity: 0.8,
-                  fontSize: "16px",
+                  fontSize: {
+                    xs: '0.7rem',
+                    lg: '1rem',
+                  },
                   fontWeight: 600,
                   textAlign: "center",
                   marginTop: "1.57%",
@@ -245,10 +255,12 @@ const VerificationWebView = () => {
               </Typography>
 
               <Typography
-                variant="h5"
                 sx={{
                   color: "white",
-                  fontSize: "1.8rem",
+                  fontSize: {
+                    xs: '1rem',
+                    lg: '1.8rem',
+                  },
                   marginTop: "10.7%",
                   top: "38%",
                   zIndex: 1,
@@ -262,7 +274,10 @@ const VerificationWebView = () => {
                 sx={{
                   color: "black",
                   opacity: 0.8,
-                  fontSize: "13px",
+                  fontSize: {
+                    xs: '10px',
+                    lg: '13px',
+                  },
                   fontWeight: 700,
                   textAlign: "center",
                   marginTop: "2.1%",
@@ -364,7 +379,7 @@ const VerificationWebView = () => {
                       border: "0.09375rem solid black",
                       borderColor: "rgba(31, 104, 87, 1)",
                       fontWeight: 700,
-                      width: "90%",
+                      width: "80%",
                       paddingTop: "0.6rem",
                       paddingBottom: "0.6rem",
                       paddingX: "0.5rem",
@@ -477,7 +492,10 @@ const VerificationWebView = () => {
                     <Typography
                       sx={{
                         color: "black",
-                        fontSize: "13px",
+                        fontSize: {
+                          xs: '10px',
+                          lg: '13px',
+                        },
                         fontWeight: 500,
                         marginTop: "6.1%",
                         marginLeft: "-12px",
@@ -522,8 +540,7 @@ const VerificationWebView = () => {
                     height: "9.8%",
                     borderRadius: "3rem",
                     backgroundColor: "#0992B0",
-                    marginTop: "4.7%",
-                    marginBottom: "5%",
+                    marginY: {xs:'2%',lg:"5%"},
                     fontSize: "1.1rem",
                     fontWeight: 600,
                     textTransform: "none",
@@ -539,6 +556,7 @@ const VerificationWebView = () => {
         </motion.div>
       </Box>
     </Box>
+
   );
 };
 

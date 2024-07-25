@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import routes from "./routes.js";
 import { AnimatePresence } from "framer-motion";
 import VerificationBG from "./components/common/VerificationBG/VerificationBG.jsx";
@@ -12,6 +12,7 @@ function App() {
             {routes.map((data, index) => {
               return <Route key={index} path={data.path} element={data.component} />;
             })}
+               <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </AnimatePresence>
       </BrowserRouter>

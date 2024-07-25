@@ -25,7 +25,7 @@ const style = {
     width: '90%',
     bgcolor: 'white',
     boxShadow: 24,
-    height: '70%',
+    height: 'auto',
     marginLeft: 'auto',
     marginRight: 'auto',
     px: 2,
