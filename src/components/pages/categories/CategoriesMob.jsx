@@ -5,10 +5,42 @@ import vid1 from "../../../assets/GIF/special.gif";
 import img2 from "../../../assets/Image/selectOne/cardImg/Beverages.png";
 import img3 from "../../../assets/Image/selectOne/cardImg/dineIn.jpg";
 import img4 from "../../../assets/Image/TakeAway.png";
-import bg from "../../../assets/Image/selectOne/bg_food4.png";
+import BgFood from "../../../assets/Image/selectOne/BgFood.png";
+import axios from 'axios';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItemData } from "../../../features/ItemData/ItemDataSlice";
+import { RootState } from '../../../redux/store';
 
 function Categories2() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [Items, setItems] = useState([]);
+
+  const getItem = async () => {
+    const data = {
+      mode: 'CRITERIA',
+      restaurantId: "308bc44a-de00-488e-b980-5ee0797e82e2",
+      tag: "takeaway"
+    }
+
+    const headers = {
+      'Content-Type': 'application/json'
+    };
+
+    try {
+      const response = await axios.post('https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/get-items', data, { headers });
+      console.log(response.data);
+      setItems(response.data.items);
+      dispatch(addItemData(response.data.items));
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const ITEMDATA = useSelector((state: RootState) => state.ItemData);
+
   const categories1 = [
     {
       title: "Today's Special",
@@ -30,44 +62,21 @@ function Categories2() {
     },
   ];
   return (
-    <Box
-      sx={{
-        backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.95),rgba(73, 195, 222, 0.775),rgba(73, 195, 222, 0.57),rgba(73, 195, 222, 0.59)),url(${bg})`,
-        minHeight: "100vh",
-        width: "100%",
-        backgroundColor: "#49c3de",
-        position: "relative",
-      }}
-    >
-      <Box
-        sx={{
-          width: "full",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
+    <Box sx={{ backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.95),rgba(73, 195, 222, 0.775),rgba(73, 195, 222, 0.57),rgba(73, 195, 222, 0.59)),url(${bg})`, minHeight: "100vh", width: "100%", backgroundColor: "#49c3de", position: "relative" }} >
+
+      <Box sx={{ width: "full", display: "flex", flexDirection: "column" }}>
+
         <Typography
           variant="h1"
-          sx={{
-            fontSize: "2.5rem",
-            fontWeight: "800",
-            textAlign: "center",
-            marginBlockStart: "4rem",
-          }}
-        >
+          sx={{ fontSize: "2.5rem", fontWeight: "800", textAlign: "center", marginBlockStart: "4rem" }} >
           L<span style={{ color: "#138da8" }}>O</span>G
           <span style={{ color: "#138da8" }}>O</span>
         </Typography>
+        
         <Box sx={{ paddingInline: "2.8rem" }}>
           <Typography
             variant="h4"
-            sx={{
-              fontSize: "2.25rem",
-              fontWeight: "700",
-              color: "white",
-              marginBlockStart: "3rem",
-            }}
-          >
+            sx={{ fontSize: "2.25rem", fontWeight: "700", color: "white", marginBlockStart: "3rem" }} >
             Select One
           </Typography>
           <Typography
@@ -101,7 +110,8 @@ function Categories2() {
             return (
               <Card
                 onClick={() => {
-                  navigate("/menu");
+                  // navigate("/menu");
+                  getItem();
                 }}
                 sx={{
                   height: "11.5rem",
@@ -168,6 +178,8 @@ function Categories2() {
             return (
               <Card
                 onClick={() => {
+
+                  console.log("value", ITEMDATA);
                   navigate("/menu");
                 }}
                 sx={{

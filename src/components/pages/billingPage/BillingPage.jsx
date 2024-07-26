@@ -478,7 +478,7 @@ const BillPage = () => {
                       color: "rgba(70, 157, 177, 1)",
                       borderRadius: "0.5rem",
                     }}
-                    onClick={()=>{
+                    onClick={() => {
                       Navigate("/menu");
                     }}
                   >
@@ -495,7 +495,7 @@ const BillPage = () => {
                       height: "3.5rem",
                       borderRadius: "0.5rem",
                     }}
-                    onClick={()=>{
+                    onClick={() => {
                       Navigate("/paymentmethod");
                     }}
                   >

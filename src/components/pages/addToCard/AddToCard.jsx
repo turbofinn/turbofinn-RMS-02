@@ -10,6 +10,7 @@ import {
     Grid
 } from "@mui/material";
 import { useState, useEffect } from "react";
+import axios from 'axios';
 import Header from "../../common/Header/Header.jsx";
 import AddToMealBox from "../../common/AddToCardBox/AddToMealBox.jsx";
 import SmallMealBox from "../../common/SmallMealBox/SmallMealBox.jsx";
@@ -22,8 +23,6 @@ import PayConfirmationModal from "../paymentConfirmation/PayConfirmationModal.js
 import PayConfirmationModalWeb from "../paymentConfirmation/PayConfirmationModalWeb.jsx";
 import ThanksModal from "../thanksPage/ThanksModal.jsx";
 import ThanksModalWeb from "../thanksPage/ThanksModalWeb.jsx";
-// import { useNavigate } from "react-router-dom";
-// const Navigate = useNavigate();
 const AddTocard = () => {
     const theme = useTheme();
     const aspect = useMediaQuery(theme.breakpoints.up("md"));
@@ -31,7 +30,45 @@ const AddTocard = () => {
     const [thanks, setThanks] = useState(false);
     const [WebSuccess, setWebSuccess] = useState(false);
     const [WebThanks, setWebThanks] = useState(false);
-    // const Navigate = useNavigate();
+
+    const creatOrder = async () => {
+        const data = {
+            orderId: "qwdedf",
+            tableNo: "table5",
+            userId: "userId789",
+            restaurantId: "restaurantId456",
+            totalAmount: 35,
+            action: "CREATE",
+            paymentStatus: "paid",
+            orderLists: [
+                {
+                    itemId: "item1",
+                    quantity: 2,
+                    price: 10
+                },
+                {
+                    itemId: "item2",
+                    quantity: 1,
+                    price: 15
+                }
+            ],
+            orderStatus: "orderStatus",
+            customerRequest: "Please make it spicy",
+            customerFeedback: "Great service",
+            customerRating: 4.5
+        };
+
+        const headers = {
+            'Content-Type': 'application/json'
+        };
+
+        try {
+            const response = await axios.post('https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/create-order', data, { headers });
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     useEffect(() => {
         if (success) {
@@ -78,21 +115,14 @@ const AddTocard = () => {
                     >
                         <Button
                             sx={{
-                                textTransform: 'none',
-                                backgroundColor: '#469DB1',
-                                color: 'white',
-                                width: '90%',
-                                padding: '0.75rem 3.75rem',
-                                fontSize: '1.3rem',
+                                textTransform: 'none', backgroundColor: '#469DB1', color: 'white', width: '90%', padding: '0.75rem 3.75rem', fontSize: '1.3rem',
                                 '&:hover': {
                                     backgroundColor: '#0A343D',
-                                },
-                                borderRadius: '2rem',
-                                marginTop: '4vh',
-                                marginBottom:'1rem'
+                                }, borderRadius: '2rem', marginTop: '4vh', marginBottom: '1rem'
                             }}
                             onClick={() => {
                                 setSuccess(true);
+                                creatOrder();
                             }}
                         >
                             Order Now
@@ -121,75 +151,40 @@ const AddTocard = () => {
 
                     <Box
                         sx={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            // border: '1px solid #dddd',
-                            marginTop: '2rem',
-                            marginBottom: '2rem'
+                            display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: '2rem', marginBottom: '2rem'
                         }}
                     >
                         <Box
                             sx={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '10px',
-                                border: '1px solid #dddd',
-                                width: '50%',
-                                marginLeft: 'auto',
-                                marginRight: 'auto',
-                                justifyContent: 'space-between',
-                                borderRadius: '3rem',
-                                paddingLeft: '3rem',
-                                boxShadow: '0px 0px 1rem #dddd'
+                                display: 'flex', alignItems: 'center', gap: '10px', border: '1px solid #dddd', width: '50%', marginLeft: 'auto', marginRight: 'auto', justifyContent: 'space-between', borderRadius: '3rem', paddingLeft: '3rem', boxShadow: '0px 0px 1rem #dddd'
                             }}
                         >
                             <Box style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                                 <Typography
-                                    style={{
-                                        fontSize: '1.2rem',
-                                        color: '#525252',
-                                        fontWeight: 500,
-                                        // border: '1px solid #dddd',
-                                    }}
+                                    style={{ fontSize: '1.2rem', color: '#525252', fontWeight: 500 }}
                                 >
                                     Total Bill :
                                 </Typography>
                                 <Typography
-                                    style={{
-                                        fontSize: '1.2rem',
-                                        color: '#000000',
-                                        fontWeight: 600,
-                                        // border: '1px solid #dddd',
-                                    }}
+                                    style={{ fontSize: '1.2rem', color: '#000000', fontWeight: 600 }}
                                 >
                                     ₹ 70
                                 </Typography>
                             </Box>
-                            <Box style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                            }}>
+                            <Box style={{ display: 'flex', alignItems: 'center' }}>
                                 <Button
                                     onClick={() => {
                                         setWebSuccess(true);
                                         window.scrollTo({
                                             top: 0,
-                                            behavior: 'smooth', // Smooth scroll effect
+                                            behavior: 'smooth',
                                         });
                                     }}
                                     sx={{
-                                        textTransform: 'none',
-                                        backgroundColor: '#469DB1',
-                                        color: 'white',
-                                        padding: '0.75rem 6.5rem',
-                                        fontSize: '1.3rem',
+                                        textTransform: 'none', backgroundColor: '#469DB1', color: 'white', padding: '0.75rem 6.5rem', fontSize: '1.3rem',
                                         '&:hover': {
                                             backgroundColor: '#0A343D',
-                                        },
-                                        borderRadius: '2rem',
-                                        width: '100%',
+                                        }, borderRadius: '2rem', width: '100%',
                                     }}
                                 >
                                     Order Now

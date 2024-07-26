@@ -17,7 +17,6 @@ function App() {
         </AnimatePresence>
       </BrowserRouter>
     </div>
-    // <VerificationBG></VerificationBG>
   );
 }
 
