@@ -6,31 +6,30 @@ import Typography from '@mui/material/Typography';
 import { Container } from "@mui/material";
 import Grid from '@mui/material/Grid';
 import { Link } from "react-router-dom";
-
+import logo from "../../../assets/Image/logo.png";
 const WelcomePage = () => {
     return (
-        <Box sx={{ minHeight: "100vh", width: '100vw', fontFamily: "Poppins", position: "relative", overflowY: "auto" }} >
+        <Box sx={{ minHeight: "100vh", width: '100vw', fontFamily: "Poppins", position: "relative", overflowY: "auto", fontFamily: 'Poppins' }} >
 
             <Box sx={{
-                minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', overflow: 'hidden', borderColor: "black",
-                '@media (min-width: 960px)': { display: 'none' }
-            }}>
+                background: 'linear-gradient(to top, rgba(73, 195, 222, 0.44) 0%, rgba(73, 195, 222, 0) 100%)', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center', overflow: 'hidden', '@media (min-width: 960px)': { display: 'none' }
+            }} >
 
-                <Box sx={{ mt: 8 }}>
-                    <Typography component="h1" sx={{ textAlign: 'center', padding: 0, margin: 0, fontSize: '64px', fontWeight: 800 }} >
-                        LOGO
-                    </Typography>
+                <Box sx={{ mt: 0 }}>
+                    <img src={logo} alt="logo" />
                 </Box>
 
                 <Box>
 
-                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
-                        <img src={welcomepage} alt="welcomepage" style={{ width: "100%", maxWidth: "600px" }} />
+                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', marginTop: '2rem' }}>
+
+                        <Box component="img" src={welcomepage} alt="welcomepage" sx={{ width: '100%', maxWidth: '600px', height: 'auto' }} />
+
                     </Box>
 
-                    <Box sx={{ background: 'linear-gradient(to top, rgb(73, 195, 222,0.44) 0%, rgb(73, 195, 222, 0) 100%)', padding: "24px", paddingBottom: '7.75vh', width: '100%' }} >
+                    <Box sx={{ padding: '24px', width: '100%' }} >
 
-                        <Typography component="h1" sx={{ fontSize: '32px', fontWeight: 700, marginTop: '3vh' }}>
+                        <Typography component="h1" sx={{ fontSize: 'calc(1.3em + 1vw + 1vh)', fontWeight: 800, marginTop: '3vh' }}>
                             Hey Foodie,
                         </Typography>
 
@@ -42,24 +41,25 @@ const WelcomePage = () => {
                             Elevate Your Dining Experience.
                         </Typography>
 
-                        <Box sx={{ my: 2, textAlign: 'center' }} >
-
-                            <Button component={Link} to='/login' sx={{ textTransform: 'none',backgroundColor: '#469DB1', color: 'white', padding: '15px 75px', fontSize: '20px', '&:hover': { backgroundColor: '#0A343D' }, borderRadius: '32px', marginTop: '3.5vh', marginBottom: '3.5vh' }} >
-                                Continue Ordering
-                            </Button>
-
-                        </Box>
-
                     </Box>
+
+                </Box>
+
+                <Box sx={{ textAlign: 'center' }}>
+
+                    <Button component={Link} to='/login' sx={{ textTransform: 'none', backgroundColor: '#469DB1', color: 'white', padding: '1rem', width: '90vw', fontSize: '20px', '&:hover': { backgroundColor: '#0A343D' }, borderRadius: '3.5rem', '@media (max-width: 600px)': { padding: '1rem', fontSize: '1.3rem' } }} >
+                        Continue Ordering
+                    </Button>
+
                 </Box>
             </Box>
 
             <Box sx={{ margin: 0, padding: 0, '@media (max-width: 960px)': { display: 'none' }, minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', overflow: 'hidden', position: 'relative' }} >
 
                 <Box>
-                    <Typography component="h1" sx={{ textAlign: 'center', padding: 0, margin: 0, fontSize: '3rem', fontWeight: 800, marginTop: '3rem' }} >
-                        LOGO
-                    </Typography>
+                    <Box sx={{ mt: 0 }}>
+                        <img src={logo} alt="logo" />
+                    </Box>
 
                     <Typography component="h3" sx={{ textAlign: 'center', fontWeight: 600, fontSize: '0.875rem' }} >
                         "Craving Goodness? Order Now and Savor the Flavor!"
@@ -85,7 +85,7 @@ const WelcomePage = () => {
                                     Hey Foodie,
                                 </Typography>
 
-                                <Typography component="h1" sx={{ fontSize: '2.5rem', color: '#006075',fontWeight: 700, marginTop: '1.5rem' }}>
+                                <Typography component="h1" sx={{ fontSize: '2.5rem', color: '#006075', fontWeight: 700, marginTop: '1.5rem' }}>
                                     Welcome To Our Restaurant
                                 </Typography>
 
@@ -97,9 +97,9 @@ const WelcomePage = () => {
                                     With LOGO
                                 </Typography>
 
-                                <Box sx={{ textAlign: 'center' }} >
+                                <Box sx={{ my: 2, textAlign: 'center' }}>
 
-                                    <Button component={Link} to='/login' sx={{ textTransform: 'none', backgroundColor: '#469DB1', color: 'white', padding: '0.75rem 3.75rem', fontSize: '1rem', '&:hover': { backgroundColor: '#0A343D' }, borderRadius: '2rem', marginTop: '4vh' }} >
+                                    <Button component={Link} to='/login' sx={{ textTransform: 'none', backgroundColor: '#469DB1', color: 'white', padding: '15px 75px', fontSize: '20px', '&:hover': { backgroundColor: '#0A343D' }, borderRadius: '32px', marginTop: '3.5vh', marginBottom: '3.5vh', '@media (max-width: 600px)': { padding: '10px 50px', fontSize: '18px' } }} >
                                         Continue Ordering
                                     </Button>
 
