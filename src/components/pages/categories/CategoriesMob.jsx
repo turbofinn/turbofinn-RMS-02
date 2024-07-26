@@ -5,7 +5,7 @@ import vid1 from "../../../assets/GIF/special.gif";
 import img2 from "../../../assets/Image/selectOne/cardImg/Beverages.png";
 import img3 from "../../../assets/Image/selectOne/cardImg/dineIn.jpg";
 import img4 from "../../../assets/Image/TakeAway.png";
-import BgFood from "../../../assets/Image/selectOne/BgFood.png";
+import BgFood from "../../../assets/Image/selectOne/BGFood.png";
 import axios from 'axios';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -62,7 +62,7 @@ function Categories2() {
     },
   ];
   return (
-    <Box sx={{ backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.95),rgba(73, 195, 222, 0.775),rgba(73, 195, 222, 0.57),rgba(73, 195, 222, 0.59)),url(${bg})`, minHeight: "100vh", width: "100%", backgroundColor: "#49c3de", position: "relative" }} >
+    <Box sx={{ backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.95),rgba(73, 195, 222, 0.775),rgba(73, 195, 222, 0.57),rgba(73, 195, 222, 0.59)),url(${BgFood})`, minHeight: "100vh", width: "100%", backgroundColor: "#49c3de", position: "relative" }} >
 
       <Box sx={{ width: "full", display: "flex", flexDirection: "column" }}>
 
@@ -110,7 +110,7 @@ function Categories2() {
             return (
               <Card
                 onClick={() => {
-                  // navigate("/menu");
+                  navigate("/menu");
                   getItem();
                 }}
                 sx={{
@@ -178,7 +178,6 @@ function Categories2() {
             return (
               <Card
                 onClick={() => {
-
                   console.log("value", ITEMDATA);
                   navigate("/menu");
                 }}

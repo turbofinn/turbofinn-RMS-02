@@ -19,6 +19,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const styles = {
   textBox: {
@@ -143,7 +144,7 @@ const VerificationMobile = () => {
     enter: {
       scale: 1,
       opacity: 1,
-      transition: {duration:0.5, ease: [0.37, 0, 0.63, 1] },
+      transition: { duration: 0.5, ease: [0.37, 0, 0.63, 1] },
     },
   };
   const fadeOutVerifyMobNum = {
@@ -158,21 +159,21 @@ const VerificationMobile = () => {
     initial: { y: 3 },
     enter: {
       y: -3.5,
-      transition: {duration: 0.6, ease: [0.37, 0, 0.63, 1] },
+      transition: { duration: 0.6, ease: [0.37, 0, 0.63, 1] },
     },
   };
   const dragDownVerifyTxt = {
-    initial: { y: -4,},
+    initial: { y: -4 },
     enter: {
       y: 0,
       transition: { duration: 0.6, ease: [0.37, 0, 0.63, 1] },
     },
   };
   const dragUpSendOtpBtn = {
-    initial: { y: 15, },
+    initial: { y: 15 },
     exit: {
       y: 3.5,
-      transition: { duration: 0.6,ease: [0.37, 0, 0.63, 1] },
+      transition: { duration: 0.6, ease: [0.37, 0, 0.63, 1] },
     },
   };
   const dragDownSendOtpTxt = {
@@ -211,8 +212,9 @@ const VerificationMobile = () => {
           padding: "0.125rem",
           fontFamily: "Poppins",
           position: "relative",
-          overflowY:'auto'
-        }}>
+          overflowY: "auto",
+        }}
+      >
         <Box
           sx={{
             display: "flex",
@@ -220,9 +222,10 @@ const VerificationMobile = () => {
             alignItems: "center",
             minHeight: "100vh",
             justifyContent: "center",
-            width:'100%',
-            paddingBottom:'2rem'
-          }}>
+            width: "100%",
+            paddingBottom: "2rem",
+          }}
+        >
           <Box
             sx={{
               position: "absolute",
@@ -235,7 +238,8 @@ const VerificationMobile = () => {
               height: "50vh",
               width: "100%",
               opacity: 0.4,
-            }}></Box>
+            }}
+          ></Box>
 
           <Typography
             variant="h4"
@@ -245,7 +249,8 @@ const VerificationMobile = () => {
               zIndex: 1,
               fontSize: "2.5rem",
               fontWeight: 700,
-            }}>
+            }}
+          >
             LOGO
           </Typography>
 
@@ -265,7 +270,8 @@ const VerificationMobile = () => {
           <Box
             sx={{
               textAlign: "center",
-            }}>
+            }}
+          >
             <AnimatePresence mode="wait">
               {isOtpSent ? (
                 <motion.div
@@ -278,7 +284,8 @@ const VerificationMobile = () => {
                     zIndex: 1,
                     fontWeight: 600,
                     height: "2.5rem",
-                  }}>
+                  }}
+                >
                   Enter Your OTP
                 </motion.div>
               ) : (
@@ -294,7 +301,8 @@ const VerificationMobile = () => {
                     zIndex: 1,
                     fontWeight: 600,
                     height: "2.5rem",
-                  }}>
+                  }}
+                >
                   Verify Your Mobile Number
                 </Typography>
               )}
@@ -311,7 +319,8 @@ const VerificationMobile = () => {
                   textAlign: "center",
                   marginBottom: "10.09%",
                   maxWidth: "350px",
-                }}>
+                }}
+              >
                 "Please Let Us Know Your OTP For Verification Purposes"
               </Typography>
             ) : (
@@ -324,7 +333,8 @@ const VerificationMobile = () => {
                   textAlign: "center",
                   marginBottom: "10.09%",
                   maxWidth: "350px",
-                }}>
+                }}
+              >
                 "Please Let Us Know Your Mobile Number For Verification
                 Purposes"
               </Typography>
@@ -336,8 +346,9 @@ const VerificationMobile = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyItems: "center",
-                  marginLeft: 6,
-                }}>
+                  marginLeft: 7,
+                }}
+              >
                 <OtpInput
                   value={otp}
                   onChange={setOtp}
@@ -379,61 +390,68 @@ const VerificationMobile = () => {
               </Box>
             ) : (
               <Input
-              onChange={(event) => {
-                const value = event.target.value.replace(/\D/g, "").slice(0, 10);
-                setMobileNumber(value);
-                event.target.value = value;
-              }}
-              inputProps={{
-                inputMode: "numeric",
-                pattern: "[0-9]*",
-                maxLength: 10,
-              }}
-              startAdornment={
-                <InputAdornment position="start">
-                  +91
-                </InputAdornment>
-              }
-              disableUnderline
-              sx={{
-                backgroundColor: "white",
-                borderRadius: "0.625rem",
-                fontSize: "1.3rem",
-                border: "0.09375rem solid rgba(31, 104, 87, 1)",
-                fontWeight: 600,
-                height: "3.4375rem",
-                width: "20.875rem",
-                padding: "0.5rem",
-                marginBottom: "0.5rem",
-                "& .MuiInputBase-root": {
-                  height: "100%",
-                  alignItems: "center",
-                  padding: "0 0.5rem",
-                },
-                "& .MuiInputBase-input": {
-                  padding: 0,
-                  "&::placeholder": {
-                    color: "black",
-                    opacity: 0.5,
-                  },
-                },
-                "&:focus": {
-                  borderColor: "black",
-                },
-              }}
-              onKeyDown={(event) => {
-                if (
-                  !/[0-9]/.test(event.key) &&
-                  !["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"].includes(event.key)
-                ) {
-                  event.preventDefault();
+                onChange={(event) => {
+                  const value = event.target.value
+                    .replace(/\D/g, "")
+                    .slice(0, 10);
+                  setMobileNumber(value);
+                  event.target.value = value;
+                }}
+                inputProps={{
+                  inputMode: "numeric",
+                  pattern: "[0-9]*",
+                  maxLength: 10,
+                }}
+                startAdornment={
+                  <InputAdornment position="start">+91</InputAdornment>
                 }
-              }}
-            />
+                disableUnderline
+                sx={{
+                  backgroundColor: "white",
+                  borderRadius: "0.625rem",
+                  fontSize: "1.3rem",
+                  border: "0.09375rem solid rgba(31, 104, 87, 1)",
+                  fontWeight: 600,
+                  height: "3.4375rem",
+                  width: "20.875rem",
+                  padding: "0.5rem",
+                  marginBottom: "0.5rem",
+                  "& .MuiInputBase-root": {
+                    height: "100%",
+                    alignItems: "center",
+                    padding: "0 0.5rem",
+                  },
+                  "& .MuiInputBase-input": {
+                    padding: 0,
+                    "&::placeholder": {
+                      color: "black",
+                      opacity: 0.5,
+                    },
+                  },
+                  "&:focus": {
+                    borderColor: "black",
+                  },
+                }}
+                onKeyDown={(event) => {
+                  if (
+                    !/[0-9]/.test(event.key) &&
+                    ![
+                      "Backspace",
+                      "Delete",
+                      "ArrowLeft",
+                      "ArrowRight",
+                      "Tab",
+                    ].includes(event.key)
+                  ) {
+                    event.preventDefault();
+                  }
+                }}
+              />
             )}
 
             <Box
-              sx={{ display: "flex", alignItems: "center", marginTop: "-5px" }}>
+              sx={{ display: "flex", alignItems: "center", marginTop: "-5px" }}
+            >
               {isOtpSent ? (
                 <>
                   {" "}
@@ -445,30 +463,31 @@ const VerificationMobile = () => {
                       margin: 0,
                       marginLeft: 6,
                       marginTop: 2,
-                    }}>
+                    }}
+                  >
                     Didn’t Receive The OTP?
                   </Typography>
                   <Button
-                  onClick={sentOtpClickHandler}
-                      sx={{
-                        color: "rgba(0, 0, 0, 0.8)",
-                        fontSize: "13px",
-                        fontWeight: 500,
-                        margin: 0,
+                    onClick={sentOtpClickHandler}
+                    sx={{
+                      color: "rgba(0, 0, 0, 0.8)",
+                      fontSize: "13px",
+                      fontWeight: 500,
+                      margin: 0,
+                      textDecoration: "underline",
+                      marginLeft: 1,
+                      marginTop: 2,
+                      padding: 0,
+                      minWidth: "auto",
+                      textTransform: "none",
+                      "&:hover": {
+                        backgroundColor: "transparent",
                         textDecoration: "underline",
-                        marginLeft: 1,
-                        marginTop: 2,
-                        padding: 0,
-                        minWidth: "auto",
-                        textTransform: "none",
-                        "&:hover": {
-                          backgroundColor: "transparent",
-                          textDecoration: "underline",
-                        },
-                      }}
-                    >
-                      Resend Code
-                    </Button>
+                      },
+                    }}
+                  >
+                    Resend Code
+                  </Button>
                 </>
               ) : (
                 <>
@@ -481,14 +500,16 @@ const VerificationMobile = () => {
                       alignItems: "center",
                       justifyContent: "center",
                       marginLeft: "39px",
-                    }}></FormControlLabel>
+                    }}
+                  ></FormControlLabel>
                   <Typography
                     sx={{
                       color: "white",
                       fontSize: "13px",
                       fontWeight: 500,
                       margin: 0,
-                    }}>
+                    }}
+                  >
                     Is This Same Number in Whatsapp
                   </Typography>
                 </>
@@ -499,7 +520,8 @@ const VerificationMobile = () => {
                 <motion.div
                   {...anime(dragUpVerifyBtn)}
                   key="verify"
-                  style={{ width: "100%", height: "100%" }}>
+                  style={{ width: "100%", height: "100%" }}
+                >
                   <Button
                     component={Link}
                     variant="contained"
@@ -516,7 +538,8 @@ const VerificationMobile = () => {
                     onClick={() => {
                       verifyOTP(mobileNumber, otp);
                       console.log("OTP", otp);
-                    }}>
+                    }}
+                  >
                     <Typography
                       component={motion.div}
                       {...anime(dragDownVerifyTxt)}
@@ -524,8 +547,10 @@ const VerificationMobile = () => {
                         fontSize: "0.9375rem",
                         fontWeight: 700,
                         textTransform: "none",
-                      }}>
-                      Verify
+                      }}
+                    >
+                      {!loader ? (
+                        <CircularProgress size="2rem" style={{ color: "white", margin:'auto', display: 'flex', justifyContent: 'center'}}/>) : (<>Verify</>)}
                     </Typography>
                   </Button>
                 </motion.div>
@@ -533,7 +558,8 @@ const VerificationMobile = () => {
                 <motion.div
                   {...anime(dragUpSendOtpBtn)}
                   key="SendOtp"
-                  style={{ width: "100%", height: "100%" }}>
+                  style={{ width: "100%", height: "100%" }}
+                >
                   <Button
                     variant="contained"
                     sx={{
@@ -546,7 +572,8 @@ const VerificationMobile = () => {
                       "&:focus": { bgcolor: "rgba(9, 146, 176, 0.9)" },
                       boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
                     }}
-                    onClick={sentOtpClickHandler}>
+                    onClick={sentOtpClickHandler}
+                  >
                     <Typography
                       component={motion.div}
                       {...anime(dragDownSendOtpTxt)}
@@ -554,8 +581,10 @@ const VerificationMobile = () => {
                         fontSize: "0.9375rem",
                         fontWeight: 700,
                         textTransform: "none",
-                      }}>
-                      Send OTP
+                      }}
+                    >
+                       {!loader ? (
+                        <CircularProgress size="2rem" style={{ color: "white", margin:'auto', display: 'flex', justifyContent: 'center'}}/>) : (<>Send OTP</>)}
                     </Typography>
                   </Button>
                 </motion.div>
@@ -573,20 +602,23 @@ const VerificationMobile = () => {
             fontSize: "0.9375rem",
             mb: "1.0625rem",
             fontWeight: 700,
-            marginTop: "auto"
-          }}>
+            marginTop: "auto",
+          }}
+        >
           A Product Of TurboFinn AI
         </Typography>
         <Snackbar
           open={open}
           autoHideDuration={6000}
           onClose={handleClose}
-          anchorOrigin={{ vertical: "top", horizontal: "right" }}>
+          anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        >
           <Alert
             onClose={handleClose}
             severity={severity}
             variant="filled"
-            sx={{ width: "100%" }}>
+            sx={{ width: "100%" }}
+          >
             {snackbarMessage}
           </Alert>
         </Snackbar>

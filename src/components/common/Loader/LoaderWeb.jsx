@@ -2,7 +2,7 @@ import React from "react";
 import { Box, duration, Typography } from "@mui/material";
 import logo from "../../../assets/Image/logo.png";
 import { delay, easeInOut, motion } from "framer-motion";
-import bg from "../../../assets/Image/selectOne/bg_food4.png";
+import bg from "../../../assets/Image/selectOne/BGFood.png";
 import { Opacity } from "@mui/icons-material";
 
 function LoaderWeb({
