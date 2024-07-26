@@ -120,8 +120,10 @@ const VerificationMobile = () => {
       );
       if (response.data.response.responseCode === 1001) {
         Navigate("/category");
+        console.log(response.data.response);
       } else if (response.data.response.responseCode === 9999) {
         handleClick("Wrong OTP", "error");
+        console.log(response.data.response);
       }
     } catch (error) {
       handleClick("Error verifying OTP", "error");
@@ -142,7 +144,7 @@ const VerificationMobile = () => {
     enter: {
       scale: 1,
       opacity: 1,
-      transition: {duration:0.5, ease: [0.37, 0, 0.63, 1] },
+      transition: { duration: 0.5, ease: [0.37, 0, 0.63, 1] },
     },
   };
   const fadeOutVerifyMobNum = {
@@ -157,21 +159,21 @@ const VerificationMobile = () => {
     initial: { y: 3 },
     enter: {
       y: -3.5,
-      transition: {duration: 0.6, ease: [0.37, 0, 0.63, 1] },
+      transition: { duration: 0.6, ease: [0.37, 0, 0.63, 1] },
     },
   };
   const dragDownVerifyTxt = {
-    initial: { y: -4,},
+    initial: { y: -4 },
     enter: {
       y: 0,
       transition: { duration: 0.6, ease: [0.37, 0, 0.63, 1] },
     },
   };
   const dragUpSendOtpBtn = {
-    initial: { y: 15, },
+    initial: { y: 15 },
     exit: {
       y: 3.5,
-      transition: { duration: 0.6,ease: [0.37, 0, 0.63, 1] },
+      transition: { duration: 0.6, ease: [0.37, 0, 0.63, 1] },
     },
   };
   const dragDownSendOtpTxt = {
