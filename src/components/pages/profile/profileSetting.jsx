@@ -107,6 +107,9 @@ const ProfileSettings = () => {
             }}
           >
             <ArrowBackIcon
+            onClick={() => {
+              Navigate("/menu");
+            }}
               sx={{
                 color: "rgba(31, 104, 87, 1)",
               }}
@@ -319,9 +322,12 @@ const ProfileSettings = () => {
               </ListItem>
             </Grid>
             <Grid item xs={12} lg={4}>
-              <ListItem button sx={{ width: "100%", marginLeft: { lg: 10 } }}>
+              <ListItem  onClick={() => {
+                  Navigate("/login");
+                }} button sx={{ width: "100%", marginLeft: { lg: 10 } }}>
                 <ListItemIcon>
                   <IconButton
+                
                     size="small"
                     sx={{ backgroundColor: "white", display: "flex" }}
                   >

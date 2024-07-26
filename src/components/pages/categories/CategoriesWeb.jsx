@@ -12,6 +12,7 @@ import zIndex from "@mui/material/styles/zIndex";
 import VerificationBG from "../../common/VerificationBG/VerificationBG";
 import { Opacity } from "@mui/icons-material";
 
+
 function CategoriesWeb() {
   const navigate = useNavigate();
   const categories = [

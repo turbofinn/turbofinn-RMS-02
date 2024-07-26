@@ -108,7 +108,9 @@ const BillPage = () => {
                     padding: "0 1rem",
                   }}
                 >
-                  {!matches && <ArrowBackIos sx={{ marginLeft: -3.5 }} />}
+                  {!matches && <ArrowBackIos  onClick={()=>{
+                      Navigate("/yourmealcart");
+                    }} sx={{ marginLeft: -3.5 }} />}
                   <Typography
                     variant="h6"
                     component="div"
@@ -134,7 +136,9 @@ const BillPage = () => {
                       }}
                     />
                   </Typography>
-                  {!matches && <Cancel sx={{ marginRight: -3.5 }} />}
+                  {!matches && <Cancel  onClick={()=>{
+                      Navigate("/menu");
+                    }} sx={{ marginRight: -3.5 }} />}
                 </Box>
               </CardContent>
             </Card>
@@ -187,7 +191,8 @@ const BillPage = () => {
                           >
                             <Button
                               sx={{
-                                color: "rgba(233, 81, 96, 1)",
+                                // color: "rgba(233, 81, 96, 1)",
+                                color:'white',
                                 fontSize: { xs: "10px", md: "12px" },
                                 fontWeight: "500",
                                 textTransform: "none",
@@ -197,7 +202,7 @@ const BillPage = () => {
                                 marginRight: { xs: -2, md: 0 },
                               }}
                             >
-                              Remove
+                              .
                             </Button>
                             <Box
                               sx={{
@@ -222,7 +227,7 @@ const BillPage = () => {
                                 sx={{
                                   display: "flex",
                                   alignItems: "center",
-                                  justifyContent: "space-between",
+                                  justifyContent: "center",
                                   border: "1px solid rgba(0,0,0,0.48)",
                                   borderRadius: "66px",
                                   width: { xs: "4rem", md: "4.75rem" },
@@ -230,7 +235,7 @@ const BillPage = () => {
                                   marginLeft: "0.5rem",
                                 }}
                               >
-                                <Typography
+                                {/* <Typography
                                   sx={{
                                     fontSize: "1rem",
                                     fontWeight: "600",
@@ -240,7 +245,7 @@ const BillPage = () => {
                                   }}
                                 >
                                   -
-                                </Typography>
+                                </Typography> */}
                                 <Typography
                                   sx={{
                                     textAlign: "center",
@@ -252,7 +257,7 @@ const BillPage = () => {
                                 >
                                   {elem.serving}
                                 </Typography>
-                                <Typography
+                                {/* <Typography
                                   sx={{
                                     fontSize: "1rem",
                                     fontWeight: "600",
@@ -262,7 +267,7 @@ const BillPage = () => {
                                   }}
                                 >
                                   +
-                                </Typography>
+                                </Typography> */}
                               </Box>
                             </Box>
                           </Box>
@@ -473,7 +478,7 @@ const BillPage = () => {
                       color: "rgba(70, 157, 177, 1)",
                       borderRadius: "0.5rem",
                     }}
-                    onClick={()=>{
+                    onClick={() => {
                       Navigate("/menu");
                     }}
                   >
@@ -490,7 +495,7 @@ const BillPage = () => {
                       height: "3.5rem",
                       borderRadius: "0.5rem",
                     }}
-                    onClick={()=>{
+                    onClick={() => {
                       Navigate("/paymentmethod");
                     }}
                   >

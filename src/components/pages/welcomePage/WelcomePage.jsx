@@ -6,23 +6,21 @@ import Typography from '@mui/material/Typography';
 import { Container } from "@mui/material";
 import Grid from '@mui/material/Grid';
 import { Link } from "react-router-dom";
+
 const WelcomePage = () => {
     return (
         <Box
             sx={{
-                height: "100vh",
-                // display: "flex",
-                // flexDirection: "column",
-                // alignItems: "center",
+                minHeight: "100vh",
                 width: '100vw',
-                // padding: 2,
                 fontFamily: "Poppins",
-                position: "fixed",
+                position: "relative",
+                overflowY: "auto",
             }}
         >
             <Box
                 sx={{
-                    height: '100vh',
+                    minHeight: '100vh',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
@@ -38,13 +36,11 @@ const WelcomePage = () => {
                     <Typography
                         component="h1"
                         sx={{
-                            // border: '2px solid black',
                             textAlign: 'center',
                             padding: 0,
                             margin: 0,
                             fontSize: '64px',
                             fontWeight: 800,
-                            // border: '2px solid black'
                         }}
                     >
                         LOGO
@@ -64,7 +60,6 @@ const WelcomePage = () => {
                             style={{
                                 width: "100%",
                                 maxWidth: "600px",
-                                // border: '2px solid black',
                             }}
                         />
                     </Box>
@@ -74,7 +69,6 @@ const WelcomePage = () => {
                             padding: "24px",
                             paddingBottom: '7.75vh',
                             width: '100%',
-                            // border: '2px solid black'
                         }}
                     >
                         <Typography
@@ -144,7 +138,7 @@ const WelcomePage = () => {
                     '@media (max-width: 960px)': {
                         display: 'none'
                     },
-                    height: '100vh',
+                    minHeight: '100vh',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
@@ -184,12 +178,7 @@ const WelcomePage = () => {
                     paddingBottom: '4.5rem',
                     width: '100%'
                 }}>
-                    <Grid container spacing={2}
-                        sx={{
-                            // marginTop: '2vh',
-                            // border: '2px solid black'
-                        }}
-                    >
+                    <Grid container spacing={2}>
                         <Grid item xs={8}>
                             <Box
                                 sx={{
@@ -199,8 +188,8 @@ const WelcomePage = () => {
                                     width: '55vw',
                                     backgroundPosition: 'center',
                                     color: 'white',
-                                    // position: "absolute",
                                     top: "30%",
+                                    marginBottom:'1rem'
                                 }}
                             ></Box>
                         </Grid>
@@ -281,21 +270,19 @@ const WelcomePage = () => {
                                 </Box>
                             </Box>
                         </Grid>
-
-
                     </Grid>
 
                     <Typography style={{
                         textAlign: 'center',
-                        fontSize: '0.875rem',
-                        position: 'fixed',
-                        bottom: '1rem',
+                        fontSize: '1rem',
+                        position: 'relative',
+                        bottom: '-2rem',
                         left: '50%',
                         transform: 'translateX(-50%)'
-                    }}>Created With Turbofinn Ai Excellency</Typography>
+                    }}>Created With Turbofinn AI Excellency</Typography>
                 </Box>
             </Box>
-        </Box >
+        </Box>
     )
 }
 

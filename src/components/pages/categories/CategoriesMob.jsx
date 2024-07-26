@@ -5,10 +5,42 @@ import vid1 from "../../../assets/GIF/special.gif";
 import img2 from "../../../assets/Image/selectOne/cardImg/Beverages.png";
 import img3 from "../../../assets/Image/selectOne/cardImg/dineIn.jpg";
 import img4 from "../../../assets/Image/TakeAway.png";
-import bg from "../../../assets/Image/selectOne/bg_food4.png";
+import BgFood from "../../../assets/Image/selectOne/BgFood.png";
+import axios from 'axios';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItemData } from "../../../features/ItemData/ItemDataSlice";
+import { RootState } from '../../../redux/store';
 
 function Categories2() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [Items, setItems] = useState([]);
+
+  const getItem = async () => {
+    const data = {
+      mode: 'CRITERIA',
+      restaurantId: "308bc44a-de00-488e-b980-5ee0797e82e2",
+      tag: "takeaway"
+    }
+
+    const headers = {
+      'Content-Type': 'application/json'
+    };
+
+    try {
+      const response = await axios.post('https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/get-items', data, { headers });
+      console.log(response.data);
+      setItems(response.data.items);
+      dispatch(addItemData(response.data.items));
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  const ITEMDATA = useSelector((state) => state.ItemData);
+
   const categories1 = [
     {
       title: "Today's Special",
@@ -30,45 +62,27 @@ function Categories2() {
     },
   ];
   return (
-    <Box
-      sx={{
-        backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.95),rgba(73, 195, 222, 0.775),rgba(73, 195, 222, 0.57),rgba(73, 195, 222, 0.59)),url(${bg})`,
-        minHeight: "100vh",
-        width: "100%",
-        backgroundColor: "#49c3de",
-        position: "relative",
-      }}>
-      <Box
-        sx={{
-          width: "full",
-          display: "flex",
-          flexDirection: "column",
-        }}>
+    <Box sx={{ backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.95),rgba(73, 195, 222, 0.775),rgba(73, 195, 222, 0.57),rgba(73, 195, 222, 0.59)),url(${bg})`, minHeight: "100vh", width: "100%", backgroundColor: "#49c3de", position: "relative" }} >
+
+      <Box sx={{ width: "full", display: "flex", flexDirection: "column" }}>
+
         <Typography
           variant="h1"
-          sx={{
-            fontSize: "2.5rem",
-            fontWeight: "800",
-            textAlign: "center",
-            marginBlockStart: "4rem",
-          }}>
+          sx={{ fontSize: "2.5rem", fontWeight: "800", textAlign: "center", marginBlockStart: "4rem" }} >
           L<span style={{ color: "#138da8" }}>O</span>G
           <span style={{ color: "#138da8" }}>O</span>
         </Typography>
+        
         <Box sx={{ paddingInline: "2.8rem" }}>
           <Typography
             variant="h4"
-            sx={{
-              fontSize: "2.25rem",
-              fontWeight: "700",
-              color: "white",
-              marginBlockStart: "3rem",
-            }}>
+            sx={{ fontSize: "2.25rem", fontWeight: "700", color: "white", marginBlockStart: "3rem" }} >
             Select One
           </Typography>
           <Typography
             variant="h4"
-            sx={{ fontSize: "1.35rem", fontWeight: "700", color: "white" }}>
+            sx={{ fontSize: "1.35rem", fontWeight: "700", color: "white" }}
+          >
             Categories
           </Typography>
           <Typography
@@ -78,7 +92,8 @@ function Categories2() {
               fontWeight: "500",
               color: "rgba(255,255,255,0.71)",
               paddingBlockStart: "0.7rem",
-            }}>
+            }}
+          >
             Select anyone of the categories to proceed
           </Typography>
         </Box>
@@ -89,12 +104,14 @@ function Categories2() {
             paddingInline: "2rem",
             gap: "20px",
             marginBlockStart: "2rem",
-          }}>
+          }}
+        >
           {categories1.map((elem, i) => {
             return (
               <Card
                 onClick={() => {
-                  navigate("/menu");
+                  // navigate("/menu");
+                  getItem();
                 }}
                 sx={{
                   height: "11.5rem",
@@ -102,7 +119,8 @@ function Categories2() {
                   borderRadius: "15px",
                   boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.25)",
                   flexWrap: "wrap",
-                }}>
+                }}
+              >
                 <CardMedia
                   sx={{
                     height: "60%",
@@ -111,7 +129,8 @@ function Categories2() {
                     marginInline: "22px",
                   }}
                   image={elem.image}
-                  title={elem.title}></CardMedia>
+                  title={elem.title}
+                ></CardMedia>
                 <CardContent sx={{ paddingInline: "0" }}>
                   <Typography
                     sx={{
@@ -122,7 +141,8 @@ function Categories2() {
                       color: "rgba(82,82,82,1)",
                       marginInlineStart: "1.1rem",
                       marginBlockStart: "-4px",
-                    }}>
+                    }}
+                  >
                     {" "}
                     EXPLORE ALL
                   </Typography>
@@ -134,7 +154,8 @@ function Categories2() {
                       marginBlockStart: "5px",
                       marginInlineStart: "1rem",
                       color: "rgba(65,66,68,1)",
-                    }}>
+                    }}
+                  >
                     {elem.title}
                   </Typography>
                 </CardContent>
@@ -151,11 +172,14 @@ function Categories2() {
             gap: "20px",
             marginBlockStart: "20px",
             marginBlockEnd: "80px",
-          }}>
+          }}
+        >
           {categories2.map((elem, i) => {
             return (
               <Card
                 onClick={() => {
+
+                  console.log("value", ITEMDATA);
                   navigate("/menu");
                 }}
                 sx={{
@@ -164,7 +188,8 @@ function Categories2() {
                   borderRadius: "15px",
                   boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.25)",
                   flexWrap: "wrap",
-                }}>
+                }}
+              >
                 <CardMedia
                   sx={{
                     height: "60%",
@@ -173,7 +198,8 @@ function Categories2() {
                     marginInline: "22px",
                   }}
                   image={elem.image}
-                  title={elem.title}></CardMedia>
+                  title={elem.title}
+                ></CardMedia>
                 <CardContent sx={{ paddingInline: "0" }}>
                   <Typography
                     sx={{
@@ -184,7 +210,8 @@ function Categories2() {
                       color: "rgba(82,82,82,1)",
                       marginInlineStart: "1rem",
                       marginBlockStart: "-4px",
-                    }}>
+                    }}
+                  >
                     {" "}
                     EXPLORE ALL
                   </Typography>
@@ -196,7 +223,8 @@ function Categories2() {
                       marginBlockStart: "5px",
                       marginInlineStart: "1rem",
                       color: "rgba(65,66,68,1)",
-                    }}>
+                    }}
+                  >
                     {elem.title}
                   </Typography>
                 </CardContent>
@@ -212,9 +240,11 @@ function Categories2() {
             bottom: "1rem",
             width: "100%",
             textAlign: "center",
-          }}>
+          }}
+        >
           <Typography
-            sx={{ fontWeight: "700", fontSize: "1rem", color: "white" }}>
+            sx={{ fontWeight: "700", fontSize: "1rem", color: "white" }}
+          >
             A Product Of TurboFinn AI
           </Typography>
         </Box>

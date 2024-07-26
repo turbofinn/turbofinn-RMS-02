@@ -128,7 +128,7 @@ const YourProfile = (props) => {
                 </Box>
                 :
                 <Box>
-                    <YourProfileWeb />
+                    <YourProfileWeb setEdit={props.setEdit}/>
                 </Box>
             }
         </React.Fragment>

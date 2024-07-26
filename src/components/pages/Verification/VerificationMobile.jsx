@@ -8,6 +8,7 @@ import {
   FormControlLabel,
   Snackbar,
   Alert,
+  Input,
 } from "@mui/material";
 import verification from "../../../assets/Image/phoneAuthentication.png";
 import backgroundfood from "../../../assets/Image/BackgroundFood.png";
@@ -205,13 +206,14 @@ const VerificationMobile = () => {
       <Box
         sx={{
           bgcolor: "#49C3DE",
-          height: "100vh",
+          minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           padding: "0.125rem",
           fontFamily: "Poppins",
-          position: "fixed",
+          position: "relative",
+          overflowY:'auto'
         }}>
         <Box
           sx={{
@@ -220,11 +222,15 @@ const VerificationMobile = () => {
             alignItems: "center",
             minHeight: "100vh",
             justifyContent: "center",
+            width:'100%',
+            paddingBottom:'2rem'
           }}>
           <Box
             sx={{
-              position: "fixed",
-              top: -40,
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
               backgroundImage: `url(${backgroundfood})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
@@ -374,82 +380,58 @@ const VerificationMobile = () => {
                 />
               </Box>
             ) : (
-              <TextField
-                onChange={(event) => {
-                  const value = event.target.value.replace(/\D/g, "");
-                  event.target.value = value.slice(0, 10);
-                  setMobileNumber(value);
-                  console.log(value);
-                }}
-                variant="standard"
-                InputProps={{
-                  maxLength: 10,
-                  inputMode: "numeric",
-                  pattern: "[0-9]*",
-                  startAdornment: (
-                    <InputAdornment
-                      position="start"
-                      sx={{ textAlign: "center" }}>
-                      {" "}
-                      +91
-                    </InputAdornment>
-                  ),
-                  disableUnderline: true,
-                }}
-                // placeholder=" 9452222225"
-                sx={{
-                  outline: "none",
-                  backgroundColor: "white",
-                  borderRadius: "0.625rem",
-                  fontSize: "1.5rem",
-                  border: "0.09375rem solid black",
-                  borderColor: "rgba(31, 104, 87, 1)",
-                  fontWeight: 700,
-                  height: "3.4375rem",
-                  width: "20.875rem",
-                  padding: "0.5rem",
-                  marginBottom: "0.5rem",
-                  "& .MuiInputBase-root": {
-                    height: "100%",
-                    alignItems: "center",
-                    padding: "0 0.5rem",
-                  },
-
-                  "& .MuiInputBase-input": {
-                    padding: 0,
-                    "&::placeholder": {
-                      color: "black",
-                      opacity: 0.5,
-                    },
-                  },
+              <Input
+              onChange={(event) => {
+                const value = event.target.value.replace(/\D/g, "").slice(0, 10);
+                setMobileNumber(value);
+                event.target.value = value;
+              }}
+              inputProps={{
+                inputMode: "numeric",
+                pattern: "[0-9]*",
+                maxLength: 10,
+              }}
+              startAdornment={
+                <InputAdornment position="start">
+                  +91
+                </InputAdornment>
+              }
+              disableUnderline
+              sx={{
+                backgroundColor: "white",
+                borderRadius: "0.625rem",
+                fontSize: "1.3rem",
+                border: "0.09375rem solid rgba(31, 104, 87, 1)",
+                fontWeight: 600,
+                height: "3.4375rem",
+                width: "20.875rem",
+                padding: "0.5rem",
+                marginBottom: "0.5rem",
+                "& .MuiInputBase-root": {
+                  height: "100%",
+                  alignItems: "center",
+                  padding: "0 0.5rem",
+                },
+                "& .MuiInputBase-input": {
+                  padding: 0,
                   "&::placeholder": {
                     color: "black",
                     opacity: 0.5,
-                    marginLeft: "0.5rem",
                   },
-                  "&:focus": {
-                    borderColor: "black",
-                  },
-                }}
-                onKeyDown={(event) => {
-                  const currentValue = event.target.value.replace(/\D/g, "");
-                  if (
-                    !/[0-9]/.test(event.key) &&
-                    event.key !== "Backspace" &&
-                    event.key !== "Delete" &&
-                    event.key !== "ArrowLeft" &&
-                    event.key !== "ArrowRight" &&
-                    event.key !== "Tab"
-                  ) {
-                    event.preventDefault();
-                  }
-                  if (/[0-9]/.test(event.key) && currentValue.length >= 10) {
-                    event.preventDefault();
-                  }
-                }}
-                inputMode="numeric"
-                pattern="\d*"
-              />
+                },
+                "&:focus": {
+                  borderColor: "black",
+                },
+              }}
+              onKeyDown={(event) => {
+                if (
+                  !/[0-9]/.test(event.key) &&
+                  !["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab"].includes(event.key)
+                ) {
+                  event.preventDefault();
+                }
+              }}
+            />
             )}
 
             <Box
@@ -468,18 +450,27 @@ const VerificationMobile = () => {
                     }}>
                     Didn’t Receive The OTP?
                   </Typography>
-                  <Typography
-                    sx={{
-                      color: "rgba(0, 0, 0, 0.8)",
-                      fontSize: "13px",
-                      fontWeight: 500,
-                      margin: 0,
-                      textDecoration: "underline",
-                      marginLeft: 1,
-                      marginTop: 2,
-                    }}>
-                    Resend Code
-                  </Typography>
+                  <Button
+                  onClick={sentOtpClickHandler}
+                      sx={{
+                        color: "rgba(0, 0, 0, 0.8)",
+                        fontSize: "13px",
+                        fontWeight: 500,
+                        margin: 0,
+                        textDecoration: "underline",
+                        marginLeft: 1,
+                        marginTop: 2,
+                        padding: 0,
+                        minWidth: "auto",
+                        textTransform: "none",
+                        "&:hover": {
+                          backgroundColor: "transparent",
+                          textDecoration: "underline",
+                        },
+                      }}
+                    >
+                      Resend Code
+                    </Button>
                 </>
               ) : (
                 <>
@@ -578,13 +569,13 @@ const VerificationMobile = () => {
           variant="body2"
           sx={{
             position: "relative",
-            bottom: 30,
             width: "100%",
             textAlign: "center",
             color: "white",
             fontSize: "0.9375rem",
             mb: "1.0625rem",
             fontWeight: 700,
+            marginTop: "auto"
           }}>
           A Product Of TurboFinn AI
         </Typography>
