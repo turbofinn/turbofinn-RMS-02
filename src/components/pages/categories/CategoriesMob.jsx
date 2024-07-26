@@ -62,7 +62,7 @@ function Categories2() {
     },
   ];
   return (
-    <Box sx={{ backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.95),rgba(73, 195, 222, 0.775),rgba(73, 195, 222, 0.57),rgba(73, 195, 222, 0.59)),url(${bg})`, minHeight: "100vh", width: "100%", backgroundColor: "#49c3de", position: "relative" }} >
+    <Box sx={{ backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.95),rgba(73, 195, 222, 0.775),rgba(73, 195, 222, 0.57),rgba(73, 195, 222, 0.59)),url(${BgFood})`, minHeight: "100vh", width: "100%", backgroundColor: "#49c3de", position: "relative" }} >
 
       <Box sx={{ width: "full", display: "flex", flexDirection: "column" }}>
 
@@ -72,7 +72,7 @@ function Categories2() {
           L<span style={{ color: "#138da8" }}>O</span>G
           <span style={{ color: "#138da8" }}>O</span>
         </Typography>
-        
+
         <Box sx={{ paddingInline: "2.8rem" }}>
           <Typography
             variant="h4"
