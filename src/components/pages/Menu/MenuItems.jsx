@@ -2,10 +2,22 @@ import React from "react";
 import { Box, Container, Grid, useMediaQuery, useTheme } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FoodAddToCartGrid from "../../common/FoodAddToCart/FoodAddToCart";
+import dalBatiChurma from "../../../assets/Image/meal/dalBatiChurma.png";
+import { useNavigate } from "react-router-dom";
+
+const menuItem = [
+  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
+  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
+  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
+  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
+  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
+  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
+];
 
 function MenuItems() {
   const theme = useTheme();
   const isWebView = useMediaQuery(theme.breakpoints.up("md"));
+  const Navigate = useNavigate();
 
   return (
     <>
@@ -66,9 +78,25 @@ function MenuItems() {
           </Box>
         </Box>
       </Container>
-      <Container sx={{ px: { xs: 0, lg: 3 } }}>
-        <FoodAddToCartGrid />
-      </Container>
+     <Container sx={{ px: { xs: 0, lg: 3 } }}>
+  <Container maxWidth="lg" sx={{ px: isWebView ? 4 : 2 }}>
+    <Grid
+      container
+      spacing={isWebView ? 3 : 2}
+      sx={{ alignItems: "center", px: { xs: 0 } }}
+    >
+      {menuItem.map((item, index) => (
+        <Grid item xs={12} sm={6} md={4} key={index}>
+          <FoodAddToCartGrid
+            name={item.name}
+            image={item.image}
+            isVegetarian={item.isVegetarian}
+          />
+        </Grid>
+      ))}
+    </Grid>
+  </Container>
+</Container>
     </>
   );
 }
