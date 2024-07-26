@@ -12,15 +12,23 @@ import NavBar from "../../common/NavBar/NavBar.jsx";
 import LoaderSpecialToday from "../Loader/LoaderSpecialToday.jsx";
 import ViewPlate from "../../common/viewPlate/viewPlate.jsx";
 import FloatButton from "../floatingButton/FloatingButton.jsx";
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../redux/store';
 function MenuPage() {
   const [loader, setLoader] = useState(true);
   const theme = useTheme();
+  const dispatch = useDispatch();
+
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   useEffect(() => {
     setTimeout(() => {
       setLoader(false);
+      console.log("item", ITEMDATA);
     }, 3000);
   }, []);
+
+  
+  const ITEMDATA = useSelector((state: RootState) => state.ItemData);
   return (
     <>
       {/* <FloatButton/> */}
