@@ -6,7 +6,7 @@ import vid1 from "../../../assets/GIF/special.gif";
 import img2 from "../../../assets/Image/selectOne/cardImg/Beverages.png";
 import img3 from "../../../assets/Image/selectOne/cardImg/dineIn.jpg";
 import img4 from "../../../assets/Image/TakeAway.png";
-import bg from "../../../assets/Image/selectOne/bg_food4.png";
+import BgFood from "../../../assets/Image/selectOne/BgFood.png";
 import logo from "../../../assets/Image/logo.png";
 import zIndex from "@mui/material/styles/zIndex";
 import VerificationBG from "../../common/VerificationBG/VerificationBG";
@@ -64,7 +64,7 @@ function CategoriesWeb() {
     <motion.div
       {...anime(fade)}
       style={{
-        backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.936),rgba(73, 195, 222, 0.750),rgba(73, 195, 222, 0.600),rgba(73, 195, 222, 0.500),rgba(73, 195, 222, 0.300)),url(${bg})`,
+        backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.936),rgba(73, 195, 222, 0.750),rgba(73, 195, 222, 0.600),rgba(73, 195, 222, 0.500),rgba(73, 195, 222, 0.300)),url(${BgFood})`,
         backgroundColor: "#49c3de",
         backgroundSize: "60rem",
         minHeight: "100vh",

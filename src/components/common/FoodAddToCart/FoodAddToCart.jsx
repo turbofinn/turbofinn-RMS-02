@@ -36,7 +36,8 @@ export default function FoodAddToCart() {
         {menuItem.map((item, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
             <Card
-              sx={{ mb: { lg: 2 }, borderRadius: "15px",overflow: "hidden",position: "relative", marginTop: { lg: "0.5rem" },height: "236px",
+              sx={{
+                mb: { lg: 2 }, borderRadius: "15px", overflow: "hidden", position: "relative", marginTop: { lg: "0.5rem" }, height: "236px",
               }}
             >
               <Box sx={{ position: "relative" }}>
@@ -45,20 +46,11 @@ export default function FoodAddToCart() {
                   alt={item.name}
                   sx={{ position: "relative" }}
                 />
-                <Box
-                  sx={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background:"linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 1))", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "16px", color: "white",
-                  }}
-                >
-                  <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                    {item.name}
-                  </Typography>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      marginBottom: "1rem",
-                    }}
-                  >
+                <Box sx={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 1))", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "16px", color: "white" }}>
+
+                  <Typography variant="h6" sx={{ fontWeight: 600 }}> {item.name} </Typography>
+                  
+                  <Box sx={{ display: "flex", alignItems: "center", marginBottom: "1rem"}}>
                     <Typography
                       variant="body2"
                       sx={{
@@ -112,10 +104,10 @@ export default function FoodAddToCart() {
                         right: 0,
                         display: "flex",
                         justifyContent: "center",
-                        cursor:'pointer'
+                        cursor: 'pointer'
                       }}
-                      onClick={()=>{
-                         Navigate("/productdetails")
+                      onClick={() => {
+                        Navigate("/productdetails")
                       }}
                     >
                       <Typography
