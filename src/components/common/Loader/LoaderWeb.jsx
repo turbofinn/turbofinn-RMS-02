@@ -2,7 +2,7 @@ import React from "react";
 import { Box, duration, Typography } from "@mui/material";
 import logo from "../../../assets/Image/logo.png";
 import { delay, easeInOut, motion } from "framer-motion";
-import bg from "../../../assets/Image/selectOne/BGFood.png";
+import BgFood from "../../../assets/Image/selectOne/BgFood.png";
 import { Opacity } from "@mui/icons-material";
 
 function LoaderWeb({
@@ -68,7 +68,7 @@ function LoaderWeb({
   return (
     <Box
       sx={{
-        backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.936),rgba(73, 195, 222, 0.750),rgba(73, 195, 222, 0.600),rgba(73, 195, 222, 0.500),rgba(73, 195, 222, 0.300)),url(${bg})`,
+        backgroundImage: `linear-gradient(to bottom,rgba(73,195,222,1),rgba(73, 195, 222, 0.936),rgba(73, 195, 222, 0.750),rgba(73, 195, 222, 0.600),rgba(73, 195, 222, 0.500),rgba(73, 195, 222, 0.300)),url(${BgFood})`,
         minHeight: "100vh",
         width: "100%",
         backgroundColor: "#49c3de",

@@ -5,7 +5,7 @@ import vid1 from "../../../assets/GIF/special.gif";
 import img2 from "../../../assets/Image/selectOne/cardImg/Beverages.png";
 import img3 from "../../../assets/Image/selectOne/cardImg/dineIn.jpg";
 import img4 from "../../../assets/Image/TakeAway.png";
-import BgFood from "../../../assets/Image/selectOne/BGFood.png";
+import BgFood from "../../../assets/Image/selectOne/BgFood.png";
 import axios from 'axios';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -72,7 +72,7 @@ function Categories2() {
           L<span style={{ color: "#138da8" }}>O</span>G
           <span style={{ color: "#138da8" }}>O</span>
         </Typography>
-        
+
         <Box sx={{ paddingInline: "2.8rem" }}>
           <Typography
             variant="h4"
