@@ -204,13 +204,14 @@ const VerificationMobile = () => {
       <Box
         sx={{
           bgcolor: "#49C3DE",
-          height: "100vh",
+          minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           padding: "0.125rem",
           fontFamily: "Poppins",
-          position: "fixed",
+          position: "relative",
+          overflowY:'auto'
         }}>
         <Box
           sx={{
@@ -219,11 +220,15 @@ const VerificationMobile = () => {
             alignItems: "center",
             minHeight: "100vh",
             justifyContent: "center",
+            width:'100%',
+            paddingBottom:'2rem'
           }}>
           <Box
             sx={{
-              position: "fixed",
-              top: -40,
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
               backgroundImage: `url(${backgroundfood})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
@@ -562,13 +567,13 @@ const VerificationMobile = () => {
           variant="body2"
           sx={{
             position: "relative",
-            bottom: 30,
             width: "100%",
             textAlign: "center",
             color: "white",
             fontSize: "0.9375rem",
             mb: "1.0625rem",
             fontWeight: 700,
+            marginTop: "auto"
           }}>
           A Product Of TurboFinn AI
         </Typography>
