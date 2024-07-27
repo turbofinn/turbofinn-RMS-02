@@ -149,7 +149,7 @@ function CategoriesWeb() {
                   }}
                   key={i}
                   sx={{
-                    height: { md: "13.75rem", xl: "19.25rem" },
+                    height: { md: "13.75rem", xl: "19.5rem" },
                     width: { md: "12.5rem", xl: "16.7rem" },
                     boxShadow: "0px 0px 4px 0px rgba(0, 0, 0, 0.25)",
                     margin: 0,
@@ -157,7 +157,7 @@ function CategoriesWeb() {
                     borderRadius: "15px",
                     paddingBottom: "1.1rem",
                     cursor: "pointer",
-                    textDecoration: "none",
+                    textDecoration: "none"
                   }}>
                   <motion.div
                     style={{
@@ -166,7 +166,7 @@ function CategoriesWeb() {
                     }}>
                     <Box
                       sx={{
-                        height: { md: "68%", xl: "72%" },
+                        height: { md: "68%", xl: "70%" },
                         marginBlockStart: { md: "14px", xl: "20px" },
                         marginInline: { md: "30px", xl: "38px" },
                       }}
