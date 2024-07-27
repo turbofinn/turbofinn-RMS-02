@@ -29,15 +29,15 @@ const WelcomePage = () => {
 
                     <Box sx={{ padding: '24px', width: '100%' }} >
 
-                        <Typography component="h1" sx={{ fontSize: 'calc(1.3em + 1vw + 1vh)', fontWeight: 800, marginTop: '3vh' }}>
+                        <Typography component="h1" sx={{ fontSize: 'calc(1.3em + 1vw + 1vh)', fontWeight:800, marginTop: '3vh' }}>
                             Hey Foodie,
                         </Typography>
 
-                        <Typography component="h1" sx={{ fontSize: '32px', color: '#006075', fontWeight: 700, marginTop: '3vh' }} >
+                        <Typography component="h1" sx={{ fontSize: '32px', color: '#006075', fontWeight:700, marginTop: '3vh' }} >
                             Welcome To Our Restaurant
                         </Typography>
 
-                        <Typography component="h2" sx={{ fontSize: '20px', color: '#0A343D', fontWeight: 700, marginTop: '3vh' }} >
+                        <Typography component="h2" sx={{ fontSize: '20px', color: '#0A343D', fontWeight:700, marginTop: '3vh' }} >
                             Elevate Your Dining Experience.
                         </Typography>
 
@@ -54,52 +54,52 @@ const WelcomePage = () => {
                 </Box>
             </Box>
 
-            <Box sx={{ margin: 0, padding: 0, '@media (max-width: 960px)': { display: 'none' }, minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', overflow: 'hidden', position: 'relative' }} >
+            <Box sx={{ margin: 0, padding: 0, '@media (max-width: 960px)': { display: 'none' }, minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', overflow: 'hidden', position: 'relative', paddingTop: '3rem', paddingBottom: '1rem', background: 'linear-gradient(to top, rgb(73, 195, 222,0.33) 0%, rgb(73, 195, 222, 0) 100%)' }} >
 
                 <Box>
-                    <Box sx={{ mt: 0 }}>
+                    <Box sx={{ mt: 0, textAlign: 'center' }}>
                         <img src={logo} alt="logo" />
                     </Box>
 
-                    <Typography component="h3" sx={{ textAlign: 'center', fontWeight: 600, fontSize: '0.875rem' }} >
+                    <Typography component="h3" sx={{ textAlign: 'center', fontWeight: 600, fontSize: '0.9rem', marginTop:'2rem' }} >
                         "Craving Goodness? Order Now and Savor the Flavor!"
                     </Typography>
                 </Box>
 
-                <Box style={{ background: 'linear-gradient(to top, rgb(73, 195, 222,0.44) 0%, rgb(73, 195, 222, 0) 100%)', paddingTop: '3.75rem', paddingBottom: '4.5rem', width: '100%' }} >
+                <Box style={{ width: '100%' }} >
 
                     <Grid container spacing={2}>
 
                         <Grid item xs={8}>
 
-                            <Box sx={{ backgroundImage: `url(${welcomepage})`, backgroundSize: 'cover', height: '55vh', width: '55vw', backgroundPosition: 'center', color: 'white', top: "30%", marginBottom: '1rem' }} >
+                            <Box sx={{ backgroundImage: `url(${welcomepage})`, backgroundSize: 'cover', height: '60vh', width: '60vw', backgroundPosition: 'center', color: 'white', top: "30%" }} >
 
                             </Box>
 
                         </Grid>
 
                         <Grid item xs={4}>
-                            <Box sx={{ padding: '1.5rem', width: '100%', marginTop: '-10vh', marginLeft: '-12vh' }} >
+                            <Box sx={{ padding: '0rem', width: '100%', marginTop: '0vh', marginLeft: '0vh',  }} >
 
                                 <Typography component="h1" sx={{ fontSize: '2.5rem', fontWeight: 700 }} >
                                     Hey Foodie,
                                 </Typography>
 
-                                <Typography component="h1" sx={{ fontSize: '2.5rem', color: '#006075', fontWeight: 700, marginTop: '1.5rem' }}>
+                                <Typography component="h1" sx={{ fontSize: '2.5rem', color: '#006075', fontWeight: 700, marginTop: '1rem' }}>
                                     Welcome To Our Restaurant
                                 </Typography>
 
-                                <Typography component="h2" sx={{ fontSize: '1.5rem', color: '#0A343D', fontWeight: 700, marginTop: '3vh' }} >
+                                <Typography component="h2" sx={{ fontSize: '1.5rem', color: '#0A343D', fontWeight: 700, marginTop: '1.5rem' }} >
                                     Elevate Your Dining Experience.
                                 </Typography>
 
-                                <Typography component="h1" sx={{ fontSize: '1.25rem', color: '#006075', fontWeight: 700 }} >
+                                <Typography component="h2" sx={{ fontSize: '1.25rem', color: '#006075', fontWeight: 700 }} >
                                     With LOGO
                                 </Typography>
 
-                                <Box sx={{ my: 2, textAlign: 'center' }}>
+                                <Box sx={{ textAlign: 'center', marginTop:'1.5rem' }}>
 
-                                    <Button component={Link} to='/login' sx={{ textTransform: 'none', backgroundColor: '#469DB1', color: 'white', padding: '15px 75px', fontSize: '20px', '&:hover': { backgroundColor: '#0A343D' }, borderRadius: '32px', marginTop: '3.5vh', marginBottom: '3.5vh', '@media (max-width: 600px)': { padding: '10px 50px', fontSize: '18px' } }} >
+                                    <Button component={Link} to='/login' sx={{ textTransform: 'none', backgroundColor: '#469DB1', width: '70%', color: 'white', padding: '0.8rem', fontSize: '1.1rem', '&:hover': { backgroundColor: '#0A343D' }, borderRadius: '2.5rem', '@media (max-width: 600px)': { padding: '1.5rem', fontSize: '1rem' } }} >
                                         Continue Ordering
                                     </Button>
 
@@ -108,12 +108,10 @@ const WelcomePage = () => {
                             </Box>
                         </Grid>
                     </Grid>
-
-                    <Typography style={{ textAlign: 'center', fontSize: '1rem', position: 'relative', bottom: '-2rem', left: '50%', transform: 'translateX(-50%)' }}>
-                        Created With Turbofinn AI Excellency
-                    </Typography>
-
                 </Box>
+                <Typography style={{ textAlign: 'center', fontSize: '0.8rem', fontWeight: 600 }}>
+                    Created With Turbofinn AI Excellency
+                </Typography>
             </Box>
         </Box>
     )
