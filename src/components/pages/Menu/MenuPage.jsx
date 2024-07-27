@@ -14,12 +14,13 @@ import ViewPlate from "../../common/viewPlate/viewPlate.jsx";
 import FloatButton from "../floatingButton/FloatingButton.jsx";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
+
 function MenuPage() {
   const [loader, setLoader] = useState(true);
   const theme = useTheme();
   const dispatch = useDispatch();
-
   const matches = useMediaQuery(theme.breakpoints.up("md"));
+
   useEffect(() => {
     setTimeout(() => {
       setLoader(false);
@@ -27,30 +28,20 @@ function MenuPage() {
     }, 3000);
   }, []);
 
-  
   const ITEMDATA = useSelector((state: RootState) => state.ItemData);
+
   return (
     <>
-      {/* <FloatButton/> */}
       {loader ? (
         <LoaderSpecialToday />
       ) : (
-        <Box
-          sx={{
-            backgroundColor: "white",
-            minHeight: "100vh",
-            pb: 7,
-            overflowX: "hidden",
-            marginRight: "-1px",
-          }}
-        >
+        <Box sx={{ backgroundColor: "white", minHeight: "100vh", pb: 7, overflowX: "hidden", marginRight: "-1px" }}>
           {matches ? <NavBar /> : null}
           <Header />
           <PrioritySection />
           <WhatsInYourMind />
           <CourseMealStage />
           <MenuItems />
-          {/* <ViewPlate/> */}
           {matches ? null : <NavBarBottom />}
         </Box>
       )}
