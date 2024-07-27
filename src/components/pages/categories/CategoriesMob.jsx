@@ -39,7 +39,7 @@ function Categories2() {
     }
   }
 
-  const ITEMDATA = useSelector((state: RootState) => state.ItemData);
+  const ITEMDATA = useSelector((state) => state.ItemData);
 
   const categories1 = [
     {
@@ -134,12 +134,12 @@ function Categories2() {
                 <CardContent sx={{ paddingInline: "0" }}>
                   <Typography
                     sx={{
-                      fontSize: "8px",
+                      fontSize: "9px",
                       letterSpacing: 1.75,
                       fontWeight: "600",
                       lineHeight: "10.4px",
                       color: "rgba(82,82,82,1)",
-                      marginInlineStart: "1.3rem",
+                      marginInlineStart: "1.1rem",
                       marginBlockStart: "-4px",
                     }}
                   >
@@ -148,11 +148,11 @@ function Categories2() {
                   </Typography>
                   <Typography
                     sx={{
-                      fontSize: "0.95rem",
+                      fontSize: "0.8rem",
                       fontWeight: "800",
                       lineHeight: "19.5px",
                       marginBlockStart: "5px",
-                      marginInlineStart: "1.2rem",
+                      marginInlineStart: "1rem",
                       color: "rgba(65,66,68,1)",
                     }}
                   >
@@ -202,12 +202,12 @@ function Categories2() {
                 <CardContent sx={{ paddingInline: "0" }}>
                   <Typography
                     sx={{
-                      fontSize: "8px",
+                      fontSize: "9px",
                       letterSpacing: 1.75,
                       fontWeight: "600",
                       lineHeight: "10.4px",
                       color: "rgba(82,82,82,1)",
-                      marginInlineStart: "1.3rem",
+                      marginInlineStart: "1rem",
                       marginBlockStart: "-4px",
                     }}
                   >
@@ -216,11 +216,11 @@ function Categories2() {
                   </Typography>
                   <Typography
                     sx={{
-                      fontSize: "0.95rem",
+                      fontSize: "0.8rem",
                       fontWeight: "800",
                       lineHeight: "19.5px",
                       marginBlockStart: "5px",
-                      marginInlineStart: "1.2rem",
+                      marginInlineStart: "1rem",
                       color: "rgba(65,66,68,1)",
                     }}
                   >

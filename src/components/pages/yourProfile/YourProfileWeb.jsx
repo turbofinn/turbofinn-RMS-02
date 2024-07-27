@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Box,
     Typography,
@@ -22,7 +22,8 @@ const style = {
     width: '35%',
     bgcolor: 'white',
     boxShadow: 24,
-    height: '80%',
+    minHeight:'80%',
+    height:'fit',
     marginLeft: 'auto',
     marginRight: 'auto',
     px: 2,
@@ -35,6 +36,18 @@ const style = {
     zIndex:9999
 };
 const YourProfileWeb = (props) =>{
+
+    const [formData, setFormData] = useState({
+    name: 'Vāsudeva-Krishna',
+    number: '+91 9876543210',
+    gender: 'Male',
+    dob: '3227-06-23',
+    email: 'vasu@gmail.com',
+  });
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
     return (
         <React.Fragment>
                 <Box sx={style}>
@@ -67,19 +80,19 @@ const YourProfileWeb = (props) =>{
                             <tr style={{ }}>
                                 <th style={{ textAlign: "start", padding: '0.7rem 0.6rem', fontWeight: 600, }}>Name:</th>
                                 <td>
-                                    <input type="text" style={{ width: '100%', borderRadius: '0.3rem', border: '2px solid #41A1B6', color: 'rgb(0,0,0,0.72) ', fontSize: '1rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem', backgroundColor:'rgb(0, 0, 0, 0.04)' }} value={"Vāsudeva-Krishna"} />
+                                    <input type="text" style={{ width: '100%', borderRadius: '0.3rem', border: '2px solid #41A1B6', color: 'rgb(0,0,0,0.72) ', fontSize: '1rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem', backgroundColor:'rgb(0, 0, 0, 0.04)' }} name='name' value={formData.name} onChange={handleChange} />
                                 </td>
                             </tr>
                             <tr style={{ }}>
                                 <th style={{ textAlign: "start", padding: '0.7rem 0.6rem', fontWeight: 600 }}>Number:</th>
                                 <td>
-                                    <input type="text" style={{ width: '100%', padding: '0.5rem', borderRadius: '0.3rem', border: '2px solid #41A1B6', color: 'rgb(0,0,0,0.72) ', fontSize: '1rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem', backgroundColor:'rgb(0, 0, 0, 0.04)' }} value={"+91 9*****88"} />
+                                    <input type="tel" style={{ width: '100%', padding: '0.5rem', borderRadius: '0.3rem', border: '2px solid #41A1B6', color: 'rgb(0,0,0,0.72) ', fontSize: '1rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem', backgroundColor:'rgb(0, 0, 0, 0.04)' }} name="number" value={formData.number} onChange={handleChange}/>
                                 </td>
                             </tr>
                             <tr style={{ }}>
                                 <th style={{ textAlign: "start", padding: '0.7rem 0.6rem', fontWeight: 600 }}>Gender:</th>
                                 <td>
-                                    <select style={{ width: '100%', padding: '0.5rem', borderRadius: '0.3rem', border: '2px solid #41A1B6', color: 'rgb(0,0,0,0.72) ', fontSize: '1rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem', backgroundColor:'rgb(0, 0, 0, 0.04)' }}>
+                                    <select style={{ width: '100%', padding: '0.5rem', borderRadius: '0.3rem', border: '2px solid #41A1B6', color: 'rgb(0,0,0,0.72) ', fontSize: '1rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem', backgroundColor:'rgb(0, 0, 0, 0.04)' }} name='gender' value={formData.gender} onChange={handleChange}>
                                         <option style={{ fontSize: '0.8rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem' }} value="">Select</option>
                                         <option style={{ fontSize: '0.8rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem' }} value="Male">Male</option>
                                         <option style={{ fontSize: '0.8rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem' }} value="Female">Female</option>
@@ -89,13 +102,13 @@ const YourProfileWeb = (props) =>{
                             <tr style={{ }}>
                                 <th style={{ textAlign: "start", padding: '0.7rem 0.6rem', fontWeight: 600 }}>DOB:</th>
                                 <td>
-                                    <input type="text" style={{ width: '100%', padding: '0.5rem', borderRadius: '0.3rem', border: '2px solid #41A1B6', color: 'rgb(0,0,0,0.72) ', fontSize: '1rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem', backgroundColor:'rgb(0, 0, 0, 0.04)' }} value={"18/07/3228"} />
+                                    <input type="date" style={{ width: '100%', padding: '0.5rem', borderRadius: '0.3rem', border: '2px solid #41A1B6', color: 'rgb(0,0,0,0.72) ', fontSize: '1rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem', backgroundColor:'rgb(0, 0, 0, 0.04)' }} name='dob' value={formData.dob} onChange={handleChange} />
                                 </td>
                             </tr>
                             <tr style={{ }}>
                                 <th style={{ textAlign: "start", padding: '0.7rem 0.6rem', fontWeight: 600 }}>Email:</th>
                                 <td>
-                                    <input type="text" style={{ width: '100%', padding: '0.5rem', borderRadius: '0.3rem', border: '2px solid #41A1B6', color: 'rgb(0,0,0,0.72) ', fontSize: '1rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem', backgroundColor:'rgb(0, 0, 0, 0.04)' }} value={"None"} />
+                                    <input type="email" style={{ width: '100%', padding: '0.5rem', borderRadius: '0.3rem', border: '2px solid #41A1B6', color: 'rgb(0,0,0,0.72) ', fontSize: '1rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem', backgroundColor:'rgb(0, 0, 0, 0.04)' }} name="email" value={formData.email} onChange={handleChange}/>
                                 </td>
                             </tr>
                         </tbody>
@@ -112,7 +125,7 @@ const YourProfileWeb = (props) =>{
                             fontWeight:500,
                             color:'rgb(255, 255, 255 ,0.88)',
                             fontFamily:'Poppins',
-                            // marginTop:'1rem'
+                            marginTop:'1rem'
                         }} onClick={()=>{
                             props.setEdit(false);
                        }}>

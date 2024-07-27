@@ -122,8 +122,10 @@ const VerificationMobile = () => {
       );
       if (response.data.response.responseCode === 1001) {
         Navigate("/category");
+        console.log(response.data.response);
       } else if (response.data.response.responseCode === 9999) {
         handleClick("Wrong OTP", "error");
+        console.log(response.data.response);
       }
     } catch (error) {
       handleClick("Error verifying OTP", "error");
