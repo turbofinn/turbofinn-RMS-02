@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItemData } from "../../../features/ItemData/ItemDataSlice";
 import { RootState } from '../../../redux/store';
+import api from '../../../services/apiServices.js';
 
 function Categories2() {
   const navigate = useNavigate();
@@ -19,24 +20,26 @@ function Categories2() {
   const [Items, setItems] = useState([]);
 
   const getItem = async () => {
-    const data = {
-      mode: 'CRITERIA',
-      restaurantId: "308bc44a-de00-488e-b980-5ee0797e82e2",
-      tag: "takeaway"
-    }
 
-    const headers = {
-      'Content-Type': 'application/json'
-    };
+    const requestData = {
+      mode: 'CRITERIA',
+      restaurantId: '308bc44a-de00-488e-b980-5ee0797e82e2',
+      tag: 'takeaway'
+    }
 
     try {
-      const response = await axios.post('https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/get-items', data, { headers });
-      console.log(response.data);
-      setItems(response.data.items);
-      dispatch(addItemData(response.data.items));
-    } catch (error) {
-      console.error(error);
-    }
+
+        api.getItem( requestData ).then(( response )=>{
+
+        console.log( "response", response );
+        setItems( response.items );
+        dispatch(addItemData( response.items ));
+          
+      });
+      
+    } 
+    catch ( error ) { console.error( error ) }
+
   }
 
   const ITEMDATA = useSelector((state) => state.ItemData);
@@ -110,7 +113,7 @@ function Categories2() {
             return (
               <Card
                 onClick={() => {
-                  navigate("/menu");
+                  // navigate("/menu");
                   getItem();
                 }}
                 sx={{

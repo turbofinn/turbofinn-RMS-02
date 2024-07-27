@@ -21,6 +21,8 @@ import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import CircularProgress from "@mui/material/CircularProgress";
 
+import api from '../../../services/apiServices.js';
+
 const styles = {
   textBox: {
     "& $div": {
@@ -70,68 +72,67 @@ const VerificationMobile = () => {
   };
 
   const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
+
+    if (reason === "clickaway") return;
     setOpen(false);
+
   };
 
   const sendOtp = async () => {
     setLoader(false);
     try {
-      const response = await axios.post(
-        "https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/send-otp",
-        {
-          mobileNo: mobileNumber,
+      const requestData = { 'mobileNo': mobileNumber }
+
+      api.sendOTP(requestData).then((response) => {
+
+        console.log("resp", response);
+        if (response.response.responseCode === 1001) {
+
+          handleClick("OTP sent successfully", "success");
+          if (!isOtpSent) setIsOtpSent(true);
+
         }
-      );
-      console.log("resp", response);
-      if (response.data.response.responseCode === 1001) {
-        handleClick("OTP sent successfully", "success");
-        if (!isOtpSent) setIsOtpSent(true);
-      } else {
-        handleClick("Failed to send OTP", "error");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      handleClick("Error sending OTP", "error");
-    } finally {
-      setLoader(true);
+        else handleClick("Failed to send OTP", "error");
+
+      });
     }
+    catch (error) { handleClick("Error sending OTP", "error") }
+
+    finally { setLoader(true) }
+
   };
 
-  const verifyOTP = async (mobileNumber, otp) => {
-    console.log("mb", mobileNumber);
-    console.log("otp", otp);
-    setLoader(false);
-    const requestData = {
-      mobileNo: mobileNumber,
-      otp: `${otp}`,
-    };
 
-    const requestOptions = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-    try {
-      const response = await axios.post(
-        "https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/verify-otp",
-        requestData,
-        requestOptions
-      );
-      if (response.data.response.responseCode === 1001) {
-        Navigate("/category");
-        console.log(response.data.response);
-      } else if (response.data.response.responseCode === 9999) {
-        handleClick("Wrong OTP", "error");
-        console.log(response.data.response);
-      }
-    } catch (error) {
-      handleClick("Error verifying OTP", "error");
-    } finally {
-      setLoader(true);
+
+  const verifyOTP = async (mobileNumber, otp) => {
+
+    setLoader(false);
+
+    const requestData = {
+      'mobileNo': mobileNumber,
+      'otp': otp,
     }
+
+    try {
+      api.verifyOTP( requestData ).then( (response) => {
+
+        if (response.response.responseCode === 1001) {
+
+          Navigate("/category");
+          console.log(response.response);
+
+        } else if (response.response.responseCode === 9999) {
+
+          handleClick("Wrong OTP", "error");
+          console.log(response.response);
+
+        }
+      });
+    } 
+    catch (error) { handleClick("Error verifying OTP", "error") }
+
+    finally { setLoader(true) }
+
   };
 
   const sentOtpClickHandler = () => {
@@ -552,7 +553,7 @@ const VerificationMobile = () => {
                       }}
                     >
                       {!loader ? (
-                        <CircularProgress size="2rem" style={{ color: "white", margin:'auto', display: 'flex', justifyContent: 'center'}}/>) : (<>Verify</>)}
+                        <CircularProgress size="2rem" style={{ color: "white", margin: 'auto', display: 'flex', justifyContent: 'center' }} />) : (<>Verify</>)}
                     </Typography>
                   </Button>
                 </motion.div>
@@ -585,8 +586,8 @@ const VerificationMobile = () => {
                         textTransform: "none",
                       }}
                     >
-                       {!loader ? (
-                        <CircularProgress size="2rem" style={{ color: "white", margin:'auto', display: 'flex', justifyContent: 'center'}}/>) : (<>Send OTP</>)}
+                      {!loader ? (
+                        <CircularProgress size="2rem" style={{ color: "white", margin: 'auto', display: 'flex', justifyContent: 'center' }} />) : (<>Send OTP</>)}
                     </Typography>
                   </Button>
                 </motion.div>

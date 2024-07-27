@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import routes from "./routes.js";
 import { AnimatePresence } from "framer-motion";
 function App() {
+  console.log(process.env.REACT_APP_BASE_URL);
   return (
     <div className="App">
       <BrowserRouter>

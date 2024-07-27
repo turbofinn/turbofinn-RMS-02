@@ -23,6 +23,7 @@ import PayConfirmationModal from "../paymentConfirmation/PayConfirmationModal.js
 import PayConfirmationModalWeb from "../paymentConfirmation/PayConfirmationModalWeb.jsx";
 import ThanksModal from "../thanksPage/ThanksModal.jsx";
 import ThanksModalWeb from "../thanksPage/ThanksModalWeb.jsx";
+import api from '../../../services/apiServices.js';
 const AddTocard = () => {
     const theme = useTheme();
     const aspect = useMediaQuery(theme.breakpoints.up("md"));
@@ -32,7 +33,8 @@ const AddTocard = () => {
     const [WebThanks, setWebThanks] = useState(false);
 
     const creatOrder = async () => {
-        const data = {
+
+        const requestData = {
             orderId: "qwdedf",
             tableNo: "table5",
             userId: "userId789",
@@ -56,18 +58,17 @@ const AddTocard = () => {
             customerRequest: "Please make it spicy",
             customerFeedback: "Great service",
             customerRating: 4.5
-        };
-
-        const headers = {
-            'Content-Type': 'application/json'
-        };
+        }
 
         try {
-            const response = await axios.post('https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/create-order', data, { headers });
-            console.log(response.data);
-        } catch (error) {
-            console.error(error);
-        }
+
+            api.createOrder( requestData ).then(( response )=>{
+                console.log( response.data );
+            });
+
+        } 
+        catch ( error ) { console.error(error) }
+        
     }
 
   useEffect(() => {
