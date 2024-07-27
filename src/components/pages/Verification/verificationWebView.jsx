@@ -7,6 +7,8 @@ import {
   Checkbox,
   FormControlLabel,
   InputAdornment,
+  Snackbar,
+  Alert,
   duration,
 } from "@mui/material";
 import verification from "../../../assets/Image/phoneAuthentication.png";
@@ -18,10 +20,18 @@ import VerificationBG from "../../common/VerificationBG/VerificationBG";
 import zIndex from "@mui/material/styles/zIndex";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const VerificationWebView = () => {
   const [isOtpSent, setIsOtpSent] = useState(false);
   const [otp, setOtp] = useState("");
+  const [mobileNumber, setMobileNumber] = useState(null);
+  const [open, setOpen] = useState(false);
+  const [loader, setLoader] = useState(true);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [severity, setSeverity] = useState("success");
+
 
   useEffect(() => {
     if ("OTPCredential" in window) {
@@ -42,14 +52,78 @@ const VerificationWebView = () => {
     }
   }, []);
 
-  function sentOtpClickHandler() {
-    if (isOtpSent === false) setIsOtpSent((c) => !c);
-  }
-  const verifyOTP = () => {
-    setOtpVerified((prevState) => !prevState);
-    setTimeout(() => {
-      navigate("/category");
-    }, 350);
+ 
+  const handleClick = (message, severity) => {
+    setSnackbarMessage(message);
+    setSeverity(severity);
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
+
+  const sendOtp = async () => {
+    setLoader(false);
+    try {
+      const response = await axios.post(
+        "https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/send-otp",
+        {
+          mobileNo: mobileNumber,
+        }
+      );
+      console.log("resp", response);
+      if (response.data.response.responseCode === 1001) {
+        handleClick("OTP sent successfully", "success");
+        setIsOtpSent(c => !c);
+      } else {
+        handleClick("Failed to send OTP", "error");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      handleClick("Error sending OTP", "error");
+    } finally {
+      setLoader(true);
+    }
+  };
+
+  const verifyOTP = async (mobileNumber, otp) => {
+    console.log("mb", mobileNumber);
+    console.log("otp", otp);
+    setLoader(false);
+    const requestData = {
+      mobileNo: mobileNumber,
+      otp: `${otp}`,
+    };
+
+    const requestOptions = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    try {
+      const response = await axios.post(
+        "https://kfmk2viukk.execute-api.us-east-1.amazonaws.com/dev/verify-otp",
+        requestData,
+        requestOptions
+      );
+      if (response.data.response.responseCode === 1001) {
+        navigate("/category");
+      } else if (response.data.response.responseCode === 9999) {
+        handleClick("Wrong OTP", "error");
+      }
+    } catch (error) {
+      handleClick("Error verifying OTP", "error");
+    } finally {
+      setLoader(true);
+    }
+  };
+
+  const sentOtpClickHandler = () => {
+    sendOtp();
   };
 
   const [otpVerified, setOtpVerified] = useState(false);
@@ -348,6 +422,7 @@ const VerificationWebView = () => {
                   <TextField
                     onChange={(event) => {
                       const value = event.target.value.replace(/\D/g, "");
+                      setMobileNumber(value);
                       event.target.value = value.slice(0, 10);
                     }}
                     variant="standard"
@@ -511,9 +586,11 @@ const VerificationWebView = () => {
                 <Button
                   variant="contained"
                   component={Link}
-                  to="/category"
-                  onClick={sentOtpClickHandler}
-                  sx={{
+                  // to="/category"
+                  onClick={() => {
+                    verifyOTP(mobileNumber, otp);
+                    console.log("OTP", otp);
+                  }}                  sx={{
                     paddingY: "3%",
                     width: "70%",
                     height: "9.8%",
@@ -527,8 +604,8 @@ const VerificationWebView = () => {
                     boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
                   }}
                 >
-                  {" "}
-                  Verify{" "}
+                   {!loader ? (
+                        <CircularProgress size="2rem" style={{ color: "white", margin:'auto', display: 'flex', justifyContent: 'center'}}/>) : (<>Verify</>)}
                 </Button>
               ) : (
                 <Button
@@ -547,13 +624,28 @@ const VerificationWebView = () => {
                     boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)",
                   }}
                 >
-                  {" "}
-                  Send OTP{" "}
+                  {!loader ? (
+                        <CircularProgress size="2rem" style={{ color: "white", margin:'auto', display: 'flex', justifyContent: 'center'}}/>) : (<>Send OTP</>)}
                 </Button>
               )}
             </Box>
           </Box>
         </motion.div>
+        <Snackbar
+          open={open}
+          autoHideDuration={6000}
+          onClose={handleClose}
+          anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        >
+          <Alert
+            onClose={handleClose}
+            severity={severity}
+            variant="filled"
+            sx={{ width: "100%" }}
+          >
+            {snackbarMessage}
+          </Alert>
+        </Snackbar>
       </Box>
     </Box>
 

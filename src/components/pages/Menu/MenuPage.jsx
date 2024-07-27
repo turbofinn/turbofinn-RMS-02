@@ -50,7 +50,7 @@ function MenuPage() {
           <WhatsInYourMind />
           <CourseMealStage />
           <MenuItems />
-          <ViewPlate/>
+          {/* <ViewPlate/> */}
           {matches ? null : <NavBarBottom />}
         </Box>
       )}
