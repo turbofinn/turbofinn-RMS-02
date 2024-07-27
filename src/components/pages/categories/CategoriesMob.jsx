@@ -110,7 +110,7 @@ function Categories2() {
             return (
               <Card
                 onClick={() => {
-                  // navigate("/menu");
+                  navigate("/menu");
                   getItem();
                 }}
                 sx={{
@@ -178,7 +178,6 @@ function Categories2() {
             return (
               <Card
                 onClick={() => {
-
                   console.log("value", ITEMDATA);
                   navigate("/menu");
                 }}

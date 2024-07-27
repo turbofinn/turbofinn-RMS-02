@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import meal from "../../../assets/Image/meal/dal-bati-churma.png";
+import meal from "../../../assets/Image/meal/dalBatiChurma.png";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import VegOrNon from "../../common/vegOrNon/VegOrNon";
 import React from "react";
@@ -79,11 +79,14 @@ function AddToMealWeb() {
 
           marginTop: "0.75rem",
           marginLeft: "1.25rem",
-        }}>
+        }}
+      >
         <KeyboardBackspaceIcon
-          sx={{ fontSize: "1.25rem" }}></KeyboardBackspaceIcon>
+          sx={{ fontSize: "1.25rem" }}
+        ></KeyboardBackspaceIcon>
         <Typography
-          sx={{ fontWeight: "600", marginLeft: "10px", fontSize: "0.85rem" }}>
+          sx={{ fontWeight: "600", marginLeft: "10px", fontSize: "0.85rem" }}
+        >
           Product Details
         </Typography>
       </Box>
@@ -96,7 +99,8 @@ function AddToMealWeb() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           zIndex: "-1",
-        }}>
+        }}
+      >
         {/* Description list */}
         <Box
           sx={{
@@ -108,11 +112,13 @@ function AddToMealWeb() {
             backgroundColor: "#f8f8ff",
             paddingInline: "0.625rem",
             paddingBlock: "1.5rem",
-          }}>
+          }}
+        >
           <Box
             sx={{
               paddingInline: "0.75rem",
-            }}>
+            }}
+          >
             <Typography
               variant="h4"
               sx={{
@@ -122,7 +128,8 @@ function AddToMealWeb() {
                 fontWeight: "700",
                 lineHeight: "1.95rem",
                 marginBlockEnd: "0.625rem",
-              }}>
+              }}
+            >
               dal bati churma
             </Typography>
             <Box
@@ -130,7 +137,8 @@ function AddToMealWeb() {
                 display: "flex",
                 alignItems: "center",
                 marginBlockEnd: "0.75rem",
-              }}>
+              }}
+            >
               <Typography
                 variant="subtitle1"
                 sx={{
@@ -141,7 +149,8 @@ function AddToMealWeb() {
                   lineHeight: "19.2px",
                   color: "rgba(56, 56, 56,0.95)",
                   marginRight: "1.5rem",
-                }}>
+                }}
+              >
                 legacy of rajasthan
               </Typography>
               <VegOrNon state="vegetarian"></VegOrNon>
@@ -156,7 +165,8 @@ function AddToMealWeb() {
                 lineHeight: "14.3px",
                 color: "#767676",
                 marginBlockEnd: "1.438rem",
-              }}>
+              }}
+            >
               Dal baati churma is a dish that includes baati, pure ghee, daal
               (lentils) and many more. It is very popular in the state
               of Rajasthan.
@@ -170,12 +180,14 @@ function AddToMealWeb() {
               boxShadow: "0px 0px 20px #00000017",
               borderRadius: "20px",
               marginBlockEnd: { md: "1rem", xl: "1.5rem" },
-            }}>
+            }}
+          >
             <Box
               sx={{
                 paddingInline: "1rem",
                 paddingBlock: "1rem",
-              }}>
+              }}
+            >
               <Typography
                 variant="h4"
                 sx={{
@@ -184,7 +196,8 @@ function AddToMealWeb() {
                   color: "#383838",
                   fontSize: "0.95rem",
                   marginBottom: "0.25rem",
-                }}>
+                }}
+              >
                 Quantity
               </Typography>
               <Box
@@ -196,7 +209,8 @@ function AddToMealWeb() {
                   display: "flex",
                   alignItems: "center",
                   gap: "0.25rem",
-                }}>
+                }}
+              >
                 <Typography variant="subtitle">Required</Typography>
                 <div
                   style={{
@@ -204,7 +218,8 @@ function AddToMealWeb() {
                     width: "4px",
                     borderRadius: "100%",
                     background: "#767676",
-                  }}></div>
+                  }}
+                ></div>
                 <Typography variant="subtitle">Select any 1 option</Typography>
               </Box>
             </Box>
@@ -213,18 +228,21 @@ function AddToMealWeb() {
                 width: "100%",
                 height: "0.5px",
                 background: "#76767642",
-              }}></div>
+              }}
+            ></div>
             <Box
               sx={{
                 paddingInline: "1rem",
                 paddingBlock: "0.5rem",
-              }}>
+              }}
+            >
               <FormControl sx={{ width: "100%" }}>
                 <RadioGroup
                   aria-labelledby="demo-radio-buttons-group-label"
                   defaultValue="70"
                   name="radio-buttons-group"
-                  sx={{ gap: "0.8rem" }}>
+                  sx={{ gap: "0.8rem" }}
+                >
                   {serving.map((elem, i) => (
                     <Box
                       sx={{
@@ -232,14 +250,16 @@ function AddToMealWeb() {
                         alignItems: "center",
                         justifyContent: "space-between",
                         width: "100%",
-                      }}>
+                      }}
+                    >
                       <Typography
                         sx={{
                           fontFamily: "Poppins",
                           fontWeight: "600",
                           color: "#000",
                           fontSize: "0.95rem",
-                        }}>
+                        }}
+                      >
                         {elem.serial} Single Serving
                       </Typography>
                       <FormControlLabel
@@ -251,7 +271,8 @@ function AddToMealWeb() {
                             sx={{
                               fontWeight: "600",
                               fontSize: "0.95rem",
-                            }}>
+                            }}
+                          >
                             ₹ {elem.price}
                           </Typography>
                         }
@@ -271,12 +292,14 @@ function AddToMealWeb() {
               boxShadow: "0px 0px 20px #00000017",
               borderRadius: "20px",
               marginBlockStart: "1.5rem",
-            }}>
+            }}
+          >
             <Box
               sx={{
                 paddingInline: "1rem",
                 paddingBlock: "1rem",
-              }}>
+              }}
+            >
               <Typography
                 variant="h4"
                 sx={{
@@ -285,7 +308,8 @@ function AddToMealWeb() {
                   color: "#383838",
                   fontSize: "0.95rem",
                   marginBottom: "0.25rem",
-                }}>
+                }}
+              >
                 Add a Note:
               </Typography>
               <Typography
@@ -298,7 +322,8 @@ function AddToMealWeb() {
                   display: "flex",
                   alignItems: "center",
                   gap: "0.25rem",
-                }}>
+                }}
+              >
                 Required changes for your food
               </Typography>
             </Box>
@@ -307,7 +332,8 @@ function AddToMealWeb() {
                 width: "100%",
                 height: "0.5px",
                 background: "#76767642",
-              }}></div>
+              }}
+            ></div>
             <Box sx={{ paddingInline: "4px" }}>
               <ThemeProvider theme={theme}>
                 <CustomTextField
@@ -336,14 +362,16 @@ function AddToMealWeb() {
             height: "90px",
             width: "100vw",
             display: "flex",
-            justifyContent: "center",gap:'0.85rem',
+            justifyContent: "center",
+            gap: "0.85rem",
             alignItems: "center",
             background: "#fff",
             paddingBlock: "1rem",
             paddingInline: "0.625rem",
             position: "fixed",
             bottom: "0",
-          }}>
+          }}
+        >
           <Box
             sx={{
               width: "6.82rem",
@@ -354,7 +382,8 @@ function AddToMealWeb() {
               alignItems: "center",
               justifyContent: "space-between",
               paddingInline: "0.5rem",
-            }}>
+            }}
+          >
             <Box
               sx={{
                 height: "1.25rem",
@@ -368,14 +397,16 @@ function AddToMealWeb() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-              }}>
+              }}
+            >
               -
             </Box>
             <Typography
               sx={{
                 fontSize: "1.35rem",
                 fontWeight: "700",
-              }}>
+              }}
+            >
               2
             </Typography>
             <Box
@@ -391,7 +422,8 @@ function AddToMealWeb() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-              }}>
+              }}
+            >
               +
             </Box>
           </Box>
@@ -403,16 +435,18 @@ function AddToMealWeb() {
               background: "rgb(62, 185, 212)",
               borderRadius: "10px",
             }}
-            onClick={()=>{
-              Navigate("/menu")
-            }}>
+            onClick={() => {
+              Navigate("/menu");
+            }}
+          >
             {
               <Typography
                 sx={{
                   fontFamily: "Poppins",
                   fontSize: "1.35rem",
                   textTransform: "initial",
-                }}>
+                }}
+              >
                 Add to Meal
               </Typography>
             }

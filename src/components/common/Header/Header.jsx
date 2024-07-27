@@ -33,13 +33,13 @@ function Header() {
       <Box
         sx={{
           backgroundColor: "white",
-          borderRadius: "0.9375rem", // 15px
+          borderRadius:{ xs: "10px", md: "15px" },  
           display: "flex",
           alignItems: "center",
           marginTop: { xs: "4rem", lg: "3rem" }, // 74px
-          paddingY: "1.125rem", // 18px
-          paddingX: "1.0625rem", // 17px
-          width: "100%",
+          paddingY: { xs: "0.5rem", md:"1.125rem" }, // 18px
+          paddingX:{ xs: "1rem", md: "1.0625rem" },  // 17px
+          width: "90%",
           maxWidth: "1018px",
           mx: "auto",
         }}
@@ -48,6 +48,7 @@ function Header() {
           placeholder="Search for Your Delicious Food..."
           sx={{
             flex: 1,
+            fontSize:{xs:'13px',md:'1rem'},
             "& input::placeholder": {
               color: "rgba(102, 106, 109, 1)",
               opacity: 1,
@@ -83,8 +84,8 @@ function Header() {
         <Box
           sx={{
             textAlign: "center",
-            mb: 2,
-            marginX: { xs: "25px", lg: "100px" },
+            mb: 1.5,
+            paddingX: { xs: "15px", lg: "100px" },
           }}
         >
           <Typography
@@ -92,7 +93,7 @@ function Header() {
             sx={{
               color: "white",
               fontWeight: 700,
-              fontSize: { xs: "1.25rem", sm: "1.5rem", lg: "2rem" },
+              fontSize: { xs: "1.2rem", sm: "1.5rem", lg: "2rem" },
               marginBottom: "0.3rem",
             }}
           >
@@ -102,7 +103,7 @@ function Header() {
             sx={{
               color: "white",
               fontWeight: 600,
-              fontSize: { xs: "0.875rem", sm: "0.938rem" },
+              fontSize: { xs: "0.675rem", sm: "0.938rem" },
               opacity: 0.86,
               marginBottom: "7px",
             }}

@@ -99,7 +99,7 @@ function PrioritySection() {
                   variant="h6"
                   sx={{
                     color: priority.titleColor,
-                    fontSize: { xs: "1rem", lg: "1.25rem" },
+                    fontSize: { xs: "0.9rem", lg: "1.25rem" },
                     fontWeight: 800,
                   }}
                 >
