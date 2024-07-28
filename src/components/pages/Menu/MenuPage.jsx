@@ -41,7 +41,7 @@ function MenuPage() {
           <PrioritySection />
           <WhatsInYourMind />
           <CourseMealStage />
-          <MenuItems />
+          <MenuItems  />
           {matches ? null : <NavBarBottom />}
         </Box>
       )}

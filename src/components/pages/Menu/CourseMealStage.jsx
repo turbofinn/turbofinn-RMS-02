@@ -23,20 +23,23 @@ function CourseMealStage() {
   ];
 
   return (
-    <Container maxWidth="lg" sx={{ mt: { xs: 4, md: 6 }, px: { xs: 2, md: 3 } }}>
+    <Container maxWidth="lg" sx={{ mt: { xs: 4, md: 6 }, px: { xs: 2, md: 3 } }} >
+
       <Box sx={{ display: "flex", alignItems: "center" }}>
 
         <Typography variant="subtitle1" sx={{ fontWeight: 500, fontSize: { xs: "13px", md: "16px" }, mb: { xs: 2, md: 3 } }}>
           EXPLORE 7 COURSE MEAL STAGE
         </Typography>
+
         <Box component="span" sx={{ flexGrow: 1, height: "1px", background: "linear-gradient(to right, rgba(90, 90, 90, 0.47), rgba(255, 255, 255, 1))", marginLeft: "10px", marginTop: { xs: "-15px", lg: "-21px" } }} />
 
       </Box>
 
-      <Box sx={{ display: "flex", overflowX: "auto", pb: 2, "&::-webkit-scrollbar": { display: "none" }, scrollbarWidth: "none", marginLeft: { lg: "5px" }, paddingLeft: { lg: "30px" } }}>
+      <Box sx={{ display: "flex", overflowX: "auto", pb: 2, "&::-webkit-scrollbar": { display: "none" }, scrollbarWidth: "none", marginLeft: { lg: "5px" }, paddingLeft: { lg: "30px" } }} >
 
         {stages.map((stage, index) => (
           <Box key={index} sx={{ mr: { xs: 2, md: 3 }, textAlign: "center", minWidth: { xs: "120px", md: "170px" }, boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)", marginTop: "4px", marginLeft: "2px", borderRadius: "16px", padding: { xs: "8px", md: "16px" }, display: "flex", flexDirection: "column", alignItems: "center", bgcolor: "white" }}>
+
             <Box sx={{ height: { xs: "100px", md: "100px" }, borderRadius: "50%", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", mb: 0 }}>
               <img src={stage.image} alt={stage.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
             </Box>
@@ -48,9 +51,13 @@ function CourseMealStage() {
             <Typography variant="h6" sx={{ fontWeight: 700, fontSize: { xs: "14px", md: "16px" } }}>
               {stage.name}
             </Typography>
+
           </Box>
+
         ))}
+
       </Box>
+
     </Container>
   );
 }
