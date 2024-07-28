@@ -89,6 +89,7 @@ function CategoriesWeb() {
             </Typography>
 
           </Box> 
+          
         </Box>
 
         <Box sx={{ display: "flex", justifyContent: "center", paddingInline: { md: "7rem", xl: "14rem" }, gap: { md: "26px", xl: "30px" } }} >
@@ -124,15 +125,20 @@ function CategoriesWeb() {
                       </Typography>
 
                     </Box>
+
                   </motion.div>
+
                 </Box>
+
               </AnimatePresence>
 
             );
           })}
 
         </Box>
+
       </Box>
+
     </motion.div>
   );
 }

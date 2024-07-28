@@ -129,6 +129,7 @@ function Categories2() {
                   </Typography>
                   
                 </CardContent>
+
               </Card>
             );
           })}
@@ -165,6 +166,7 @@ function Categories2() {
                   </Typography>
 
                 </CardContent>
+                
               </Card>
             );
           })}
@@ -179,7 +181,9 @@ function Categories2() {
           </Typography>
 
         </Box>
+
       </Box>
+
     </Box>
   );
 }

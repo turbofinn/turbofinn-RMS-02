@@ -48,7 +48,9 @@ function OrderHistoryWeb() {
           <div style={{ background: "linear-gradient(to right,rgb(0, 0, 0),rgb(0, 0, 0),rgba(0, 0, 0, 0.95),rgba(255,255,255,1))", width: "70%", height: "1px" }} />
 
           <Box sx={{ width: "fit" }}>
+
             <SortBy />
+
           </Box>
 
         </Box>
@@ -56,7 +58,9 @@ function OrderHistoryWeb() {
         <Box sx={{ width: "95%", height: "100%", marginInline: "auto", marginTop: "3rem", display: "flex", gap: "3rem" }} >
 
           <Box sx={{ width: "72.5%" }} >
+
             <OrderHistoryCardWeb />
+            
           </Box>
 
           <Box sx={{ width: "35%", minHeight: "28rem", height: "fit", boxShadow: "0 0 9.5px 0 rgba(0,0,0,0.25)", borderRadius: "15px", justifyContent: "center" }} >
@@ -88,11 +92,17 @@ function OrderHistoryWeb() {
                 ))}
 
               </Box>
+
             </Box>
+
           </Box>
+
         </Box>
+
       </Box>
+
     </Box>
+
   );
 }
 
