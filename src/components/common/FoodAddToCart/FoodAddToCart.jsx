@@ -12,7 +12,7 @@ export default function FoodAddToCart({ name, image, isVegetarian }) {
 
       <Box sx={{ position: "relative" }}>
 
-        <CardMedia component="img" height="236px" image={image} alt={name} sx={{ position: "relative" }} />
+        <CardMedia component="img" height="236px" image={ `https://turbo-treats.s3.amazonaws.com/Images/${image}.jpg` } alt={name} sx={{ position: "relative" }} />
 
         <Box sx={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 1))", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "16px", color: "white", }} >
 

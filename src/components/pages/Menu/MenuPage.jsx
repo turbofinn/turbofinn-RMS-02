@@ -21,31 +21,20 @@ function MenuPage() {
   const dispatch = useDispatch();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoader(false);
-      console.log("item", ITEMDATA);
-    }, 3000);
-  }, []);
-
-  const ITEMDATA = useSelector((state: RootState) => state.ItemData);
+  const itemDATA = useSelector((state) => state.ItemData.Items);
 
   return (
-    <>
-      {loader ? (
-        <LoaderSpecialToday />
-      ) : (
-        <Box sx={{ backgroundColor: "white", minHeight: "100vh", pb: 7, overflowX: "hidden", marginRight: "-1px" }}>
-          {matches ? <NavBar /> : null}
-          <Header />
-          <PrioritySection />
-          <WhatsInYourMind />
-          <CourseMealStage />
-          <MenuItems  />
-          {matches ? null : <NavBarBottom />}
-        </Box>
-      )}
-    </>
+
+    <Box sx={{ backgroundColor: "white", minHeight: "100vh", pb: 7, overflowX: "hidden", marginRight: "-1px" }}>
+      {matches ? <NavBar /> : null}
+      <Header />
+      <PrioritySection />
+      <WhatsInYourMind />
+      <CourseMealStage />
+      <MenuItems />
+      {matches ? null : <NavBarBottom />}
+    </Box>
+    
   );
 }
 

@@ -7,14 +7,14 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
 
-const menuItem = [
-  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
-  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
-  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
-  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
-  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
-  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
-];
+// const menuItem = [
+//   { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
+//   { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
+//   { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
+//   { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
+//   { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
+//   { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
+// ];
 
 function MenuItems() {
   const theme = useTheme();
@@ -22,12 +22,15 @@ function MenuItems() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const ITEMDATA = useSelector((state: RootState) => state.ItemData);
-
+  const itemDATA = useSelector((state) => state.ItemData.Items);
+  console.log("itemsData", itemDATA);
+  
   return (
     <>
-      <Container maxWidth="lg" sx={{ mt: { xs: 2, md: 6 }, px: { xs: 2, md: 3 } }}>
-        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: { xs: 2, md: 4 } }}>
+      <Container maxWidth="lg" sx={{ mt: { xs: 2, md: 6 }, px: { xs: 2, md: 3 } }} >
+
+        <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: { xs: 2, md: 4 } }} >
+          
           <Box sx={{ display: "flex", alignItems: "center" }}>
 
             <Box sx={{ display: "flex", alignItems: "center", fontWeight: 500, fontSize: { xs: "13px", md: "16px" } }}>
@@ -46,19 +49,23 @@ function MenuItems() {
         </Box>
       </Container>
       <Container sx={{ px: { xs: 0, lg: 3 } }}>
+
         <Container maxWidth="lg" sx={{ px: isWebView ? 4 : 2 }}>
 
           <Grid container spacing={isWebView ? 3 : 2} sx={{ alignItems: "center", px: { xs: 0 } }}>
 
-            {ITEMDATA.map((item, index) => (
+            {itemDATA.map((item, index) => (
+
               <Grid item xs={12} sm={6} md={4} key={index}>
                 <FoodAddToCartGrid name={item.name} image={item.itemPicture} isVegetarian={item.category} />
               </Grid>
+
             ))}
 
           </Grid>
 
         </Container>
+
       </Container>
     </>
   );
