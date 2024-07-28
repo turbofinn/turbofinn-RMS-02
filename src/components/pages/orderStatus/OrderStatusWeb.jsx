@@ -62,34 +62,54 @@ const OrderStatusWeb = () => {
     };
     return (
         <React.Fragment>
+
             <NavBar />
+
             <Box style={{ background: 'linear-gradient(to bottom, #53CCE7, #2BA8C4)', color: 'white', textAlign: 'center', paddingBottom:'1rem', paddingTop:'1rem', borderRadius:'0% 0% 1.5rem 1.5rem' }}>
-                <Typography style={{ fontWeight: 700, fontSize: '1.5rem' }}>‘Bon appetit’</Typography>
-                <Typography style={{ fontWeight: 600, fontSize: '1.2rem', maxWidth: '90%', marginLeft: 'auto', marginRight: 'auto', color: 'rgba(255,255,255,0.86)', marginTop:'1rem' }}>Your Order Is In Process To Be Served.</Typography>
 
+                <Typography style={{ fontWeight: 700, fontSize: '1.5rem' }}>
+                    ‘Bon appetit’
+                </Typography>
 
-                <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '1.5rem' }}>
-                    <Box style={{ display: 'flex', justifyContent: 'center', backgroundColor: 'rgba(167, 218, 206, 1)', borderRadius: '50%', width: '17.8rem', padding: '1.8rem', marginRight:'-5%', zIndex:10 }}>
-                        <Box style={{
-                            display: 'flex', justifyContent: 'center', backgroundColor: 'white', borderRadius: '50%', width: '13.8rem',
-                            background: `url(${timerGIF})`, backgroundSize: 'cover', backgroundPosition: 'center'
-                        }}>
+                <Typography style={{ fontWeight: 600, fontSize: '1.2rem', maxWidth: '90%', marginLeft: 'auto', marginRight: 'auto', color: 'rgba(255,255,255,0.86)', marginTop:'1rem' }}>
+                    Your Order Is In Process To Be Served.
+                </Typography>
+
+                <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '1.5rem' }} >
+
+                    <Box style={{ display: 'flex', justifyContent: 'center', backgroundColor: 'rgba(167, 218, 206, 1)', borderRadius: '50%', width: '17.8rem', padding: '1.8rem', marginRight:'-5%', zIndex:10 }} >
+
+                        <Box style={{ display: 'flex', justifyContent: 'center', backgroundColor: 'white', borderRadius: '50%', width: '13.8rem', background: `url(${timerGIF})`,  backgroundSize: 'cover', backgroundPosition: 'center' }} >
+
                             <CountdownCircleTimer
                                 {...timerProps}
                                 isPlaying
                                 duration={1600}
                                 colors={['#839462', '#839462', '#839462', '#839462']}
-                                colorsTime={[420, 300, 120, 0]}
-                            >
-                                {/* {renderTime} */}
+                                colorsTime={[420, 300, 120, 0]} >
+
                                 <img src={timerGIF} alt="timerGIF" />
+
                             </CountdownCircleTimer>
+
                         </Box>
+
                     </Box>
-                    <Box style={{ backgroundColor: '#E1EDC9', paddingLeft: '5rem', paddingRight: '5rem', paddingTop: '2rem', paddingBottom: '2rem', borderRadius: '2rem', textAlign: 'center', zIndex:5 }}>
-                        <Typography style={{ fontSize: '1.2rem', fontWeight: 500, color: '#2D2D2D' }}>Timer Started</Typography>
-                        <Typography style={{ fontSize: '3rem', fontWeight: 700, color: 'black' }}>{<Timer initialSeconds={1600} />}</Typography>
-                        <Typography style={{ fontSize: '1.1rem', fontWeight: 600, color: '#37B3CE' }}>Your Order Is Taken And Will Start Cooking In A While...</Typography>
+
+                    <Box style={{ backgroundColor: '#E1EDC9', paddingLeft: '5rem', paddingRight: '5rem', paddingTop: '2rem', paddingBottom: '2rem', borderRadius: '2rem', textAlign: 'center', zIndex:5 }} >
+
+                        <Typography style={{ fontSize: '1.2rem', fontWeight: 500, color: '#2D2D2D' }}>
+                            Timer Started
+                        </Typography>
+
+                        <Typography style={{ fontSize: '3rem', fontWeight: 700, color: 'black' }}>
+                            {<Timer initialSeconds={1600} />}
+                        </Typography>
+
+                        <Typography style={{ fontSize: '1.1rem', fontWeight: 600, color: '#37B3CE' }}>
+                            Your Order Is Taken And Will Start Cooking In A While...
+                        </Typography>
+                        
                     </Box>
                 </Box>
             </Box>

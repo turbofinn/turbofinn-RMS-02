@@ -37,7 +37,9 @@ const YourProfileWeb = (props) =>{
 
                             <tr>
 
-                                <th style={{ textAlign: "start", padding: '0.7rem 0.6rem', fontWeight: 600, }}>Name:</th>
+                                <th style={{ textAlign: "start", padding: '0.7rem 0.6rem', fontWeight: 600, }} >
+                                    Name:
+                                </th>
 
                                 <td>
                                     <input type="text" style={{ width: '100%', borderRadius: '0.3rem', border: '2px solid #41A1B6', color: 'rgb(0,0,0,0.72) ', fontSize: '1rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem', backgroundColor:'rgb(0, 0, 0, 0.04)' }} name='name' value={formData.name} onChange={handleChange} />
@@ -47,7 +49,9 @@ const YourProfileWeb = (props) =>{
 
                             <tr>
 
-                                <th style={{ textAlign: "start", padding: '0.7rem 0.6rem', fontWeight: 600 }}>Number:</th>
+                                <th style={{ textAlign: "start", padding: '0.7rem 0.6rem', fontWeight: 600 }} >
+                                    Number:
+                                </th>
 
                                 <td>
 
@@ -59,15 +63,25 @@ const YourProfileWeb = (props) =>{
 
                             <tr>
 
-                                <th style={{ textAlign: "start", padding: '0.7rem 0.6rem', fontWeight: 600 }}>Gender:</th>
+                                <th style={{ textAlign: "start", padding: '0.7rem 0.6rem', fontWeight: 600 }}>
+                                    Gender:
+                                </th>
 
                                 <td>
 
                                     <select style={{ width: '100%', padding: '0.5rem', borderRadius: '0.3rem', border: '2px solid #41A1B6', color: 'rgb(0,0,0,0.72) ', fontSize: '1rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem', backgroundColor:'rgb(0, 0, 0, 0.04)' }} name='gender' value={formData.gender} onChange={handleChange}>
 
-                                        <option style={{ fontSize: '0.8rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem' }} value="">Select</option>
-                                        <option style={{ fontSize: '0.8rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem' }} value="Male">Male</option>
-                                        <option style={{ fontSize: '0.8rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem' }} value="Female">Female</option>
+                                        <option style={{ fontSize: '0.8rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem' }} value="" >
+                                            Select
+                                        </option>
+
+                                        <option style={{ fontSize: '0.8rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem' }} value="Male" >
+                                            Male
+                                        </option>
+
+                                        <option style={{ fontSize: '0.8rem', fontFamily: 'Poppins', fontWeight: 500, padding: '0.3rem 0.5rem' }} value="Female" >
+                                            Female
+                                        </option>
 
                                     </select>
 
@@ -77,7 +91,9 @@ const YourProfileWeb = (props) =>{
 
                             <tr>
                                 
-                                <th style={{ textAlign: "start", padding: '0.7rem 0.6rem', fontWeight: 600 }}>DOB:</th>
+                                <th style={{ textAlign: "start", padding: '0.7rem 0.6rem', fontWeight: 600 }} >
+                                    DOB:
+                                </th>
 
                                 <td>
 
@@ -89,7 +105,9 @@ const YourProfileWeb = (props) =>{
 
                             <tr>
                                 
-                                <th style={{ textAlign: "start", padding: '0.7rem 0.6rem', fontWeight: 600 }}>Email:</th>
+                                <th style={{ textAlign: "start", padding: '0.7rem 0.6rem', fontWeight: 600 }} >
+                                    Email:
+                                </th>
 
                                 <td>
 
@@ -104,10 +122,9 @@ const YourProfileWeb = (props) =>{
                     </table>
 
                     <Box style={{textAlign:'center'}}>
-                        <button style={{ width: '60%', padding: '0.6rem 0rem', borderRadius: '3rem', backgroundColor: '#41A2B8', color: "white", border: '0px solid #41A2B8',  fontSize:'1.3rem', fontWeight:500, color:'rgb(255, 255, 255 ,0.88)', fontFamily:'Poppins', marginTop:'1rem' }} 
-                        onClick={()=>{
-                            props.setEdit(false);
-                       }} >
+
+                        <button style={{ width: '60%', padding: '0.6rem 0rem', borderRadius: '3rem', backgroundColor: '#41A2B8', color: "white", border: '0px solid #41A2B8',  fontSize:'1.3rem', fontWeight: 500, color:'rgb(255, 255, 255 ,0.88)', fontFamily:'Poppins', marginTop:'1rem' }} 
+                        onClick={()=>{ props.setEdit(false) }} >
                             Save
                         </button>
 

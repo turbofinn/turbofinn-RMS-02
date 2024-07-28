@@ -27,12 +27,12 @@ function OrderHistory() {
         <div style={{ background: "linear-gradient(to right,rgba(0, 0, 0, 0.7),rgba(90,90,90,0.1))", width: "20%", height: "1px" }} />
 
         <Box sx={{ width: "fit" }}>
-          <SortBy /> 
+          <SortBy />
         </Box>
 
       </Box>
 
-      <Box sx={{ maxWidth: "90%",marginInline:'auto' }}>
+      <Box sx={{ maxWidth: "90%", marginInline: 'auto' }}>
         <OrderHistoryCardMob />
       </Box>
 

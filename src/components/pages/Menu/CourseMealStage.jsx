@@ -38,10 +38,13 @@ function CourseMealStage() {
       <Box sx={{ display: "flex", overflowX: "auto", pb: 2, "&::-webkit-scrollbar": { display: "none" }, scrollbarWidth: "none", marginLeft: { lg: "5px" }, paddingLeft: { lg: "30px" } }} >
 
         {stages.map((stage, index) => (
+
           <Box key={index} sx={{ mr: { xs: 2, md: 3 }, textAlign: "center", minWidth: { xs: "120px", md: "170px" }, boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)", marginTop: "4px", marginLeft: "2px", borderRadius: "16px", padding: { xs: "8px", md: "16px" }, display: "flex", flexDirection: "column", alignItems: "center", bgcolor: "white" }}>
 
-            <Box sx={{ height: { xs: "100px", md: "100px" }, borderRadius: "50%", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", mb: 0 }}>
+            <Box sx={{ height: { xs: "100px", md: "100px" }, borderRadius: "50%", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", mb: 0 }} >
+
               <img src={stage.image} alt={stage.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+
             </Box>
 
             <Typography variant="body2" sx={{ fontWeight: 400, fontSize: { xs: "10px", md: "12px" }, color: "grey.600", mb: 0.5 }}>
@@ -54,7 +57,8 @@ function CourseMealStage() {
 
           </Box>
 
-        ))}
+        )
+        )}
 
       </Box>
 

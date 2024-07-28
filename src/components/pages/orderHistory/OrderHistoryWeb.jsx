@@ -4,26 +4,26 @@ import SimpleHead from "../../common/SimpleHead/SimpleHead";
 import { Box, Typography } from "@mui/material";
 import SortBy from "../../common/SortBy/SortBy";
 import OrderHistoryCardWeb from "../../common/OrderHistoryCard/OrderHistoryCardWeb";
-import img1 from "../../../assets/Image/meal/DalBatiChurma.png";
+import DalBatiChurma from "../../../assets/Image/meal/DalBatiChurma.png";
 
 function OrderHistoryWeb() {
 
   const repeatedDish = [
 
-    { 
-      img: img1,
+    {
+      img: DalBatiChurma,
       name: "dal bati churma",
-      vegornot:'vegetarian' 
+      vegornot: 'vegetarian'
     },
-    { 
-      img: img1, 
+    {
+      img: DalBatiChurma,
       name: "dal bati churma",
-      vegornot:'vegetarian' 
+      vegornot: 'vegetarian'
     },
-    { 
-      img: img1, 
+    {
+      img: DalBatiChurma,
       name: "dal bati churma",
-      vegornot:'vegetarian' 
+      vegornot: 'vegetarian'
 
     },
 
@@ -37,7 +37,7 @@ function OrderHistoryWeb() {
 
       <SimpleHead title="Order history" h="16rem" showSubtitle={true} subtitle={`you may don't remember your choice but we do 😎`} />
 
-      <Box sx={{ width: "90%", heigth: "100vh", marginInline: "auto" }} > 
+      <Box sx={{ width: "90%", heigth: "100vh", marginInline: "auto" }} >
 
         <Box sx={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "5.5rem" }} >
 
@@ -56,13 +56,12 @@ function OrderHistoryWeb() {
         <Box sx={{ width: "95%", height: "100%", marginInline: "auto", marginTop: "3rem", display: "flex", gap: "3rem" }} >
 
           <Box sx={{ width: "72.5%" }} >
-            <OrderHistoryCardWeb />       
+            <OrderHistoryCardWeb />
           </Box>
 
           <Box sx={{ width: "35%", minHeight: "28rem", height: "fit", boxShadow: "0 0 9.5px 0 rgba(0,0,0,0.25)", borderRadius: "15px", justifyContent: "center" }} >
 
-            <Box
-              sx={{ width: "90%", marginInline: "auto", marginBlock: "3rem" }} >
+            <Box sx={{ width: "90%", marginInline: "auto", marginBlock: "3rem" }} >
 
               <Typography variant="h1" sx={{ fontSize: "1.95rem", fontWeight: "700", textAlign: "center", width: { lg: "20rem" }, marginInline: "auto" }} >
                 Your Top Repeated Dish
@@ -77,7 +76,7 @@ function OrderHistoryWeb() {
                 {repeatedDish.map((elem, i) => (
 
                   <Box>
-                    <img src={elem.img} alt={elem.name} style={{ borderRadius: "50%", height:'6rem', width:'6rem', objectFit: "cover", marginTop:'0.5rem' }} />
+                    <img src={elem.img} alt={elem.name} style={{ borderRadius: "50%", height: '6rem', width: '6rem', objectFit: "cover", marginTop: '0.5rem' }} />
 
                     <Typography sx={{ color: "rgba(82,82,82,1)", fontSize: "0.75rem", textTransform: "capitalize", marginTop: "0.5rem" }} >
                       {elem.name}
@@ -88,10 +87,15 @@ function OrderHistoryWeb() {
                 ))}
 
               </Box>
+
             </Box>
+
           </Box>
+
         </Box>
+
       </Box>
+
     </Box>
 
   );

@@ -45,12 +45,15 @@ const OrderStatus = () => {
 
         return (
             <Box >
+
                 <Typography variant="h4" style={{ color: 'rgba(0, 0, 0, 0.80)', fontSize: '3.8rem', fontWeight: 600, textAlign: 'center', marginTop: '20%', fontFamily: 'Poppins' }}>
                     {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
                 </Typography>
+
                 <Typography style={{ fontSize: '0.7rem', textAlign: 'center', maxWidth: '80%', marginLeft: 'auto', marginRight: 'auto', color: 'rgba(0,0,0,0.86)', fontWeight: 600, fontFamily: 'Poppins' }}>
                     Food Preparing In Progress
                 </Typography>
+                
             </Box>
         );
     };
@@ -65,15 +68,31 @@ const OrderStatus = () => {
             {!aspect ?
                 <Box sx={style}>
                     <Box style={{ color: 'white', textAlign: 'center' }}>
-                        <Typography style={{ textAlign: 'end' }}>Close  X</Typography>
-                        <Typography style={{ color: 'rgba(0,0.0,0.86)', fontWeight: 600, fontSize: '1.2rem' }}>Order Status</Typography>
-                        <Typography style={{ fontWeight: 700, fontSize: '1.5rem', marginTop: '1.5rem' }}>‘Bon appetit’</Typography>
-                        <Typography style={{ fontWeight: 600, fontSize: '1.2rem', maxWidth: '90%', marginLeft: 'auto', marginRight: 'auto', color: 'rgba(255,255,255,0.8)', marginTop: '0.5rem' }}>Your Order Is In Process To Be Served.</Typography>
-                        <Typography style={{ fontWeight: 500, fontSize: '0.9rem', maxWidth: '80%', marginLeft: 'auto', marginRight: 'auto', color: 'rgba(255,255,255,0.86)', marginTop: '1rem' }}>Timer Started</Typography>
+
+                        <Typography style={{ textAlign: 'end' }}> Close  X </Typography>
+
+                        <Typography style={{ color: 'rgba(0,0.0,0.86)', fontWeight: 600, fontSize: '1.2rem' }}> 
+                            Order Status 
+                        </Typography>
+
+                        <Typography style={{ fontWeight: 700, fontSize: '1.5rem', marginTop: '1.5rem' }}> 
+                            ‘Bon appetit’
+                        </Typography>
+
+                        <Typography style={{ fontWeight: 600, fontSize: '1.2rem', maxWidth: '90%', marginLeft: 'auto', marginRight: 'auto', color: 'rgba(255,255,255,0.8)', marginTop: '0.5rem' }}>
+                            Your Order Is In Process To Be Served.
+                        </Typography>
+
+                        <Typography style={{ fontWeight: 500, fontSize: '0.9rem', maxWidth: '80%', marginLeft: 'auto', marginRight: 'auto', color: 'rgba(255,255,255,0.86)', marginTop: '1rem' }}>
+                            Timer Started
+                        </Typography>
+
                     </Box>
 
-                    <Box style={{ display: 'flex', justifyContent: 'center', backgroundColor: 'rgba(255, 255, 255, 0.4)', borderRadius: '50%', width: '17.8rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.8rem', marginTop: '1.5rem' }}>
-                        <Box style={{ display: 'flex', justifyContent: 'center', backgroundColor: 'white', borderRadius: '50%', width: '13.8rem', marginLeft: 'auto', marginRight: 'auto' }}>
+                    <Box style={{ display: 'flex', justifyContent: 'center', backgroundColor: 'rgba(255, 255, 255, 0.4)', borderRadius: '50%', width: '17.8rem', marginLeft: 'auto', marginRight: 'auto', padding: '1.8rem', marginTop: '1.5rem' }} >
+
+                        <Box style={{ display: 'flex', justifyContent: 'center', backgroundColor: 'white', borderRadius: '50%', width: '13.8rem', marginLeft: 'auto', marginRight: 'auto' }} >
+
                             <CountdownCircleTimer
                                 {...timerProps}
                                 isPlaying
@@ -83,8 +102,11 @@ const OrderStatus = () => {
                             >
                                 {renderTime}
                             </CountdownCircleTimer>
+
                         </Box>
+
                     </Box>
+
                 </Box>
                 :
                 <OrderStatusWeb />
