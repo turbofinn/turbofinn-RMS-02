@@ -30,6 +30,7 @@ const ProfileSettings = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
   const [edit, setEdit] = useState(false);
+  const [dp,setDp]=useState(profilePicture)
   const Navigate = useNavigate();
   return (
     <>
@@ -151,7 +152,7 @@ const ProfileSettings = () => {
         >
           <Box sx={{ position: "relative", marginBottom: 1 }}>
             <Avatar
-              src={profilePicture}
+              src={dp}
               sx={{
                 position: "relative",
                 width: { xs: 198, md: 200 },
@@ -186,6 +187,7 @@ const ProfileSettings = () => {
             >
               <img src={editIcon} alt="editIcon" style={{ width: "17px" }} />
             </Box>
+            <input type="file"></input>
           </Box>
 
           <Typography
