@@ -8,22 +8,22 @@ import {
   FormControl,
   Button,
 } from "@mui/material";
-import gPay from "../../../assets/Image/paymentGateway/gPay.png";
-import cash from "../../../assets/Image/paymentGateway/csh.png";
-import upi from "../../../assets/Image/paymentGateway/upi.png";
-import amazonPay from "../../../assets/Image/paymentGateway/amazon-pay.png";
-import debitCard from "../../../assets/Image/paymentGateway/debit-card.jpg";
+import Gpay from "../../../assets/Image/PaymentGateway/Gpay.png";
+import Cash from "../../../assets/Image/PaymentGateway/Cash.png";
+import UPI from "../../../assets/Image/PaymentGateway/UPI.png";
+import AmazonPay from "../../../assets/Image/PaymentGateway/AmazonPay.png";
+import DebitCard from "../../../assets/Image/PaymentGateway/DebitCard.jpg";
 import SimpleHead from "../../common/SimpleHead/SimpleHead";
 import NavBar from '../../common/NavBar/NavBar'
 import {useTheme } from '@mui/material/styles'
 import useMediaQuery from "@mui/material/useMediaQuery";
 function PaymentMethod() {
   const options = [
-    { title: "Google Pay", icon: gPay },
-    { title: "Cash", icon: cash },
-    { title: "UPI", icon: upi },
-    { title: "Amazon Pay Balance", icon: amazonPay },
-    { title: "Debit Card", icon: debitCard },
+    { title: "Google Pay", icon: Gpay },
+    { title: "Cash", icon: Cash },
+    { title: "UPI", icon: UPI },
+    { title: "Amazon Pay Balance", icon: AmazonPay },
+    { title: "Debit Card", icon: DebitCard },
   ];
   const CustomLabel = ({ img, txt }) => (
     <Box

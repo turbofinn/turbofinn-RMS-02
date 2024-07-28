@@ -81,6 +81,6 @@ export default {
     sendOTP: sendOTP,
     verifyOTP: verifyOTP,
     createOrder: createOrder,
-    getItem, getItem
+    getItem: getItem
 
 }
