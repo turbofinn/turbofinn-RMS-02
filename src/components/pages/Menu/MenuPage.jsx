@@ -28,7 +28,7 @@ function MenuPage() {
     }, 3000);
   }, []);
 
-  const ITEMDATA = useSelector((state: RootState) => state.ItemData);
+  const ITEMDATA = useSelector((state) => state.ItemData);
 
   return (
     <>
