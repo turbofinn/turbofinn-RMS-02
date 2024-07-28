@@ -2,16 +2,16 @@ import React from "react";
 import { Box, Container, Grid, useMediaQuery, useTheme } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FoodAddToCartGrid from "../../common/FoodAddToCart/FoodAddToCart";
-import dalBatiChurma from "../../../assets/Image/meal/dalBatiChurma.png";
+import DalBatiChurma from "../../../assets/Image/meal/DalBatiChurma.png";
 import { useNavigate } from "react-router-dom";
 
 const menuItem = [
-  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
-  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
-  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
-  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
-  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
-  { name: "Dal Bati Churma", image: dalBatiChurma, isVegetarian: true },
+  { name: "Dal Bati Churma", image: DalBatiChurma, isVegetarian: true },
+  { name: "Dal Bati Churma", image: DalBatiChurma, isVegetarian: true },
+  { name: "Dal Bati Churma", image: DalBatiChurma, isVegetarian: true },
+  { name: "Dal Bati Churma", image: DalBatiChurma, isVegetarian: true },
+  { name: "Dal Bati Churma", image: DalBatiChurma, isVegetarian: true },
+  { name: "Dal Bati Churma", image: DalBatiChurma, isVegetarian: true },
 ];
 
 function MenuItems() {

@@ -5,7 +5,7 @@ import soup from "../../../assets/Image/sevenCourseMeal/soup.jpg";
 import salad from "../../../assets/Image/sevenCourseMeal/salad.png";
 import mainCourse from "../../../assets/Image/sevenCourseMeal/main course.avif";
 import dessert from "../../../assets/Image/sevenCourseMeal/dessert.png";
-import coldStarter from "../../../assets/Image/sevenCourseMeal/cold starter.jpg";
+import ColdStarter from "../../../assets/Image/sevenCourseMeal/ColdStarter.jpg";
 import appetizer from "../../../assets/Image/sevenCourseMeal/appetizer.jpg";
 
 function CourseMealStage() {
@@ -14,7 +14,7 @@ function CourseMealStage() {
 
   const stages = [
     { name: "Appetizer", image: appetizer },
-    { name: "PRE-STARTER", image: coldStarter },
+    { name: "PRE-STARTER", image: ColdStarter },
     { name: "STARTER", image: starter },
     { name: "Appetizer", image: soup },
     { name: "Appetizer", image: salad },

@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import meal from "../../../assets/Image/meal/dalBatiChurma.png";
+import meal from "../../../assets/Image/meal/DalBatiChurma.png";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import VegOrNon from "../../common/vegOrNon/VegOrNon";
 import React from "react";

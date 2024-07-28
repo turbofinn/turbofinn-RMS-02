@@ -14,7 +14,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useMediaQuery, useTheme } from "@mui/material";
 import NavBar from "../../common/NavBar/NavBar";
 
-import meal from "../../../assets/Image/meal/dalBatiChurma.png";
+import meal from "../../../assets/Image/meal/DalBatiChurma.png";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 function AddToMealWeb() {

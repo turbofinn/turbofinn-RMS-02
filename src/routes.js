@@ -41,7 +41,7 @@ const routes = [
     component: <AddToMeal />,
   },
   {
-    name: "Your Meal CART",
+    name: "Your Meal Cart",
     path: "/yourmealcart",
     component: <AddTocard />,
   },

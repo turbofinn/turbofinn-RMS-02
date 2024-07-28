@@ -9,7 +9,7 @@ import {
   Container,
   Grid,
 } from "@mui/material";
-import dalBatiChurma from "../../../assets/Image/meal/dalBatiChurma.png";
+import dalBatiChurma from "../../../assets/Image/meal/DalBatiChurma.png";
 import plus from "../../../assets/Image/plus.png";
 import minus from "../../../assets/Image/minus.png";
 import plusBlack from "../../../assets/Image/plusBlack.png";

@@ -7,7 +7,7 @@ function OrderPlaced() {
     const theme=useTheme();
     const aspect=useMediaQuery(theme.breakpoints.up('md'))
   return (
-    aspect?<OrderPlacedWeb></OrderPlacedWeb>:<OrderPlacedMob></OrderPlacedMob>
+    aspect?<OrderPlacedWeb />:<OrderPlacedMob />
   )
 }
 
