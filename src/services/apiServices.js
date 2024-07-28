@@ -1,22 +1,86 @@
 import axios from "axios";
-import HWMessage from "utils/HWMessage";
-import LocalStorageService from "utils/LocalStorage";
 
-class ApiService {
-    constructor() {
-        if (!ApiService.instance) { ApiService.instance = this }
-        return ApiService.instance
+const instance = axios.create({
+
+    baseURL: process.env.REACT_APP_BASE_URL,
+    headers: {
+        'Content-Type': 'application/json',
     }
 
-    getBaseUrl = () => { return process.env.REACT_APP_IS_IN_PROD === "true" ? process.env.REACT_APP_BASE_URL_PROD : process.env.REACT_APP_BASE_URL_DEV; }
+});
 
-    defaultAuthConfig = () => {
-        const accessToken = LocalStorageService.getToken();
-        // console.log("accessToken", accessToken)
-        return { headers: { 'auth-token': accessToken } }
+const sendOTP = async (params) => {
+    try{
+
+        const response = await instance.post( '/dev/send-otp', params );
+        return response.data
+
     }
+    catch(error){
 
+        console.error('Error sending OTP:', error);
+        throw error
+
+    }
 }
 
-const apiService = new ApiService();
-export default apiService;
+const verifyOTP = async (params) => {
+    try{
+
+        const response = await instance.post( '/dev/verify-otp', params );
+        return response.data
+
+    }
+    catch(error){
+
+        console.error('Error in verifying OTP', error);
+        throw error
+
+    }
+}
+
+
+const createOrder = async (params) => {
+    try{
+
+        const response = await instance.post( '/dev/create-order', params );
+        return response.data
+
+    }
+    catch(error){
+
+        console.error('Error in creating order', error);
+        throw error
+
+    }
+}
+
+
+const getItem = async (params) => {
+    try{
+
+        const response = await instance.post( '/dev/get-items', params );
+        return response.data
+
+    }
+    catch( error ){
+
+        console.error('Error in getting Item', error);
+        throw error
+
+    }
+}
+
+
+
+
+
+
+export default {
+
+    sendOTP: sendOTP,
+    verifyOTP: verifyOTP,
+    createOrder: createOrder,
+    getItem, getItem
+
+}

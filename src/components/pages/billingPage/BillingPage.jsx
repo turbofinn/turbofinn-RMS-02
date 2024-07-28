@@ -17,29 +17,13 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import img1 from "../../../assets/Image/meal/menuItems/dal-bati-churma.jpg";
 import { ArrowBackIos, Cancel, Close } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+
 const orderedDish = [
-  {
-    img: img1,
-    name: "dal bati churma",
-    vegornot: "vegetarian",
-    costPerServing: 70,
-    serving: "01",
-  },
-  {
-    img: img1,
-    name: "dal bati churma",
-    vegornot: "vegetarian",
-    costPerServing: 70,
-    serving: "02",
-  },
-  {
-    img: img1,
-    name: "dal bati churma",
-    vegornot: "vegetarian",
-    costPerServing: 70,
-    serving: "03",
-  },
+  { img: img1, name: "dal bati churma", vegornot: "vegetarian", costPerServing: 70, serving: "01" },
+  { img: img1, name: "dal bati churma", vegornot: "vegetarian", costPerServing: 70, serving: "02" },
+  { img: img1, name: "dal bati churma", vegornot: "vegetarian", costPerServing: 70, serving: "03" }
 ];
+
 
 const BillPage = () => {
   const Navigate = useNavigate()
