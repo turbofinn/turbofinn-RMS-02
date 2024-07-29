@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Box,
@@ -26,12 +26,36 @@ import NavBar from "../../common/NavBar/NavBar.jsx";
 import NavBarBottom from "../../common/NavBar/NavBarBottom.jsx";
 import backgroundImage from "../../../assets/Image/profile/backgroundProfile.png";
 import ProfileEdit from "../yourProfile/YourProfile.jsx";
+
 const ProfileSettings = () => {
+
   const theme = useTheme();
+
   const matches = useMediaQuery(theme.breakpoints.up("md"));
+
   const [edit, setEdit] = useState(false);
+
+  const [editProfilePicture, setEditProfilePicture] = useState(false);
+
   const [dp,setDp]=useState(profilePicture)
+  const hiddenInputRef=useRef(null)
+
+  const handleDpEditClick=()=>{
+    setEditProfilePicture(true)
+  }
+
+  const handleUploadFromMedia=()=>{
+    hiddenInputRef.current.click();
+    setEditProfilePicture(false)
+  }
+
+  const handleDpEdit=(e)=>{
+    const file=e.target.files[0]
+    setDp(URL.createObjectURL(file))
+  }
+
   const Navigate = useNavigate();
+
   return (
     <>
       {edit ? <ProfileEdit setEdit={setEdit} /> : <></>}
@@ -135,8 +159,7 @@ const ProfileSettings = () => {
                 lineHeight: "22.5px",
                 color: "rgba(0, 0, 0, 1)",
               },
-            }}
-          >
+            }} >
             Profile Settings
           </Typography>
         </Box>
@@ -154,7 +177,7 @@ const ProfileSettings = () => {
             <Avatar
               src={dp}
               sx={{
-                position: "relative",
+                position: "relative",objectFit:'contain',
                 width: { xs: 198, md: 200 },
                 height: { xs: 198, md: 200 },
                 border: "8px solid #20B2AA",
@@ -169,7 +192,8 @@ const ProfileSettings = () => {
                 opacity: 1,
               }}
             />
-            <Box
+            <Box onClick={handleDpEditClick}
+              onChange={handleDpEdit}
               size="small"
               sx={{
                 position: "relative",
@@ -182,13 +206,17 @@ const ProfileSettings = () => {
                 borderRadius: 10,
                 border: "1px solid rgba(31, 104, 87, 1.5)",
                 width: { xs: "27px", lg: "27px" },
-                height: { xs: "27px", lg: "27px" },
+                height: { xs: "27px", lg: "27px" },cursor:'pointer'
               }}
             >
               <img src={editIcon} alt="editIcon" style={{ width: "17px" }} />
+              <input ref={hiddenInputRef} type="file" style={{display:'none'}}></input>
             </Box>
-            <input type="file"></input>
           </Box>
+         {editProfilePicture? <Box sx={{position:'absolute',width:'22rem',height:'14rem',background:"linear-gradient(180deg, #53CCE7 0%, #2BA8C4 100%)",display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',gap:'1rem',borderRadius:'11px'}}>
+            <Typography sx={{fontSize:'1.5rem',cursor:'pointer',color:'white',fontWeight:'600', '&:hover':{color:'#e7f1f6'}}}>Use Camera</Typography>
+            <Typography button sx={{fontSize:'1.5rem',cursor:'pointer',color:'white',fontWeight:'600', '&:hover':{color:'#e7f1f6'}}} onClick={handleUploadFromMedia}>Upload From Gallery</Typography>
+          </Box>:''}
 
           <Typography
             variant="h5"
