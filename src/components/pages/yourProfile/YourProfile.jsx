@@ -1,10 +1,11 @@
-import React,{useState}  from "react";
+import React,{useState,useEffect}  from "react";
 import { Box, Typography, TextField, IconButton, Button, Checkbox, FormControlLabel, Container, Grid } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import profileImage from "../../../assets/Image/profileImage.png";
 import edit from "../../../assets/Image/Edit.png";
 import YourProfileWeb from "./YourProfileWeb";
+import api from "../../../services/apiServices"
 
 const style = { position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '90%', bgcolor: 'white', boxShadow: 24, minHeight:'70%', height:'fit', marginLeft: 'auto', marginRight: 'auto', px: 2, py: 3, borderRadius: '1rem', border: '2px solid #dddd', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', zIndex:9999 };
 
@@ -15,17 +16,97 @@ const YourProfile = (props) => {
 
     const aspect = useMediaQuery(theme.breakpoints.up("md"));
 
-    const [formData, setFormData] = useState({
-    name: 'Vāsudeva-Krishna',
-    number: '+91 9876543210',
-    gender: 'Male',
-    dob: '3227-06-23',
-    email: 'vasu@gmail.com',
+    const user={
+
+    mobileNo: "7985257933",
+    action: "fetch"
+
+  }
+
+   const [formData, setFormData] = useState({
+    name: 'Enter Your Name',
+    number: 'Add phone number',
+    gender: '',
+    dob: '',
+    email: 'Add email address',
   });
+
+
+  useEffect(()=>{
+
+    try{
+
+      api.getUserDetails(user).then((response) => {
+
+        if(response.response.responseCode=== 1001)
+        {
+          setFormData(
+            {
+                name:response.user.userName,
+                number:response.user.mobileNo,
+                email:response.user.email  
+            })
+        }
+        else
+        {
+          console.log("Error Occured")
+        }
+
+      })
+
+    }
+    catch(error){
+
+      console.log("Error occured in data", error)
+
+    }
+    
+  },[])
+
+   const updateData=(params)=>{
+    try{
+        api.updateUserDetails(params).then((response)=>{
+
+            if(response.response.responseCode===1001){
+
+                console.log(response.data)
+                console.log('Data updated successfully')
+            }
+            else
+            {
+                console.log("Data update unsuccessfully")
+                console.log(response.response.responseCode)
+            }
+            
+        })
+    }
+    catch(error){
+
+        console.log("Couldn't update data",error)
+        throw error
+    }
+  }
+
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+   const saveUpdate=()=>{
+    const requestData={ 
+
+        mobileNo:formData.number, 
+        action:"update",
+        newDetails:
+        {
+        userName:formData.name,
+        email:formData.email
+        }
+    }
+
+    updateData(requestData)
+  }
+
 
     return (
         <React.Fragment>

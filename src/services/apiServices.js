@@ -71,6 +71,30 @@ const getItem = async (params) => {
     }
 }
 
+const getUserDetails= async(params)=>{
+    try{
+        const response= await instance.post( '/dev/get-user-details', params )
+        return response.data
+    }
+    catch(error){
+        console.log( 'Error in getting user details', error)
+        throw error
+    }
+}
+
+
+
+const updateUserDetails= async(params)=>{
+    try{
+        const response= await instance.post( '/dev/get-user-details', params )
+        return response.data
+    }
+    catch(error){
+        console.log('Error in updating user details', error)
+        throw error
+    }
+}
+
 
 
 
@@ -81,6 +105,7 @@ export default {
     sendOTP: sendOTP,
     verifyOTP: verifyOTP,
     createOrder: createOrder,
-    getItem: getItem
-
-}
+    getItem: getItem,
+    getUserDetails:getUserDetails,
+    updateUserDetails:updateUserDetails,
+ }
