@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Container, Grid, useMediaQuery, useTheme } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FoodAddToCartGrid from "../../common/FoodAddToCart/FoodAddToCart";
-import DalBatiChurma from "../../../assets/Image/meal/DalBatiChurma.png";
+import DalBatiChurma from "../../../assets/Image/meal/dalBatiChurma.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
@@ -24,13 +24,13 @@ function MenuItems() {
 
   const itemDATA = useSelector((state) => state.ItemData.Items);
   console.log("itemsData", itemDATA);
-  
+
   return (
     <>
       <Container maxWidth="lg" sx={{ mt: { xs: 2, md: 6 }, px: { xs: 2, md: 3 } }} >
 
         <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: { xs: 2, md: 4 } }} >
-          
+
           <Box sx={{ display: "flex", alignItems: "center" }}>
 
             <Box sx={{ display: "flex", alignItems: "center", fontWeight: 500, fontSize: { xs: "13px", md: "16px" } }}>

@@ -8,9 +8,9 @@ import {
   FormControl,
   Button,
 } from "@mui/material";
-import Gpay from "../../../assets/Image/paymentGateway/Gpay.png";
+import Gpay from "../../../assets/Image/paymentGateway/gPay.png";
 import Cash from "../../../assets/Image/paymentGateway/Cash.png";
-import UPI from "../../../assets/Image/paymentGateway/UPI.png";
+import UPI from "../../../assets/Image/paymentGateway/upi.png";
 import AmazonPay from "../../../assets/Image/paymentGateway/AmazonPay.png";
 import DebitCard from "../../../assets/Image/paymentGateway/DebitCard.jpg";
 import SimpleHead from "../../common/SimpleHead/SimpleHead";

@@ -1,7 +1,7 @@
 import { Box, Typography, Paper, Radio, RadioGroup, FormControl, FormControlLabel, Button, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import meal from "../../../assets/Image/meal/DalBatiChurma.png";
+import meal from "../../../assets/Image/meal/dalBatiChurma.png";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import VegOrNon from "../../common/vegOrNon/VegOrNon";
 import React from "react";
@@ -92,11 +92,11 @@ function AddToMealWeb() {
 
             <Box sx={{ display: "flex", alignItems: "center", marginBlockEnd: "0.75rem" }} >
 
-              <Typography variant="subtitle1" sx={{ textTransform: "capitalize", fontFamily: "Poppins", fontWeight: "600", fontSize: "1rem", lineHeight: "19.2px", color: "rgba(56, 56, 56,0.95)", marginRight: "1.5rem"}} >
+              <Typography variant="subtitle1" sx={{ textTransform: "capitalize", fontFamily: "Poppins", fontWeight: "600", fontSize: "1rem", lineHeight: "19.2px", color: "rgba(56, 56, 56,0.95)", marginRight: "1.5rem" }} >
                 legacy of rajasthan
               </Typography>
 
-              <VegOrNon state="vegetarian"/>
+              <VegOrNon state="vegetarian" />
 
             </Box>
 
@@ -158,7 +158,7 @@ function AddToMealWeb() {
                         }
                         labelPlacement="start"
                       />
-                      
+
                     </Box>
                   ))}
 
@@ -191,12 +191,12 @@ function AddToMealWeb() {
 
               <ThemeProvider theme={theme}>
 
-                <CustomTextField 
-                id="outlined-multiline-flexible"
-                placeholder={`Changes to be done for dal bati churma...`} 
-                multiline 
-                rows={5} 
-                sx={{width: "100%", height: "100%", fontFamily: "Poppins", fontWeight: "600", color: "#767676",fontSize: { md: "6px", xl: "12px" }, paddingInline: { md: "8px", xl: "16px" } }} />
+                <CustomTextField
+                  id="outlined-multiline-flexible"
+                  placeholder={`Changes to be done for dal bati churma...`}
+                  multiline
+                  rows={5}
+                  sx={{ width: "100%", height: "100%", fontFamily: "Poppins", fontWeight: "600", color: "#767676", fontSize: { md: "6px", xl: "12px" }, paddingInline: { md: "8px", xl: "16px" } }} />
 
               </ThemeProvider>
 
@@ -209,23 +209,23 @@ function AddToMealWeb() {
 
         <Box sx={{ height: "90px", width: "100vw", display: "flex", justifyContent: "center", gap: "0.85rem", alignItems: "center", background: "#fff", paddingBlock: "1rem", paddingInline: "0.625rem", position: "fixed", bottom: "0" }} >
 
-          <Box sx={{width: "6.82rem", height: "2.55rem", border: "1px solid rgba(0, 0, 0,0.48  )", borderRadius: "30px", display: "flex", alignItems: "center", justifyContent: "space-between", paddingInline: "0.5rem"}}>
+          <Box sx={{ width: "6.82rem", height: "2.55rem", border: "1px solid rgba(0, 0, 0,0.48  )", borderRadius: "30px", display: "flex", alignItems: "center", justifyContent: "space-between", paddingInline: "0.5rem" }}>
 
-            <Box sx={{ height: "1.25rem", width: "1.25rem", fontSize: "1.25rem", fontWeight: "500", padding: 0, borderRadius: "50%", background: "rgb(70, 157, 177,0.89)", color: "white", display: "flex", alignItems: "center", justifyContent: "center"}} >
+            <Box sx={{ height: "1.25rem", width: "1.25rem", fontSize: "1.25rem", fontWeight: "500", padding: 0, borderRadius: "50%", background: "rgb(70, 157, 177,0.89)", color: "white", display: "flex", alignItems: "center", justifyContent: "center" }} >
               -
             </Box>
 
-            <Typography sx={{ fontSize: "1.35rem", fontWeight: "700"}}>
+            <Typography sx={{ fontSize: "1.35rem", fontWeight: "700" }}>
               2
             </Typography>
 
-            <Box sx={{ height: "1.25rem", width: "1.25rem", fontSize: "1.25rem", fontWeight: "500", padding: 0, borderRadius: "50%", background: "rgb(70, 157, 177,0.89)", color: "white", display: "flex", alignItems: "center", justifyContent: "center"}} >
+            <Box sx={{ height: "1.25rem", width: "1.25rem", fontSize: "1.25rem", fontWeight: "500", padding: 0, borderRadius: "50%", background: "rgb(70, 157, 177,0.89)", color: "white", display: "flex", alignItems: "center", justifyContent: "center" }} >
               +
             </Box>
 
           </Box>
 
-          <Button variant="contained" sx={{ width: "14.5rem", height: "3.3rem", background: "rgb(62, 185, 212)", borderRadius: "10px"}}
+          <Button variant="contained" sx={{ width: "14.5rem", height: "3.3rem", background: "rgb(62, 185, 212)", borderRadius: "10px" }}
             onClick={() => {
               Navigate("/menu");
             }}>

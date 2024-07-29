@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Paper, Typography } from "@mui/material";
-import img1 from "../../../assets/Image/meal/DalBatiChurma.png";
+import img1 from "../../../assets/Image/meal/dalBatiChurma.png";
 import VegOrNon from "../vegOrNon/VegOrNon";
 import CustmRating from "../CustmRating/CustmRating";
 import OrderAgainButton from "../OrderAgainButton/OrderAgainButton";
@@ -107,10 +107,10 @@ function OrderHistoryCardWeb() {
             justifyContent: "space-between",
           }}>
           <CustmRating value={4.5}></CustmRating>
-          <Box sx={{ display: "flex",gap:'2rem' }}>
+          <Box sx={{ display: "flex", gap: '2rem' }}>
             <Box
               sx={{
-                display:'flex',
+                display: 'flex',
                 width: "fit",
                 alignItems: "center",
                 textAlign: "center",

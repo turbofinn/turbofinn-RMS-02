@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import burger from "../../../assets/Image/burger.png";
 import toast from "../../../assets/Image/toast.png";
-import dalBatiChurma from "../../../assets/Image/meal/DalBatiChurma.png";
+import dalBatiChurma from "../../../assets/Image/meal/dalBatiChurma.png";
 import plus from "../../../assets/Image/plus.png";
 import minus from "../../../assets/Image/minus.png";
 import greaterThanDownSide from "../../../assets/Image/greaterThanDownSide.png";
