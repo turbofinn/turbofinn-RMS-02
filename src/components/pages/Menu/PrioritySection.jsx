@@ -63,7 +63,9 @@ function PrioritySection() {
             <Grid container spacing={2}>
 
                 {priorities.map((priority, index) => (
+
                     <Grid item xs={6} md={3} key={index}>
+
                         <Paper sx={{ p: { xs: 1, lg: 2 }, background: priority.gradient, borderRadius: "13px", display: "flex", alignItems: "center", boxShadow: "none", height: { lg: "100px" } }}>
 
                             <Box sx={{ flexGrow: 1 }}>
@@ -79,7 +81,9 @@ function PrioritySection() {
 
                             <img src={priority.image} alt={priority.title} style={{ height: isLargeScreen ? "110px" : "65px", marginLeft: "8px" }} />
                         </Paper>
+
                     </Grid>
+                    
                 ))}
 
             </Grid>

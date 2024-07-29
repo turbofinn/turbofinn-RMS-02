@@ -45,65 +45,35 @@ const PayConfirmationModal = () => {
     return (
         <React.Fragment>
             {!aspect ? 
+
             <Box sx={style}>
-                <Box style={{
-                    textAlign: 'center',
-                    marginTop:'2rem'
-                }}>
+
+                <Box style={{ textAlign: 'center', marginTop:'2rem' }} >
                     <img src={logo} alt="logo" />
                 </Box>
 
-                <Box style={{
-                    display: 'flex',
-                    justifyContent: 'center', // Center content horizontally
-                    flexDirection: 'column',
-                    alignItems: 'center', // Center content vertically
+                <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column',alignItems: 'center' }} >\
 
-                }}>
-                    <Box style={{
-                        marginLeft: 'auto',
-                        marginRight: 'auto',
-                        border: '1px solid #dddd',
-                        backgroundColor: 'rgba(41, 173, 203, 0.14)',
-                        padding: '2rem',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        width: '10rem',
-                        height: '10rem',
-                        borderRadius: '50%',
-                        border: '1px solid #29ADCB',
-                        marginTop: '2rem'
+                    <Box style={{ marginLeft: 'auto', marginRight: 'auto', border: '1px solid #dddd', backgroundColor: 'rgba(41, 173, 203, 0.14)', padding: '2rem', display: 'flex',justifyContent: 'center', alignItems: 'center', width: '10rem', height: '10rem',borderRadius: '50%', border: '1px solid #29ADCB', marginTop: '2rem' }} >
 
-                    }}>
-                        <img src={tick} alt="tick" style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            padding: '2rem',
-                            borderRadius: '50%',
-                            backgroundColor: 'rgb(0, 147, 70,0.78)',
-                            width: '8rem',
-                            height: '8rem'
-                        }} />
+                        <img src={tick} alt="tick" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '2rem', borderRadius: '50%', backgroundColor: 'rgb(0, 147, 70,0.78)', width: '8rem', height: '8rem' }} />
+
                     </Box>
 
-                    <Box style={{
-                    }}>
-                        <Typography
-                            style={{ color: '#107086', fontWeight: 700, fontSize: '1.9rem', textAlign: 'center', marginTop: '2rem' }}
-                        >Your Order Is Successfully Placed</Typography>
+                    <Box>
 
-                        <Typography style={{ color: 'black', fontWeight: 700, textAlign: 'center', fontSize: '1rem', marginTop: '1.5rem' }}>Your Meal Will Served In Some Time</Typography>
+                        <Typography style={{ color: '#107086', fontWeight: 700, fontSize: '1.9rem', textAlign: 'center', marginTop: '2rem' }} >
+                            Your Order Is Successfully Placed
+                        </Typography>
 
-                        {/* <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1.5rem' }}>
-                            <Button variant="contained" color="primary" style={{
-                                width: '49%', backgroundColor: '#35B1CD', color: 'white', fontSize: '0.9rem', textTransform: 'capitalize', height: '3.5rem', borderRadius: '0.5rem'
-                            }}>View Bill & Share</Button>
-                            <Button style={{ width: '49%', border: '2px solid #35B1CD ', textTransform: 'capitalize', fontSize: '0.9rem', color: 'black', borderRadius: '0.5rem' }}>Back</Button>
-                        </Box> */}
+                        <Typography style={{ color: 'black', fontWeight: 700, textAlign: 'center', fontSize: '1rem', marginTop: '1.5rem' }} >
+                            Your Meal Will Served In Some Time
+                        </Typography>
+
                     </Box>
+
                 </Box>
+                
             </Box>
             :
             <PayConfirmationModalWeb/>

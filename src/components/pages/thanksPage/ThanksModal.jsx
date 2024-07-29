@@ -33,7 +33,7 @@ const style = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    zIndex:9999
+    zIndex: 9999
 };
 
 const ThanksModal = () => {
@@ -42,38 +42,48 @@ const ThanksModal = () => {
     const Navigate = useNavigate();
     return (
         <React.Fragment>
-            {!aspect ? 
-            <Box sx={style}>
+            {!aspect ?
 
-                <Box style={{ textAlign:'center'}} >
-                    <img src={thanks} alt="thanks"
-                        style={{
-                            width: '90%',
-                        }} />
-                </Box>
+                <Box sx={style}>
 
-                <Box>
-                    <Typography
-                        style={{ color: '#107086', fontWeight: 600, fontSize: '1.5em', textAlign: 'center',  }}
-                    >Thanks For Ordering In Our Restaurant</Typography>
+                    <Box style={{ textAlign: 'center' }} >
 
-                    <Typography style={{ color: 'black', fontWeight: 600, textAlign: 'center', fontSize: '0.8rem', marginTop: '0.8rem' }}>Your Meal Will Served In Some Time</Typography>
+                        <img src={thanks} alt="thanks" style={{ width: '90%' }} />
 
-                    <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2.1rem' }}>
-                        <Button style={{ width: '48%', border: '2px solid #35B1CD ', textTransform: 'capitalize', fontSize: '0.9rem', color: 'black', borderRadius: '0.5rem' }}
-                        onClick={()=>{
-                            Navigate("/menu");
-                        }}>Home</Button>
-                        <Button variant="contained" color="primary" style={{
-                            width: '48%', backgroundColor: '#35B1CD', color: 'white', fontSize: '0.9rem', textTransform: 'capitalize', height: '3.5rem', borderRadius: '0.5rem'
-                        }}
-                        onClick={()=>{
-                            Navigate("/billing")
-                        }}>View Bill & Share</Button>
                     </Box>
+
+                    <Box>
+
+                        <Typography style={{ color: '#107086', fontWeight: 600, fontSize: '1.5em', textAlign: 'center' }} >
+                            Thanks For Ordering In Our Restaurant
+                        </Typography>
+
+                        <Typography style={{ color: 'black', fontWeight: 600, textAlign: 'center', fontSize: '0.8rem', marginTop: '0.8rem' }}>
+                            Your Meal Will Served In Some Time
+                        </Typography>
+
+                        <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: '2.1rem' }} >
+
+                            <Button style={{ width: '48%', border: '2px solid #35B1CD ', textTransform: 'capitalize', fontSize: '0.9rem', color: 'black', borderRadius: '0.5rem' }}
+                                onClick={() => { Navigate('/menu') }} >
+                                Home
+                            </Button>
+
+                            <Button variant="contained" color="primary" style={{ width: '48%', backgroundColor: '#35B1CD', color: 'white', fontSize: '0.9rem', textTransform: 'capitalize', height: '3.5rem', borderRadius: '0.5rem' }}
+                                onClick={() => { Navigate("/billing") }} >
+                                View Bill & Share
+                            </Button>
+
+                        </Box>
+
+                    </Box>
+
                 </Box>
-            </Box>
-            : <ThanksModalWeb/>
+
+                :
+
+                <ThanksModalWeb />
+
             }
         </React.Fragment >
     )

@@ -54,7 +54,7 @@ function OrderHistory() {
 
         <Box sx={{ maxWidth: "90%", marginInline: "auto" }} >
 
-          {orderPlaced.map((elem, i) => (
+          {orderPlaced.map(( elem, i ) => (
 
             <Box sx={{ marginBottom: "1rem", marginTop: "2rem" }} >
 
