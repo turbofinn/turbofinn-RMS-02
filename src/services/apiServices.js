@@ -72,6 +72,22 @@ const getItem = async (params) => {
 }
 
 
+const getOrderedItems = async (params) => {
+    try{
+
+        const response = await instance.post( '/dev/get-ordered-items', params );
+        return response.data
+
+    }
+    catch( error ){
+
+        console.error('Error in getting Item', error);
+        throw error
+
+    }
+}
+
+
 
 
 
