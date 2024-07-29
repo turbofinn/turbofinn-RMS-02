@@ -72,6 +72,22 @@ const getItem = async (params) => {
 }
 
 
+const getPaymentID = async (params) => {
+    try{
+
+        const response = await instance.post( '/dev/get-paymentId', params );
+        return response.data
+
+    }
+    catch( error ){
+
+        console.error('Error in getting Item', error);
+        throw error
+
+    }
+}
+
+
 
 
 
@@ -81,6 +97,7 @@ export default {
     sendOTP: sendOTP,
     verifyOTP: verifyOTP,
     createOrder: createOrder,
-    getItem: getItem
+    getItem: getItem,
+    getPaymentID:getPaymentID
 
 }
