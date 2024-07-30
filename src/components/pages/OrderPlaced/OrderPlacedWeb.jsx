@@ -8,31 +8,31 @@ import OrderPlacedCardWeb from "../../common/OrderPlaced/OrderPlacedCardWeb";
 import OrderAgainButton from "../../common/OrderAgainButton/OrderAgainButton";
 
 function OrderPlacedWeb() {
-  const orderedDish = [
+  // const orderedDish = [
 
-    {
-      img: img1,
-      name: "dal bati churma",
-      vegornot: "vegetarian",
-      costPerServing: 70,
-      serving: "01",
-    },
-    {
-      img: img1,
-      name: "dal bati churma",
-      vegornot: "vegetarian",
-      costPerServing: 70,
-      serving: "02",
-    },
-    {
-      img: img1,
-      name: "dal bati churma",
-      vegornot: "vegetarian",
-      costPerServing: 70,
-      serving: "03",
-    }
+  //   {
+  //     img: img1,
+  //     name: "dal bati churma",
+  //     vegornot: "vegetarian",
+  //     costPerServing: 70,
+  //     serving: "01",
+  //   },
+  //   {
+  //     img: img1,
+  //     name: "dal bati churma",
+  //     vegornot: "vegetarian",
+  //     costPerServing: 70,
+  //     serving: "02",
+  //   },
+  //   {
+  //     img: img1,
+  //     name: "dal bati churma",
+  //     vegornot: "vegetarian",
+  //     costPerServing: 70,
+  //     serving: "03",
+  //   }
 
-  ];
+  // ];
 
   return (
 
@@ -68,10 +68,10 @@ function OrderPlacedWeb() {
 
           <Box sx={{ width: "72.5%" }} >
 
-            {orderedDish.map((elem, i) => (
+            {/* {orderedDish.map((elem, i) => (
 
               <OrderPlacedCardWeb img={elem.img} name={elem.name} category={elem.vegornot} cps={elem.costPerServing} serving={elem.serving} />
-            ))}
+            ))} */}
 
           </Box>
 

@@ -208,7 +208,7 @@ function AddToMealWeb() {
       </Box>
 
       {/* bottom part*/}
-      <Box sx={{ height: { md: "4rem", xl: "8.3rem" }, width: { md: "24rem", xl: "33.375rem" }, marginBlockStart: { md: "0.5rem", xl: "1.75rem" }, alignContent: "center", marginInline: "auto", display: "flex", alignItems: "center", justifyContent: "center", gap: "1.5rem" }} >\
+      <Box sx={{ height: { md: "4rem", xl: "8.3rem" }, width: { md: "24rem", xl: "33.375rem" }, marginBlockStart: { md: "0.5rem", xl: "1.75rem" }, alignContent: "center", marginInline: "auto", display: "flex", alignItems: "center", justifyContent: "center", gap: "1.5rem" }} >
 
         <Box sx={{ width: { md: "6rem", xl: "9.25rem" }, height: { md: "2.1rem", xl: "3.56rem" }, border: "1px solid rgba(0, 0, 0,0.48  )", borderRadius: "30px", display: "flex", alignItems: "center", justifyContent: "space-between", paddingInline: "0.5rem" }} >
 

@@ -217,7 +217,10 @@ const BillPage = () => {
                   </Button>
 
                   <Button variant="contained" style={{ width: "48%", backgroundColor: "rgba(70, 157, 177, 1)", color: "white", fontSize: "20px", textTransform: "capitalize", height: "3.5rem", borderRadius: "0.5rem" }}
-                    onClick={() => { Navigate("/paymentmethod") }} >
+                    onClick={() => {
+                      Navigate("/payment", { state: { amount: 420 } });
+
+                    }} >
                     Pay Now
                   </Button>
 
