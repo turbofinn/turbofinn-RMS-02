@@ -27,7 +27,7 @@ const VerificationMobile = () => {
   const [severity, setSeverity] = useState("success");
 
   useEffect(() => {
-  console.log("Loader statttte:", loader);
+  console.log("Loader state:", loader);
 }, [loader]);
 
   useEffect(() => {
