@@ -26,9 +26,9 @@ const FeedbackPage = () => {
         alignItems: "center",
         minHeight: "100vh",
         background: `
-          linear-gradient(180deg, #0092B3 0%, rgba(83, 204, 231, 0.86) 70%),
-          linear-gradient(180deg, rgba(83, 204, 231, 0.86) -90%, rgba(217, 217, 217, 1) 50%)
-        `,
+        linear-gradient(180deg, #0092B3 0%, rgba(83, 204, 231, 0.86) 50%),
+        linear-gradient(180deg, white 50%, white 100%)
+      `,
         backgroundRepeat: "no-repeat",
         backgroundSize: "100% 55%, 100% 45%",
         backgroundPosition: "top, bottom",
@@ -161,7 +161,7 @@ const FeedbackPage = () => {
               width: "287px",
               height: "44px",
               background:
-                "linear-gradient(180deg, rgba(9, 152, 184, 1), rgba(68, 187, 214, 1))",
+                "linear-gradient(90deg, rgba(9, 152, 184, 1), rgba(68, 187, 214, 1))",
               boxShadow: "0px 4px 9.5px 0px rgba(0, 0, 0, 0.25) inset",
               fontWeight: 600,
               fontSize: "20px",

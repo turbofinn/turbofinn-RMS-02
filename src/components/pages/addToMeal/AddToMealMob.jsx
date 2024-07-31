@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import api from '../../../services/apiServices';
 import { useDispatch, useSelector } from 'react-redux';
 import { addMealData, addSelectedData, addNewQuantity } from "../../../features/UserMealCart/MealCartDataSlice";
+import NavBarBottom from "../../common/NavBar/NavBarBottom";
 
 function AddToMealWeb() {
   const [productDetail, setProductDetail] = useState(null);

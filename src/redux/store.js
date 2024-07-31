@@ -1,7 +1,7 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import ItemDataSlice from '../features/ItemData/ItemDataSlice';
-import ProductIDSlice from '../features/ProductID/ProductIDSlice';
-import MealCartDataSlice from '../features/UserMealCart/MealCartDataSlice';
+import ItemDataSlice from '../features/ItemData/ItemDataSlice.js';
+import ProductIDSlice from '../features/ProductID/ProductIDSlice.js';
+import MealCartDataSlice from '../features/UserMealCart/MealCartDataSlice.js';
 
 const rootReducer = combineReducers({
 
