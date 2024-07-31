@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Paper, Typography } from "@mui/material";
-import img1 from "../../../assets/Image/meal/dalBatiChurma.png";
+import img1 from "../../../assets/Image/meal/DalBatiChurma.png";
 import VegOrNon from "../vegOrNon/VegOrNon";
 import CustmRating from "../CustmRating/CustmRating";
 import OrderAgainButton from "../OrderAgainButton/OrderAgainButton";

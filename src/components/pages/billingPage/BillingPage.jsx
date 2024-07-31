@@ -14,7 +14,7 @@ import NavBarBottom from "../../common/NavBar/NavBarBottom.jsx";
 import VegOrNon from "../../common/vegOrNon/VegOrNon.jsx";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import img1 from "../../../assets/Image/meal/dalBatiChurma.png";
+import img1 from "../../../assets/Image/meal/DalBatiChurma.png";
 import { ArrowBackIos, Cancel, Close } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 

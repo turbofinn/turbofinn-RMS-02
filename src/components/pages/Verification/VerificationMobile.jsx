@@ -272,7 +272,7 @@ const VerificationMobile = () => {
 
           <Typography variant="body2" sx={{ width: "100%", textAlign: "center", color: "white", fontSize: "clamp(0.7rem, 2vh, 0.9rem)", fontWeight: 700, marginTop: "auto", padding: "1vh 0" }} >
           A Product Of TurboFinn AI
-        </Typography>
+          </Typography>
         
         </Box>
 
@@ -285,6 +285,8 @@ const VerificationMobile = () => {
 
         </Snackbar>
 
+        </Box>
+      </Box>
       </Box>
 
     </React.Fragment>

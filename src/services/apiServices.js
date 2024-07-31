@@ -122,10 +122,7 @@ export default {
     verifyOTP: verifyOTP,
     createOrder: createOrder,
     getItem: getItem,
-    getPaymentID:getPaymentID
-
-}
-
+    getPaymentID:getPaymentID,
     getItem: getItem,
     getUserDetails:getUserDetails,
     updateUserDetails:updateUserDetails,

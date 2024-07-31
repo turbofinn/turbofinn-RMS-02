@@ -1,7 +1,7 @@
 import React from "react";
 import { Paper, Box, Typography, Button } from "@mui/material";
 import VegOrNon from "../vegOrNon/VegOrNon";
-import img1 from "../../../assets/Image/meal/dalBatiChurma.png";
+import img1 from "../../../assets/Image/meal/DalBatiChurma.png";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import CustmRating from "../CustmRating/CustmRating";
 import OrderAgainButton from '../OrderAgainButton/OrderAgainButton'

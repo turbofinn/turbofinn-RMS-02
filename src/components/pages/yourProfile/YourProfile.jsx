@@ -6,8 +6,11 @@ import profileImage from "../../../assets/Image/profileImage.png";
 import edit from "../../../assets/Image/Edit.png";
 import YourProfileWeb from "./YourProfileWeb";
 import api from "../../../services/apiServices"
+import { useNavigate } from "react-router-dom";
+
 
 const style = { position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '90%', bgcolor: 'white', boxShadow: 24, minHeight:'70%', height:'fit', marginLeft: 'auto', marginRight: 'auto', px: 2, py: 3, borderRadius: '1rem', border: '2px solid #dddd', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', zIndex:9999 };
+
 
 
 const YourProfile = (props) => {
@@ -22,6 +25,8 @@ const YourProfile = (props) => {
     action: "fetch"
 
   }
+
+  const navigate = useNavigate();
 
    const [formData, setFormData] = useState({
     name: 'Enter Your Name',

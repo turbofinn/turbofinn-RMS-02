@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Container, Grid, useMediaQuery, useTheme } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import FoodAddToCartGrid from "../../common/FoodAddToCart/FoodAddToCart";
-import DalBatiChurma from "../../../assets/Image/meal/dalBatiChurma.png";
+import DalBatiChurma from "../../../assets/Image/meal/DalBatiChurma.png";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
