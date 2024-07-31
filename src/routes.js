@@ -14,6 +14,7 @@ import LoaderSpecialToday from "./components/pages/Loader/LoaderSpecialToday.jsx
 import LoaderBeverages from './components/pages/Loader/LoaderBeverages.jsx';
 import LoaderDineIn from './components/pages/Loader/LoaderDineIn.jsx';
 import LoaderTakeAway from './components/pages/Loader/LoaderTakeAway.jsx';
+import Payments from "./components/layout/Payments/Payments.jsx";
 const routes = [
   {
     name: "welcome",
@@ -94,6 +95,11 @@ const routes = [
     name:'takeAway',
     path: "/takeAway",
     component: <LoaderTakeAway/>,
+  },
+  {
+    name:'payment',
+    path: "/payment",
+    component: <Payments/>,
   },
 ];
 

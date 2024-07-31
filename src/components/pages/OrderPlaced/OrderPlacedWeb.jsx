@@ -3,44 +3,44 @@ import NavBar from "../../common/NavBar/NavBar";
 import SimpleHead from "../../common/SimpleHead/SimpleHead";
 import { Box, Typography } from "@mui/material";
 import SortBy from "../../common/SortBy/SortBy";
-import DalBatiChurma from "../../../assets/Image/meal/DalBatiChurma.png";
+import DalBatiChurma from "../../../assets/Image/meal/dalBatiChurma.png";
 import OrderPlacedCardWeb from "../../common/OrderPlaced/OrderPlacedCardWeb";
 import OrderAgainButton from "../../common/OrderAgainButton/OrderAgainButton";
 
 function OrderPlacedWeb() {
-  const orderedDish = [
+  // const orderedDish = [
 
-    {
-      img: img1,
-      name: "dal bati churma",
-      vegornot: "vegetarian",
-      costPerServing: 70,
-      serving: "01",
-    },
-    {
-      img: img1,
-      name: "dal bati churma",
-      vegornot: "vegetarian",
-      costPerServing: 70,
-      serving: "02",
-    },
-    {
-      img: img1,
-      name: "dal bati churma",
-      vegornot: "vegetarian",
-      costPerServing: 70,
-      serving: "03",
-    }
+  //   {
+  //     img: img1,
+  //     name: "dal bati churma",
+  //     vegornot: "vegetarian",
+  //     costPerServing: 70,
+  //     serving: "01",
+  //   },
+  //   {
+  //     img: img1,
+  //     name: "dal bati churma",
+  //     vegornot: "vegetarian",
+  //     costPerServing: 70,
+  //     serving: "02",
+  //   },
+  //   {
+  //     img: img1,
+  //     name: "dal bati churma",
+  //     vegornot: "vegetarian",
+  //     costPerServing: 70,
+  //     serving: "03",
+  //   }
 
-  ];
+  // ];
 
   return (
 
     <Box>
 
-      <NavBar/>
+      <NavBar />
 
-      <SimpleHead title={"Orders Placed"} h="9.5rem"/>
+      <SimpleHead title={"Orders Placed"} h="9.5rem" />
 
       <Typography sx={{ fontSize: "2.75rem", lineHeight: "62.5px", fontWeight: "800", color: "rgba(0, 0, 0, 0.24)", width: "35%", marginInline: "auto", marginTop: "4rem", textAlign: "center" }} >
         Order Is On The Way
@@ -58,7 +58,7 @@ function OrderPlacedWeb() {
 
           <Box sx={{ width: "fit" }} >
 
-            <SortBy/>
+            <SortBy />
 
           </Box>
 
@@ -68,10 +68,10 @@ function OrderPlacedWeb() {
 
           <Box sx={{ width: "72.5%" }} >
 
-            {orderedDish.map((elem, i) => (
+            {/* {orderedDish.map((elem, i) => (
 
               <OrderPlacedCardWeb img={elem.img} name={elem.name} category={elem.vegornot} cps={elem.costPerServing} serving={elem.serving} />
-            ))}
+            ))} */}
 
           </Box>
 
