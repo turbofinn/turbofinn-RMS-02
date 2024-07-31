@@ -126,4 +126,4 @@ export default {
     getUserDetails:getUserDetails,
     updateUserDetails:updateUserDetails,
 
- }
+}

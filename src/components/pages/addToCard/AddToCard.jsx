@@ -40,7 +40,22 @@ const AddTocard = () => {
 
   const userSelectedMeal = useSelector( (state) => state.MealCartData.SelectMealData ); 
   const OrderData = useSelector((state) => state.MealCartData.mealCartData);
+  // const totalBill = useSelector((state) => state.MealCartData.TotalBill);
+  
+  const TotalBill = () => {
 
+        let totalBill = 0;
+        if( OrderData.length !== 0 ){
+
+           OrderData.map(( data, index) => {
+               totalBill += ( data.Quantity * data.price );
+           });
+           
+           return totalBill;
+
+        }
+       
+  }
 
   const creatOrder = async () => {
 
@@ -49,21 +64,10 @@ const AddTocard = () => {
       tableNo: "table5",
       userId: "userId789",
       restaurantId: "308bc44a-de00-488e-b980-5ee0797e82e2",
-      totalAmount: 35,
+      totalAmount: TotalBill(), 
       action: "CREATE",
       paymentStatus: "paid",
-      orderLists: [
-        {
-          itemId: "item1",
-          quantity: 2,
-          price: 10
-        },
-        {
-          itemId: "item2",
-          quantity: 1,
-          price: 15
-        }
-      ],
+      orderLists: OrderData,
       orderStatus: "orderStatus",
       customerRequest: "Please make it spicy",
       customerFeedback: "Great service",
@@ -73,7 +77,7 @@ const AddTocard = () => {
     try {
 
       api.createOrder(requestData).then((response) => {
-        console.log(response.data);
+        console.log('kaam ho gya', response);
       });
 
     }
@@ -135,10 +139,12 @@ const AddTocard = () => {
 
             <Button sx={{ textTransform: 'none', backgroundColor: '#469DB1', color: 'white', width: '90%', padding: '0.75rem 3.75rem', fontSize: '1.3rem', '&:hover': { backgroundColor: '#0A343D' }, borderRadius: '2rem', marginTop: '4vh', marginBottom: '3rem' }}
               onClick={() => {
-                // setSuccess(true);
-                // creatOrder();
+                setSuccess(true);
+                creatOrder();
                 console.log('check order now', userSelectedMeal);
                 console.log('order data', OrderData);
+                console.log('bill', TotalBill());
+                // console.log('total bill', totalBill);
               }} >
               Order Now
             </Button>

@@ -17,7 +17,7 @@ import plus from "../../../assets/Image/plus.png";
 import minus from "../../../assets/Image/minus.png";
 import greaterThanDownSide from "../../../assets/Image/greaterThanDownSide.png";
 import { useDispatch, useSelector } from 'react-redux';
-import { removeData, addNewQuantity } from '../../../features/UserMealCart/MealCartDataSlice';
+import { removeData, addNewQuantity, addTotalBill } from '../../../features/UserMealCart/MealCartDataSlice';
 
 
 
@@ -35,6 +35,7 @@ const AddToMealBox = ({ data }) => {
             Quantity: quantity
          }
          dispatch( addNewQuantity( changesData ) );
+        //  dispatch( addTotalBill() );
   },[ quantity ]);
   
   return (

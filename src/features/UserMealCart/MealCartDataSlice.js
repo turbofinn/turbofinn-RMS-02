@@ -3,7 +3,8 @@ import { createSlice, nanoid } from '@reduxjs/toolkit';
 const initialState = {
 
     mealCartData: [],                     // { itemId: '', Quantity: 0, price: 0 }  create order
-    SelectMealData: []                    //  render selected items
+    SelectMealData: [],                    //  render selected items
+    TotalBill:0
     
 }
 
@@ -46,12 +47,15 @@ export const MealCartDataSlice = createSlice({
         },
         addTotalBill: (state, action) => {
 
-            // const n = 
+            state.mealCartData.map(( data, index ) => {
+                  state.TotalBill += data.Quantity * data.price ;
+            })
+
         }
 
     } 
 
 })
  
-export const { addMealData, addSelectedData, removeData, addNewQuantity } = MealCartDataSlice.actions;
+export const { addMealData, addSelectedData, removeData, addNewQuantity, addTotalBill } = MealCartDataSlice.actions;
 export default MealCartDataSlice.reducer;
