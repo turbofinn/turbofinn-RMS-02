@@ -27,10 +27,6 @@ const VerificationMobile = () => {
   const [severity, setSeverity] = useState("success");
 
   useEffect(() => {
-  console.log("Loader state:", loader);
-}, [loader]);
-
-  useEffect(() => {
     if ("OTPCredential" in window) {
       const ac = new AbortController();
       navigator.credentials.get({ otp: { transport: ["sms"] }, signal: ac.signal })
@@ -57,7 +53,6 @@ const VerificationMobile = () => {
 
   const sendOtp = async () => {
     setLoader(false);
-    console.log("Loader state:", loader);
     try {
       const requestData = { 'mobileNo': mobileNumber }
 
@@ -255,15 +250,15 @@ const VerificationMobile = () => {
                   <Button variant="contained" sx={{ height: "3rem", borderRadius: "21px", backgroundColor: "rgba(9, 146, 176, 0.9)", marginTop: "2.5vh", marginBottom: "8.77%", width: "12.8rem", "&:focus": { bgcolor: "rgba(9, 146, 176, 0.9)" }, boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)" }} 
                   onClick={sentOtpClickHandler}>
 
-                   
+                    <Typography component={motion.div} {...anime(dragDownSendOtpTxt)} style={{ fontSize: "0.9375rem", fontWeight: 700, textTransform: "none" }} >
                       {!loader ? (
                         <CircularProgress size="2rem"
                           style={{ color: "white", margin: 'auto', display: 'flex', justifyContent: 'center' }} />
                       ) : (
-                        <Typography component={motion.div} {...anime(dragDownSendOtpTxt)} style={{ fontSize: "0.9375rem", fontWeight: 700, textTransform: "none" }} >
-                        <>Send OTP</> </Typography>
+                      
+                        <>Send OTP</> 
                       )}
-                   
+                   </Typography>
 
                   </Button>
 
