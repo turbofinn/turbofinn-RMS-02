@@ -58,9 +58,11 @@ function MenuItems() {
             {itemDATA.map((item, index) => (
 
               <Grid item xs={12} sm={6} md={4} key={index}
-                onClick={() => { dispatch(addProductID(item.itemId)) }}>
+                onClick={() => { 
+                  dispatch(addProductID(item.itemId)) ;
+                }}>
 
-                <FoodAddToCartGrid name={item.name} image={item.itemPicture} isVegetarian={item.category} />
+                <FoodAddToCartGrid name={item.name} image={item.itemPicture} isVegetarian={item.category} productData={item} />
 
               </Grid>
 

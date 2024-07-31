@@ -6,7 +6,7 @@ import loaderGIF from "../../../assets/GIF/loader.gif";
 import { InputAdornment } from "@mui/material";
 import OtpInput from "react-otp-input";
 import { Link } from "react-router-dom";
-import axios from "axios"; 
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import CircularProgress from "@mui/material/CircularProgress";

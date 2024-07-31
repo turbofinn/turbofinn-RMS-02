@@ -22,7 +22,7 @@ function MenuPage() {
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
   const itemDATA = useSelector((state) => state.ItemData.Items);
-  const meal = useSelector((state) => state.MealCartData.mealCartData);
+  const meal = useSelector((state) => state.MealCartData.SelectMealData);
   console.log( 'meal' ,meal);
   return (
 

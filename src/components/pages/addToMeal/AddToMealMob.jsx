@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import api from '../../../services/apiServices';
 import { useDispatch, useSelector } from 'react-redux';
-import { addMealData } from "../../../features/UserMealCart/MealCartDataSlice";
+import { addMealData, addSelectedData, addNewQuantity } from "../../../features/UserMealCart/MealCartDataSlice";
 
 function AddToMealWeb() {
   const [productDetail, setProductDetail] = useState(null);
@@ -19,22 +19,34 @@ function AddToMealWeb() {
 
   const productId = useSelector((state) => state.ProductId.productID);
   const meal = useSelector((state) => state.MealCartData.mealCartData);
+  const select = useSelector((state) => state.MealCartData.SelectMealData);
 
   useEffect(() => {
 
-    if(productDetail !== null){
+    if(productDetail !== null) {
 
       const mealdata = {
 
         itemId: productDetail.itemId,
         Quantity: Quantity,
         price: productDetail.price,
+
+      } 
+
+      const selectMeal = {
+
+          products: productDetail,
+          Quantity: Quantity
+
       }
+       
       disptach(addMealData(mealdata));
+      disptach(addSelectedData(selectMeal));
 
     }
 
   }, [productDetail, Quantity])
+  
 
   const getItem = async () => {
 
@@ -159,9 +171,6 @@ function AddToMealWeb() {
                 </Box>
 
                 <Typography variant="subtitle2" sx={{ fontFamily: "Poppins", fontWeight: "600", fontSize: "11px", letterSpacing: "2%", lineHeight: "14.3px", color: "#767676", marginBlockEnd: "1.438rem" }} >
-                  {/* Dal baati churma is a dish that includes baati, pure ghee, daal
-                  (lentils) and many more. It is very popular in the state
-                  of Rajasthan. */}
                   {productDetail.description}
                 </Typography>
 
@@ -290,7 +299,9 @@ function AddToMealWeb() {
               <Button variant="contained" sx={{ width: "14.5rem", height: "3.3rem", background: "rgb(62, 185, 212)", borderRadius: "10px" }}
                 onClick={() => {
                   Navigate("/menu");
+                  
                   console.log('meal', meal);
+                  console.log('select', select);
                 }}>
 
                 {

@@ -2,10 +2,14 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, CardMedia, CardContent, Typography, Box, Grid, useMediaQuery, useTheme, Container } from "@mui/material";
 import line2 from "../../../assets/Image/Line 5.png";
+import { useDispatch, useSelector } from 'react-redux';
 
-export default function FoodAddToCart({ name, image, isVegetarian }) {
+
+
+export default function FoodAddToCart({ name, image, isVegetarian, productData }) {
 
   const Navigate = useNavigate();
+  const disptach = useDispatch();
 
   return (
     <Card sx={{ mb: { lg: 2 }, borderRadius: "15px", overflow: "hidden", position: "relative", marginTop: { lg: "0.5rem" }, height: "236px" }}       >

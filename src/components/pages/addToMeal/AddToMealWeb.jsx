@@ -14,10 +14,10 @@ function AddToMealWeb() {
   const CustomTextField = styled(TextField)({
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        border: "none", // Remove the default border
+        border: "none",
       },
       "&:hover fieldset": {
-        border: "none", // Remove the border on hover
+        border: "none", 
       },
       "&.Mui-focused fieldset": {
         border: "none",
