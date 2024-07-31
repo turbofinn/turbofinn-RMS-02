@@ -6,6 +6,7 @@ import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import VegOrNon from "../../common/vegOrNon/VegOrNon";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import NavBarBottom from "../../common/NavBar/NavBarBottom";
 
 function AddToMealWeb() {
 
@@ -62,7 +63,7 @@ function AddToMealWeb() {
 
   return (
     // whole screen
-
+<>
     <Box sx={{ minHeight: "100vh", position: "relative" }}>
       {/* Back key */}
 
@@ -242,12 +243,12 @@ function AddToMealWeb() {
           </Button>
 
         </Box>
-
+       
       </Box>
 
     </Box>
-
-  );
+   {/* <NavBarBottom /> */}
+   </>);
 }
 
 export default AddToMealWeb;

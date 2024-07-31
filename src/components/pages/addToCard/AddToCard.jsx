@@ -215,8 +215,7 @@ const AddTocard = () => {
               </Box>
             </Box>
           </Box>
-
-
+             
         </Box>
       }
 

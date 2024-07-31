@@ -105,15 +105,12 @@ const ThankYouPage = () => {
         justifyContent: "center",
         alignItems: "center",
         minHeight: "100vh",
-        background: {
-          xs: "white",
-          sm: `
-            linear-gradient(180deg, #0092B3 0%, rgba(83, 204, 231, 0.86) 70%),
-            linear-gradient(180deg, rgba(83, 204, 231, 0.86) -90%, rgba(217, 217, 217, 1) 50%)
-          `,
-        },
+        background: `
+        linear-gradient(180deg, #0092B3 0%, rgba(83, 204, 231, 0.86) 50%),
+        linear-gradient(180deg, white 50%, white 100%)
+      `,
         backgroundRepeat: { xs: "no-repeat", sm: "no-repeat" },
-        backgroundSize: { xs: "auto", sm: "100% 55%, 100% 45%" },
+        backgroundSize: { xs: "auto", sm: "100% 50%, 100% 50%" },
         backgroundPosition: { xs: "auto", sm: "top, bottom" },
         padding: { xs: 0, sm: 2 },
       }}
