@@ -5,7 +5,7 @@ import NavBarBottom from "../../common/NavBar/NavBarBottom";
 import SortBy from "../../common/SortBy/SortBy";
 import VegOrNon from "../../common/vegOrNon/VegOrNon";
 import OrderPlacedCardMob from "../../common/OrderPlaced/OrderPlacedCardMob";
-import DalBatiChurma from "../../../assets/Image/meal/dalBatiChurma.png";
+import DalBatiChurma from "../../../assets/Image/meal/DalBatiChurma.png";
 import ColdStarter from "../../../assets/Image/sevenCourseMeal/ColdStarter.jpg";
 
 function OrderHistory() {
@@ -42,25 +42,25 @@ function OrderHistory() {
           Order Is On The Way
         </Typography>
 
-        <Box sx={{ display: "flex", alignItems: "center", marginInline: "auto", width: "86.25%", justifyContent: "space-between", gap: '1rem' }} >
+        <Box sx={{ display: "flex", alignItems: "center", marginInline: "auto",  width: "86.25%", justifyContent: "space-between", gap:'1rem' }} > 
 
-          <Typography sx={{ fontSize: "0.95rem", fontWeight: "600", letterSpacing: -0.35, minWidth: "134px" }} >
+          <Typography sx={{ fontSize: "0.95rem", fontWeight: "600",  letterSpacing: -0.35, minWidth: "134px" }} >
             Your Order Placed
           </Typography>
 
-          <div style={{ background: "linear-gradient(to right,rgba(0, 0, 0, 0.7),rgba(90,90,90,0.1))", width: "80%", minWidth: "55%", height: "1px" }} />
+          <div style={{ background: "linear-gradient(to right,rgba(0, 0, 0, 0.7),rgba(90,90,90,0.1))", width: "80%", minWidth:"55%", height: "1px" }} />
 
         </Box>
 
         <Box sx={{ maxWidth: "90%", marginInline: "auto" }} >
 
-          {orderPlaced.map((elem, i) => (
+          {orderPlaced.map(( elem, i ) => (
 
             <Box sx={{ marginBottom: "1rem", marginTop: "2rem" }} >
 
               <OrderPlacedCardMob img={elem.img} name={elem.title} category={elem.vegOrNot} serving={elem.servings} servingType={elem.drinkOrMeal} cps={elem.cps} />
 
-            </Box>
+            </Box> 
 
           ))}
 

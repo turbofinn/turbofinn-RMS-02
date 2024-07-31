@@ -11,7 +11,7 @@ function OrderHistoryCard() {
     <Paper
       sx={{
         height: "15rem",
-        width: '100%',
+        width:'100%',
         marginTop: "1.75rem",
         background: "rgba(254, 254, 250,0.6)",
         marginInline: "auto",
@@ -109,14 +109,14 @@ function OrderHistoryCard() {
           width: "100%",
           height: "30%",
           display: "flex",
-          alignItems: "center", justifyContent: 'space-between',
+          alignItems: "center",justifyContent:'space-between',
           paddingInline: "1rem",
         }}>
-        <Box sx={{}}>
+        <Box sx={{  }}>
           <CustmRating value={4.5}></CustmRating>
         </Box>
 
-        <Box sx={{}}>
+        <Box sx={{  }}>
           <OrderAgainButton></OrderAgainButton>
         </Box>
       </Box>

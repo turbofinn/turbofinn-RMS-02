@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Typography,
   Button,
@@ -17,19 +17,55 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import img1 from "../../../assets/Image/meal/DalBatiChurma.png";
 import { ArrowBackIos, Cancel, Close } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-
-const orderedDish = [
-
-  { img: img1, name: "dal bati churma", vegornot: "vegetarian", costPerServing: 70, serving: "01" },
-  { img: img1, name: "dal bati churma", vegornot: "vegetarian", costPerServing: 70, serving: "02" },
-  { img: img1, name: "dal bati churma", vegornot: "vegetarian", costPerServing: 70, serving: "03" }
-
-];
+import api from '../../../services/apiServices';
 
 
 const BillPage = () => {
 
-  const Navigate = useNavigate()
+  const orderedDish = [
+
+    { img: img1, name: "dal bati churma", vegornot: "vegetarian", costPerServing: 70, serving: "01" },
+    { img: img1, name: "dal bati churma", vegornot: "vegetarian", costPerServing: 70, serving: "02" },
+    { img: img1, name: "dal bati churma", vegornot: "vegetarian", costPerServing: 70, serving: "03" }
+
+  ];
+
+
+
+  const [orderedItems, setOrderedItems] = useState([]);
+
+  const requestData = {
+
+    orderId: "orderI535366373",
+    restaurantId: "308bc44a-de00-488e-b980-5ee0797e82e2",
+    userId: "userId789",
+    paymentStatus: "NOTPAID"
+
+  }
+
+  const OrderedItems = () => {
+
+    api.getOrderedItems(requestData).then((response) => {
+
+      if (response.response.responseCode === 1001) {
+
+        setOrderedItems(response.orderList);
+        console.log('response', response);
+
+      } else {
+
+        console.log('error in getting a order Items');
+
+      }
+
+    })
+
+  }
+  
+  useEffect( () => {
+     OrderedItems();
+  },[])
+  const Navigate = useNavigate();
 
   const theme = useTheme();
 
@@ -55,36 +91,27 @@ const BillPage = () => {
 
           <Grid item xs={1} />
 
-          <Grid
-            item xs={12} md={6}
-            sx={{ marginRight: { xs: 0, md: 3 }, marginTop: { xs: 0, md: "1rem" }, paddingRight: { xs: 0, md: 2 }, paddingLeft: { xs: 0, md: 0 } }}
-          >
-            <Card
-              sx={{ color: "white", mb: 2, maxWidth: "100%", padding: 2, display: "flex", alignItems: "center", justifyContent: "center", width: "100%", height: "auto", minHeight: "103px", borderRadius: "0px 0px 22px 22px", position: "relative", background: "linear-gradient(180deg, #53CCE7 0%, #2BA8C4 100%)" }} >
+          <Grid item xs={12} md={6} sx={{ marginRight: { xs: 0, md: 3 }, marginTop: { xs: 0, md: "1rem" }, paddingRight: { xs: 0, md: 2 }, paddingLeft: { xs: 0, md: 0 } }} >
 
-              <CardContent sx={{ width: "100%", padding: "16px !important" }}>
+            <Card sx={{ color: "white", mb: 2, maxWidth: "100%", padding: 2, display: "flex", alignItems: "center", justifyContent: "center", width: "100%", height: "auto", minHeight: "103px", borderRadius: "0px 0px 22px 22px", position: "relative", background: "linear-gradient(180deg, #53CCE7 0%, #2BA8C4 100%)" }} >
+
+              <CardContent sx={{ width: "100%", padding: "16px !important" }} >
 
                 <Box sx={{ color: "white", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", width: "100%", padding: "0 1rem" }} >
 
                   {!matches &&
-                    <ArrowBackIos
-                      onClick={() => {
-                        Navigate("/yourmealcart");
-                      }} sx={{ marginLeft: -3.5 }} />
+                    < ArrowBackIos onClick={() => { Navigate("/yourmealcart") }} sx={{ marginLeft: -3.5 }} />
                   }
 
                   <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: "center", fontFamily: "Poppins, sans-serif", fontSize: { xs: "25px", md: "32px" }, fontWeight: { xs: 500, md: 600 }, lineHeight: { xs: "22.5px", md: "normal" }, color: "rgba(255, 255, 255, 1)" }} >
-                    Bill & Orders
+                    Bill & Orders 
 
                     <div style={{ height: "2px", background: "rgba(70, 157, 177, 1)", width: !matches ? "130px" : "100%", maxWidth: !matches ? "239px" : "377px", margin: "0 auto", marginTop: 5 }} />
 
                   </Typography>
 
                   {!matches &&
-                    <Cancel
-                      onClick={() => {
-                        Navigate("/menu");
-                      }} sx={{ marginRight: -3.5 }} />
+                    <Cancel onClick={() => { Navigate("/menu") }} sx={{ marginRight: -3.5 }} />
                   }
 
                 </Box>
@@ -95,9 +122,9 @@ const BillPage = () => {
 
             <Box sx={{ display: "flex", justifyContent: "center", marginX: 2.5, marginTop: { xs: 3.5, md: 0 } }} >
 
-              <Grid container justifyContent="center">
+              <Grid container justifyContent="center" >
 
-                <Grid item xs={12} md={12}>
+                <Grid item xs={12} md={12} >
 
                   {orderedDish.map((elem, i) => (
 
@@ -109,7 +136,7 @@ const BillPage = () => {
 
                           <Box sx={{ position: "absolute", right: 0, top: "0.6rem", display: "flex", flexDirection: "column", alignItems: "flex-end" }} >
 
-                            <Button sx={{ color: 'white', fontSize: { xs: "10px", md: "12px" }, fontWeight: "500", textTransform: "none", padding: "0", minWidth: "0", marginBottom: "0.5rem", marginRight: { xs: -2, md: 0 } }}>
+                            <Button sx={{ color: 'white', fontSize: { xs: "10px", md: "12px" }, fontWeight: "500", textTransform: "none", padding: "0", minWidth: "0", marginBottom: "0.5rem", marginRight: { xs: -2, md: 0 } }} >
                               .
                             </Button>
 
@@ -162,9 +189,9 @@ const BillPage = () => {
 
                       </Paper>
 
-                      <Box sx={{ width: "100%", height: "32%", position: "relative" }}>
+                      <Box sx={{ width: "100%", height: "32%", position: "relative" }} >
 
-                        <Box sx={{ position: "absolute", right: 55, top: "50%", transform: "translateY(-50%)", display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "2.5rem" }}>
+                        <Box sx={{ position: "absolute", right: 55, top: "50%", transform: "translateY(-50%)", display: "flex", alignItems: "center", justifyContent: "flex-end", gap: "2.5rem" }} >
 
                           <Box sx={{ display: "flex", alignItems: "center", justifyContent: "flex-end", width: "8.5rem" }} >
 
@@ -221,8 +248,9 @@ const BillPage = () => {
                 <Box sx={{ marginX: "1.5rem", display: "flex", justifyContent: "space-between", marginTop: "1rem" }} >
 
                   <Button style={{ width: "48%", border: "1px solid rgba(70, 157, 177, 1)", textTransform: "capitalize", fontSize: "1rem", color: "rgba(70, 157, 177, 1)", borderRadius: "0.5rem" }}
-                    onClick={() => {
-                      Navigate("/menu");
+                    onClick={() => { 
+                      // Navigate("/menu");
+                      console.log('data', orderedItems)
                     }} >
                     Pay Later
                   </Button>

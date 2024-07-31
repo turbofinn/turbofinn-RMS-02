@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect } from 'react';
 import {
   Box,
   Typography,
@@ -15,14 +16,37 @@ import dalBatiChurma from "../../../assets/Image/meal/DalBatiChurma.png";
 import plus from "../../../assets/Image/plus.png";
 import minus from "../../../assets/Image/minus.png";
 import greaterThanDownSide from "../../../assets/Image/greaterThanDownSide.png";
-const AddToMealBox = () => {
+import { useDispatch, useSelector } from 'react-redux';
+import { removeData, addNewQuantity, addTotalBill } from '../../../features/UserMealCart/MealCartDataSlice';
+
+
+
+const AddToMealBox = ({ data }) => {
+
+  const dispatch = useDispatch();
+  const newData = useSelector((state) => state.MealCartData.SelectMealData);
+  const OrderData = useSelector((state) => state.MealCartData.mealCartData);
+
+  const [quantity, setQuantity] = useState(data.Quantity);
+
+  useEffect(()=>{
+         const changesData = {
+            itemId: data.products.itemId,
+            Quantity: quantity
+         }
+         dispatch( addNewQuantity( changesData ) );
+        //  dispatch( addTotalBill() );
+  },[ quantity ]);
+  
   return (
     <React.Fragment>
-      <Container sx={{
-        maxWidth: "lg", height: "20%", border: "1px solid #d1d1d1", borderRadius: "1.5rem", alignContent: "center", justify: "center", alignItems: "center", padding: "1rem", maxWidth: "95%", marginLeft: "auto", marginRight: "auto", marginTop: "10px",
-      }} >
+      <Container sx={{ maxWidth: "lg", height: "20%", border: "1px solid #d1d1d1", borderRadius: "1.5rem", alignContent: "center", justify: "center", alignItems: "center", padding: "1rem", maxWidth: "95%", marginLeft: "auto", marginRight: "auto", marginTop: "10px" }} >
 
-        <Typography style={{ textAlign: "end", color: "#E95160", fontWeight: 600 }} >
+        <Typography style={{ textAlign: "end", color: "#E95160", fontWeight: 600 }} 
+         onClick={()=>{
+              console.log("idd", data.products.itemId );
+              dispatch( removeData( data.products.itemId ) );
+         }}>
           Remove
         </Typography>
 
@@ -30,7 +54,7 @@ const AddToMealBox = () => {
 
           <Grid item xs={4} sx={{ margin: 0, padding: 0, marginTop: "auto", marginBottom: "auto", marginLeft: "auto", marginRight: "auto" }} >
 
-            <img src={dalBatiChurma} alt="Dal Bati Churma" style={{ borderRadius: "50%", width: "12vh", height: "12vh", objectFit: "cover" }} />
+            <img src={`https://turbo-treats.s3.amazonaws.com/Images/${data.products.itemPicture}.jpg`} alt={ data.name } style={{ borderRadius: "50%", width: "12vh", height: "12vh", objectFit: "cover" }} />
 
           </Grid>
 
@@ -43,14 +67,16 @@ const AddToMealBox = () => {
 
               </Box>
 
-              <Typography variant="p" style={{ fontSize: "13px", color: "#525252" }} >
-                VEGETARIAN
+              <Typography variant="p" style={{ fontSize: "13px", color: "#525252" }} onClick={()=>{
+                  console.log('newdata', newData);
+              }} >
+                { data.products.category }
               </Typography>
 
             </Box>
 
             <Typography variant="h6" style={{ fontWeight: 600, marginTop: "0.3rem" }} >
-              Dal Bati Churma
+              { data.products.name }
             </Typography>
 
             <Box style={{ display: "flex", alignItems: "center", gap: "1rem", marginTop: "0.5rem" }} >
@@ -61,13 +87,17 @@ const AddToMealBox = () => {
 
               <Box style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.8rem", border: "1px solid gray", borderRadius: "3.5rem", maxWidth: "34%", paddingLeft: "3.6rem", paddingRight: "3.6rem" }} >
 
-                <img src={minus} alt="minus" style={{ height: "1rem" }} />
+                <img src={minus} alt="minus" style={{ height: "1rem" }} 
+                onClick={() => {
+                    if(quantity > 1) setQuantity( quantity => quantity - 1);
+                }} />
 
                 <Typography style={{ fontSize: "1.5rem", fontWeight: 500, opacity: 0.67 }} >
-                  01
+                   { quantity }
                 </Typography>
 
-                <img src={plus} alt="plus" style={{ height: "1rem" }} />
+                <img src={plus} alt="plus" style={{ height: "1rem" }} 
+                onClick={() => { setQuantity( quantity => quantity + 1) }}/>
 
               </Box>
 
@@ -80,7 +110,7 @@ const AddToMealBox = () => {
               </Typography>
 
               <Typography style={{ fontSize: "1.3rem", color: "#000000", fontWeight: 600 }} >
-                ₹ 70
+                ₹ { quantity * data.products.price }
               </Typography>
 
             </Box>

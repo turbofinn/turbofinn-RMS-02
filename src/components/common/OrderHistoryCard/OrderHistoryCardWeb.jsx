@@ -107,10 +107,10 @@ function OrderHistoryCardWeb() {
             justifyContent: "space-between",
           }}>
           <CustmRating value={4.5}></CustmRating>
-          <Box sx={{ display: "flex", gap: '2rem' }}>
+          <Box sx={{ display: "flex",gap:'2rem' }}>
             <Box
               sx={{
-                display: 'flex',
+                display:'flex',
                 width: "fit",
                 alignItems: "center",
                 textAlign: "center",
