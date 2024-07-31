@@ -122,15 +122,14 @@ const VerificationMobile = () => {
   return (
     <React.Fragment>
 
-      <Box sx={{ bgcolor: "#49C3DE", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", padding: "0.125rem", fontFamily: "Poppins", position: "relative", overflowY: "auto" }}>
+      <Box sx={{ bgcolor: "#49C3DE", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", padding: "0.125rem", fontFamily: "Poppins", position: "relative", overflow: "hidden" }}>
 
-        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", minHeight: "100vh", justifyContent: "center", width: "100%", paddingBottom: "2rem" }}>
-
-          <Box sx={{ position: "absolute", top: 0, left: 0, right: 0, backgroundImage: `url(${backgroundfood})`, backgroundSize: "cover", backgroundPosition: "center", height: "50vh", width: "100%", opacity: 0.4 }}>
+      
+         <Box sx={{ position: "absolute", backgroundImage: `url(${backgroundfood})`, backgroundSize: "cover", backgroundPosition: "center", height: "50vh", width: "100%", opacity: 0.4 }}/>
 
           </Box>
 
-          <Typography variant="h4" sx={{ color: "white", marginTop: "6.87%", zIndex: 1, fontSize: "2.5rem", fontWeight: 700 }}>
+          <Typography variant="h4" sx={{ color: "white", zIndex: 1, fontSize: "2.5rem", fontWeight: 700, marginTop: "5vh" }}>
             LOGO
           </Typography>
 
@@ -174,7 +173,8 @@ const VerificationMobile = () => {
 
                 <OtpInput value={otp} onChange={setOtp} numInputs={4} renderInput={(props) => (
                   <input {...props}
-                    style={{ width: "52px", height: "52px", borderRadius: "11px", border: "2.5px solid transparent", background: "linear-gradient(white, white) padding-box, linear-gradient(90deg, #515ADA 0%, #2B3074 100%) border-box", margin: "0 4px", fontSize: "24px", fontWeight: "bold", textAlign: "center", color: "#000", outline: "none" }}
+                    style={{ width: "clamp(30px, 12vw, 52px)",
+                    height: "clamp(30px, 12vw, 52px)", borderRadius: "11px", border: "2.5px solid transparent", background: "linear-gradient(white, white) padding-box, linear-gradient(90deg, #515ADA 0%, #2B3074 100%) border-box", margin: "0 4px", fontSize: "24px", fontWeight: "bold", textAlign: "center", color: "#000", outline: "none" }}
                     onKeyDown={(event) => { if (!/[0-9]/.test(event.key) && event.key !== "Backspace" && event.key !== "Delete" && event.key !== "ArrowLeft" && event.key !== "ArrowRight" && event.key !== "Tab") { event.preventDefault() } }}
                     inputMode="numeric" pattern="\d*" />
                 )} />
