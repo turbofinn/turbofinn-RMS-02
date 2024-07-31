@@ -5,14 +5,14 @@ import {
   Radio,
   RadioGroup,
   FormControlLabel,
-  FormControl,
+  FormControl,  
   Button,
 } from "@mui/material";
-import Gpay from "../../../assets/Image/PaymentGateway/Gpay.png";
-import Cash from "../../../assets/Image/PaymentGateway/Cash.png";
-import UPI from "../../../assets/Image/PaymentGateway/UPI.png";
-import AmazonPay from "../../../assets/Image/PaymentGateway/AmazonPay.png";
-import DebitCard from "../../../assets/Image/PaymentGateway/DebitCard.jpg";
+import Gpay from "../../../assets/Image/paymentGateway/Gpay.png";
+import Cash from "../../../assets/Image/paymentGateway/Cash.png";
+import UPI from "../../../assets/Image/paymentGateway/UPI.png";
+import AmazonPay from "../../../assets/Image/paymentGateway/AmazonPay.png";
+import DebitCard from "../../../assets/Image/paymentGateway/DebitCard.jpg";
 import SimpleHead from "../../common/SimpleHead/SimpleHead";
 import NavBar from '../../common/NavBar/NavBar'
 import { useTheme } from '@mui/material/styles'
