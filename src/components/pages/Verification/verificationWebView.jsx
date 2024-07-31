@@ -148,7 +148,7 @@ const VerificationWebView = () => {
 
           <Box sx={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", height: "100%", width: "50%", backgroundColor: "rgba(255, 255, 255, 0.2)", borderRadius: "1.8rem", boxShadow: "0 0.25rem 1.25rem rgba(0, 0, 0, 0.1)", backdropFilter: "blur(0.625rem)", overflow: 'hidden' }} >
 
-            <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", height: '100%', overflowY: 'auto', overflowX: 'hidden' }}>
+            <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", height: '100%', overflowY: 'auto', overflowX: 'hidden' }} >
 
               <Typography sx={{ color: "white", marginTop: "14.86%", zIndex: 1, fontSize: { xs: '2rem', lg: '3rem' }, fontWeight: 800, textAlign: "center" }} >
                 LOGO
@@ -188,7 +188,12 @@ const VerificationWebView = () => {
                   event.target.value = value.slice(0, 10)
                 }}
                   variant="standard" InputProps={{ maxLength: 10, inputMode: "numeric", pattern: "[0-9]*", startAdornment: (<InputAdornment position="start" sx={{ textAlign: "center", Color: "#171717", opacity: "100%" }}> +91</InputAdornment>), disableUnderline: true }}
-                  sx={{ outline: "none", backgroundColor: "white", borderRadius: "0.8rem", fontSize: "1.5rem", border: "0.09375rem solid black", borderColor: "rgba(31, 104, 87, 1)", fontWeight: 700, width: "80%", paddingTop: "0.6rem", paddingBottom: "0.6rem", paddingX: "0.5rem", marginTop: "3.7%", "& .MuiInputBase-root": { height: "100%", alignItems: "center", padding: "0 0.5rem" }, "& .MuiInputBase-input": { padding: 0, "&::placeholder": { color: "black", opacity: 0.5 } }, "&::placeholder": { color: "black", opacity: 0.5, marginLeft: "0.5rem" }, "&:focus": { borderColor: "black" } }}
+                  sx={{ outline: "none", backgroundColor: "white", borderRadius: "0.8rem", fontSize: "1.5rem", border: "0.09375rem solid black", borderColor: "rgba(31, 104, 87, 1)", fontWeight: 700, width: "80%", paddingTop: "0.6rem", paddingBottom: "0.6rem", paddingX: "0.5rem", marginTop: "3.7%", 
+                  "& .MuiInputBase-root": { height: "100%", alignItems: "center", padding: "0 0.5rem" }, 
+                  "& .MuiInputBase-input": { padding: 0, "&::placeholder": { color: "black", opacity: 0.5 } }, 
+                  "&::placeholder": { color: "black", opacity: 0.5, marginLeft: "0.5rem" }, 
+                  "&:focus": { borderColor: "black" } }}
+                  
                   onKeyDown={(event) => {
                     const currentValue = event.target.value.replace(/\D/g, "");
                     if (!/[0-9]/.test(event.key) &&

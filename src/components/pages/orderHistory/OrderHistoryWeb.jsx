@@ -4,7 +4,7 @@ import SimpleHead from "../../common/SimpleHead/SimpleHead";
 import { Box, Typography } from "@mui/material";
 import SortBy from "../../common/SortBy/SortBy";
 import OrderHistoryCardWeb from "../../common/OrderHistoryCard/OrderHistoryCardWeb";
-import DalBatiChurma from "../../../assets/Image/meal/dalBatiChurma.png";
+import DalBatiChurma from "../../../assets/Image/meal/DalBatiChurma.png";
 
 function OrderHistoryWeb() {
 

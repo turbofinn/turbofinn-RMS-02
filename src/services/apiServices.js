@@ -72,10 +72,10 @@ const getItem = async (params) => {
 }
 
 
-const getPaymentID = async (params) => {
+const getOrderedItems = async (params) => {
     try{
 
-        const response = await instance.post( '/dev/get-paymentId', params );
+        const response = await instance.post( '/dev/get-ordered-items', params );
         return response.data
 
     }
@@ -84,6 +84,30 @@ const getPaymentID = async (params) => {
         console.error('Error in getting Item', error);
         throw error
 
+    }
+}
+
+const getUserDetails= async(params)=>{
+    try{
+        const response= await instance.post( '/dev/get-user-details', params )
+        return response.data
+    }
+    catch(error){
+        console.log( 'Error in getting user details', error)
+        throw error
+    }
+}
+
+
+
+const updateUserDetails= async(params)=>{
+    try{
+        const response= await instance.post( '/dev/get-user-details', params )
+        return response.data
+    }
+    catch(error){
+        console.log('Error in updating user details', error)
+        throw error
     }
 }
 
@@ -98,6 +122,8 @@ export default {
     verifyOTP: verifyOTP,
     createOrder: createOrder,
     getItem: getItem,
-    getPaymentID:getPaymentID
-
-}
+    getOrderedItems: getOrderedItems,
+    getUserDetails: getUserDetails,
+    updateUserDetails: updateUserDetails,
+    
+ }
