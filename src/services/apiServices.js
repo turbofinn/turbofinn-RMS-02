@@ -123,7 +123,7 @@ export default {
     createOrder: createOrder,
     getItem: getItem,
     getOrderedItems: getOrderedItems,
-    getUserDetails:getUserDetails,
-    updateUserDetails:updateUserDetails,
-
-}
+    getUserDetails: getUserDetails,
+    updateUserDetails: updateUserDetails,
+    
+ }
