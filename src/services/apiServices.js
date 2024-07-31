@@ -125,5 +125,4 @@ export default {
     getOrderedItems: getOrderedItems,
     getUserDetails: getUserDetails,
     updateUserDetails: updateUserDetails,
-    
  }

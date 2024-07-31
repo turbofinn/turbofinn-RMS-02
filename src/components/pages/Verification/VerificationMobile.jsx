@@ -27,6 +27,10 @@ const VerificationMobile = () => {
   const [severity, setSeverity] = useState("success");
 
   useEffect(() => {
+  console.log("Loader state:", loader);
+}, [loader]);
+
+  useEffect(() => {
     if ("OTPCredential" in window) {
       const ac = new AbortController();
       navigator.credentials.get({ otp: { transport: ["sms"] }, signal: ac.signal })
@@ -53,6 +57,7 @@ const VerificationMobile = () => {
 
   const sendOtp = async () => {
     setLoader(false);
+    console.log("Loader state:", loader);
     try {
       const requestData = { 'mobileNo': mobileNumber }
 
@@ -124,12 +129,14 @@ const VerificationMobile = () => {
 
       <Box sx={{ bgcolor: "#49C3DE", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", padding: "0.125rem", fontFamily: "Poppins", position: "relative", overflow: "hidden" }}>
 
+      
+         <Box sx={{ position: "absolute", backgroundImage: `url(${backgroundfood})`, backgroundSize: "cover", backgroundPosition: "center", height: "50vh", width: "100%", opacity: 0.4 }}/>
 
-        <Box sx={{ position: "absolute", backgroundImage: `url(${backgroundfood})`, backgroundSize: "cover", backgroundPosition: "center", height: "50vh", width: "100%", opacity: 0.4 }} />
+          <Box sx={{ flex:1, display: "flex", flexDirection: "column", justifyContent: "space-evenly", alignItems: "center", width: "100%" }}>
 
-        <Typography variant="h4" sx={{ color: "white", zIndex: 1, fontSize: "2.5rem", fontWeight: 700, marginTop: "5vh" }}>
-          LOGO
-        </Typography>
+          <Typography variant="h4" sx={{ color: "white", zIndex: 1, fontSize: "2.5rem", fontWeight: 700, marginTop: "5vh" }}>
+            LOGO
+          </Typography>
 
         <Box component="img" sx={{ height: "27.90%", width: "60.38%", zIndex: 1, marginTop: "3.37%", marginBottom: "9.0%" }} alt="" src={verification} />
 
@@ -169,15 +176,13 @@ const VerificationMobile = () => {
 
             <Box sx={{ display: "flex", alignItems: "center", justifyItems: "center", marginLeft: 7 }} >
 
-              <OtpInput value={otp} onChange={setOtp} numInputs={4} renderInput={(props) => (
-                <input {...props}
-                  style={{
-                    width: "clamp(30px, 12vw, 52px)",
-                    height: "clamp(30px, 12vw, 52px)", borderRadius: "11px", border: "2.5px solid transparent", background: "linear-gradient(white, white) padding-box, linear-gradient(90deg, #515ADA 0%, #2B3074 100%) border-box", margin: "0 4px", fontSize: "24px", fontWeight: "bold", textAlign: "center", color: "#000", outline: "none"
-                  }}
-                  onKeyDown={(event) => { if (!/[0-9]/.test(event.key) && event.key !== "Backspace" && event.key !== "Delete" && event.key !== "ArrowLeft" && event.key !== "ArrowRight" && event.key !== "Tab") { event.preventDefault() } }}
-                  inputMode="numeric" pattern="\d*" />
-              )} />
+                <OtpInput value={otp} onChange={setOtp} numInputs={4} renderInput={(props) => (
+                  <input {...props}
+                    style={{ width: "clamp(30px, 12vw, 52px)",
+                    height: "clamp(30px, 12vw, 52px)", borderRadius: "11px", border: "2.5px solid transparent", background: "linear-gradient(white, white) padding-box, linear-gradient(90deg, #515ADA 0%, #2B3074 100%) border-box", margin: "0 4px", fontSize: "24px", fontWeight: "bold", textAlign: "center", color: "#000", outline: "none" }}
+                    onKeyDown={(event) => { if (!/[0-9]/.test(event.key) && event.key !== "Backspace" && event.key !== "Delete" && event.key !== "ArrowLeft" && event.key !== "ArrowRight" && event.key !== "Tab") { event.preventDefault() } }}
+                    inputMode="numeric" pattern="\d*" />
+                )} />
 
             </Box>
           ) : (
@@ -247,14 +252,15 @@ const VerificationMobile = () => {
 
                 <Button variant="contained" sx={{ height: "3rem", borderRadius: "21px", backgroundColor: "rgba(9, 146, 176, 0.9)", marginTop: "8.62%", marginBottom: "8.77%", width: "12.8rem", "&:focus": { bgcolor: "rgba(9, 146, 176, 0.9)" }, boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)" }} onClick={sentOtpClickHandler}>
 
-                  <Typography component={motion.div} {...anime(dragDownSendOtpTxt)} style={{ fontSize: "0.9375rem", fontWeight: 700, textTransform: "none" }} >
-                    {!loader ? (
-                      <CircularProgress size="2rem"
-                        style={{ color: "white", margin: 'auto', display: 'flex', justifyContent: 'center' }} />
-                    ) : (
-                      <>Send OTP</>
-                    )}
-                  </Typography>
+                   
+                      {!loader ? (
+                        <CircularProgress size="2rem"
+                          style={{ color: "white", margin: 'auto', display: 'flex', justifyContent: 'center' }} />
+                      ) : (
+                        <Typography component={motion.div} {...anime(dragDownSendOtpTxt)} style={{ fontSize: "0.9375rem", fontWeight: 700, textTransform: "none" }} >
+                        <>Send OTP</> </Typography>
+                      )}
+                   
 
                 </Button>
 
@@ -277,6 +283,8 @@ const VerificationMobile = () => {
         </Alert>
 
       </Snackbar>
+
+      </Box>
 
     </React.Fragment>
   );
