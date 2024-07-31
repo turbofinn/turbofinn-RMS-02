@@ -123,10 +123,8 @@ export default {
     createOrder: createOrder,
     getItem: getItem,
     getPaymentID:getPaymentID
-
-}
-
     getItem: getItem,
     getUserDetails:getUserDetails,
     updateUserDetails:updateUserDetails,
+    
  }
