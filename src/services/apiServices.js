@@ -122,8 +122,8 @@ export default {
     verifyOTP: verifyOTP,
     createOrder: createOrder,
     getItem: getItem,
-    getOrderedItems: getOrderedItems
+    getOrderedItems: getOrderedItems,
     getUserDetails:getUserDetails,
     updateUserDetails:updateUserDetails,
-    
+
  }
