@@ -27,6 +27,10 @@ const VerificationMobile = () => {
   const [severity, setSeverity] = useState("success");
 
   useEffect(() => {
+  console.log("Loader state:", loader);
+}, [loader]);
+
+  useEffect(() => {
     if ("OTPCredential" in window) {
       const ac = new AbortController();
       navigator.credentials.get({ otp: { transport: ["sms"] }, signal: ac.signal })
@@ -53,10 +57,11 @@ const VerificationMobile = () => {
 
   const sendOtp = async () => {
     setLoader(false);
+    console.log("Loader state:", loader);
     try {
       const requestData = { 'mobileNo': mobileNumber }
 
-      api.sendOTP(requestData).then((response) => {
+      await api.sendOTP(requestData).then((response) => {
 
         console.log("resp", response);
         if (response.response.responseCode === 1001) {
@@ -87,7 +92,7 @@ const VerificationMobile = () => {
     }
 
     try {
-      api.verifyOTP(requestData).then((response) => {
+      await api.verifyOTP(requestData).then((response) => {
 
         if (response.response.responseCode === 1001) {
 
@@ -108,7 +113,9 @@ const VerificationMobile = () => {
 
   };
 
-  const sentOtpClickHandler = () => { sendOtp(); };
+  const sentOtpClickHandler = () => { 
+    
+    sendOtp(); };
 
   const anime = (variants) => { return { initial: "initial", animate: "enter", exit: "exit", variants }; };
   const fadeInEnterOtp = { initial: { scale: 0.8, opacity: 0.8 }, enter: { scale: 1, opacity: 1, transition: { duration: 0.5, ease: [0.37, 0, 0.63, 1] } } };
@@ -245,16 +252,18 @@ const VerificationMobile = () => {
               ) : (
                 <motion.div {...anime(dragUpSendOtpBtn)} key="SendOtp" style={{ width: "100%", height: "100%" }}>
 
-                  <Button variant="contained" sx={{ height: "3rem", borderRadius: "21px", backgroundColor: "rgba(9, 146, 176, 0.9)", marginTop: "2.5vh", marginBottom: "8.77%", width: "12.8rem", "&:focus": { bgcolor: "rgba(9, 146, 176, 0.9)" }, boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)" }} onClick={sentOtpClickHandler}>
+                  <Button variant="contained" sx={{ height: "3rem", borderRadius: "21px", backgroundColor: "rgba(9, 146, 176, 0.9)", marginTop: "2.5vh", marginBottom: "8.77%", width: "12.8rem", "&:focus": { bgcolor: "rgba(9, 146, 176, 0.9)" }, boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)" }} 
+                  onClick={sentOtpClickHandler}>
 
-                    <Typography component={motion.div} {...anime(dragDownSendOtpTxt)} style={{ fontSize: "0.9375rem", fontWeight: 700, textTransform: "none" }} >
+                   
                       {!loader ? (
                         <CircularProgress size="2rem"
                           style={{ color: "white", margin: 'auto', display: 'flex', justifyContent: 'center' }} />
                       ) : (
-                        <>Send OTP</>
+                        <Typography component={motion.div} {...anime(dragDownSendOtpTxt)} style={{ fontSize: "0.9375rem", fontWeight: 700, textTransform: "none" }} >
+                        <>Send OTP</> </Typography>
                       )}
-                    </Typography>
+                   
 
                   </Button>
 

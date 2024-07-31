@@ -18,7 +18,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import PayConfirmationModalWeb from "./PayConfirmationModalWeb";
 import zIndex from "@mui/material/styles/zIndex";
 const style = {
-    position: 'absolute',
+    position: 'fixed',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
@@ -52,7 +52,7 @@ const PayConfirmationModal = () => {
                     <img src={logo} alt="logo" />
                 </Box>
 
-                <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column',alignItems: 'center' }} >\
+                <Box style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column',alignItems: 'center' }} >
 
                     <Box style={{ marginLeft: 'auto', marginRight: 'auto', border: '1px solid #dddd', backgroundColor: 'rgba(41, 173, 203, 0.14)', padding: '2rem', display: 'flex',justifyContent: 'center', alignItems: 'center', width: '10rem', height: '10rem',borderRadius: '50%', border: '1px solid #29ADCB', marginTop: '2rem' }} >
 
