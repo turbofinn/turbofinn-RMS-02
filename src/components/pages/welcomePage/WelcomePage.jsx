@@ -52,6 +52,7 @@ const WelcomePage = () => {
                     </Button>
 
                 </Box>
+                
             </Box>
 
             <Box sx={{ margin: 0, padding: 0, '@media (max-width: 960px)': { display: 'none' }, minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', overflow: 'hidden', position: 'relative', paddingTop: '3rem', paddingBottom: '1rem', background: 'linear-gradient(to top, rgb(73, 195, 222,0.33) 0%, rgb(73, 195, 222, 0) 100%)' }} >

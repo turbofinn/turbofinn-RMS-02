@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useMediaQuery, useTheme } from "@mui/material";
 import NavBar from "../../common/NavBar/NavBar";
-import meal from "../../../assets/Image/meal/dalBatiChurma.png";
+import meal from "../../../assets/Image/meal/DalBatiChurma.png";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -14,17 +14,17 @@ function AddToMealWeb() {
   const CustomTextField = styled(TextField)({
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
-        border: "none", // Remove the default border
+        border: "none",
       },
       "&:hover fieldset": {
-        border: "none", // Remove the border on hover
+        border: "none", 
       },
       "&.Mui-focused fieldset": {
         border: "none",
       },
     },
   });
-
+  
   const serving = [
     { serving: "Single", price: "70" },
     { serving: "Single", price: "170" },
@@ -80,12 +80,12 @@ function AddToMealWeb() {
     // whole screen
 
     <Box>
-      <NavBar />
+      <NavBar/>
 
       {/* upper section */}
       <Box sx={{ width: { md: "50rem", xl: "74.5rem" }, height: { md: "28.5rem", xl: "45.875rem" }, borderRadius: "24px", marginInlineStart: { md: "29%", xl: "23%" }, marginBlockStart: { md: "1rem", xl: "10.75rem" }, background: "#f8f8ff", display: "flex" }} >
 
-        <Box sx={{ width: "45%", position: "relative" }} />
+        <Box sx={{ width: "45%", position: "relative" }}/>
 
         <Box sx={{ width: { md: "25rem", xl: "41.75rem" }, height: { md: "17rem", xl: "27.56rem" }, position: "absolute", backgroundImage: `linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.150), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(${meal})`, backgroundSize: "cover", backgroundPosition: "center", borderRadius: "20px", transform: "translate(-30.5%,32%)" }} />
 
@@ -109,7 +109,7 @@ function AddToMealWeb() {
 
           </Box>
 
-          <Typography variant="subtitle2" sx={{ fontFamily: "Poppins", fontWeight: "600", fontSize: { md: "10px", xl: "14px" }, letterSpacing: "2%", color: "#767676", marginBlockEnd: { md: "0.8rem", xl: "1.5rem" } }} >
+          <Typography variant="subtitle2" sx={{ fontFamily: "Poppins", fontWeight: "600", fontSize: { md: "10px", xl: "14px" }, letterSpacing: "2%", color: "#767676", marginBlockEnd: { md: "0.8rem", xl: "1.5rem" }} } >
             Dal baati churma is a dish that includes baati, pure ghee, daal
             (lentils) and many more. It is very popular in the state
             of Rajasthan.
@@ -127,7 +127,7 @@ function AddToMealWeb() {
 
                 <Typography variant="subtitle">Required</Typography>
 
-                <div style={{ height: "3.5px", width: "3.5px", borderRadius: "100%", background: "rgba(118, 118, 118, 0.78)" }} />
+                <div style={{ height: "3.5px", width: "3.5px", borderRadius: "100%", background: "rgba(118, 118, 118, 0.78)"}} />
 
                 <Typography variant="subtitle">Select any 1 option</Typography>
 
@@ -135,7 +135,7 @@ function AddToMealWeb() {
 
             </Box>
 
-            <div style={{ width: "100%", height: "0.5px", background: "rgba(232, 235, 242, 1)" }} />
+            <div style={{ width: "100%", height: "0.5px", background: "rgba(232, 235, 242, 1)" }}/>
 
             <Box sx={{ paddingInline: { md: "2.25rem", xl: "3.25rem" }, paddingBlock: { md: "0.05rem", xl: "1rem" } }} >
 
@@ -162,7 +162,7 @@ function AddToMealWeb() {
                           </Typography>
                         }
                         labelPlacement="start"
-                        sx={{ marginRight: "1rem" }} />
+                        sx={{ marginRight: "1rem" }}/>
 
                     </Box>
 
@@ -178,7 +178,7 @@ function AddToMealWeb() {
 
           <Paper elevation={1} sx={{ maxWidth: "36.125rem", height: { md: "9rem", xl: "14.5rem" }, boxShadow: "0px 0px 20px #00000017", borderRadius: "20px", marginBlockEnd: { md: "1rem", xl: "1.5rem" } }} >
 
-            <Box sx={{ paddingInline: { md: "2.25rem", xl: "3.25rem" }, paddingBlockStart: "1rem", paddingBlockEnd: "0.5rem" }} >
+            <Box sx={{paddingInline: { md: "2.25rem", xl: "3.25rem" },paddingBlockStart: "1rem",paddingBlockEnd: "0.5rem" }} >
 
               <Typography variant="h4" sx={{ fontFamily: "Poppins", fontWeight: "700", color: "#383838", fontSize: { md: "13px", xl: "16px" }, marginBottom: { md: "-0.25rem", xl: "0.25rem" } }} >
                 Add a Note:
@@ -208,7 +208,7 @@ function AddToMealWeb() {
       </Box>
 
       {/* bottom part*/}
-      <Box sx={{ height: { md: "4rem", xl: "8.3rem" }, width: { md: "24rem", xl: "33.375rem" }, marginBlockStart: { md: "0.5rem", xl: "1.75rem" }, alignContent: "center", marginInline: "auto", display: "flex", alignItems: "center", justifyContent: "center", gap: "1.5rem" }} >\
+      <Box sx={{ height: { md: "4rem", xl: "8.3rem" }, width: { md: "24rem", xl: "33.375rem" }, marginBlockStart: { md: "0.5rem", xl: "1.75rem" }, alignContent: "center", marginInline: "auto", display: "flex", alignItems: "center", justifyContent: "center", gap: "1.5rem" }} >
 
         <Box sx={{ width: { md: "6rem", xl: "9.25rem" }, height: { md: "2.1rem", xl: "3.56rem" }, border: "1px solid rgba(0, 0, 0,0.48  )", borderRadius: "30px", display: "flex", alignItems: "center", justifyContent: "space-between", paddingInline: "0.5rem" }} >
 
@@ -233,11 +233,10 @@ function AddToMealWeb() {
 
           {
             <Typography
-              sx={{
-                fontFamily: "Poppins", fontSize: { md: "18px", xl: "28px" }, textTransform: "initial",
+              sx={{ fontFamily: "Poppins", fontSize: { md: "18px", xl: "28px" }, textTransform: "initial",
               }}
             >
-              Add to Meal
+              Add to Meal 
             </Typography>
           }
 

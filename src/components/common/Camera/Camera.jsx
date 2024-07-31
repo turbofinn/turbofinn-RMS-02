@@ -3,7 +3,7 @@ import Webcam from 'react-webcam';
 import {Box,Button,Paper} from '@mui/material'
 
 
-function ProfilePicture() {
+function ProfilePicture(props) {
   
 
   const buttonStyle={

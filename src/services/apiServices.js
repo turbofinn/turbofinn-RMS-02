@@ -72,10 +72,10 @@ const getItem = async (params) => {
 }
 
 
-const getPaymentID = async (params) => {
+const getOrderedItems = async (params) => {
     try{
 
-        const response = await instance.post( '/dev/get-paymentId', params );
+        const response = await instance.post( '/dev/get-ordered-items', params );
         return response.data
 
     }
@@ -122,11 +122,7 @@ export default {
     verifyOTP: verifyOTP,
     createOrder: createOrder,
     getItem: getItem,
-    getPaymentID:getPaymentID
-
-}
-
-    getItem: getItem,
-    getUserDetails:getUserDetails,
-    updateUserDetails:updateUserDetails,
+    getOrderedItems: getOrderedItems,
+    getUserDetails: getUserDetails,
+    updateUserDetails: updateUserDetails,
  }

@@ -3,6 +3,7 @@ import { Box, Typography, TextField, IconButton, Button, Checkbox, FormControlLa
 import profileImage from "../../../assets/Image/profileImage.png";
 import edit from "../../../assets/Image/Edit.png";
 import api from "../../../services/apiServices"
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -10,7 +11,6 @@ const YourProfileWeb = (props) =>{
 
 
 const style = { position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '35%', bgcolor: 'white', boxShadow: 24, minHeight:'80%', height:'fit', marginLeft: 'auto', marginRight: 'auto', px: 2, py:3, borderRadius: '1rem', border: '2px solid #dddd', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', zIndex:9999 };
-
 
  const user={
 
@@ -72,6 +72,7 @@ const [formData, setFormData] = useState({
 
                 console.log(response)
                 console.log('Data updated successfully')
+                loadData()
             }
             else
             {
@@ -219,7 +220,6 @@ const [formData, setFormData] = useState({
                         <button style={{ width: '60%', padding: '0.6rem 0rem', borderRadius: '3rem', backgroundColor: '#41A2B8', color: "white", border: '0px solid #41A2B8',  fontSize:'1.3rem', fontWeight: 500, color:'rgb(255, 255, 255 ,0.88)', fontFamily:'Poppins', marginTop:'1rem', cursor:"pointer"  }} 
                         onClick={()=>{
                             saveUpdate()
-                            loadData()
                             props.setEdit(false)
                             
                          }} >
