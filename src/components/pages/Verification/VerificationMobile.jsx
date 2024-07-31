@@ -122,19 +122,18 @@ const VerificationMobile = () => {
   return (
     <React.Fragment>
 
-      <Box sx={{ bgcolor: "#49C3DE", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", padding: "0.125rem", fontFamily: "Poppins", position: "relative", overflowY: "auto" }}>
+      <Box sx={{ bgcolor: "#49C3DE", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", padding: "0.125rem", fontFamily: "Poppins", position: "relative", overflow: "hidden" }}>
 
-        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", minHeight: "100vh", justifyContent: "center", width: "100%", paddingBottom: "2rem" }}>
+      
+         <Box sx={{ position: "absolute", backgroundImage: `url(${backgroundfood})`, backgroundSize: "cover", backgroundPosition: "center", height: "50vh", width: "100%", opacity: 0.4 }}/>
 
-          <Box sx={{ position: "absolute", top: 0, left: 0, right: 0, backgroundImage: `url(${backgroundfood})`, backgroundSize: "cover", backgroundPosition: "center", height: "50vh", width: "100%", opacity: 0.4 }}>
+          <Box sx={{ flex:1, display: "flex", flexDirection: "column", justifyContent: "space-evenly", alignItems: "center", width: "100%" }}>
 
-          </Box>
-
-          <Typography variant="h4" sx={{ color: "white", marginTop: "6.87%", zIndex: 1, fontSize: "2.5rem", fontWeight: 700 }}>
+          <Typography variant="h4" sx={{ color: "white", zIndex: 1, fontSize: "2.5rem", fontWeight: 700, marginTop: "5vh" }}>
             LOGO
           </Typography>
 
-          <Box component="img" sx={{ height: "27.90%", width: "60.38%", zIndex: 1, marginTop: "3.37%", marginBottom: "9.0%" }} alt="" src={verification} />
+          <Box component="img" sx={{ width: "clamp(100px, 30vh, 300px)", zIndex: 3, marginY: "2vh", marginTop: "3vh" }} alt="" src={verification} />
 
           <Box sx={{ textAlign: "center" }} >
 
@@ -148,7 +147,7 @@ const VerificationMobile = () => {
 
               ) : (
 
-                <Typography variant="h5" key="verify" component={motion.div} {...anime(fadeOutVerifyMobNum)} style={{ color: "white", fontSize: "1.5rem", marginBottom: "0.1875rem", zIndex: 1, fontWeight: 600, height: "2.5rem" }} >
+                <Typography variant="h5" key="verify" component={motion.div} {...anime(fadeOutVerifyMobNum)} style={{ color: "white", fontSize: "1.5rem", marginBottom: "0rem", zIndex: 1, fontWeight: 600, height: "2.5rem" }} >
                   Verify Your Mobile Number
                 </Typography>
 
@@ -170,11 +169,12 @@ const VerificationMobile = () => {
 
             {isOtpSent ? (
 
-              <Box sx={{ display: "flex", alignItems: "center", justifyItems: "center", marginLeft: 7 }} >
+              <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center"}} >
 
                 <OtpInput value={otp} onChange={setOtp} numInputs={4} renderInput={(props) => (
                   <input {...props}
-                    style={{ width: "52px", height: "52px", borderRadius: "11px", border: "2.5px solid transparent", background: "linear-gradient(white, white) padding-box, linear-gradient(90deg, #515ADA 0%, #2B3074 100%) border-box", margin: "0 4px", fontSize: "24px", fontWeight: "bold", textAlign: "center", color: "#000", outline: "none" }}
+                    style={{ width: "clamp(30px, 12vw, 52px)",
+                    height: "clamp(30px, 12vw, 52px)", borderRadius: "11px", border: "2.5px solid transparent", background: "linear-gradient(white, white) padding-box, linear-gradient(90deg, #515ADA 0%, #2B3074 100%) border-box", margin: "0 4px", fontSize: "24px", fontWeight: "bold", textAlign: "center", color: "#000", outline: "none" }}
                     onKeyDown={(event) => { if (!/[0-9]/.test(event.key) && event.key !== "Backspace" && event.key !== "Delete" && event.key !== "ArrowLeft" && event.key !== "ArrowRight" && event.key !== "Tab") { event.preventDefault() } }}
                     inputMode="numeric" pattern="\d*" />
                 )} />
@@ -210,7 +210,7 @@ const VerificationMobile = () => {
                   <FormControlLabel control={<Checkbox size="12px" />} sx={{ marginRight: "2px", display: "flex", alignItems: "center", justifyContent: "center", marginLeft: "39px" }} >
                   </FormControlLabel>
 
-                  <Typography sx={{ color: "white", fontSize: "13px", fontWeight: 500, margin: 0 }}>
+                  <Typography sx={{ color: "white", fontSize: "13px", fontWeight: 500, marginTop: 0 }}>
                     Is This Same Number in Whatsapp
                   </Typography>
 
@@ -245,7 +245,7 @@ const VerificationMobile = () => {
               ) : (
                 <motion.div {...anime(dragUpSendOtpBtn)} key="SendOtp" style={{ width: "100%", height: "100%" }}>
 
-                  <Button variant="contained" sx={{ height: "3rem", borderRadius: "21px", backgroundColor: "rgba(9, 146, 176, 0.9)", marginTop: "8.62%", marginBottom: "8.77%", width: "12.8rem", "&:focus": { bgcolor: "rgba(9, 146, 176, 0.9)" }, boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)" }} onClick={sentOtpClickHandler}>
+                  <Button variant="contained" sx={{ height: "3rem", borderRadius: "21px", backgroundColor: "rgba(9, 146, 176, 0.9)", marginTop: "2.5vh", marginBottom: "8.77%", width: "12.8rem", "&:focus": { bgcolor: "rgba(9, 146, 176, 0.9)" }, boxShadow: "0px 0px 9.5px 0px rgba(0, 0, 0, 0.25)" }} onClick={sentOtpClickHandler}>
 
                     <Typography component={motion.div} {...anime(dragDownSendOtpTxt)} style={{ fontSize: "0.9375rem", fontWeight: 700, textTransform: "none" }} >
                       {!loader ? (
@@ -264,12 +264,13 @@ const VerificationMobile = () => {
 
           </Box>
 
-        </Box>
-
-        <Typography variant="body2" sx={{ position: "relative", width: "100%", textAlign: "center", color: "white", fontSize: "0.9375rem", mb: "1.0625rem", fontWeight: 700, marginTop: "auto" }} >
+          <Typography variant="body2" sx={{ width: "100%", textAlign: "center", color: "white", fontSize: "clamp(0.7rem, 2vh, 0.9rem)", fontWeight: 700, marginTop: "auto", padding: "1vh 0" }} >
           A Product Of TurboFinn AI
         </Typography>
+        
+        </Box>
 
+       
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={{ vertical: "top", horizontal: "right" }} >
 
           <Alert onClose={handleClose} severity={severity} variant="filled" sx={{ width: "100%" }} >

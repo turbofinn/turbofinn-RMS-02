@@ -71,7 +71,9 @@ function AddToMealWeb() {
 
         <KeyboardBackspaceIcon sx={{ fontSize: "1.25rem" }} />
 
-        <Typography sx={{ fontWeight: "600", marginLeft: "10px", fontSize: "0.85rem" }}>
+        <Typography onClick={() => {
+              Navigate("/menu");
+            }}  sx={{ fontWeight: "600", marginLeft: "10px", fontSize: "0.85rem" }}>
           Product Details
         </Typography>
 
@@ -96,7 +98,7 @@ function AddToMealWeb() {
                 legacy of rajasthan
               </Typography>
 
-              <VegOrNon state="vegetarian" />
+              <VegOrNon txtValue="vegetarian" state="vegetarian" />
 
             </Box>
 

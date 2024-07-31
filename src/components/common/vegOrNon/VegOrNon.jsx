@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typography,Box } from '@mui/material';
 
-function VegOrNon({txtValue,space='0.75rem',txtCol="#000",txtWeight=700,txtSize='11px'}) {
+function VegOrNon({txtValue,space='0.75rem',txtCol="#000",txtWeight=500,txtSize='11px'}) {
   return (
     <Box sx={{display:'flex',alignItems:'center'}}>
       <div

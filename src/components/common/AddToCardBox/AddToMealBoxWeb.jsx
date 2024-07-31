@@ -38,7 +38,7 @@ const AddToMealBoxWeb = () => {
                 <Box style={{ backgroundColor: "#84FF91", width: "0.7rem", height: "0.7rem", borderRadius: "50%", marginRight: "12px" }} >
                 </Box>
 
-                <Typography variant="p" style={{ fontSize: "0.8rem", color: "#525252", fontWeight: 600 }} >
+                <Typography variant="p" style={{ fontSize: "0.8rem", color: "", fontWeight: 600 }} >
                   VEGETARIAN
                 </Typography>
 
