@@ -45,7 +45,8 @@ export const MealCartDataSlice = createSlice({
             if( index02 !== -1 ) state.SelectMealData[ index02 ].Quantity = action.payload.Quantity;
         },
         addTotalBill: (state, action) => {
-            
+
+            // const n = 
         }
 
     } 
