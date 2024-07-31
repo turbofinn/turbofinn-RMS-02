@@ -1,51 +1,66 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useState } from 'react';
+import Webcam from 'react-webcam';
+import {Box,Button,Paper} from '@mui/material'
 
-const Camera = ({ onSnapshotTaken }) => {
-  const videoRef = useRef(null);
-  const canvasRef = useRef(null);
-  const [stream, setStream] = useState(null);
 
-  useEffect(() => {
-    const startCamera = async () => {
-      try {
-        const currentStream = await navigator.mediaDevices.getUserMedia({ video: true });
-        videoRef.current.srcObject = currentStream;
-        setStream(currentStream);
-      } catch (err) {
-        console.error("Error accessing the camera: ", err);
-      }
-    };
+function ProfilePicture() {
+  
 
-    startCamera();
+  const buttonStyle={
 
-    return () => {
-      if (stream) {
-        stream.getTracks().forEach(track => track.stop());
-      }
-    };
-  }, [stream]);
+    textTransform: 'none', backgroundColor: '#469DB1', width: {xs:'8rem',md:'10rem'}, color: 'white', padding: '0.75rem', fontSize: {xs:'0.6rem',md:'0.75rem'},  borderRadius: '2.5rem',
+    '&:hover': { backgroundColor: '#0A343D' },
+    '&:focus': { backgroundColor: '#469DB1' },
 
-  const takeSnapshot = () => {
-    const canvas = canvasRef.current;
-    const video = videoRef.current;
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    const context = canvas.getContext('2d');
-    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  }
 
-    canvas.toBlob((blob) => {
-      const file = new File([blob], 'snapshot.png', { type: 'image/png' });
-      onSnapshotTaken(file);
-    }, 'image/png');
+  const webcamRef = useRef(null);
+  const [capturedImage, setCapturedImage] = useState(null);
+
+  const capture = () => {
+
+    const imageSrc = webcamRef.current.getScreenshot();
+    setCapturedImage(imageSrc);
+
   };
 
-  return (
-    <div>
-      <video ref={videoRef} autoPlay style={{ width: '100%' }} />
-      <button onClick={takeSnapshot}>Take Snapshot</button>
-      <canvas ref={canvasRef} style={{ display: 'none' }} />
-    </div>
-  );
-};
+  const retake=()=>{
 
-export default Camera;
+    setCapturedImage(null)
+
+  }
+
+  return (
+    <Paper elevation={6} sx={{width:'75vw', height:{xs:'60vh',md:"90vh"}, backgroundColor:'white', borderRadius:"22px", transform:'translate(-50%,-50%)', position:'absolute', top:'50vh', left:'50vw',alignContent:'center',paddingBottom:'1rem' }}>
+
+      <Box sx={{width:'80%',height:{xs:'35%',md:'50%',lg:'75%'},marginInline:'auto',marginTop:'5vh',display:'flex',justifyContent:'center',alignItems:'center'}}>
+
+        {capturedImage ? 
+        (
+        <img src={capturedImage} alt="Captured image" style={{height:'100%',marginInline:'auto'}} />
+        ) : 
+        (
+
+            <Webcam style={{height:'100%',borderRadius:'33px'}} audio={false} ref={webcamRef} screenshotFormat="image/jpeg" />            
+
+        )}
+
+      </Box>
+
+      <Box sx={{display:'flex',flexDirection:{xs:'column',md:'row'}, gap:'.5rem',justifyContent:'center',alignItems:'center', marginInline:'auto',marginTop:'5vh'}}>
+
+        <Button sx={buttonStyle} onClick={retake}>Upload from gallery</Button>
+             
+        <Button sx={buttonStyle} onClick={capturedImage?retake:capture}>{capturedImage?'Retake':'Capture Photo'}</Button>
+        
+        {capturedImage?<Button  sx={buttonStyle} onClick={capturedImage?retake:capture}> Save </Button>:<Button disabled  sx={buttonStyle} onClick={capturedImage?retake:capture}> Save </Button>}
+        
+
+      </Box>
+           
+    </Paper>
+
+  );
+}
+
+export default ProfilePicture;

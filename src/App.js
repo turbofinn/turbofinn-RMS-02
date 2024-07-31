@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import routes from "./routes.js";
 import { AnimatePresence } from "framer-motion";
+import Camera from "./components/common/Camera/Camera.jsx";
 function App() {
   console.log(process.env.REACT_APP_BASE_URL);
   return (
@@ -17,6 +18,7 @@ function App() {
         </AnimatePresence>
       </BrowserRouter>
     </div>
+    // <Camera></Camera>
   );
 }
 

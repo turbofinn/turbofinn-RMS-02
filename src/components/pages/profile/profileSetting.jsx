@@ -25,7 +25,6 @@ import NavBarBottom from "../../common/NavBar/NavBarBottom.jsx";
 import backgroundImage from "../../../assets/Image/profile/backgroundProfile.png";
 import ProfileEdit from "../yourProfile/YourProfile.jsx";
 import api from '../../../services/apiServices.js'
-import Camera from '../../common/Camera/Camera.jsx'
 
 const ProfileSettings = () => {
 
@@ -173,8 +172,7 @@ const ProfileSettings = () => {
            <Box sx={{ position:'absolute', width:'22rem', height:'14rem', background:"linear-gradient(180deg, #53CCE7 0%, #2BA8C4 100%)", display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center', gap:'1rem', borderRadius:'11px'}}>
 
             <Typography sx={{ fontSize:'1.5rem', cursor:'pointer', color:'white', fontWeight:'600', 
-              '&:hover':{color:'#e7f1f6'} }}
-               >
+              '&:hover':{color:'#e7f1f6'} }} >
                 Use Camera
             </Typography>
 
@@ -203,7 +201,7 @@ const ProfileSettings = () => {
             <Grid item xs={12} lg={4}>
 
               <ListItem
-                sx={{ width: "100%", marginLeft: { lg: -8 } }}
+                sx={{ width: "100%", marginLeft: { lg: -8 },cursor:"pointer"  }}
                 onClick={(e) => {
                   setEdit(true);
                 }} >
@@ -230,7 +228,7 @@ const ProfileSettings = () => {
 
             <Grid item xs={12} lg={4}>
               
-              <ListItem sx={{ width: "100%", marginLeft: { lg: 10 } }}
+              <ListItem sx={{ width: "100%", marginLeft: { lg: 10 },cursor:"pointer"  }}
                 onClick={() => {
                   Navigate("/history");
                 }} >
@@ -257,7 +255,7 @@ const ProfileSettings = () => {
 
             <Grid item xs={12} lg={4}>
 
-              <ListItem button sx={{ width: "100%", marginLeft: { lg: -8 } }}>
+              <ListItem button sx={{ width: "100%", marginLeft: { lg: -8 },cursor:"pointer"  }}>
 
                 <ListItemIcon>
 
@@ -284,7 +282,7 @@ const ProfileSettings = () => {
                   Navigate("/login");
                 }} 
                 button 
-                sx={{ width: "100%", marginLeft: { lg: 10 } }} >
+                sx={{ width: "100%", marginLeft: { lg: 10 },cursor:"pointer"  }} >
                 <ListItemIcon>
 
                   <IconButton size="small" sx={{ backgroundColor: "white", display: "flex" }} >
@@ -296,7 +294,7 @@ const ProfileSettings = () => {
                 <ListItemText primary="Log Out" sx={{ fontSize: {
                       "& .MuiListItemText-primary": {
                         fontSize: { xs: "16px", lg: "20px" }, fontWeight: 500, }, xs: "16px", lg: "20px" },
-                    background: "linear-gradient(to right, rgba(251, 110, 43, 0.76), rgba(225, 59, 53, 0.76))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }} />
+                        background: "linear-gradient(to right, rgba(251, 110, 43, 0.76), rgba(225, 59, 53, 0.76))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }} />
               </ListItem>
 
             </Grid>
