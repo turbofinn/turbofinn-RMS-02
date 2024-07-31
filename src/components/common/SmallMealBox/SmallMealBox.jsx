@@ -1,5 +1,5 @@
 import React from "react";
-import DalBalChurma from "../../../assets/Image/meal/dalBatiChurma.png";
+import DalBalChurma from "../../../assets/Image/meal/DalBatiChurma.png";
 import {
   Box,
   Typography,

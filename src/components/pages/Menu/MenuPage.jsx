@@ -22,12 +22,14 @@ function MenuPage() {
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
   const itemDATA = useSelector((state) => state.ItemData.Items);
-
+  const meal = useSelector((state) => state.MealCartData.SelectMealData);
+  console.log( 'meal' ,meal);
   return (
 
     <Box sx={{ backgroundColor: "white", minHeight: "100vh", pb: 7, overflowX: "hidden", marginRight: "-1px" }}>
       {matches ? <NavBar /> : null}
       <Header />
+      { meal.length !== 0 && <ViewPlate />}
       <PrioritySection />
       <WhatsInYourMind />
       <CourseMealStage />
